@@ -1,0 +1,28 @@
+    ____  ____
+   /   /\/   /
+  /___/  \  /    VENDOR      : Xilinx Inc.
+  \   \   \/     VERSION     : 11.5 (L.70)
+   \   \         APPLICATION : C:\Xilinx\11.1\ISE\bin\nt\unwrapped\compxlib.exe
+   /   /         CONTENTS    : Compilation Log
+  /___/   /\     FILENAME    : compxlib.log
+  \   \  /  \    
+   \___\/\___\
+
+Release 11.5 - C:\Xilinx\11.1\ISE\bin\nt\unwrapped\compxlib.exe 11.5 (nt)
+Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.
+
+Processing command line ...
+Library Source Paths => 'C:/Xilinx/11.1/ISE'
+Current Working Directory => 'D:\Project\ISE\grlib-gpl-1.1.0-b4104\designs\leon3-xilinx-ml410'
+Compilation Mode = FAST
+Execute Mode = ON
+Scheduling library installation & compilation for architectures: virtex4
+
+Scheduling library installation & compilation for libraries: simprim unisim xilinxcorelib edk
+
+Signature:-
+------------------------------------------------------------------------------
+C:\Xilinx\11.1\ISE\bin\nt\unwrapped\compxlib.exe -s mti_se -l all -p C:/modeltech_6.5/win32 -arch virtex4 -lib unisim -lib simprim -lib xilinxcorelib -lib edk -exclude_deprecated -intstyle ise 
+------------------------------------------------------------------------------
+ERROR:Compxlib:267 - COMPXLIB[sim]: Unable to automatically find executables for simulator 'mti_se'.
+Simulator 'mti_se' is ignored.
