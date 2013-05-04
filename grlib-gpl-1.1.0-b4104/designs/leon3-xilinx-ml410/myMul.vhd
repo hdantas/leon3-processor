@@ -35,6 +35,6 @@ port (
 end component;
 
 begin
-  mult: mul32 generic map(14,0,0,0) port map(rst,clk,holdn,muli,mulo);
+  mult: mul32 generic map(14,0,0,1) port map(rst,clk,holdn,muli,mulo);
 
 end;
