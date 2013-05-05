@@ -8,7 +8,7 @@ use gaisler.arith.all;
 library techmap;
 use techmap.gencomp.all;
 
-entity mulTest is
+entity mulTestbench is
 port (
     rst     : in  std_ulogic;
     clk     : in  std_ulogic;
@@ -17,7 +17,7 @@ port (
     mulo    : out mul32_out_type
 );
 end;
-architecture rtl of mulTest is
+architecture rtl of mulTestbench is
   
 component mul32 generic (
     tech    : integer := 0;
