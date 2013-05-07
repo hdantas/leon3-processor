@@ -165,7 +165,7 @@ package config is
   constant CFG_SVGA_ENABLE : integer := 0;
 
 -- GRLIB debugging
-  constant CFG_DUART : integer := 0;
+  constant CFG_DUART : integer := 1;
 
 -- AMBA System ACE Interface Controller
   constant CFG_GRACECTRL : integer := 1;
