@@ -8,8 +8,7 @@
 --		division. The divider leaves no remainder.
 --		Overflow detection is performed according to the
 --		SPARC V8 manual, method B (page 116)
---		Division is made using the radix-4 SRT algorithm with an all-positive p-d plot
---  using carry save format,	and takes ?? clocks. 
+--		Division is made using the radix-4 SRT algorithm 
 --  The operands must be stable during
 --		the calculations. The result is available one clock after
 --		the ready signal is asserted.

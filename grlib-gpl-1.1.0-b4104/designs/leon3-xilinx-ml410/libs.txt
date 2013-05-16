@@ -1,1 +1,1 @@
-grlib unisim dw02 synplify techmap spw eth opencores gaisler esa fmf spansion gsi cypress micron work 
+grlib unisim dw02 synplify techmap spw eth opencores gaisler PDPlibrary esa fmf spansion gsi cypress micron work 
