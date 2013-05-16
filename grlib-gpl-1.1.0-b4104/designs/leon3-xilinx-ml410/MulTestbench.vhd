@@ -19,7 +19,8 @@ port (
 end;
 architecture rtl of mulTestbench is
   
-component mul32 generic (
+component mul32 
+generic (
     tech    : integer := 0;
     multype : integer range 0 to 3 := 0;
     pipe    : integer range 0 to 1 := 0;

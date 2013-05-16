@@ -3,8 +3,8 @@
 -----------------------------------------------------------------------------
 -- Entity: 	r4s-div32
 -- File:	r4s-div32.vhd
--- Author:	Luca Feltrin - Henrique Dantas
--- Description:	This unit implemets a divide unit to execute 64-bit by 32-bit
+-- Authors:	Luca Feltrin - Henrique Dantas
+-- Description:	This unit implements a divide unit to execute 64-bit by 32-bit
 --		division. The divider leaves no remainder.
 --		Overflow detection is performed according to the
 --		SPARC V8 manual, method B (page 116)
