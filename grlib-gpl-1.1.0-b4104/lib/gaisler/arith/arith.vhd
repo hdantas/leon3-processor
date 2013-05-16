@@ -29,68 +29,68 @@ use ieee.numeric_std.all;
 
 package arith is
 
-type div32_in_type is record
-  y                : std_logic_vector(32 downto 0); -- Y (MSB divident)
-  op1              : std_logic_vector(32 downto 0); -- operand 1 (LSB divident)
-  op2              : std_logic_vector(32 downto 0); -- operand 2 (divisor)
-  flush            : std_logic;
-  signed           : std_logic;
-  start            : std_logic;
-end record;
+	type div32_in_type is record
+	  y                : std_logic_vector(32 downto 0); -- Y (MSB divident)
+	  op1              : std_logic_vector(32 downto 0); -- operand 1 (LSB divident)
+	  op2              : std_logic_vector(32 downto 0); -- operand 2 (divisor)
+	  flush            : std_logic;
+	  signed           : std_logic;
+	  start            : std_logic;
+	end record;
 
-type div32_out_type is record
-  ready           : std_logic;
-  nready          : std_logic;
-  icc             : std_logic_vector(3 downto 0); -- ICC
-  result          : std_logic_vector(31 downto 0); -- div result
-end record;
+	type div32_out_type is record
+	  ready           : std_logic;
+	  nready          : std_logic;
+	  icc             : std_logic_vector(3 downto 0); -- ICC
+	  result          : std_logic_vector(31 downto 0); -- div result
+	end record;
 
-type mul32_in_type is record
-  op1              : std_logic_vector(32 downto 0); -- operand 1
-  op2              : std_logic_vector(32 downto 0); -- operand 2
-  flush            : std_logic;
-  signed           : std_logic;
-  start            : std_logic;
-  mac              : std_logic;
-  acc              : std_logic_vector(39 downto 0);
-  --y                : std_logic_vector(7 downto 0); -- Y (MSB MAC register)
-  --asr18           : std_logic_vector(31 downto 0); -- LSB MAC register
-end record;
+	type mul32_in_type is record
+	  op1              : std_logic_vector(32 downto 0); -- operand 1
+	  op2              : std_logic_vector(32 downto 0); -- operand 2
+	  flush            : std_logic;
+	  signed           : std_logic;
+	  start            : std_logic;
+	  mac              : std_logic;
+	  acc              : std_logic_vector(39 downto 0);
+	  --y                : std_logic_vector(7 downto 0); -- Y (MSB MAC register)
+	  --asr18           : std_logic_vector(31 downto 0); -- LSB MAC register
+	end record;
 
-type mul32_out_type is record
-  ready           : std_logic;
-  nready          : std_logic;
-  icc             : std_logic_vector(3 downto 0); -- ICC
-  result          : std_logic_vector(63 downto 0); -- mul result
-end record;
+	type mul32_out_type is record
+	  ready           : std_logic;
+	  nready          : std_logic;
+	  icc             : std_logic_vector(3 downto 0); -- ICC
+	  result          : std_logic_vector(63 downto 0); -- mul result
+	end record;
 
-component div32
-port (
-    rst     : in  std_ulogic;
-    clk     : in  std_ulogic;
-    holdn   : in  std_ulogic;
-    divi    : in  div32_in_type;
-    divo    : out div32_out_type
-);
-end component;
+	component div32
+	port (
+		rst     : in  std_ulogic;
+		clk     : in  std_ulogic;
+		holdn   : in  std_ulogic;
+		divi    : in  div32_in_type;
+		divo    : out div32_out_type
+	);
+	end component;
 
-component mul32
-generic (
-    tech    : integer := 0;
-    multype : integer := 0;
-    pipe    : integer := 0;
-    mac     : integer := 0
-);
-port (
-    rst     : in  std_ulogic;
-    clk     : in  std_ulogic;
-    holdn   : in  std_ulogic;
-    muli    : in  mul32_in_type;
-    mulo    : out mul32_out_type
-);
-end component;
+	component mul32
+	generic (
+		tech    : integer := 0;
+		multype : integer := 0;
+		pipe    : integer := 0;
+		mac     : integer := 0
+	);
+	port (
+		rst     : in  std_ulogic;
+		clk     : in  std_ulogic;
+		holdn   : in  std_ulogic;
+		muli    : in  mul32_in_type;
+		mulo    : out mul32_out_type
+	);
+	end component;
 
-function smult ( a, b  : in  std_logic_vector) return std_logic_vector;
+	function smult ( a, b  : in  std_logic_vector) return std_logic_vector;
 
 end;
 
