@@ -1,0 +1,235 @@
+Starting programming FPGA board.......
+
+20/05/2013 12:29:15 : User Name: group1
+
+Release 14.4 - iMPACT P.49d (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+ Driver file xusbdfwu.sys found.
+ Driver version: src=1027, dest=1027.
+ Driver windrvr6.sys version = 10.2.1.0. WinDriver v10.21 Jungo (c) 1997 - 2010 Build Date: Aug 31 2010 x86_64 64bit SYS
+14:14:44, version = 1021.
+ Cable PID = 0008.
+ Max current requested during enumeration is 74 mA.
+write cmdbuffer failed 20000015.
+write cmdbuffer failed 20000015.
+Loopback test failed. Sent character = 00, Received character = 04.
+Cable connection failed.
+FPGA board programmed!
+
+
+Elapsed Time: 0.16796 minutes!
+
+Starts to load benchmarks!
+
+  
+  GRMON2 LEON debug monitor v2.0.33 evaluation version
+  
+  Copyright (C) 2012 Aeroflex Gaisler - All rights reserved.
+  For latest updates, go to http://www.gaisler.com/
+  Comments or bug-reports to support@gaisler.com
+  
+  This evaluation version will expire on 12/8/2013
+
+Failed to read cable type!
+Exiting GRMON
+cd benchmarks
+cd: benchmarks: No such file or directory
+/benchmarks # time ./run.sh
+
+Running: Stanford
+----------------------------------------
+
+Starting 
+    Perm  Towers  Queens   Intmm      Mm  Puzzle   Quick  Bubble    Tree     FFT
+     100     117      67     100     816     717      83     150     434    1150
+
+Nonfloating point composite is        257
+
+Floating point composite is       1006
+real	0m 2.26s
+user	0m 2.25s
+sys	0m 0.02s
+
+
+
+Running: Whetstone
+----------------------------------------
+
+
+##########################################
+Single Precision C/C++ Whetstone Benchmark
+
+Calibrate
+      22.10 Seconds          1   Passes (x 100)
+
+Use 4  passes (x 100)
+
+          Single Precision C/C++ Whetstone Benchmark
+
+Loop content                  Result              MFLOPS      MOPS   Seconds
+
+N1 floating point     -1.12475013732910156         0.290              0.265
+N2 floating point     -1.12274742126464844         0.274              1.960
+N3 if then else        1.00000000000000000                   4.600    0.090
+N4 fixed point        12.00000000000000000                   1.680    0.750
+N5 sin,cos etc.        0.49911010265350342                   0.008   41.170
+N6 floating point      0.99999982118606567         0.246              8.780
+N7 assignments         3.00000000000000000                   2.384    0.310
+N8 exp,sqrt etc.       0.75110864639282227                   0.004   34.840
+
+MWIPS                                              0.454             88.165
+
+
+##############################################
+Whetstone Single  Precision Benchmark in C/C++
+
+Date          
+Model        
+CPU          
+Clock MHz    
+Cache        
+H/W options  
+OS           
+Compiler      
+Options       
+Run by       
+From         
+Email        
+
+Loop content                   Result              MFLOPS      MOPS   Seconds
+
+N1 floating point      -1.12475013732910156         0.290               0.265
+N2 floating point      -1.12274742126464844         0.274               1.960
+N3 if then else         1.00000000000000000                   4.600     0.090     1.000
+N4 fixed point         12.00000000000000000                   1.680     0.750    12.000
+N5 sin,cos etc.         0.49911010265350342                   0.008    41.170     0.499
+N6 floating point       0.99999982118606567         0.246               8.780
+N7 assignments          3.00000000000000000                   2.384     0.310     3.000
+N8 exp,sqrt etc.        0.75110864639282227                   0.004    34.840     0.751
+
+MWIPS                                               0.454              88.165
+
+Results  to  load  to  spreadsheet                  MWIPS   Mflops1   Mflops2   Mflops3   Cosmops   Expmops  Fixpmops    Ifmops    Eqmops
+Results  to  load  to  spreadsheet                  0.454     0.290     0.274     0.246     0.008     0.004     1.680     4.600     2.384
+
+real	1m 53.29s
+user	1m 53.27s
+sys	0m 0.02s
+
+
+
+Running: gmpbench multiply
+----------------------------------------
+
+Calibrating CPU speed...done
+Multiplying 3000-bit number with 3000-bit number 10000 times...done!
+RESULT: 801 operations per second
+real	0m 13.17s
+user	0m 13.16s
+sys	0m 0.01s
+
+
+
+Running: gmpbench divide
+----------------------------------------
+
+Calibrating CPU speed...done
+Dividing an 1024-bit number by an 512-bit number 163841 times...done!
+RESULT: 16286 operations per second
+real	0m 10.57s
+user	0m 10.57s
+sys	0m 0.00s
+
+
+
+Running: gmpbench RSA
+----------------------------------------
+
+Generating p, q, d...done; pq is 16 bits
+Precomputing CRT constants
+Generating random messages
+Calibrating CPU speed...done
+Signing random messages 51200 times...done!
+RESULT: 5257 operations per second
+real	0m 10.56s
+user	0m 10.56s
+sys	0m 0.01s
+
+
+
+Running: division
+----------------------------------------
+
+q[0]=9381129
+q[1]=7097133
+q[2]=3650366
+q[3]=9920271
+q[4]=3322074
+q[5]=5301082
+q[6]=2628470
+q[7]=11600796
+q[8]=307313
+q[9]=2249280
+real	0m 7.88s
+user	0m 7.86s
+sys	0m 0.02s
+
+
+
+Running: mibench JPEG 1st run
+----------------------------------------
+
+real	0m 21.99s
+user	0m 20.53s
+sys	0m 1.46s
+
+
+
+Running: mibench JPEG 2ns run
+----------------------------------------
+
+real	0m 22.04s
+user	0m 20.41s
+sys	0m 1.61s
+
+
+
+Running: SSD
+----------------------------------------
+
+Local computed running time: 7457 ms
+
+real	0m 9.91s
+user	0m 9.85s
+sys	0m 0.06s
+
+
+----------------------------------------
+All the benchmarks are done.
+
+Total execution time:
+
+real	3m 33.66s
+user	3m 29.23s
+sys	0m 4.42s
+Finished running benchmarks
+
+
+Elapsed Time: 5.57158 minutes!
+
