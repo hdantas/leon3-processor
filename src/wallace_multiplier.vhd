@@ -16,37 +16,52 @@
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
+
+PACKAGE typespackage IS
+	TYPE port_add_type IS ARRAY (2 DOWNTO 0, 7 DOWNTO 0 ) OF STD_LOGIC;
+	TYPE number_bits_port_type IS ARRAY (7 DOWNTO 0) OF NATURAL;
+END typespackage;
+
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
 USE IEEE.numeric_std.all;
 -- LIBRARY grlib;
 -- USE grlib.stdlib.all;
 -- LIBRARY gaisler;
 -- USE gaisler.arith.all;
 USE work.mypackage.all;
+USE work.typespackage.all;
+
 
 ENTITY wallace_multiplier IS
+
 	GENERIC (
-		width	: INTEGER := 4;
-		stages	: INTEGER := 3
+		width	: INTEGER;
+		levels	: INTEGER
 	);
+	
 	PORT (
 		a			: IN STD_LOGIC_VECTOR(width-1 DOWNTO 0);
 		b			: IN STD_LOGIC_VECTOR(width-1 DOWNTO 0);
 		clk			: IN STD_ULOGIC;
 		reset		: IN STD_ULOGIC;
-		prod		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
 		prod_cout	: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
+		prod		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
 		prod_a		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
-		prod_b		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0)
+		prod_b		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
+		number_bits_port : OUT number_bits_port_type
 	);		
 END wallace_multiplier;
 
 ARCHITECTURE behavioral OF wallace_multiplier IS
 	-- TYPE layer_depth_type IS ARRAY(32 DOWNTO 3) OF INTEGER;
 	-- CONSTANT layer_depth: layer_depth_type := (9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,6,5,5,4,3,3);
-	-- CONSTANT stages: INTEGER := layer_depth(width);
+	-- CONSTANT levels: INTEGER := layer_depth(width);
 
-	TYPE WallaceTree_type IS ARRAY(stages-1 DOWNTO 0,width-1 DOWNTO 0, 2*width-1 DOWNTO 0) OF STD_LOGIC;
+	TYPE WallaceTree_type IS ARRAY(levels-1 DOWNTO 0,width-1 DOWNTO 0, 2*width-1 DOWNTO 0) OF STD_LOGIC;
 	TYPE InitTree_type IS ARRAY(width-1 DOWNTO 0, 2*width-1 DOWNTO 0) OF STD_LOGIC;
+	TYPE add_type IS ARRAY (2*width-1 DOWNTO 0) OF STD_LOGIC;
 	
 	SIGNAL InitTree							: InitTree_type; -- Initial product tree
 	SIGNAL WallaceTree						: WallaceTree_type := (OTHERS => (OTHERS => (OTHERS => '0'))); -- Wallace tree
@@ -58,6 +73,10 @@ ARCHITECTURE behavioral OF wallace_multiplier IS
 	SIGNAL tmp_cout							: STD_LOGIC := '0';
 	SIGNAL tmp_s							: STD_LOGIC := '0';
 	
+
+	TYPE number_bits_type IS ARRAY (2*width-1 DOWNTO 0) OF NATURAL;
+ 		
+
 	-- COMPONENT bk_adder --brent kung adder
 	-- 	GENERIC (
 	-- 		width : 	INTEGER := 4
@@ -84,96 +103,118 @@ ARCHITECTURE behavioral OF wallace_multiplier IS
 		);
 	END COMPONENT;
 
-BEGIN --fill multiplier matrix
-	
+BEGIN
 
-	partial_proc: PROCESS(a,b,clk)
+
+	wallace_proc: PROCESS (WallaceTree,a,b)
+		VARIABLE x: STD_LOGIC := '0';
+		VARIABLE y: STD_LOGIC := '0';
+		VARIABLE cin: STD_LOGIC := '0';
+		VARIABLE remainder_bits: NATURAL := 0;
+		VARIABLE num_full_adds: NATURAL := 0;
+		VARIABLE num_half_adds: NATURAL := 0;
+		VARIABLE current_row: NATURAL := 0;
+		VARIABLE next_level_row: NATURAL := 0;
+		VARIABLE next_level_column_row: NATURAL := 0;
+
+		VARIABLE number_bits : number_bits_type := (OTHERS => 0);
+		VARIABLE next_level_number_bits : number_bits_type := (OTHERS => 0);
 	BEGIN
-		IF (rising_edge(clk)) THEN
-			FOR i IN 0 TO width-1 LOOP
-				FOR j IN 0 TO width-1 LOOP
-					InitTree(i,j+i) <= a(i) AND b(j);
-				END LOOP;
-			END LOOP;
-		END IF;
-	END PROCESS;
-	
-	wallace_proc: PROCESS (WallaceTree,InitTree,clk)
-	BEGIN --work on the next stages
-		IF (rising_edge(clk)) THEN
-			FOR k IN 0 TO stages-1 LOOP
-				FOR j IN 0 TO 2*width-1 LOOP
-					IF (k = 0) THEN
-						IF (j = 0) THEN
-							WallaceTree(1,0,j) <= InitTree(0,j);
-						
-						ELSIF (j = 1) THEN
-							WallaceTree(1,0,j) <= InitTree(0,j);
-							WallaceTree(1,1,j) <= InitTree(1,j);
-						
-						ELSIF (j = 2) THEN
-							WallaceTree(1,0,2) <= compute_sum(InitTree(0,2),InitTree(1,2),InitTree(2,2)); -- s
-							WallaceTree(1,0,3) <= compute_cout(InitTree(0,2),InitTree(1,2),InitTree(2,2)); -- cout
-						
-						ELSIF (j = 3) THEN
-							WallaceTree(1,1,3) <= compute_sum(InitTree(0,3),InitTree(1,3),InitTree(2,3)); -- s
-							WallaceTree(1,1,4) <= compute_cout(InitTree(0,3),InitTree(1,3),InitTree(2,3)); -- cout	
 
-							WallaceTree(1,2,3) <= InitTree(3,3);
-						
-						ELSIF (j = 4) THEN
-							WallaceTree(1,0,4) <= compute_sum(InitTree(1,4),InitTree(2,4),InitTree(3,4)); -- s
-							WallaceTree(1,0,5) <= compute_cout(InitTree(1,4),InitTree(2,4),InitTree(3,4)); -- cout	
-						
-						ELSIF (j = 5) THEN
-							WallaceTree(1,1,5) <= InitTree(2,5);
-							WallaceTree(1,2,5) <= InitTree(3,5);
-						
-						ELSIF (j = 6) THEN
-							WallaceTree(1,2,6) <= InitTree(3,6);
-						END IF;
-
-					ELSIF (k = 1) THEN
-						IF (j = 0) THEN
-							WallaceTree(2,0,0) <= WallaceTree(1,0,0);
-						
-						ELSIF (j = 1) THEN
-							WallaceTree(2,1,0) <= WallaceTree(1,1,0);
-							WallaceTree(2,1,1) <= WallaceTree(1,1,1);
-						
-						ELSIF (j = 2) THEN
-							WallaceTree(2,0,2) <= WallaceTree(1,0,2);
-						
-						ELSIF (j = 3) THEN
-							WallaceTree(2,0,3) <= compute_sum(WallaceTree(1,0,3),WallaceTree(1,1,3),WallaceTree(1,2,3)); -- s
-							WallaceTree(2,0,4) <= compute_cout(WallaceTree(1,0,3),WallaceTree(1,1,3),WallaceTree(1,2,3)); -- cout
-						
-						ELSIF (j = 4) THEN
-							WallaceTree(2,1,4) <= compute_sum(WallaceTree(1,0,4),WallaceTree(1,1,4),'0'); -- s
-							WallaceTree(2,1,5) <= compute_cout(WallaceTree(1,0,4),WallaceTree(1,1,4),'0'); -- cout
-						
-						ELSIF (j = 5) THEN
-							WallaceTree(2,0,5) <= compute_sum(WallaceTree(1,0,5),WallaceTree(1,1,5),WallaceTree(1,2,5)); -- s
-							WallaceTree(2,0,6) <= compute_cout(WallaceTree(1,0,5),WallaceTree(1,1,5),WallaceTree(1,2,5)); -- cout
-						
-						ELSIF (j = 6) THEN
-							WallaceTree(2,1,6) <= WallaceTree(2,2,6);
-						END IF;
-					END IF;
-				END LOOP;
+	 	FOR i IN 0 TO width-1 LOOP -- initialize WallaceTree
+			FOR j IN 0 TO width-1 LOOP
+				IF ((j+i) <= (2*width-1)/2) THEN --make sure each column starts from row 0
+					WallaceTree(0,i,j+i) <= a(i) AND b(j);
+				ELSIF ((j+i)>(2*width-1)/2) THEN
+					WallaceTree(0,i-(i+j-((2*width-1)/2)),j+i) <= a(i) AND b(j);
+				END IF;
 			END LOOP;
-		END IF;
+		END LOOP;
+
+		FOR i IN 0 TO 2*width-2 LOOP -- initialize number_bits (ie how many bits each column has)
+			IF (i <= (2*width-1)/2) THEN
+				number_bits(i) := i+1;
+			ELSIF (i>(2*width-1)/2) THEN
+				number_bits(i) := 2*width-1-i;
+			END IF;
+		END LOOP;
+	 	
+
+		FOR k IN 0 TO levels-2 LOOP -- k = level
+			FOR j IN 0 TO 2*width-2 LOOP -- j = column
+				current_row := 0; --pointer for row of current level
+				next_level_row := next_level_number_bits(j); -- pointer for row of next level (s from FA and HA and remainder bit go here)
+				-- it may not be 0 because there maybe couts from previous column
+				next_level_column_row := 0; -- pointer for row of next column of next level (carry outs go here)
+				
+
+				remainder_bits := num_remainder_bits(number_bits(j));
+				num_full_adds := num_full_adders(number_bits(j));
+				num_half_adds := num_half_adders(number_bits(j));
+				
+				
+				FOR i IN 0 to (num_full_adds-1) LOOP
+					
+					x := WallaceTree(k,current_row,j);
+					y := WallaceTree(k,current_row+1,j);
+					cin := WallaceTree(k,current_row+2,j);
+					
+					WallaceTree(k+1,next_level_row,j) <= compute_sum(x,y,cin); -- save s
+					WallaceTree(k+1,next_level_column_row,j+1) <= compute_cout(x,y,cin); -- save cout
+					
+					current_row := current_row + 3; -- processed 3 inputs
+					next_level_row := next_level_row + 1; -- wrote one s to next level
+					next_level_column_row := next_level_column_row + 1; -- wronte one cout to next level
+				END LOOP;
+					
+
+				FOR i IN 0 to (num_half_adds-1) LOOP -- TODO: use half adder implementation (no cin)
+					
+					x := WallaceTree(k,current_row,j);
+					y := WallaceTree(k,current_row+1,j);
+					cin := '0';
+					
+					WallaceTree(k+1,next_level_row,j) <= compute_sum(x,y,cin); -- save s
+					WallaceTree(k+1,next_level_column_row,j+1) <= compute_cout(x,y,cin); -- save cout
+					
+					-- number_bits_port(7) <= compute_cout(x,y,cin);
+
+
+					current_row := current_row + 2; -- processed 2 inputs
+					next_level_row := next_level_row + 1; -- wrote one s to next level
+					next_level_column_row := next_level_column_row + 1; -- wronte one cout to next level
+				END LOOP;
+
+				FOR i IN 0 to remainder_bits-1 LOOP
+					
+					WallaceTree(k+1,next_level_row,j) <= WallaceTree(k,current_row,j); -- transfer bit to next level
+					
+					current_row := current_row + 1; -- processed 1 input
+					next_level_row := next_level_row + 1; -- wrote one s to next level
+				END LOOP;
+
+					-- number_bits_port(j) <= CONV_INTEGER(WallaceTree(k+1,0,j));
+					-- number_bits_port(7) <= CONV_INTEGER(WallaceTree(k+1,0,7));
+					
+					next_level_number_bits(j) := next_level_number_bits(j) + num_full_adds + num_half_adds + remainder_bits; -- update array with the number of bits written to next level
+					-- be careful as it might have carry outs from previous columns
+					next_level_number_bits(j+1) := num_full_adds + num_half_adds; -- update array with the number of couts generated (before this it should be 0)
+
+			END LOOP;
+			number_bits := next_level_number_bits;
+			next_level_number_bits := (OTHERS => 0);
+		END LOOP;
 	END PROCESS;
 
 	-- Final Adder (Using a Brent Kung Adder)
 	signal_vect_proc: PROCESS(WallaceTree)
 	BEGIN
-		FOR j IN 0 TO 2*width-1 LOOP
-			add_a(j) <= WallaceTree(2,0,j);
-			add_b(j) <= WallaceTree(2,1,j);
+		FOR k IN 0 TO levels-1 LOOP
+			FOR j IN 0 TO 2*width-1 LOOP
+				add_a(j) <= WallaceTree(levels-1,0,j);
+				add_b(j) <= WallaceTree(levels-1,1,j);
+			END LOOP;
 		END LOOP;
-		add_a(7) <= add_a(6);
-		add_b(7) <= add_b(6);
 	END PROCESS;
 		
 	-- determineresult: FA_array
@@ -196,9 +237,10 @@ BEGIN --fill multiplier matrix
 	-- 	sum => add_sum
 	-- );
 	
-	
 	prod <= std_logic_vector(unsigned(add_a) + unsigned(add_b));
-	-- prod_cout <= add_cout;
+	
+	-- prod <= (OTHERS => '0');
+	prod_cout <= (OTHERS => '0');
 
 	prod_a <= add_a;
 	prod_b <= add_b;

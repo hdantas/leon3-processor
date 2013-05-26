@@ -1,0 +1,5 @@
+implement signed multiplier (baugh-wooley modified)
+definir adder (brent kung?)
+adicionar restantes sinais (ver MUL32_DIV32.pdf)
+clean up code
+synthesize and pray it works
