@@ -79,20 +79,20 @@ BEGIN
 
 	-- Input Processes
 	inp_prc: PROCESS
-		VARIABLE v_a: INTEGER := -7;
-		VARIABLE v_b: INTEGER := 7;
+		VARIABLE v_a: INTEGER := -2**(width-1);
+		VARIABLE v_b: INTEGER := 2**(width-1)-1;
 	BEGIN
-		FOR i IN 0 TO 2**width LOOP
+		FOR i IN 0 TO 20 LOOP
 			WAIT FOR 10 ns;
-			-- v_a := v_a + 1;
-			-- v_b := v_b - i;
-			-- IF (v_b < 0) THEN
-			-- 	v_b := 2**(width-1);
-			-- END IF;
+			v_a := v_a + 1;
+			v_b := v_b - 1;
+			IF (v_b < 0) THEN
+				v_b := 2**(width-1);
+			END IF;
 
-			-- IF (v_a > 2**(width-1)) THEN
-			-- 	v_a := 0;
-			-- END IF;
+			IF (v_a > 2**(width-1)) THEN
+				v_a := 0;
+			END IF;
 			
 			t_a <= std_logic_vector(to_signed(v_a,width));
 			t_b <= std_logic_vector(to_signed(v_b,width));

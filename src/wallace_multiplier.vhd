@@ -106,7 +106,7 @@ ARCHITECTURE behavioral OF wallace_multiplier IS
 BEGIN
 
 
-	wallace_proc: PROCESS (WallaceTree,a,b)
+	wallace_proc: PROCESS (a,b,WallaceTree)
 		VARIABLE x: STD_LOGIC := '0';
 		VARIABLE y: STD_LOGIC := '0';
 		VARIABLE cin: STD_LOGIC := '0';
@@ -119,14 +119,24 @@ BEGIN
 
 		VARIABLE number_bits : number_bits_type := (OTHERS => 0);
 		VARIABLE next_level_number_bits : number_bits_type := (OTHERS => 0);
+
 	BEGIN
 
 	 	FOR i IN 0 TO width-1 LOOP -- initialize WallaceTree
 			FOR j IN 0 TO width-1 LOOP
 				IF ((j+i) <= (2*width-1)/2) THEN --make sure each column starts from row 0
-					WallaceTree(0,i,j+i) <= a(i) AND b(j);
+					IF ((i = width-1) OR (j= width-1)) AND (i/=j) THEN
+						WallaceTree(0,i,j+i) <= NOT(a(i) AND b(j)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+					ELSE
+						WallaceTree(0,i,j+i) <= a(i) AND b(j);
+					END IF;
+
 				ELSIF ((j+i)>(2*width-1)/2) THEN
-					WallaceTree(0,i-(i+j-((2*width-1)/2)),j+i) <= a(i) AND b(j);
+					IF (((i = width-1) OR (j= width-1)) AND (i/=j)) THEN
+						WallaceTree(0,i-(i+j-((2*width-1)/2)),j+i) <= NOT(a(i) AND b(j)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+					ELSE
+						WallaceTree(0,i-(i+j-((2*width-1)/2)),j+i) <= a(i) AND b(j);
+					END IF;
 				END IF;
 			END LOOP;
 		END LOOP;
@@ -206,7 +216,6 @@ BEGIN
 		END LOOP;
 	END PROCESS;
 
-	-- Final Adder (Using a Brent Kung Adder)
 	signal_vect_proc: PROCESS(WallaceTree)
 	BEGIN
 		FOR k IN 0 TO levels-1 LOOP
@@ -237,7 +246,8 @@ BEGIN
 	-- 	sum => add_sum
 	-- );
 	
-	prod <= std_logic_vector(unsigned(add_a) + unsigned(add_b));
+	-- the extra operands at the end come from the modified baugh wooley (check slide 63 of Part 3 Multiplication)
+	prod <= std_logic_vector(signed(add_a) + signed(add_b) + 2**(2*width-1) + 2**(width));
 	
 	-- prod <= (OTHERS => '0');
 	prod_cout <= (OTHERS => '0');
