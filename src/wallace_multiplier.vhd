@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------
 --
 -----------------------------------------------------------------------------
--- Entity: 	r4s-div32
--- File:	r4s-div32.vhd
+-- Entity: 	wallacel_multiplier
+-- File:	wallacel_multiplier.vhd
 -- Authors:	Luca Feltrin - Henrique Dantas
 -- Description:	This unit implements a divide unit to execute 64-bit by 32-bit
 --		division. The divider leaves no remainder.
@@ -35,22 +35,28 @@ USE work.typespackage.all;
 
 
 ENTITY wallace_multiplier IS
-
-	GENERIC (
-		width	: INTEGER;
-		levels	: INTEGER
-	);
-	
 	PORT (
-		a			: IN STD_LOGIC_VECTOR(width-1 DOWNTO 0);
-		b			: IN STD_LOGIC_VECTOR(width-1 DOWNTO 0);
-		clk			: IN STD_ULOGIC;
-		reset		: IN STD_ULOGIC;
-		prod_cout	: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
-		prod		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
-		prod_a		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
-		prod_b		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
-		number_bits_port : OUT number_bits_port_type
+		reset				: IN STD_ULOGIC;
+		clock				: IN STD_ULOGIC;
+
+		-- muli related signals
+		op1					: IN STD_LOGIC_VECTOR(32 DOWNTO 0);
+		op2					: IN STD_LOGIC_VECTOR(32 DOWNTO 0);
+		flush				: IN STD_LOGIC;
+		is_signed			: IN STD_LOGIC;
+		mac					: IN STD_LOGIC;
+		acc					: IN STD_LOGIC_VECTOR(39 DOWNTO 0);
+
+		-- mulo related signals
+		ready				: OUT STD_LOGIC;
+		icc					: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		result				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+
+		-- debugging signals
+		db_prod_cout		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
+		db_prod_a			: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
+		db_prod_b			: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
+		db_number_bits_port	: OUT number_bits_port_type
 	);		
 END wallace_multiplier;
 
@@ -225,15 +231,6 @@ BEGIN
 			END LOOP;
 		END LOOP;
 	END PROCESS;
-		
-	-- determineresult: FA_array
-	-- PORT MAP(
-	-- 	x => add_a,
-	-- 	y => add_b,
-	-- 	cin => (others => '0'),
-	-- 	s => add_sum,
-	-- 	cout => add_cout
-	-- ); --x,y,cin,s,cout
 	
 	-- U_bk_add: bk_adder
 	-- GENERIC MAP (

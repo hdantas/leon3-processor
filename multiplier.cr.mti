@@ -1,10 +1,10 @@
-{/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/HA.vhd} {1 {vcom -work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5 -novopt {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/HA.vhd}
+{/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier_tb.vhd} {1 {vcom -work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5 -novopt {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier_tb.vhd}
 
 } {} {}} {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA_array.vhd} {1 {vcom -work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5 -novopt {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA_array.vhd}
 
-} {} {}} {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mypackage.vhd} {1 {vcom -work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5 -novopt {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mypackage.vhd}
+} {} {}} {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/HA.vhd} {1 {vcom -work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5 -novopt {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/HA.vhd}
 
-} {} {}} {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd} {1 {vcom -work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5 -novopt {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd}
+} {} {}} {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mypackage.vhd} {1 {vcom -work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5 -novopt {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mypackage.vhd}
 
 } {} {}} {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA.vhd} {1 {vcom -work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5 -novopt {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA.vhd}
 
