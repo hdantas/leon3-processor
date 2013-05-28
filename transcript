@@ -72,3 +72,501 @@ run
 #    Time: 90 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
 # ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
 #    Time: 100 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 4 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 4 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 22 errors.
+# Compile of wallace_multiplier_tb.vhd failed with 5 errors.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 2 failed with 27 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 22 errors.
+# Compile of wallace_multiplier_tb.vhd failed with 4 errors.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 2 failed with 26 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 22 errors.
+# Compile of wallace_multiplier_tb.vhd failed with 3 errors.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 2 failed with 25 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 22 errors.
+# Compile of wallace_multiplier_tb.vhd failed with 3 errors.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 2 failed with 25 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 22 errors.
+# Compile of wallace_multiplier_tb.vhd failed with 3 errors.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 2 failed with 25 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 22 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 22 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 12 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 12 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 7 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 7 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 3 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 3 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 4 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 4 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 4 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 4 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 4 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 4 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 3 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 3 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Fatal: (vsim-3348) Port length (33) does not match actual length (4) for port '/wallace_multiplier_tb/U_wallace_mult/op1'.
+#    Time: 0 ps  Iteration: 0  Instance: /wallace_multiplier_tb/U_wallace_mult File: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd Line: 40
+# FATAL ERROR while loading design
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd failed with 6 errors.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 6 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# No Design Loaded!
+vsim work.wallace_multiplier_tb
+# vsim work.wallace_multiplier_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.typespackage
+# Loading ieee.std_logic_textio(body)
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(7) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(6) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(5) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(4) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(3) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(2) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(1) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(0) has no driver.
+# This port will contribute value (0) to the signal network.
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 4  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 10 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 20 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 30 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 40 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 50 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 60 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 70 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 80 ns  Iteration: 0  Instance: /wallace_multiplier_tb
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 90 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 100 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+vsim work.wallace_multiplier_tb
+# vsim work.wallace_multiplier_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.typespackage
+# Loading ieee.std_logic_textio(body)
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(7) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(6) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(5) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(4) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(3) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(2) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(1) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(0) has no driver.
+# This port will contribute value (0) to the signal network.
+do wave.do
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 4  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Fatal: (vsim-3420) Array lengths do not match. Left is 33 (32 downto 0). Right is 64 (63 downto 0).
+#    Time: 10 ns  Iteration: 0  Process: /wallace_multiplier_tb/inp_prc File: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier_tb.vhd
+# Fatal error in ForLoop loop at /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier_tb.vhd line 124
+# 
+# HDL call sequence:
+# Stopped at /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier_tb.vhd 124 ForLoop loop
+# 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(7) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(6) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(5) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(4) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(3) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(2) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(1) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(0) has no driver.
+# This port will contribute value (0) to the signal network.
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 4  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 10 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 20 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 30 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 40 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 50 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 60 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 70 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 90 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 100 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 110 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 120 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 130 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 140 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 150 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 160 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 180 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 190 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 200 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(7) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(6) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(5) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(4) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(3) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(2) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(1) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(0) has no driver.
+# This port will contribute value (0) to the signal network.
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 4  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 10 ns  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 10 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 20 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 30 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 40 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 50 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 60 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 70 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 80 ns  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 90 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 100 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 110 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 120 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 130 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 140 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 150 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 160 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 180 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 190 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 200 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 210 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 220 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 230 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 240 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 250 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 270 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 280 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 290 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 300 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 2 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 2 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(7) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(6) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(5) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(4) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(3) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(2) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(1) has no driver.
+# This port will contribute value (0) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/db_number_bits_port(0) has no driver.
+# This port will contribute value (0) to the signal network.
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 0 ps  Iteration: 4  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 10 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 20 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 30 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 40 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 50 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 60 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 70 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 90 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 100 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 110 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 120 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 130 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 140 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 150 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 160 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 180 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 190 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 200 ns  Iteration: 5  Instance: /wallace_multiplier_tb/U_wallace_mult

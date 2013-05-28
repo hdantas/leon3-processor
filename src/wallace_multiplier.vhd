@@ -1,17 +1,10 @@
 ------------------------------------------------------------------------------
 --
 -----------------------------------------------------------------------------
--- Entity: 	wallacel_multiplier
--- File:	wallacel_multiplier.vhd
+-- Entity: 	wallace_multiplier
+-- File:	wallace_multiplier.vhd
 -- Authors:	Luca Feltrin - Henrique Dantas
--- Description:	This unit implements a divide unit to execute 64-bit by 32-bit
---		division. The divider leaves no remainder.
---		Overflow detection is performed according to the
---		SPARC V8 manual, method B (page 116)
---		Division is made using the radix-4 SRT algorithm 
---		The operands must be stable during
---		the calculations. The result is available one clock after
---		the ready signal is asserted.
+-- Description:	
 ------------------------------------------------------------------------------
 
 LIBRARY ieee;
@@ -35,6 +28,10 @@ USE work.typespackage.all;
 
 
 ENTITY wallace_multiplier IS
+	GENERIC (
+		multype				: INTEGER;
+		pipe				: STD_ULOGIC
+	);
 	PORT (
 		reset				: IN STD_ULOGIC;
 		clock				: IN STD_ULOGIC;
@@ -53,17 +50,19 @@ ENTITY wallace_multiplier IS
 		result				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 
 		-- debugging signals
-		db_prod_cout		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
-		db_prod_a			: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
-		db_prod_b			: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
+		db_prod_cout		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 		db_number_bits_port	: OUT number_bits_port_type
-	);		
+	);
 END wallace_multiplier;
 
 ARCHITECTURE behavioral OF wallace_multiplier IS
 	-- TYPE layer_depth_type IS ARRAY(32 DOWNTO 3) OF INTEGER;
 	-- CONSTANT layer_depth: layer_depth_type := (9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,6,5,5,4,3,3);
 	-- CONSTANT levels: INTEGER := layer_depth(width);
+	CONSTANT width : INTEGER := 4;
+	CONSTANT levels : INTEGER := 3;
 
 	TYPE WallaceTree_type IS ARRAY(levels-1 DOWNTO 0,width-1 DOWNTO 0, 2*width-1 DOWNTO 0) OF STD_LOGIC;
 	TYPE InitTree_type IS ARRAY(width-1 DOWNTO 0, 2*width-1 DOWNTO 0) OF STD_LOGIC;
@@ -78,7 +77,7 @@ ARCHITECTURE behavioral OF wallace_multiplier IS
 	SIGNAL tmp_cin							: STD_LOGIC := '0';
 	SIGNAL tmp_cout							: STD_LOGIC := '0';
 	SIGNAL tmp_s							: STD_LOGIC := '0';
-	
+	SIGNAL tmp_result						: STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');
 
 	TYPE number_bits_type IS ARRAY (2*width-1 DOWNTO 0) OF NATURAL;
  		
@@ -112,7 +111,7 @@ ARCHITECTURE behavioral OF wallace_multiplier IS
 BEGIN
 
 
-	wallace_proc: PROCESS (a,b,WallaceTree)
+	wallace_proc: PROCESS (op1,op2,WallaceTree)
 		VARIABLE x: STD_LOGIC := '0';
 		VARIABLE y: STD_LOGIC := '0';
 		VARIABLE cin: STD_LOGIC := '0';
@@ -132,16 +131,16 @@ BEGIN
 			FOR j IN 0 TO width-1 LOOP
 				IF ((j+i) <= (2*width-1)/2) THEN --make sure each column starts from row 0
 					IF ((i = width-1) OR (j= width-1)) AND (i/=j) THEN
-						WallaceTree(0,i,j+i) <= NOT(a(i) AND b(j)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+						WallaceTree(0,i,j+i) <= NOT(op1(i) AND op2(j)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 					ELSE
-						WallaceTree(0,i,j+i) <= a(i) AND b(j);
+						WallaceTree(0,i,j+i) <= op1(i) AND op2(j);
 					END IF;
 
 				ELSIF ((j+i)>(2*width-1)/2) THEN
 					IF (((i = width-1) OR (j= width-1)) AND (i/=j)) THEN
-						WallaceTree(0,i-(i+j-((2*width-1)/2)),j+i) <= NOT(a(i) AND b(j)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+						WallaceTree(0,i-(i+j-((2*width-1)/2)),j+i) <= NOT(op1(i) AND op2(j)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 					ELSE
-						WallaceTree(0,i-(i+j-((2*width-1)/2)),j+i) <= a(i) AND b(j);
+						WallaceTree(0,i-(i+j-((2*width-1)/2)),j+i) <= op1(i) AND op2(j);
 					END IF;
 				END IF;
 			END LOOP;
@@ -244,13 +243,14 @@ BEGIN
 	-- );
 	
 	-- the extra operands at the end come from the modified baugh wooley (check slide 63 of Part 3 Multiplication)
-	prod <= std_logic_vector(signed(add_a) + signed(add_b) + 2**(2*width-1) + 2**(width));
+	tmp_result <= std_logic_vector(signed(add_a) + signed(add_b) + 2**(2*width-1) + 2**(width));
+	result <= (63 DOWNTO 8 => tmp_result(7)) & tmp_result;
 	
 	-- prod <= (OTHERS => '0');
-	prod_cout <= (OTHERS => '0');
+	db_prod_cout <= (OTHERS => '0');
 
-	prod_a <= add_a;
-	prod_b <= add_b;
+	db_prod_a <= (63 DOWNTO 8 => '0') & add_a;
+	db_prod_b <= (63 DOWNTO 8 => '0') & add_b;
 	
 END behavioral;
 	

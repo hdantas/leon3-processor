@@ -67,6 +67,10 @@ END mul32;
 
 ARCHITECTURE behavioral OF mul32 IS
 	COMPONENT wallace_multiplier
+		GENERIC (
+			multype => multype;
+			pipe => pipe
+		);
 		PORT (
 			reset				: IN STD_ULOGIC;
 			clock				: IN STD_ULOGIC;
