@@ -18,7 +18,7 @@ END typespackage;
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
-USE IEEE.numeric_std.all;
+USE ieee.numeric_std.all;
 -- LIBRARY grlib;
 -- USE grlib.stdlib.all;
 -- LIBRARY gaisler;
@@ -30,7 +30,8 @@ USE work.typespackage.all;
 ENTITY wallace_multiplier IS
 	GENERIC (
 		multype				: INTEGER;
-		pipe				: STD_ULOGIC
+		pipe				: STD_ULOGIC;
+		width				: INTEGER
 	);
 	PORT (
 		reset				: IN STD_ULOGIC;
@@ -50,25 +51,24 @@ ENTITY wallace_multiplier IS
 		result				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 
 		-- debugging signals
-		db_prod_cout		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		db_tmp_result		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
 		db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 		db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_number_bits_port	: OUT number_bits_port_type
+		db_number_bits_port	: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0)
 	);
 END wallace_multiplier;
 
 ARCHITECTURE behavioral OF wallace_multiplier IS
-	-- TYPE layer_depth_type IS ARRAY(32 DOWNTO 3) OF INTEGER;
-	-- CONSTANT layer_depth: layer_depth_type := (9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,6,5,5,4,3,3);
-	-- CONSTANT levels: INTEGER := layer_depth(width);
-	CONSTANT width : INTEGER := 4;
-	CONSTANT levels : INTEGER := 3;
+	TYPE layer_depth_type IS ARRAY(32 DOWNTO 3) OF INTEGER;
+	CONSTANT layer_depth: layer_depth_type := (9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,6,5,5,4,3,3);
+	CONSTANT levels: INTEGER := layer_depth(width);
+	CONSTANT add_vector_baugh_wooley : STD_LOGIC_VECTOR((2*width-1) DOWNTO 0) := '1' & (2*width-2 DOWNTO width+1 => '0') & '1' & (width-1 DOWNTO 0 => '0');
+
 
 	TYPE WallaceTree_type IS ARRAY(levels-1 DOWNTO 0,width-1 DOWNTO 0, 2*width-1 DOWNTO 0) OF STD_LOGIC;
-	TYPE InitTree_type IS ARRAY(width-1 DOWNTO 0, 2*width-1 DOWNTO 0) OF STD_LOGIC;
 	TYPE add_type IS ARRAY (2*width-1 DOWNTO 0) OF STD_LOGIC;
-	
-	SIGNAL InitTree							: InitTree_type; -- Initial product tree
+
+	SIGNAL baugh_wooley_add					: STD_LOGIC_VECTOR((2*width-1) DOWNTO 0);
 	SIGNAL WallaceTree						: WallaceTree_type := (OTHERS => (OTHERS => (OTHERS => '0'))); -- Wallace tree
 	SIGNAL add_a, add_b, add_sum,add_cout	: STD_LOGIC_VECTOR(2*width-1 DOWNTO 0); --for final adder
 	SIGNAL c_in								: STD_LOGIC := '0';
@@ -77,7 +77,7 @@ ARCHITECTURE behavioral OF wallace_multiplier IS
 	SIGNAL tmp_cin							: STD_LOGIC := '0';
 	SIGNAL tmp_cout							: STD_LOGIC := '0';
 	SIGNAL tmp_s							: STD_LOGIC := '0';
-	SIGNAL tmp_result						: STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');
+	SIGNAL tmp_result						: STD_LOGIC_VECTOR((2*width-1) DOWNTO 0) := (OTHERS => '0');
 
 	TYPE number_bits_type IS ARRAY (2*width-1 DOWNTO 0) OF NATURAL;
  		
@@ -95,20 +95,22 @@ ARCHITECTURE behavioral OF wallace_multiplier IS
 	-- 	);
 	-- END COMPONENT;	
 		
-	COMPONENT FA_array --full-adder-array
-		GENERIC (
-			width : INTEGER := 7
-		);
-		PORT (
-			x		: IN STD_LOGIC_VECTOR(width-1 DOWNTO 0);
-			y		: IN STD_LOGIC_VECTOR(width-1 DOWNTO 0);
-			cin		: IN STD_LOGIC_VECTOR(width-1 DOWNTO 0);
-			s		: OUT STD_LOGIC_VECTOR(width-1 DOWNTO 0);
-			cout	: OUT STD_LOGIC_VECTOR(width-1 DOWNTO 0)
-		);
-	END COMPONENT;
+	-- COMPONENT FA_array --full-adder-array
+	-- 	GENERIC (
+	-- 		width : INTEGER := 7
+	-- 	);
+	-- 	PORT (
+	-- 		x		: IN STD_LOGIC_VECTOR(width-1 DOWNTO 0);
+	-- 		y		: IN STD_LOGIC_VECTOR(width-1 DOWNTO 0);
+	-- 		cin		: IN STD_LOGIC_VECTOR(width-1 DOWNTO 0);
+	-- 		s		: OUT STD_LOGIC_VECTOR(width-1 DOWNTO 0);
+	-- 		cout	: OUT STD_LOGIC_VECTOR(width-1 DOWNTO 0)
+	-- 	);
+	-- END COMPONENT;
 
 BEGIN
+	-- add_vector_baugh_wooley(2*width-1) <= '1';
+	-- add_vector_baugh_wooley(width) <= '1';
 
 
 	wallace_proc: PROCESS (op1,op2,WallaceTree)
@@ -130,14 +132,14 @@ BEGIN
 	 	FOR i IN 0 TO width-1 LOOP -- initialize WallaceTree
 			FOR j IN 0 TO width-1 LOOP
 				IF ((j+i) <= (2*width-1)/2) THEN --make sure each column starts from row 0
-					IF ((i = width-1) OR (j= width-1)) AND (i/=j) THEN
+					IF ((i = width-1) OR (j= width-1)) AND (i/=j) AND ((op1(32) = '1') OR (op2(32) = '1'))THEN
 						WallaceTree(0,i,j+i) <= NOT(op1(i) AND op2(j)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 					ELSE
 						WallaceTree(0,i,j+i) <= op1(i) AND op2(j);
 					END IF;
 
 				ELSIF ((j+i)>(2*width-1)/2) THEN
-					IF (((i = width-1) OR (j= width-1)) AND (i/=j)) THEN
+					IF ((i = width-1) OR (j= width-1)) AND (i/=j) AND ((op1(32) = '1') OR (op2(32) = '1'))THEN
 						WallaceTree(0,i-(i+j-((2*width-1)/2)),j+i) <= NOT(op1(i) AND op2(j)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 					ELSE
 						WallaceTree(0,i-(i+j-((2*width-1)/2)),j+i) <= op1(i) AND op2(j);
@@ -243,14 +245,19 @@ BEGIN
 	-- );
 	
 	-- the extra operands at the end come from the modified baugh wooley (check slide 63 of Part 3 Multiplication)
-	tmp_result <= std_logic_vector(signed(add_a) + signed(add_b) + 2**(2*width-1) + 2**(width));
-	result <= (63 DOWNTO 8 => tmp_result(7)) & tmp_result;
-	
-	-- prod <= (OTHERS => '0');
-	db_prod_cout <= (OTHERS => '0');
+	-- tmp_result <= std_logic_vector(signed(add_a) + signed(add_b) + ('1' SLL (2*width-1)) + ('1' SLL width));
+	-- tmp_result <= std_logic_vector(signed(add_a) + signed(add_b) + (2**(2*width-1)) + (2**width));
+	-- result <= (63 DOWNTO (2*width) => tmp_result(2*width-1)) & tmp_result;
 
-	db_prod_a <= (63 DOWNTO 8 => '0') & add_a;
-	db_prod_b <= (63 DOWNTO 8 => '0') & add_b;
+	baugh_wooley_add <= (add_vector_baugh_wooley) AND ((2*width-1) DOWNTO 0 => (op1(32) OR op2(32)));
+	tmp_result <= std_logic_vector(signed(add_a) + signed(add_b)+ signed(baugh_wooley_add));
+	
+	result <= (63 DOWNTO (2*width) => tmp_result(2*width-1)) & tmp_result;
+	-- prod <= (OTHERS => '0');
+	db_tmp_result <= tmp_result;
+	db_number_bits_port <= baugh_wooley_add;
+	db_prod_a <= (63 DOWNTO (2*width) => '0') & add_a;
+	db_prod_b <= (63 DOWNTO (2*width) => '0') & add_b;
 	
 END behavioral;
 	
