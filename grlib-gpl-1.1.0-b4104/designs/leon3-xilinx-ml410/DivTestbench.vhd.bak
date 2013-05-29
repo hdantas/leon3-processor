@@ -23,7 +23,7 @@ type div_regtype is record
   state: std_logic_vector(2 downto 0);
 end record;
   
-component div32Original is
+component div32 is
 port (
     rst     : in  std_ulogic;
     clk     : in  std_ulogic;
@@ -33,7 +33,7 @@ port (
 );
 end component;
 
-component div32 is
+component r4s_div32 is
 port (
     rst     : in  std_ulogic;
     clk     : in  std_ulogic;
@@ -58,8 +58,8 @@ begin
 	resOriginal <= vresOr;
 	resRadix4 <= vres4;
 	
-  divOriginal: div32Original port map(rst,clk,holdnOr,divi,vresOr);
-  divRadix4: div32 port map(rst,clk,holdn4,divi,vres4);
+  divOriginal: div32 port map(rst,clk,holdnOr,divi,vresOr);
+  divRadix4: r4s_div32 port map(rst,clk,holdn4,divi,vres4);
   
   divcomb : process (r, rst,start,vresOr,vres4)
   variable v : div_regtype;

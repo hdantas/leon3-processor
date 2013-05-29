@@ -1,31 +1,15 @@
 ------------------------------------------------------------------------------
---  This file is a part of the GRLIB VHDL IP LIBRARY
---  Copyright (C) 2003 - 2008, Gaisler Research
---  Copyright (C) 2008 - 2010, Aeroflex Gaisler
---
---  This program is free software; you can redistribute it and/or modify
---  it under the terms of the GNU General Public License as published by
---  the Free Software Foundation; either version 2 of the License, or
---  (at your option) any later version.
---
---  This program is distributed in the hope that it will be useful,
---  but WITHOUT ANY WARRANTY; without even the implied warranty of
---  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
---  GNU General Public License for more details.
---
---  You should have received a copy of the GNU General Public License
---  along with this program; if not, write to the Free Software
---  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 
+--   
 -----------------------------------------------------------------------------
--- Entity: 	div32
--- File:	div32.vhd
--- Author:	Jiri Gaisler - Gaisler Research
--- Description:	This unit implemets a divide unit to execute 64-bit by 32-bit
+-- Entity: 	r4s-div32
+-- File:	r4s-div32.vhd
+-- Authors:	Luca Feltrin - Henrique Dantas
+-- Description:	This unit implements a divide unit to execute 64-bit by 32-bit
 --		division. The divider leaves no remainder.
 --		Overflow detection is performed according to the
 --		SPARC V8 manual, method B (page 116)
---		Division is made using the non-restoring algorithm,
---		and takes 36 clocks. The operands must be stable during
+--		Division is made using the radix-4 SRT algorithm 
+--  The operands must be stable during
 --		the calculations. The result is available one clock after
 --		the ready signal is asserted.
 ------------------------------------------------------------------------------
@@ -36,6 +20,7 @@ library grlib;
 use grlib.stdlib.all;
 library gaisler;
 use gaisler.arith.all;
+
 
 entity div32 is
 port (
@@ -49,124 +34,237 @@ end;
 
 architecture rtl of div32 is
 
+constant Zero65: std_logic_vector(64 downto 0) := "00000000000000000000000000000000000000000000000000000000000000000";
+constant Zero35: std_logic_vector(34 downto 0) := "00000000000000000000000000000000000";
+constant Zero34: std_logic_vector(33 downto 0) := "0000000000000000000000000000000000";
+constant Zero33: std_logic_vector(32 downto 0) := "000000000000000000000000000000000";
+constant Zero29: std_logic_vector(28 downto 0) := "00000000000000000000000000000";
+constant One32: std_logic_vector(31 downto 0) := "11111111111111111111111111111111";
+constant One29: std_logic_vector(28 downto 0) := "11111111111111111111111111111";
+
+
+
+component qSelector is
+	port (		
+		signed	: in std_logic;
+		x     	: in  std_logic_vector(64 downto 0);
+		d     	: in  std_logic_vector(31 downto 0);
+		q    	: out std_logic_vector(2 downto 0)
+	);
+end component;
+
+component t3to2compressor is
+	generic(
+		k: integer
+	);
+	port (
+		x     	: in  std_logic_vector(k-1 downto 0);
+		y     	: in  std_logic_vector(k-1 downto 0);
+		z     	: in  std_logic_vector(k-1 downto 0);
+		t   	: in  std_logic;
+		s     	: out  std_logic_vector(k downto 0);
+		c     	: out  std_logic_vector(k downto 0)
+	);
+end component;
+
 type div_regtype is record
-  x      : std_logic_vector(64 downto 0);
-  state  : std_logic_vector(2 downto 0);
-  zero   : std_logic;
-  zero2  : std_logic;
-  qcorr  : std_logic;
-  zcorr  : std_logic;
-  qzero  : std_logic;
-  qmsb   : std_logic;
-  ovf    : std_logic;
-  neg    : std_logic;
-  cnt    : std_logic_vector(4 downto 0);
+  state: std_logic_vector(2 downto 0);
+  x: std_logic_vector(64 downto 0);
+  cnt: std_logic_vector(3 downto 0);
+  q: std_logic_vector(31 downto 0);
+  d: std_logic_vector(31 downto 0);
+  ovf: std_logic;
+  neg: std_logic;
 end record;
 
 signal r, rin : div_regtype;
-signal addin1, addin2, addout: std_logic_vector(32 downto 0);
-signal addsub : std_logic;
+signal compOut1,compOut2: std_logic_vector(35 downto 0);
+signal addin1x,addin2x,addresx,a,b: std_logic_vector(34 downto 0);
+signal addresq: std_logic_vector(31 downto 0);
+signal qdigit: std_logic_vector(2 downto 0);
+signal t,addxCin: std_logic;
 
-begin
+begin  
+	Qsel: qSelector port map(signed=>divi.signed,x=>r.x,d=>r.d,q=>qdigit);	
+	
+	qCPA: process(qdigit,r.q)
+	begin
+		if (qdigit(2)='0') then
+			addresq <= (r.q(29 downto 0) & "00") + (Zero29 & qdigit);
+		else
+			addresq <= (r.q(29 downto 0) & "00") + (One29 & qdigit);
+		end if;
+	end process;
+	
+	Comp: t3to2compressor generic map(35) port map(a,b,r.x(64 downto 30),t,compOut1,compOut2);
+	
+	SubGen: process(qdigit,r.d,divi.signed)
+	variable ext: std_logic;
+	begin
+		ext := r.d(31) and divi.signed;
+		case qdigit is
+		when "101" =>	--	-3	3d
+			a <= ext & ext & ext & r.d;
+			b <= ext & ext & r.d & '0';
+			t <= '0';
+		when "110" =>	--	-2	2d
+			a <= Zero35;
+			b <=  ext & ext & r.d & '0';
+			t <= '0';
+		when "111" =>	--	-1	d
+			a <=  ext & ext & ext & r.d;
+			b <= Zero35;
+			t <= '0';
+		when "000" =>	--	0	0d
+			a <= Zero35;
+			b <= Zero35;
+			t <= '0';
+		when "001" =>	--	1	-d
+			a <= not( ext & ext & ext & r.d);
+			b <= Zero34 & '1';
+			t <= '0';
+		when "010" =>	--	2	-2d
+			a <= Zero35;
+			b <= not( ext & ext & r.d) & '0';
+			t <= '1';
+		when "011" =>	--	3	-3d
+			a <= not( ext & ext & ext & r.d);
+			b <= not( ext & ext & r.d) & '1';
+			t <= '1';
+		when others =>
+			a <= Zero35;
+			b <= Zero35;
+			t <= '0';
+		end case;		
+	end process;
+	
+	divo.icc(0) <= '0';
 
-  divcomb : process (r, rst, divi, addout)
+  divcomb : process (r, rst, divi,addresx,addresq,compOut1,compOut2)
   variable v : div_regtype;
-  variable vready, vnready : std_logic;
-  variable vaddin1, vaddin2 : std_logic_vector(32 downto 0);
-  variable vaddsub, ymsb : std_logic;
-  constant zero33: std_logic_vector(32 downto 0) := "000000000000000000000000000000000";
+  variable vnready,vready: std_logic;
+  variable shifts: integer;
   begin
-
-    vready := '0'; vnready := '0'; v := r;
-    if addout = zero33 then v.zero := '1'; else v.zero := '0'; end if;
-
-    vaddin1 := r.x(63 downto 31); vaddin2 := divi.op2; 
-    vaddsub := not (divi.op2(32) xor r.x(64));
-    v.zero2 := r.zero;
-
+    v := r;
+	vready:='0';
+	vnready:='0';
     case r.state is
-    when "000" =>
-      v.cnt := "00000";
-      if (divi.start = '1') then 
-	v.x(64) := divi.y(32); v.state := "001";
-      end if;
-    when "001" =>
-      v.x := divi.y & divi.op1(31 downto 0);
-      v.neg := divi.op2(32) xor divi.y(32);
-      if divi.signed = '1' then
-        vaddin1 := divi.y(31 downto 0) & divi.op1(31);
-        v.ovf := not (addout(32) xor divi.y(32));
-      else
-        vaddin1 := divi.y; vaddsub := '1';
-        v.ovf := not addout(32);
-      end if;
-      v.state := "010";
-    when "010" =>
-      if ((divi.signed and r.neg and r.zero) = '1') and (divi.op1 = zero33) then v.ovf := '0'; end if;
-      v.qmsb := vaddsub; v.qzero := '1';
-      v.x(64 downto 32) := addout;
-      v.x(31 downto 0) := r.x(30 downto 0) & vaddsub;
-      v.state := "011"; v.zcorr := v.zero;
-      v.cnt := r.cnt + 1;
-    when "011" =>
-      v.qzero := r.qzero and (vaddsub xor r.qmsb);
-      v.zcorr := r.zcorr or v.zero;
-      v.x(64 downto 32) := addout;
-      v.x(31 downto 0) := r.x(30 downto 0) & vaddsub;
-      if (r.cnt = "11111") then v.state := "100"; vnready := '1';
-      else v.cnt := r.cnt + 1; end if;
-      v.qcorr := v.x(64) xor divi.y(32);
-    when "100" =>
-      vaddin1 := r.x(64 downto 32);
-      v.state := "101";
+    when "000" =>	
+		v.cnt := "0000";
+		if(divi.start = '1') then		
+			v.state := "001";
+		end if;
+	when "001" =>
+		--Overflow detection
+		if divi.signed='0' then
+			v.ovf := not(addresx(34));
+			addin1x <= divi.y(32) & divi.y(32) & divi.y;
+			addin2x <= not(divi.op2(32) & divi.op2(32) & divi.op2);
+			addxCin <= '1';
+		else
+			if (divi.op2(32) xor divi.y(32))='0' then --do sub
+				addin1x <= divi.y(32) & divi.y & divi.op1(31);
+				addin2x <= not(divi.op2(32) & divi.op2(32) & divi.op2);
+				addxCin <= '1';
+			else	--do add
+				addin1x <= divi.y(32) & divi.y & divi.op1(31);
+				addin2x <= divi.op2(32) & divi.op2(32) & divi.op2;
+				addxCin <= '0';
+
+			end if;
+			v.ovf := not (addresx(34) xor divi.y(32));
+		end if;
+		
+		v.neg := divi.op2(32) xor divi.y(32);
+	
+	
+		--DO THE PRE SHIFT
+		shifts:=0;
+		if divi.signed='1' then
+			shifter: for I in 0 to 30 loop
+				if divi.op2(32)='1' then	--look for first zero
+					if divi.op2(I)='0' then shifts := 30-I; end if;
+				else	--look for first one
+					if divi.op2(I)='1' then shifts := 30-I; end if;
+				end if;
+			end loop shifter;
+		else
+			ushifter: for I in 0 to 31 loop
+				if divi.op2(I)='1' then shifts := 31-I; end if;
+			end loop ushifter;
+		end if;
+		
+		--shifts => # of shifts to apply
+		
+		v.x := Zero65;
+		v.x(63 downto shifts) := divi.y(31-shifts downto 0) & divi.op1(31 downto 0);
+		v.x(64) := divi.y(32) and divi.signed;
+		
+		v.d := Zero32;
+		v.d(31 downto shifts) := divi.op2(31-shifts downto 0);
+		
+		v.q := Zero32;
+		v.state := "010";
+    when "010" =>	--DO THE CALCULATION
+		addin1x <= compOut1(34 downto 0);
+		addin2x <= compOut2(34 downto 0);
+		addxCin <= t;
+		v.x := addresx(32 downto 0) & r.x(29 downto 0) & "00";	--shift x4
+		v.q := addresq;
+		if r.cnt="1110" then
+			vnready:='1';
+		end if;
+		if r.cnt="1111" then
+		v.state := "011";
+			-- if addresx(34)=divi.y(32) then	--no correction required
+				-- v.state := "000";
+			-- else	--correction required
+				-- v.state := "010";
+			-- end if;
+		else              
+			v.cnt := r.cnt + "0001";  
+		end if;
+	when "011" =>	--RESULT CORRECTION & Finalization
+		v.state := "000";
+		vready:='1';
+		if r.x(64)=not divi.y(32) then	--correction required
+			v.q := addresx(31 downto 0);			
+			if r.q(31)='0' then -- q>=0 => q--
+				addin1x <= "000" & r.q;
+				addin2x <= "000" & One32;
+				addxCin <= '0';
+			else				-- q<0 => q++
+				addin1x <= "000" & r.q;
+				addin2x <= Zero35;
+				addxCin <= '1';
+			end if;
+		end if;
     when others =>
-      vaddin1 := ((not r.x(31)) & r.x(30 downto 0) & '1');
-      vaddin2 := (others => '0'); vaddin2(0) := '1';
-      vaddsub := (not r.neg);-- or (r.zcorr and not r.qcorr); 
-      if ((r.qcorr = '1')  or (r.zero = '1')) and (r.zero2 = '0') then 
-        if (r.zero = '1') and ((r.qcorr = '0') and (r.zcorr = '1')) then 
-	   vaddsub := r.neg; v.qzero := '0';
-	end if;
-        v.x(64 downto 32) := addout; 
-      else
-        v.x(64 downto 32) := vaddin1; v.qzero := '0';
-      end if;
-      if (r.ovf = '1') then
-	v.qzero := '0';
-        v.x(63 downto 32) := (others => '1');
-        if divi.signed = '1' then
-          if r.neg = '1' then v.x(62 downto 32) := (others => '0');
-	  else v.x(63) := '0'; end if;
-	end if;
-      end if;
-      vready := '1';
-      v.state := "000";
+		v.state := "000";
     end case;
 
-    divo.icc <= r.x(63) & r.qzero & r.ovf & '0';
-    if (divi.flush = '1') then v.state := "000"; end if;
-    if (rst = '0') then 
-      v.state := "000"; v.cnt := (others => '0');
-    end if;
+	if r.q=Zero32 then
+		divo.icc(2)<='1';
+	else
+		divo.icc(2)<='0';
+	end if;
+	
+	divo.icc(3) <= r.neg;
+	divo.ready <= vready; divo.nready <= vnready;
     rin <= v;
-    divo.ready <= vready; divo.nready <= vnready;
-    divo.result(31 downto 0) <= r.x(63 downto 32);
-    addin1 <= vaddin1; addin2 <= vaddin2; addsub <= vaddsub;
+    divo.result <= r.q;
+	divo.icc(1) <= r.ovf;
 
   end process;
 
-  divadd : process(addin1, addin2, addsub)
-  variable b : std_logic_vector(32 downto 0);
-  begin
-    if addsub = '1' then b := not addin2; else b := addin2; end if;
-    addout <= addin1 + b + addsub;
-  end process;
-
+  CPAx: addresx <= addin1x + addin2x + addxCin;
+  
+  
   reg : process(clk)
   begin 
     if rising_edge(clk) then 
       if (holdn = '1') then r <= rin; end if;
-      if (rst = '0') then r.state <= "000"; r.cnt <= (others => '0'); end if;
+      if (rst = '0') then r.state <= "000";end if;
     end if;
   end process;
 

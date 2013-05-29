@@ -15,10 +15,10 @@ add wave -group "Original Divider" resOriginal.ready
 add wave -group "Original Divider" resOriginal.nready
 add wave -group "Original Divider" resOriginal.icc
 add wave -group "Original Divider" -radix decimal resOriginal.result
-#add wave -group "Radix-4 Divider" resRadix4.ready
-#add wave -group "Radix-4 Divider" resRadix4.nready
-#add wave -group "Radix-4 Divider" resRadix4.icc
-#add wave -group "Radix-4 Divider" -radix decimal resRadix4.result
+add wave -group "Radix-4 Divider" resRadix4.ready
+add wave -group "Radix-4 Divider" resRadix4.nready
+add wave -group "Radix-4 Divider" resRadix4.icc
+add wave -group "Radix-4 Divider" -radix decimal resRadix4.result
 
 
 TreeUpdate [SetDefaultTree]
@@ -43,13 +43,47 @@ force -freeze clk 1 0, 0 50 ns -r 100
 force -deposit rst 0 0,1 150ns
 force -deposit start 0 0
 force -deposit signed 1 0
+run 900ns
 
-#OPERATION TEST 1 (350/100 = 3)	START @ 1000ns, RESULT @ 4600ns
-force -deposit op1 0000000000000000000000000000000000000000000000000000000101011110 900ns
-force -deposit op2 00000000000000000000000001100100 900ns
-force -deposit signed 0 900ns
-force -deposit start 1 1000ns,0 1250ns
+#OPERATION TEST 1 (350/100 = 3)
+force -deposit op1 0000000000000000000000000000000000000000000000000000000101011110
+force -deposit op2 00000000000000000000000001100100
+force -deposit signed 0
+run 100ns
+force -deposit start 1
+run 250ns
+force -deposit start 0
+run 3650ns
 
-run 13000ns
+#OPERATION TEST 2 (-350/100 = 3)	
+force -deposit op1 1111111111111111111111111111111111111111111111111111111010100010
+force -deposit op2 00000000000000000000000001100100
+force -deposit signed 1
+run 100ns
+force -deposit start 1
+run 250ns
+force -deposit start 0
+run 3650ns
+
+#OPERATION TEST 3 (-350/100 = 3)	
+force -deposit op1 1100000000000000000000000010000000000000000000000000000000000000
+force -deposit op2 10000000000000000000000001100100
+force -deposit signed 1
+run 100ns
+force -deposit start 1
+run 250ns
+force -deposit start 0
+run 3650ns
+
+#OPERATION TEST 4 (-350/100 = 3)	
+force -deposit op1 1100000000000000000000000010000000000000000000000000000000000000
+force -deposit op2 10000000000000000000000001100100
+force -deposit signed 0
+run 100ns
+force -deposit start 1
+run 250ns
+force -deposit start 0
+run 3650ns
+
 
 WaveRestoreZoom {0 ps} {13000ns}

@@ -1,9 +1,9 @@
 Starting programming FPGA board.......
 
-20/05/2013 07:49:33 : User Name: group1
+29/05/2013 12:07:17 : User Name: group1
 
-Release 14.4 - iMPACT P.49d (nt64)
-Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Release 11.1 - iMPACT L.33 (nt64)
+Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.
 Preference Table
 Name                 Setting             
 StartupClock         Auto_Correction     
@@ -16,24 +16,93 @@ UserLevel            Novice
 MessageLevel         Detailed            
 svfUseTime           false               
 SpiByteSwap          Auto_Correction     
-AutoInfer            false               
-SvfPlayDisplayComments false               
-Connecting to cable (Usb Port - USB21).
+Connecting to cable (Usb Port - usb21).
 Checking cable driver.
- Driver file xusbdfwu.sys found.
- Driver version: src=1027, dest=1027.
- Driver windrvr6.sys version = 10.2.1.0. WinDriver v10.21 Jungo (c) 1997 - 2010 Build Date: Aug 31 2010 x86_64 64bit SYS
-14:14:44, version = 1021.
+ Driver file xusb_xlp.sys found.
+ Driver version: src=1029, dest=1029.
+ Driver windrvr6.sys version = 8.1.1.0. WinDriver v8.11 Jungo (c) 1997 - 2007 Build Date: Feb 28 2007 x86_64 64bit SYS
+09:48:01, version = 811.
  Cable PID = 0008.
  Max current requested during enumeration is 74 mA.
-write cmdbuffer failed 20000015.
-write cmdbuffer failed 20000015.
-Loopback test failed. Sent character = 00, Received character = 04.
-Cable connection failed.
+Type = 0x0004.
+ Cable Type = 3, Revision = 0.
+ Setting cable speed to 6 MHz.
+Cable connection established.
+Firmware version = 1301.
+File version of C:/Xilinx/11.1/ProgrammingTools/data/xusb_xlp.hex = 1303.
+Firmware hex file version = 1303.
+Downloading C:/Xilinx/11.1/ProgrammingTools/data/xusb_xlp.hex.
+Downloaded firmware version = 1303.
+PLD file version = 0012h.
+ PLD version = 0012h.
+Identifying chain contents...'0': : Manufacturer's ID = Xilinx xc4vfx60, Version : 2
+INFO:iMPACT:1777 - 
+   Reading C:/Xilinx/11.1/ProgrammingTools/virtex4/data/xc4vfx60.bsd...
+----------------------------------------------------------------------
+INFO:iMPACT:501 - '1': Added Device xc4vfx60 successfully.
+----------------------------------------------------------------------
+'1': : Manufacturer's ID = Xilinx xccace, Version : 0
+INFO:iMPACT:1777 - 
+   Reading C:/Xilinx/11.1/ProgrammingTools/acecf/data/xccace.bsd...
+----------------------------------------------------------------------
+INFO:iMPACT:501 - '1': Added Device xccace successfully.
+----------------------------------------------------------------------
+done.
+Elapsed time =      0 sec.
+Elapsed time =      0 sec.
+'2': Loading file 'D:\Processor_Design\fpga_server\Commands\Uploads\group1.bit'
+...
+done.
+UserID read from the bitstream file = 0xFFFFFFFF.
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream
+   stored in memory,
+   but the original bitstream file remains unchanged.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+INFO:iMPACT:501 - '2': Added Device xc4vfx60 successfully.
+----------------------------------------------------------------------
+Maximum TCK operating frequency for this device chain: 16700000.
+Validating chain...
+Boundary-scan chain validated successfully.
+'2': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+done.
+'2': Reading status register contents...
+CRC error                                         :         0
+Decryptor security set                            :         0
+DCM locked                                        :         1
+DCI matched                                       :         1
+End of startup signal from Startup block          :         1
+status of GTS_CFG_B                               :         1
+status of GWE                                     :         1
+status of GHIGH                                   :         1
+value of MODE pin M0                              :         1
+value of MODE pin M1                              :         1
+Value of MODE pin M2                              :         1
+Internal signal indicates when housecleaning is completed:         1
+Value driver in from INIT pad                     :         1
+Internal signal indicates that chip is configured :         1
+Value of DONE pin                                 :         1
+Indicates when ID value written does not match chip ID:         0
+Decryptor error Signal                            :         0
+System Monitor Over-Temperature Alarm             :         0
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 1111 1110 0000 0000 0000 0000 
+INFO:iMPACT:579 - '2': Completed downloading bit file to device.
+INFO:iMPACT - '2': Programing completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+'2': Programmed successfully.
+INFO:iMPACT - '2': Checking done pin....done.
+Elapsed time =      6 sec.
+WARNING:iMPACT:2635 - BSFILE mode no longer exists. Please use BS mode.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
 FPGA board programmed!
 
 
-Elapsed Time: 0.14023 minutes!
+Elapsed Time: 0.16863 minutes!
 
 Starts to load benchmarks!
 
@@ -46,10 +115,184 @@ Starts to load benchmarks!
   
   This evaluation version will expire on 12/8/2013
 
-Failed to read cable type!
-Exiting GRMON
-cd benchmarks
-cd: benchmarks: No such file or directory
+Xilusb: Cable type/rev : 0x3 
+ JTAG chain (2): xc4vfx60 xccace 
+  Warning: Failed to call Tcl_Init. Some TCL functions won't be working properly
+           To avoid this warning, set environment variable GRMON_SHARE to grmon's
+           share folder or TCL_LIBRARY to a proper tcl/library directory
+  Warning: Failed to call Tcl_Init. Some TCL functions won't be working properly
+           To avoid this warning, set environment variable GRMON_SHARE to grmon's
+           share folder or TCL_LIBRARY to a proper tcl/library directory
+  Device ID:           0x410
+
+  GRLIB build version: 4104
+
+  Detected frequency:  80 MHz
+
+  
+
+  Component                            Vendor
+
+  LEON3 SPARC V8 Processor             Aeroflex Gaisler
+
+  AHB Debug UART                       Aeroflex Gaisler
+
+  JTAG Debug Link                      Aeroflex Gaisler
+
+  GR Ethernet MAC                      Aeroflex Gaisler
+
+  Single-port DDR266 controller        Aeroflex Gaisler
+
+  AHB/APB Bridge                       Aeroflex Gaisler
+
+  LEON3 Debug Support Unit             Aeroflex Gaisler
+
+  LEON2 Memory Controller              European Space Agency
+
+  System ACE I/F Controller            Aeroflex Gaisler
+
+  Generic UART                         Aeroflex Gaisler
+
+  Multi-processor Interrupt Ctrl.      Aeroflex Gaisler
+
+  Modular Timer Unit                   Aeroflex Gaisler
+
+  General Purpose I/O port             Aeroflex Gaisler
+
+  AHB Status Register                  Aeroflex Gaisler
+
+  
+
+  Use command 'info sys' to print a detailed report of attached cores
+
+
+
+grmon2> load linux-2.6.dsu
+  
+  40000000 .stage2                      0B              [>               ]   0%
+  40000000 .stage2                   10.0kB /  10.0kB   [===============>] 100%
+
+  
+  40004000 .vmlinux                     0B              [>               ]   0%
+  40004000 .vmlinux                  24.0kB /   1.3MB   [>               ]   1%
+  40004000 .vmlinux                  48.0kB /   1.3MB   [>               ]   3%
+  40004000 .vmlinux                  72.0kB /   1.3MB   [>               ]   5%
+  40004000 .vmlinux                  96.0kB /   1.3MB   [=>              ]   7%
+  40004000 .vmlinux                 120.0kB /   1.3MB   [=>              ]   9%
+  40004000 .vmlinux                 144.0kB /   1.3MB   [=>              ]  11%
+  40004000 .vmlinux                 168.0kB /   1.3MB   [=>              ]  13%
+  40004000 .vmlinux                 192.0kB /   1.3MB   [==>             ]  14%
+  40004000 .vmlinux                 216.0kB /   1.3MB   [==>             ]  16%
+  40004000 .vmlinux                 240.0kB /   1.3MB   [==>             ]  18%
+  40004000 .vmlinux                 264.0kB /   1.3MB   [===>            ]  20%
+  40004000 .vmlinux                 288.0kB /   1.3MB   [===>            ]  22%
+  40004000 .vmlinux                 312.0kB /   1.3MB   [===>            ]  24%
+  40004000 .vmlinux                 336.0kB /   1.3MB   [===>            ]  26%
+  40004000 .vmlinux                 360.0kB /   1.3MB   [====>           ]  28%
+  40004000 .vmlinux                 384.0kB /   1.3MB   [====>           ]  29%
+  40004000 .vmlinux                 408.0kB /   1.3MB   [====>           ]  31%
+  40004000 .vmlinux                 432.0kB /   1.3MB   [=====>          ]  33%
+  40004000 .vmlinux                 456.0kB /   1.3MB   [=====>          ]  35%
+  40004000 .vmlinux                 480.0kB /   1.3MB   [=====>          ]  37%
+  40004000 .vmlinux                 504.0kB /   1.3MB   [=====>          ]  39%
+  40004000 .vmlinux                 528.0kB /   1.3MB   [======>         ]  41%
+  40004000 .vmlinux                 552.0kB /   1.3MB   [======>         ]  42%
+  40004000 .vmlinux                 576.0kB /   1.3MB   [======>         ]  44%
+  40004000 .vmlinux                 600.0kB /   1.3MB   [=======>        ]  46%
+  40004000 .vmlinux                 624.0kB /   1.3MB   [=======>        ]  48%
+  40004000 .vmlinux                 648.0kB /   1.3MB   [=======>        ]  50%
+  40004000 .vmlinux                 672.0kB /   1.3MB   [=======>        ]  52%
+  40004000 .vmlinux                 696.0kB /   1.3MB   [========>       ]  54%
+  40004000 .vmlinux                 720.0kB /   1.3MB   [========>       ]  56%
+  40004000 .vmlinux                 744.0kB /   1.3MB   [========>       ]  57%
+  40004000 .vmlinux                 768.0kB /   1.3MB   [========>       ]  59%
+  40004000 .vmlinux                 792.0kB /   1.3MB   [=========>      ]  61%
+  40004000 .vmlinux                 816.0kB /   1.3MB   [=========>      ]  63%
+  40004000 .vmlinux                 840.0kB /   1.3MB   [=========>      ]  65%
+  40004000 .vmlinux                 864.0kB /   1.3MB   [==========>     ]  67%
+  40004000 .vmlinux                 888.0kB /   1.3MB   [==========>     ]  69%
+  40004000 .vmlinux                 912.0kB /   1.3MB   [==========>     ]  71%
+  40004000 .vmlinux                 936.0kB /   1.3MB   [==========>     ]  72%
+  40004000 .vmlinux                 960.0kB /   1.3MB   [===========>    ]  74%
+  40004000 .vmlinux                 984.0kB /   1.3MB   [===========>    ]  76%
+  40004000 .vmlinux                1008.0kB /   1.3MB   [===========>    ]  78%
+  40004000 .vmlinux                   1.0MB /   1.3MB   [============>   ]  80%
+  40004000 .vmlinux                   1.0MB /   1.3MB   [============>   ]  82%
+  40004000 .vmlinux                   1.1MB /   1.3MB   [============>   ]  84%
+  40004000 .vmlinux                   1.1MB /   1.3MB   [============>   ]  85%
+  40004000 .vmlinux                   1.1MB /   1.3MB   [=============>  ]  87%
+  40004000 .vmlinux                   1.1MB /   1.3MB   [=============>  ]  89%
+  40004000 .vmlinux                   1.1MB /   1.3MB   [=============>  ]  91%
+  40004000 .vmlinux                   1.2MB /   1.3MB   [==============> ]  93%
+  40004000 .vmlinux                   1.2MB /   1.3MB   [==============> ]  95%
+  40004000 .vmlinux                   1.2MB /   1.3MB   [==============> ]  97%
+  40004000 .vmlinux                   1.2MB /   1.3MB   [==============> ]  99%
+  40004000 .vmlinux                   1.3MB /   1.3MB   [===============>] 100%
+
+  Total size: 1.26MB (1.52Mbit/s)
+
+  Entry point 0x40000000
+
+  Image D:/Processor_Design/fpga_server/Commands/fpgarun/linux-2.6.dsu loaded
+
+  
+
+grmon2> run
+Booting Linux
+Booting Linux...
+PROMLIB: Sun Boot Prom Version 0 Revision 0
+Linux version 2.6.21.1 (xuhuai@xuhuai-VirtualBox) (gcc version 3.4.4) #2 Mon Feb 4 16:01:04 CET 2013
+ARCH: LEON
+TYPE: Leon2/3 System-on-a-Chip
+Ethernet address: 0:0:0:0:0:0
+CACHE: 2-way associative cache, set size 4k
+Boot time fixup v1.6. 4/Mar/98 Jakub Jelinek (jj@ultra.linux.cz). Patching kernel for srmmu[Leon2]/iommu
+Nocache: 0xfc000000-0xfc100000, 256 pages [128-1280]
+node 2: /cpu00 (type:cpu) (props:.node device_type mid mmu-nctx clock-frequency uart1_baud uart2_baud )
+node 3: /a: (type:serial) (props:.node device_type name )
+node 4: /ambapp0 (type:ambapp) (props:.node device_type name )
+PROM: Built device tree from rootnode 1 with 1478 bytes of memory.
+DEBUG: psr.impl = 0xf  fsr.vers = 0x7
+Built 1 zonelists.  Total pages: 15905
+Kernel command line: console=ttyS0,38400 root=254:2 rw rdinit=/sbin/init 
+PID hash table entries: 256 (order: 8, 1024 bytes)
+Todo: init master_l10_counter
+Attaching grlib apbuart serial drivers (clk:80hz):
+Console: colour dummy device 80x25
+Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+pkbase: 0xfc800000 pkend: 0xfcc00000 fixstart 0xfcff1000
+Memory: 62464k/65536k available (1056k kernel code, 3004k reserved, 128k data, 92k init, 0k highmem)
+Mount-cache hash table entries: 512
+leon: power management initialized
+io scheduler noop registered
+io scheduler cfq registered (default)
+grlib apbuart: 1 serial driver(s) at [0x80000100(irq 2)]
+grlib apbuart: system frequency: 80000 khz, baud rates: 38400 38400
+ttyS0 at MMIO 0x80000100 (irq = 2) is a Leon
+Testing fifo size for UART port 0:     got 4 bytes.
+RAMDISK driver initialized: 16 RAM disks of 4096K size 1024 blocksize
+loop: loaded (max 8 devices)
+xsysace xsysace.0: Xilinx SystemACE revision 1.0.12
+xsysace xsysace.0: capacity: 1019088 sectors
+ xsa: xsa1 xsa2
+Xilinx SystemACE device driver, major=254
+kjournald starting.  Commit interval 5 seconds
+EXT3-fs warning: maximal mount count reached, running e2fsck is recommended
+EXT3 FS on xsa2, internal journal
+EXT3-fs: recovery complete.
+EXT3-fs: mounted filesystem with ordered data mode.
+VFS: Mounted root (ext3 filesystem).
+Freeing unused kernel memory: 92k freed
+init started: BusyBox v1.8.2 (2013-02-04 12:01:46 CET)
+starting pid 15, tty '': '/etc/init.d/rcS'
+mount: mounting tmpfs on /var/tmp failed: Invalid argument
+ifconfig: socket: Function not implemented
+ifconfig: socket: Function not implemented
+route: socket: Function not implemented
+route: socket: Function not implemented
+starting pid 26, tty '': '/bin/sh'
+/ # cd benchmarks
 /benchmarks # time ./run.sh
 
 Running: Stanford
@@ -57,14 +300,14 @@ Running: Stanford
 
 Starting 
     Perm  Towers  Queens   Intmm      Mm  Puzzle   Quick  Bubble    Tree     FFT
-     100     117      67     100     816     717      83     150     417    1150
+     100     116      67     100     800     733      84     133     450    1150
 
-Nonfloating point composite is        253
+Nonfloating point composite is        259
 
-Floating point composite is       1001
-real	0m 2.26s
+Floating point composite is       1003
+real	0m 2.32s
 user	0m 2.24s
-sys	0m 0.03s
+sys	0m 0.02s
 
 
 
@@ -76,7 +319,7 @@ Running: Whetstone
 Single Precision C/C++ Whetstone Benchmark
 
 Calibrate
-      22.10 Seconds          1   Passes (x 100)
+      22.09 Seconds          1   Passes (x 100)
 
 Use 4  passes (x 100)
 
@@ -85,15 +328,15 @@ Use 4  passes (x 100)
 Loop content                  Result              MFLOPS      MOPS   Seconds
 
 N1 floating point     -1.12475013732910156         0.291              0.264
-N2 floating point     -1.12274742126464844         0.274              1.960
+N2 floating point     -1.12274742126464844         0.273              1.970
 N3 if then else        1.00000000000000000                   4.600    0.090
-N4 fixed point        12.00000000000000000                   1.680    0.750
-N5 sin,cos etc.        0.49911010265350342                   0.008   41.180
+N4 fixed point        12.00000000000000000                   1.658    0.760
+N5 sin,cos etc.        0.49911010265350342                   0.008   41.150
 N6 floating point      0.99999982118606567         0.246              8.770
-N7 assignments         3.00000000000000000                   2.385    0.310
-N8 exp,sqrt etc.       0.75110864639282227                   0.004   34.830
+N7 assignments         3.00000000000000000                   2.384    0.310
+N8 exp,sqrt etc.       0.75110864639282227                   0.004   34.850
 
-MWIPS                                              0.454             88.154
+MWIPS                                              0.454             88.164
 
 
 ##############################################
@@ -115,21 +358,21 @@ Email
 Loop content                   Result              MFLOPS      MOPS   Seconds
 
 N1 floating point      -1.12475013732910156         0.291               0.264
-N2 floating point      -1.12274742126464844         0.274               1.960
+N2 floating point      -1.12274742126464844         0.273               1.970
 N3 if then else         1.00000000000000000                   4.600     0.090     1.000
-N4 fixed point         12.00000000000000000                   1.680     0.750    12.000
-N5 sin,cos etc.         0.49911010265350342                   0.008    41.180     0.499
+N4 fixed point         12.00000000000000000                   1.658     0.760    12.000
+N5 sin,cos etc.         0.49911010265350342                   0.008    41.150     0.499
 N6 floating point       0.99999982118606567         0.246               8.770
-N7 assignments          3.00000000000000000                   2.385     0.310     3.000
-N8 exp,sqrt etc.        0.75110864639282227                   0.004    34.830     0.751
+N7 assignments          3.00000000000000000                   2.384     0.310     3.000
+N8 exp,sqrt etc.        0.75110864639282227                   0.004    34.850     0.751
 
-MWIPS                                               0.454              88.154
+MWIPS                                               0.454              88.164
 
 Results  to  load  to  spreadsheet                  MWIPS   Mflops1   Mflops2   Mflops3   Cosmops   Expmops  Fixpmops    Ifmops    Eqmops
-Results  to  load  to  spreadsheet                  0.454     0.291     0.274     0.246     0.008     0.004     1.680     4.600     2.385
+Results  to  load  to  spreadsheet                  0.454     0.291     0.273     0.246     0.008     0.004     1.658     4.600     2.384
 
-real	1m 53.30s
-user	1m 53.26s
+real	1m 53.66s
+user	1m 53.22s
 sys	0m 0.05s
 
 
@@ -140,9 +383,9 @@ Running: gmpbench multiply
 Calibrating CPU speed...done
 Multiplying 3000-bit number with 3000-bit number 10000 times...done!
 RESULT: 800 operations per second
-real	0m 13.18s
-user	0m 13.16s
-sys	0m 0.01s
+real	0m 13.66s
+user	0m 13.14s
+sys	0m 0.04s
 
 
 
@@ -150,11 +393,11 @@ Running: gmpbench divide
 ----------------------------------------
 
 Calibrating CPU speed...done
-Dividing an 1024-bit number by an 512-bit number 157539 times...done!
-RESULT: 16292 operations per second
-real	0m 10.18s
-user	0m 10.18s
-sys	0m 0.01s
+Dividing an 1024-bit number by an 512-bit number 163841 times...done!
+RESULT: 16335 operations per second
+real	0m 11.06s
+user	0m 10.54s
+sys	0m 0.03s
 
 
 
@@ -165,10 +408,10 @@ Generating p, q, d...done; pq is 16 bits
 Precomputing CRT constants
 Generating random messages
 Calibrating CPU speed...done
-Signing random messages 49951 times...done!
-RESULT: 5258 operations per second
-real	0m 10.33s
-user	0m 10.32s
+Signing random messages 51200 times...done!
+RESULT: 5284 operations per second
+real	0m 11.06s
+user	0m 10.51s
 sys	0m 0.02s
 
 
@@ -186,38 +429,38 @@ q[6]=2628470
 q[7]=11600796
 q[8]=307313
 q[9]=2249280
-real	0m 7.90s
-user	0m 7.86s
-sys	0m 0.03s
+real	0m 7.68s
+user	0m 7.66s
+sys	0m 0.00s
 
 
 
 Running: mibench JPEG 1st run
 ----------------------------------------
 
-real	0m 22.04s
-user	0m 20.66s
-sys	0m 1.38s
+real	0m 27.73s
+user	0m 24.41s
+sys	0m 2.54s
 
 
 
 Running: mibench JPEG 2ns run
 ----------------------------------------
 
-real	0m 22.02s
-user	0m 20.52s
-sys	0m 1.47s
+real	0m 21.95s
+user	0m 20.30s
+sys	0m 1.64s
 
 
 
 Running: SSD
 ----------------------------------------
 
-Local computed running time: 7346 ms
+Local computed running time: 7345 ms
 
-real	0m 9.81s
-user	0m 9.75s
-sys	0m 0.05s
+real	0m 11.32s
+user	0m 10.20s
+sys	0m 0.20s
 
 
 ----------------------------------------
@@ -225,11 +468,11 @@ All the benchmarks are done.
 
 Total execution time:
 
-real	3m 33.16s
-user	3m 28.70s
-sys	0m 4.39s
+real	3m 42.59s
+user	3m 33.06s
+sys	0m 5.73s
 Finished running benchmarks
 
 
-Elapsed Time: 5.54125 minutes!
+Elapsed Time: 5.53384 minutes!
 

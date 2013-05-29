@@ -1,2 +1,0 @@
-qSelector.vhd
-t3to2compressor.vhd
