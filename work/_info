@@ -51,7 +51,7 @@ L4
 V<`>@3GMPUFcY4SGgf_`X01
 R6
 31
-Z14 !s108 1369861093.455661
+Z14 !s108 1369929244.393228
 Z15 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA.vhd|
 Z16 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA.vhd|
 R8
@@ -86,7 +86,7 @@ L4
 V5@ne:;GJ_SfSFL=PzGXgm2
 R6
 31
-Z20 !s108 1369861093.795949
+Z20 !s108 1369929244.690459
 Z21 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA_array.vhd|
 Z22 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA_array.vhd|
 R8
@@ -121,7 +121,7 @@ L4
 VbNTlZQ5FhFa88AhFPNk`C2
 R6
 31
-Z26 !s108 1369861093.544301
+Z26 !s108 1369929244.468045
 Z27 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/HA.vhd|
 Z28 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/HA.vhd|
 R8
@@ -160,7 +160,7 @@ R6
 31
 b1
 !i10b 1
-Z33 !s108 1369861093.868236
+Z33 !s108 1369929244.741210
 Z34 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mypackage.vhd|
 Z35 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mypackage.vhd|
 R8
@@ -186,7 +186,7 @@ nbody
 Ptypespackage
 R1
 R2
-Z39 w1369860168
+Z39 w1369928708
 R3
 Z40 8/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd
 Z41 F/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd
@@ -195,7 +195,7 @@ L13
 V9?_`m]?RkLl8cd>a=ah@k0
 R6
 31
-Z42 !s108 1369861093.604288
+Z42 !s108 1369929244.546040
 Z43 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd|
 Z44 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd|
 R8
@@ -214,7 +214,7 @@ R40
 R41
 l0
 L30
-VE=c:GRC2H@JX:HF:20^nQ3
+V>]LoJ6BoU=@lL45<0QRYS0
 R6
 31
 R42
@@ -222,7 +222,7 @@ R43
 R44
 R8
 R9
-!s100 bae`M?5I9Fh8bOhaIjgil0
+!s100 NY9`:GYcTSmhmhi2RV4KE2
 !i10b 1
 Abehavioral
 R45
@@ -230,10 +230,10 @@ R36
 R29
 R1
 R2
-DEx4 work 18 wallace_multiplier 0 22 E=c:GRC2H@JX:HF:20^nQ3
-l111
-L61
-V^1E^`dgJ1h45jWWF`mEMF3
+DEx4 work 18 wallace_multiplier 0 22 >]LoJ6BoU=@lL45<0QRYS0
+l118
+L62
+V_:U=DkgXeQfi;mii^JKd73
 R6
 31
 R42
@@ -241,10 +241,10 @@ R43
 R44
 R8
 R9
-!s100 mJ<][zzEAo7=Yld`1cR3f3
+!s100 Na0R23oJ>fP?ghRNGz0:f3
 !i10b 1
 Ewallace_multiplier_tb
-Z46 w1369861088
+Z46 w1369929233
 R45
 R29
 R1
@@ -254,15 +254,15 @@ Z47 8/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Projec
 Z48 F/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier_tb.vhd
 l0
 L7
-VaH7_mfBjea74_UM1][P793
+Vnki8NlGCL]2O4RDBlaS9=1
 R6
 31
-Z49 !s108 1369861093.710060
+Z49 !s108 1369929244.632608
 Z50 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier_tb.vhd|
 Z51 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier_tb.vhd|
 R8
 R9
-!s100 J25=ebY7_=E;aY4NKYIb73
+!s100 fTQL[ocePTEoh4554@D1_3
 !i10b 1
 Atb
 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
@@ -270,10 +270,10 @@ R45
 R29
 R1
 R2
-DEx4 work 21 wallace_multiplier_tb 0 22 aH7_mfBjea74_UM1][P793
-l73
+DEx4 work 21 wallace_multiplier_tb 0 22 nki8NlGCL]2O4RDBlaS9=1
+l75
 L13
-Vn;9Zj=OSAzGbkVX9_3YYG1
+VQTbbz<ElGHbCRYnM:LQ693
 R6
 31
 R49
@@ -281,5 +281,5 @@ R50
 R51
 R8
 R9
-!s100 ?L5QRPB8Mokh`nfMk7l@f1
+!s100 ^=@e6AfEKEI9=ongl_=SN3
 !i10b 1

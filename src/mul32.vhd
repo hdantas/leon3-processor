@@ -111,8 +111,13 @@ BEGIN
 	inp_prc: PROCESS (clk,muli)
 	BEGIN
 		IF (risingedge(clk) AND (muli.start = '1')) THEN
-			input_a <= muli.op1;
-			input_b <= muli.op2;
+			IF (muli.flush = '1') THEN
+				input_a <= (OTHERS => '0');	
+				input_a <= (OTHERS => '1');
+			ELSE
+				input_a <= muli.op1;
+				input_b <= muli.op2;
+			END IF;
 		END IF;
 	END PROCESS;
 

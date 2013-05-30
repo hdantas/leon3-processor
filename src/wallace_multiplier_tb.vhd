@@ -6,7 +6,7 @@ USE work.typespackage.all;
 
 ENTITY wallace_multiplier_tb IS
 	GENERIC (
-		width: INTEGER := 32
+		width: INTEGER := 16
 	);
 END wallace_multiplier_tb;
 
@@ -14,6 +14,7 @@ ARCHITECTURE tb OF wallace_multiplier_tb IS
 
 	SIGNAL t_reset				: STD_LOGIC;
 	SIGNAL t_clk				: STD_LOGIC;
+	SIGNAL t_holdn				: STD_LOGIC;
 
 	SIGNAL t_a					: STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL t_b					: STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -34,12 +35,13 @@ ARCHITECTURE tb OF wallace_multiplier_tb IS
 	COMPONENT wallace_multiplier
 		GENERIC (
 			multype				: INTEGER;
-			pipe				: STD_ULOGIC;
-			width				: INTEGER
+			pipe				: STD_ULOGIC
+			-- width				: INTEGER
 		);
 		PORT (
 			reset				: IN STD_ULOGIC;
 			clock				: IN STD_ULOGIC;
+			holdn				: IN STD_ULOGIC;
 
 			-- muli related signals
 			op1					: IN STD_LOGIC_VECTOR(32 DOWNTO 0);
@@ -55,10 +57,10 @@ ARCHITECTURE tb OF wallace_multiplier_tb IS
 			result				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 
 			-- debugging signals
-			db_tmp_result		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
+			-- db_tmp_result		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
 			db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-			db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-			db_number_bits_port	: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0)
+			db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
+			-- db_number_bits_port	: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0)
 		);
 	END COMPONENT;
 	
@@ -73,14 +75,15 @@ ARCHITECTURE tb OF wallace_multiplier_tb IS
 BEGIN
 	U_wallace_mult: wallace_multiplier
 	GENERIC MAP (
-		multype => 0,
-		pipe => '0',
-		width => width
+		multype => 3,
+		pipe => '0'
+		-- width => width
 	)
 	PORT MAP (
 		reset => t_reset,
 		clock => t_clk,
-
+		holdn => t_holdn,
+		
 		op1(31 DOWNTO 0) => t_a,
 		op1(32) => is_t_a_signed,
 		op2(31 DOWNTO 0) => t_b,
@@ -94,10 +97,10 @@ BEGIN
 		icc => t_icc,
 		result => t_p,
 
-		db_tmp_result => t_tmp_result,
+		-- db_tmp_result => t_tmp_result,
 		db_prod_a => t_p_a,
-		db_prod_b => t_p_b,
-		db_number_bits_port => t_number_bits_port
+		db_prod_b => t_p_b
+		-- db_number_bits_port => t_number_bits_port
 	);
 
 	-- Clock Process
@@ -116,8 +119,8 @@ BEGIN
 
 		VARIABLE v_a	: INTEGER := max_val;
 		VARIABLE v_b	: INTEGER := min_val;
-		-- VARIABLE i		: INTEGER := (max_val-min_val-1)/10;
-		VARIABLE i		: INTEGER := 429496729;
+		VARIABLE i		: INTEGER := (max_val-min_val-1)/10;
+
 	BEGIN
 		
 		FOR j IN 0 TO 10 LOOP
@@ -158,9 +161,18 @@ BEGIN
 	-- Reset Process
 	rst_prc: PROCESS
 	BEGIN
-		t_reset <= '1';
-		WAIT FOR 10 ns;
 		t_reset <= '0';
+		WAIT FOR 10 ns;
+		t_reset <= '1';
+		WAIT;
+	END PROCESS;
+
+	-- holdn Process
+	holdn_prc: PROCESS
+	BEGIN
+		t_holdn <= '1';
+		WAIT FOR 80 ns;
+		t_holdn <= '0';
 		WAIT;
 	END PROCESS;
 

@@ -1,3 +1,9 @@
+
+
+
+
+
+
 adicionar restantes sinais (ver MUL32_DIV32.pdf)
 adapt wallace multiplier to the new signals
 define new types restricting the range of signals: http://webdocs.cs.ualberta.ca/~amaral/courses/329/labs/VHDL_Reference.html
