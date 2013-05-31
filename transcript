@@ -67,3 +67,642 @@ restart -f
 # ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
 # This port will contribute value (UUUU) to the signal network.
 run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 27 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 27 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 5 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 5 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 4 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 4 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 4 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 4 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 3 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 3 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 3 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 3 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# ** Failure: (vsim-3424) STD_LOGIC_1164."and":Arguments of overloaded "and" operator are not the same length
+#    Time: 15 ns  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Failure: (vsim-3424) STD_LOGIC_1164."and":Arguments of overloaded "and" operator are not the same length
+#    Time: 25 ns  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Failure: (vsim-3424) STD_LOGIC_1164."and":Arguments of overloaded "and" operator are not the same length
+#    Time: 35 ns  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Failure: (vsim-3424) STD_LOGIC_1164."and":Arguments of overloaded "and" operator are not the same length
+#    Time: 45 ns  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Failure: (vsim-3424) STD_LOGIC_1164."and":Arguments of overloaded "and" operator are not the same length
+#    Time: 55 ns  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Failure: (vsim-3424) STD_LOGIC_1164."and":Arguments of overloaded "and" operator are not the same length
+#    Time: 65 ns  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# ** Failure: (vsim-3424) STD_LOGIC_1164."and":Arguments of overloaded "and" operator are not the same length
+#    Time: 75 ns  Iteration: 1  Instance: /wallace_multiplier_tb/U_wallace_mult
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 2 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 2 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 2 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 2 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 1 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 1 error. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# ** Fatal: (vsim-3420) Array lengths do not match. Left is 16 (15 downto 0). Right is 64 (0 to 63).
+#    Time: 0 ps  Iteration: 0  Process: /wallace_multiplier_tb/U_wallace_mult/line__282 File: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd
+# Fatal error in Architecture behavioral at /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd line 282
+# 
+# HDL call sequence:
+# Stopped at /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd 282 Architecture behavioral
+# 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd failed with 1 errors.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 1 error. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd failed with 3 errors.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 3 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 2 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 2 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 2 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 2 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 3 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 3 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 3 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 3 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# ** Fatal: (vsim-3421) Value 8 is out of range 0 to 7.
+#    Time: 0 ps  Iteration: 0  Process: /wallace_multiplier_tb/U_wallace_mult/wallace_proc File: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd
+# Fatal error in ForLoop loop at /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd line 148
+# 
+# HDL call sequence:
+# Stopped at /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd 148 ForLoop loop
+# 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# ** Fatal: (vsim-3421) Value 8 is out of range 0 to 7.
+#    Time: 0 ps  Iteration: 0  Process: /wallace_multiplier_tb/U_wallace_mult/wallace_proc File: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd
+# Fatal error in ForLoop loop at /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd line 148
+# 
+# HDL call sequence:
+# Stopped at /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd 148 ForLoop loop
+# 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# ** Fatal: (vsim-3421) Value -24 is out of range 0 to 7.
+#    Time: 0 ps  Iteration: 0  Process: /wallace_multiplier_tb/U_wallace_mult/wallace_proc File: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd
+# Fatal error in ForLoop loop at /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd line 155
+# 
+# HDL call sequence:
+# Stopped at /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd 155 ForLoop loop
+# 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# ** Fatal: (vsim-3421) Value 8 is out of range 0 to 7.
+#    Time: 0 ps  Iteration: 0  Process: /wallace_multiplier_tb/U_wallace_mult/wallace_proc File: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd
+# Fatal error in ForLoop loop at /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd line 186
+# 
+# HDL call sequence:
+# Stopped at /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/wallace_multiplier.vhd 186 ForLoop loop
+# 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 2 errors.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 1 failed with 2 errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+# Warning in wave window restart: (vish-4014) No objects found matching '/wallace_multiplier_tb/width'. 
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+restart -f
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful with warnings.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run
+# Compile of FA.vhd was successful.
+# Compile of HA.vhd was successful.
+# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier_tb.vhd was successful.
+# Compile of FA_array.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# 6 compiles, 0 failed with no errors. 
+restart -f
+# Loading work.typespackage
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+run

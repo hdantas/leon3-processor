@@ -52,41 +52,44 @@ ENTITY wallace_multiplier IS
 		result				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 
 		-- debugging signals
-		-- db_tmp_result		: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0);
+		db_tmp_result		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 		db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
-		-- db_number_bits_port	: OUT STD_LOGIC_VECTOR(2*width-1 DOWNTO 0)
+		db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		db_number_bits_port	: OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
 	);
 END wallace_multiplier;
 
 ARCHITECTURE behavioral OF wallace_multiplier IS
 	TYPE layer_depth_type IS ARRAY(32 DOWNTO 3) OF INTEGER;
-	TYPE multiplier_size_type IS ARRAY(3 DOWNTO 0) OF INTEGER;
+	TYPE operand_size_type IS ARRAY(3 DOWNTO 0) OF INTEGER;
 	-- CONSTANT layer_depth: layer_depth_type := (9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,6,5,5,4,3,3);
 	-- CONSTANT levels: INTEGER := layer_depth(width);
 
-	CONSTANT multiplier_size				: multiplier_size_type := (32,32,32,16);
-	CONSTANT width							: INTEGER := multiplier_size(multype);
+
+	CONSTANT op1_width_vector				: operand_size_type := (32,32,32,16);
+	CONSTANT op2_width_vector				: operand_size_type := (32,16,8,16);
+	CONSTANT width							: INTEGER := op1_width_vector(multype) + op2_width_vector(multype); -- result's width
+	CONSTANT op1_width						: INTEGER := op1_width_vector(multype);
+	CONSTANT op2_width						: INTEGER := op2_width_vector(multype);
+	
 	CONSTANT layer_depth					: layer_depth_type := (9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,6,5,5,4,3,3);
-	CONSTANT levels							: INTEGER := layer_depth(width);
+	CONSTANT levels							: INTEGER := layer_depth(op2_width);
+	CONSTANT add_vector_baugh_wooley		: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := '1' & (width-2 DOWNTO op2_width+1 => '0') & '1' & (op2_width-1 DOWNTO 0 => '0');
 
-	CONSTANT add_vector_baugh_wooley		: STD_LOGIC_VECTOR((2*width-1) DOWNTO 0) := '1' & (2*width-2 DOWNTO width+1 => '0') & '1' & (width-1 DOWNTO 0 => '0');
+	TYPE WallaceTree_type IS ARRAY(levels-1 DOWNTO 0,op2_width-1 DOWNTO 0, width-1 DOWNTO 0) OF STD_LOGIC;
 
-	TYPE WallaceTree_type IS ARRAY(levels-1 DOWNTO 0,width-1 DOWNTO 0, 2*width-1 DOWNTO 0) OF STD_LOGIC;
-	TYPE add_type IS ARRAY (2*width-1 DOWNTO 0) OF STD_LOGIC;
-
-	SIGNAL baugh_wooley_add					: STD_LOGIC_VECTOR((2*width-1) DOWNTO 0);
+	SIGNAL baugh_wooley_add					: STD_LOGIC_VECTOR((width-1) DOWNTO 0);
 	SIGNAL WallaceTree						: WallaceTree_type := (OTHERS => (OTHERS => (OTHERS => '0'))); -- Wallace tree
-	SIGNAL add_a, add_b, add_sum,add_cout	: STD_LOGIC_VECTOR(2*width-1 DOWNTO 0); --for final adder
+	SIGNAL add_a, add_b, add_sum,add_cout	: STD_LOGIC_VECTOR(width-1 DOWNTO 0); --for final adder
 	SIGNAL c_in								: STD_LOGIC := '0';
 	SIGNAL tmp_x							: STD_LOGIC := '0';
 	SIGNAL tmp_y							: STD_LOGIC := '0';
 	SIGNAL tmp_cin							: STD_LOGIC := '0';
 	SIGNAL tmp_cout							: STD_LOGIC := '0';
 	SIGNAL tmp_s							: STD_LOGIC := '0';
-	SIGNAL tmp_result						: STD_LOGIC_VECTOR((2*width-1) DOWNTO 0) := (OTHERS => '0');
+	SIGNAL tmp_result						: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := (OTHERS => '0');
 
-	TYPE number_bits_type IS ARRAY (2*width-1 DOWNTO 0) OF NATURAL;
+	TYPE number_bits_type IS ARRAY (width-1 DOWNTO 0) OF NATURAL;
  		
 
 	-- COMPONENT bk_adder --brent kung adder
@@ -116,8 +119,6 @@ ARCHITECTURE behavioral OF wallace_multiplier IS
 	-- END COMPONENT;
 
 BEGIN
-	-- add_vector_baugh_wooley(2*width-1) <= '1';
-	-- add_vector_baugh_wooley(width) <= '1';
 
 
 	wallace_proc: PROCESS (clock,reset,WallaceTree)
@@ -136,44 +137,39 @@ BEGIN
 
 	BEGIN
 		IF(reset = '0') THEN
-			FOR k IN 0 TO levels-1 LOOP
-				FOR i IN width-1 DOWNTO 0 LOOP
-					FOR j IN 2*width-1 DOWNTO 0 LOOP
-						WallaceTree(k,i,j) <= '0';
-					END LOOP;
-				END LOOP;
-			END LOOP;
+			WallaceTree <= (OTHERS => (OTHERS => (OTHERS => '0'))); -- Reset WallaceTree
 		ELSE
-		 	FOR i IN 0 TO width-1 LOOP -- initialize WallaceTree
-				FOR j IN 0 TO width-1 LOOP
-					IF ((j+i) <= (2*width-1)/2) THEN --make sure each column starts from row 0
-						IF ((i = width-1) OR (j= width-1)) AND (i/=j) AND ((op1(32) = '1') OR (op2(32) = '1')) AND (is_signed = 1) THEN
-							WallaceTree(0,i,j+i) <= NOT(op1(i) AND op2(j)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+		 	FOR i IN 0 TO op2_width-1 LOOP -- i: operand 2 index
+				FOR j IN 0 TO op1_width-1 LOOP -- j: operand 1 index
+					IF ((j+i) <= (op1_width-1)) THEN --make sure each column starts from row 0
+						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND ((op1(32) = '1') OR (op2(32) = '1')) AND (is_signed = '1') THEN
+							WallaceTree(0,i,j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 						ELSE
-							WallaceTree(0,i,j+i) <= op1(i) AND op2(j);
+							WallaceTree(0,i,j+i) <= op1(j) AND op2(i);
 						END IF;
 
-					ELSIF ((j+i)>(2*width-1)/2) THEN
-						IF ((i = width-1) OR (j= width-1)) AND (i/=j) AND ((op1(32) = '1') OR (op2(32) = '1'))THEN
-							WallaceTree(0,i-(i+j-((2*width-1)/2)),j+i) <= NOT(op1(i) AND op2(j)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+					ELSIF ((j+i)>(op1_width-1)) THEN
+						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND ((op1(32) = '1') OR (op2(32) = '1')) AND (is_signed = '1') THEN
+							WallaceTree(0,op1_width-1-j,j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 						ELSE
-							WallaceTree(0,i-(i+j-((2*width-1)/2)),j+i) <= op1(i) AND op2(j);
+							WallaceTree(0,op1_width-1-j,j+i) <= op1(j) AND op2(i);
 						END IF;
 					END IF;
 				END LOOP;
 			END LOOP;
 
-			FOR i IN 0 TO 2*width-2 LOOP -- initialize number_bits (ie how many bits each column has)
-				IF (i <= (2*width-1)/2) THEN
-					number_bits(i) := i+1;
-				ELSIF (i>(2*width-1)/2) THEN
-					number_bits(i) := 2*width-1-i;
+			FOR j IN 0 TO width-2 LOOP -- initialize number_bits (ie how many bits each column has)
+				IF (j <= (op2_width-1)) THEN
+					number_bits(j) := j+1;
+				ELSIF (j>=(width-op2_width-1)) THEN
+					number_bits(j) := width-1-j;
+				ELSE
+					number_bits(j) := op2_width;
 				END IF;
 			END LOOP;
 		 	
-
 			FOR k IN 0 TO levels-2 LOOP -- k = level
-				FOR j IN 0 TO 2*width-2 LOOP -- j = column
+				FOR j IN 0 TO width-2 LOOP -- j = column
 					current_row := 0; --pointer for row of current level
 					next_level_row := next_level_number_bits(j); -- pointer for row of next level (s from FA and HA and remainder bit go here)
 					-- it may not be 0 because there maybe couts from previous column
@@ -242,7 +238,7 @@ BEGIN
 	signal_vect_proc: PROCESS(WallaceTree)
 	BEGIN
 		FOR k IN 0 TO levels-1 LOOP
-			FOR j IN 0 TO 2*width-1 LOOP
+			FOR j IN 0 TO width-1 LOOP
 				add_a(j) <= WallaceTree(levels-1,0,j);
 				add_b(j) <= WallaceTree(levels-1,1,j);
 			END LOOP;
@@ -273,20 +269,23 @@ BEGIN
 			IF(reset = '0') THEN
 				tmp_result <= (OTHERS => '0');
 			ELSIF (holdn = '1') THEN
-				baugh_wooley_add <= (add_vector_baugh_wooley) AND ((2*width-1) DOWNTO 0 => (op1(32) OR op2(32)));
-				tmp_result <= std_logic_vector(signed(add_a) + signed(add_b)+ signed(baugh_wooley_add));
+				IF ((is_signed = '1') AND (op1(32) = '1' OR op2(32) = '1')) THEN
+					tmp_result <= std_logic_vector(signed(add_a) + signed(add_b)+ signed(add_vector_baugh_wooley));
+				ELSE
+					tmp_result <= std_logic_vector(unsigned(add_a) + unsigned(add_b));
+				END IF;
 			END IF;
 		END IF;
 	END PROCESS;
 	
 
 	
-	result <= (63 DOWNTO (2*width) => tmp_result(2*width-1)) & tmp_result;
+	result <= (63 DOWNTO width => tmp_result(width-1)) & tmp_result;
 	-- prod <= (OTHERS => '0');
-	-- db_tmp_result <= tmp_result;
-	-- db_number_bits_port <= baugh_wooley_add;
-	db_prod_a <= (63 DOWNTO (2*width) => '0') & add_a;
-	db_prod_b <= (63 DOWNTO (2*width) => '0') & add_b;
+	db_tmp_result <= (63 DOWNTO width => '0') & baugh_wooley_add;
+	db_number_bits_port <= (63 DOWNTO width => '0') & add_vector_baugh_wooley;
+	db_prod_a <= (63 DOWNTO width => '0') & add_a;
+	db_prod_b <= (63 DOWNTO width => '0') & add_b;
 	
 END behavioral;
 	

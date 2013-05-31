@@ -1,16 +1,9 @@
 
-
-
-
-
-
-adicionar restantes sinais (ver MUL32_DIV32.pdf)
-adapt wallace multiplier to the new signals
-define new types restricting the range of signals: http://webdocs.cs.ualberta.ca/~amaral/courses/329/labs/VHDL_Reference.html
-edit mul32 with new signals
-edit testbench and edit
-clean up code
+implement mac/acc
+implement icc
+implement ready
+integrate mul32 in the mix and create a new testbench for it based on the current tb
 definir adder (brent kung?)
-adaptar multiplicador para inputs de tamanhos diferentes
+tidy everything up
 synthesize and pray it works
 improve wallace to dada?
