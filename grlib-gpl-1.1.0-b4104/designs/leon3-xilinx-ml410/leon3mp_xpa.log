@@ -140,7 +140,7 @@ ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for rst0/r(0).
 Running Vector-less Activity Propagation
 ............
 Finished Running Vector-less Activity Propagation
-Finished Running Vector-less Activity Propagation 7 secs 
+Finished Running Vector-less Activity Propagation 6 secs 
 WARNING:Power:1337 - Clock frequency for clock net
    "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/dll0/clkgen0/xc2v.v/dll0/CLKOUT" is zero.
 WARNING:Power:1337 - Clock frequency for clock net
@@ -276,7 +276,7 @@ WARNING:Power:1369 - Clock frequency for one or more clocks was not found
         frequencies
      3. The clock frequency for clocks in the "By Type -> Clocks" view in the
         XPower Analyzer GUI and then applying "Update Power Analysis"
-Matched 4% (1111/28958) of design nets
+Matched 4% (1111/28959) of design nets
 Matched 1% (239/17142) of simulation nets
 WARNING:Power:1337 - Clock frequency for clock net
    "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/dll0/clkgen0/xc2v.v/dll0/CLKOUT" is zero.
