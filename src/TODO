@@ -1,8 +1,5 @@
-
-implement mac/acc
-implement icc
-implement ready
-integrate mul32 in the mix and create a new testbench for it based on the current tb
+escrever tb for mul32 e testar com proj
+verify ready and fix issue with when the result is ready
 definir adder (brent kung?)
 tidy everything up
 synthesize and pray it works

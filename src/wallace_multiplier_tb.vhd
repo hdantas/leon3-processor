@@ -31,8 +31,8 @@ ARCHITECTURE tb OF wallace_multiplier_tb IS
 	
 	COMPONENT wallace_multiplier
 		GENERIC (
-			multype				: INTEGER;
-			pipe				: STD_ULOGIC
+			multype				: INTEGER
+			--pipe				: STD_ULOGIC
 		);
 		PORT (
 			reset				: IN STD_ULOGIC;
@@ -42,7 +42,7 @@ ARCHITECTURE tb OF wallace_multiplier_tb IS
 			-- muli related signals
 			op1					: IN STD_LOGIC_VECTOR(32 DOWNTO 0);
 			op2					: IN STD_LOGIC_VECTOR(32 DOWNTO 0);
-			flush				: IN STD_LOGIC;
+			--flush				: IN STD_LOGIC;
 			is_signed			: IN STD_LOGIC;
 			mac					: IN STD_LOGIC;
 			acc					: IN STD_LOGIC_VECTOR(39 DOWNTO 0);
@@ -71,8 +71,8 @@ ARCHITECTURE tb OF wallace_multiplier_tb IS
 BEGIN
 	U_wallace_mult: wallace_multiplier
 	GENERIC MAP (
-		multype => 1,
-		pipe => '0'
+		multype => 3
+		-- pipe => '0'
 	)
 	PORT MAP (
 		reset => t_reset,
@@ -83,19 +83,19 @@ BEGIN
 		op1(32) => is_t_a_signed,
 		op2(31 DOWNTO 0) => t_b,
 		op2(32) => is_t_b_signed,
-		flush => '0',
+		-- flush => '0',
 		is_signed => '1',
 		mac => '0',
 		acc => (OTHERS => '0'),
 
 		ready => t_ready,
 		icc => t_icc,
-		result => t_p,
+		result => t_p
 
-		db_tmp_result => t_tmp_result,
-		db_prod_a => t_p_a,
-		db_prod_b => t_p_b,
-		db_number_bits_port => t_number_bits_port
+		-- db_tmp_result => t_tmp_result,
+		-- db_prod_a => t_p_a,
+		-- db_prod_b => t_p_b,
+		-- db_number_bits_port => t_number_bits_port
 	);
 
 	-- Clock Process
@@ -109,12 +109,12 @@ BEGIN
 
 	-- Input Processes
 	inp_prc: PROCESS
-		CONSTANT max_val : INTEGER := 2**(30);
-		CONSTANT min_val : INTEGER := 2**(8)-1;
+		CONSTANT max_val : INTEGER := -15;
+		CONSTANT min_val : INTEGER := -25;
 
 		VARIABLE v_a	: INTEGER := max_val;
 		VARIABLE v_b	: INTEGER := min_val;
-		VARIABLE i		: INTEGER := (max_val-min_val-1)/10;
+		VARIABLE i		: INTEGER := 1;--(max_val-min_val-1)/10;
 
 	BEGIN
 		
@@ -142,13 +142,13 @@ BEGIN
 				is_t_b_signed <= '0';
 			END IF;
 
-			IF (j<5) THEN
+			-- IF (j<5) THEN
 				v_a := v_a - i;
 				v_b := v_b + i;
-			ELSE
-				v_a := v_a + i;
-				v_b := v_b + i;
-			END IF;
+			-- ELSE
+			-- 	v_a := v_a + i;
+			-- 	v_b := v_b + i;
+			-- END IF;
 		END LOOP;
 
 	END PROCESS;

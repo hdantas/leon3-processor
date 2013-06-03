@@ -29,8 +29,8 @@ USE work.typespackage.all;
 
 ENTITY wallace_multiplier IS
 	GENERIC (
-		multype				: INTEGER;
-		pipe				: STD_ULOGIC
+		multype				: INTEGER
+		--pipe				: STD_ULOGIC
 		-- width				: INTEGER
 	);
 	PORT (
@@ -41,7 +41,6 @@ ENTITY wallace_multiplier IS
 		-- muli related signals
 		op1					: IN STD_LOGIC_VECTOR(32 DOWNTO 0);
 		op2					: IN STD_LOGIC_VECTOR(32 DOWNTO 0);
-		flush				: IN STD_LOGIC;
 		is_signed			: IN STD_LOGIC;
 		mac					: IN STD_LOGIC;
 		acc					: IN STD_LOGIC_VECTOR(39 DOWNTO 0);
@@ -71,10 +70,10 @@ ARCHITECTURE behavioral OF wallace_multiplier IS
 	CONSTANT width							: INTEGER := op1_width_vector(multype) + op2_width_vector(multype); -- result's width
 	CONSTANT op1_width						: INTEGER := op1_width_vector(multype);
 	CONSTANT op2_width						: INTEGER := op2_width_vector(multype);
-	
 	CONSTANT layer_depth					: layer_depth_type := (9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,6,5,5,4,3,3);
 	CONSTANT levels							: INTEGER := layer_depth(op2_width);
 	CONSTANT add_vector_baugh_wooley		: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := '1' & (width-2 DOWNTO op2_width+1 => '0') & '1' & (op2_width-1 DOWNTO 0 => '0');
+	CONSTANT zeros							: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
 
 	TYPE WallaceTree_type IS ARRAY(levels-1 DOWNTO 0,op2_width-1 DOWNTO 0, width-1 DOWNTO 0) OF STD_LOGIC;
 
@@ -87,8 +86,9 @@ ARCHITECTURE behavioral OF wallace_multiplier IS
 	SIGNAL tmp_cin							: STD_LOGIC := '0';
 	SIGNAL tmp_cout							: STD_LOGIC := '0';
 	SIGNAL tmp_s							: STD_LOGIC := '0';
+	SIGNAL tmp_icc							: STD_LOGIC_VECTOR (3 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL tmp_result						: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := (OTHERS => '0');
-
+	SIGNAL tmp_ready						: STD_LOGIC := '0';
 	TYPE number_bits_type IS ARRAY (width-1 DOWNTO 0) OF NATURAL;
  		
 
@@ -266,20 +266,40 @@ BEGIN
 	out_proc: PROCESS(clock,reset,holdn)
 	BEGIN
 		IF(clock'EVENT AND clock = '1') THEN
+			tmp_ready <= NOT tmp_ready;
 			IF(reset = '0') THEN
 				tmp_result <= (OTHERS => '0');
 			ELSIF (holdn = '1') THEN
+
+
+				IF (op1 = zeros XOR op2 = zeros) THEN
+					tmp_icc(2) <= '1'; -- is result zero?
+				ELSE
+					tmp_icc(2) <= '0';
+				END IF;
+
+				IF (is_signed = '1' AND ((op1(32) XOR op2(32)) = '1')) THEN
+					tmp_icc(3) <= '1'; -- is result negative?
+				ELSE
+					tmp_icc (3) <= '0';
+				END IF;
+
 				IF ((is_signed = '1') AND (op1(32) = '1' OR op2(32) = '1')) THEN
 					tmp_result <= std_logic_vector(signed(add_a) + signed(add_b)+ signed(add_vector_baugh_wooley));
 				ELSE
 					tmp_result <= std_logic_vector(unsigned(add_a) + unsigned(add_b));
 				END IF;
+
+				IF (mac = '1') THEN
+					tmp_result <= std_logic_vector(signed(tmp_result) + signed(acc));
+				END IF;
 			END IF;
 		END IF;
 	END PROCESS;
 	
-
 	
+	icc <= tmp_icc;
+	ready <= tmp_ready;
 	result <= (63 DOWNTO width => tmp_result(width-1)) & tmp_result;
 	-- prod <= (OTHERS => '0');
 	db_tmp_result <= (63 DOWNTO width => '0') & baugh_wooley_add;
