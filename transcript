@@ -10,33 +10,76 @@
 # //
 # OpenFile multiplier.mpf 
 # Loading project multiplier
-# Compile of FA.vhd was successful.
-# Compile of HA.vhd was successful.
+# Compile of mypackage.vhd was successful.
+# Compile of mul32.vhd failed with 5 errors.
+# Compile of mul32_tb.vhd failed with 5 errors.
 # Compile of wallace_multiplier.vhd failed with 5 errors.
 # Compile of wallace_multiplier_tb.vhd was successful.
-# Compile of FA_array.vhd was successful.
+# 5 compiles, 3 failed with 15 errors. 
 # Compile of mypackage.vhd was successful.
-# Compile of mul32.vhd failed with 5 errors.
-# Compile of mul32_tb.vhd was successful.
-# 8 compiles, 2 failed with 10 errors. 
-# Compile of FA.vhd was successful.
-# Compile of HA.vhd was successful.
-# Compile of wallace_multiplier.vhd was successful.
+# Compile of wallace_multiplier.vhd failed with 5 errors.
 # Compile of wallace_multiplier_tb.vhd was successful.
-# Compile of FA_array.vhd was successful.
-# Compile of mypackage.vhd was successful.
-# Compile of mul32.vhd failed with 5 errors.
-# Compile of mul32_tb.vhd was successful.
-# 8 compiles, 1 failed with 5 errors. 
-# Compile of FA.vhd was successful.
-# Compile of HA.vhd was successful.
+# 3 compiles, 1 failed with 5 errors. 
 # Compile of wallace_multiplier.vhd was successful.
+vsim work.wallace_multiplier_tb
+# vsim work.wallace_multiplier_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.typespackage
+# Loading ieee.std_logic_textio(body)
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Fatal: (vsim-3350) Generic "pipe" has not been given a value.
+#    Time: 0 ps  Iteration: 0  Instance: /wallace_multiplier_tb/U_wallace_mult File: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/ref/wallace_multiplier.vhd Line: 33
+# FATAL ERROR while loading design
+# Error loading design
+# Compile of wallace_multiplier.vhd failed with 1 errors.
 # Compile of wallace_multiplier_tb.vhd was successful.
-# Compile of FA_array.vhd was successful.
-# Compile of mypackage.vhd was successful.
-# Compile of mul32.vhd failed with 3 errors.
-# Compile of mul32_tb.vhd was successful.
-# 8 compiles, 1 failed with 3 errors. 
-# reading /usr/local/Questa/questasim/linux_x86_64/../modelsim.ini
-# reading modelsim.ini
-# Loading project testbench
+# 2 compiles, 1 failed with 1 error. 
+# Compile of wallace_multiplier.vhd was successful.
+restart -f
+# No Design Loaded!
+vsim work.wallace_multiplier_tb
+# vsim work.wallace_multiplier_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.typespackage
+# Loading ieee.std_logic_textio(body)
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Failure: (vsim-3817) Port "flush" of entity "wallace_multiplier" is not in the component being instantiated.
+#    Time: 0 ps  Iteration: 0  Instance: /wallace_multiplier_tb/U_wallace_mult File: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/ref/wallace_multiplier.vhd Line: 44
+# Fatal error in file /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/ref/wallace_multiplier.vhd
+#  while elaborating region: /wallace_multiplier_tb/U_wallace_mult
+# Fatal error in file /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/ref/wallace_multiplier_tb.vhd
+#  while elaborating region: /wallace_multiplier_tb
+# Error loading design
+# Compile of wallace_multiplier_tb.vhd failed with 3 errors.
+# Compile of wallace_multiplier_tb.vhd was successful.
+restart -f
+# No Design Loaded!
+vsim work.wallace_multiplier_tb
+# vsim work.wallace_multiplier_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.typespackage
+# Loading ieee.std_logic_textio(body)
+# Loading work.wallace_multiplier_tb(tb)
+# Loading work.mypackage(body)
+# Loading work.wallace_multiplier(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/ready has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /wallace_multiplier_tb/U_wallace_mult/icc(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+do wave.do
+# ** Error: (vish-4014) No objects found matching '/wallace_multiplier_tb/width'.
+# Executing ONERROR command at macro ./wave.do line 12
+run

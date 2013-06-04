@@ -4,8 +4,10 @@ USE IEEE.numeric_std.all;
 
 PACKAGE mypackage is
 
-	FUNCTION compute_sum (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC;
-	FUNCTION compute_cout (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC;
+	FUNCTION compute_FA_sum (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC;
+	FUNCTION compute_FA_cout (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC;
+  FUNCTION compute_HA_sum (x:STD_LOGIC;y:STD_LOGIC) RETURN STD_LOGIC;
+  FUNCTION compute_HA_cout (x:STD_LOGIC;y:STD_LOGIC) RETURN STD_LOGIC;  
 	FUNCTION this_level_bits (previous_level_bits:NATURAL;previous_column_bits:NATURAL) RETURN NATURAL;
 	FUNCTION num_full_adders (num_bits:NATURAL) RETURN NATURAL;
 	FUNCTION num_half_adders (num_bits:NATURAL) RETURN NATURAL;
@@ -13,15 +15,25 @@ PACKAGE mypackage is
 END mypackage;
 
 PACKAGE BODY mypackage IS
-	FUNCTION compute_sum (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC IS
+	FUNCTION compute_FA_sum (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC IS
 	BEGIN
     	RETURN (x XOR y XOR c_in);
-  	END compute_sum;
+  	END compute_FA_sum;
 
-	FUNCTION compute_cout (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC IS
+	FUNCTION compute_FA_cout (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC IS
 	BEGIN
     	RETURN ((x AND y) OR (c_in AND (x XOR y)));
-  	END compute_cout;
+  	END compute_FA_cout;
+
+  FUNCTION compute_HA_sum (x:STD_LOGIC;y:STD_LOGIC) RETURN STD_LOGIC IS
+  BEGIN
+      RETURN (x XOR y);
+    END compute_HA_sum;
+
+  FUNCTION compute_HA_cout (x:STD_LOGIC;y:STD_LOGIC) RETURN STD_LOGIC IS
+  BEGIN
+      RETURN (x AND y);
+    END compute_HA_cout;
 
 
   	FUNCTION this_level_bits (previous_level_bits:NATURAL;previous_column_bits:NATURAL) RETURN NATURAL IS

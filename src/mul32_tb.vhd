@@ -1,8 +1,6 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
-USE std.textio.all;
-USE work.typespackage.all;
 LIBRARY grlib;
 USE grlib.stdlib.all;
 LIBRARY gaisler;
@@ -14,26 +12,37 @@ END mul32_tb;
 
 ARCHITECTURE tb OF mul32_tb IS
 
-	SIGNAL t_rst				: STD_LOGIC;
-	SIGNAL t_clk				: STD_LOGIC;
-	SIGNAL t_holdn				: STD_LOGIC;
+	SIGNAL t_rst					: STD_LOGIC;
+	SIGNAL t_clk					: STD_LOGIC;
+	SIGNAL t_holdn					: STD_LOGIC;
 
-	SIGNAL t_muli				: mul32_IN_type;
-	SIGNAL t_mulo				: mul32_OUT_type;
+	SIGNAL t_muli					: mul32_IN_type;
+	SIGNAL t_mulo					: mul32_OUT_type;
 	
+	SIGNAL t_db_tmp_result			: STD_LOGIC_VECTOR(63 DOWNTO 0);
+	SIGNAL t_db_prod_a				: STD_LOGIC_VECTOR(63 DOWNTO 0);
+	SIGNAL t_db_prod_b				: STD_LOGIC_VECTOR(63 DOWNTO 0);
+	SIGNAL t_db_number_bits_port	: STD_LOGIC_VECTOR(63 DOWNTO 0);
+
 	COMPONENT mul32
 		GENERIC (
-			multype				: INTEGER;
-			mac					: INTEGER
+			multype					: INTEGER;
+			mac						: INTEGER
 		);
 		PORT (
-			rst					: IN STD_ULOGIC;
-			clk					: IN STD_ULOGIC;
-			holdn				: IN STD_ULOGIC;
+			rst						: IN STD_ULOGIC;
+			clk						: IN STD_ULOGIC;
+			holdn					: IN STD_ULOGIC;
 
-			-- muli related signals
-			muli				: IN mul32_IN_type;
-			mulo				: OUT mul32_OUT_type
+			muli					: IN mul32_IN_type;
+			mulo					: OUT mul32_OUT_type;
+
+
+			-- debugging signals
+			db_tmp_result			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+			db_prod_a				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+			db_prod_b				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+			db_number_bits_port		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0)			
 		);
 	END COMPONENT;
 	
@@ -50,7 +59,11 @@ BEGIN
 		holdn => t_holdn,
 		
 		muli => t_muli,
-		mulo => t_mulo
+		mulo => t_mulo,
+		db_tmp_result => t_db_tmp_result,
+		db_prod_a => t_db_prod_a,
+		db_prod_b => t_db_prod_b,
+		db_number_bits_port => t_db_number_bits_port
 	);
 
 	-- Clock Process
@@ -74,7 +87,6 @@ BEGIN
 	BEGIN
 		
 		FOR j IN 0 TO 10 LOOP
-			WAIT FOR 10 ns;
 			
 			-- IF (v_a < min_val) OR (v_b > max_val) THEN
 			-- 	t_muli.op1 <= (OTHERS => 'U');
@@ -84,6 +96,9 @@ BEGIN
 				t_muli.op1 <= std_logic_vector(to_signed(v_a,33));
 				t_muli.op2 <= std_logic_vector(to_signed(v_b,33));
 			-- END IF;
+			IF (v_a < 0 OR v_b < 0) THEN
+				t_muli.signed <= '1';
+			END IF;
 
 			IF (j<5) THEN
 				v_a := v_a - i;
@@ -92,6 +107,7 @@ BEGIN
 				v_a := v_a + i;
 				v_b := v_b + i;
 			END IF;
+			WAIT;
 		END LOOP;
 
 	END PROCESS;
@@ -99,9 +115,15 @@ BEGIN
 	-- Start Process
 	start_prc: PROCESS
 	BEGIN
-		t_muli.start <= '1';
-		WAIT FOR 20 ns;
+
+		t_muli.flush <= '0';
+		t_muli.mac <= '0';
+		t_muli.acc <= (OTHERS => '0');
+
+
 		t_muli.start <= '0';
+		WAIT FOR 1 ns;
+		t_muli.start <= '1';
 		WAIT;
 	END PROCESS;
 
