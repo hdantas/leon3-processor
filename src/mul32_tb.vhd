@@ -88,14 +88,14 @@ BEGIN
 		
 		FOR j IN 0 TO 10 LOOP
 			
-			-- IF (v_a < min_val) OR (v_b > max_val) THEN
-			-- 	t_muli.op1 <= (OTHERS => 'U');
-			-- 	t_muli.op2 <= (OTHERS => 'U');
-			-- 	EXIT;
-			-- ELSE
+			IF (v_a < min_val) OR (v_b > max_val) THEN
+				t_muli.op1 <= (OTHERS => 'U');
+				t_muli.op2 <= (OTHERS => 'U');
+				EXIT;
+			ELSE
 				t_muli.op1 <= std_logic_vector(to_signed(v_a,33));
 				t_muli.op2 <= std_logic_vector(to_signed(v_b,33));
-			-- END IF;
+			END IF;
 			IF (v_a < 0 OR v_b < 0) THEN
 				t_muli.signed <= '1';
 			END IF;
@@ -107,7 +107,7 @@ BEGIN
 				v_a := v_a + i;
 				v_b := v_b + i;
 			END IF;
-			WAIT;
+			WAIT FOR 20 ns;
 		END LOOP;
 
 	END PROCESS;

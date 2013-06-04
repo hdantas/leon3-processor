@@ -156,8 +156,6 @@ ARCHITECTURE behavioral OF mul32 IS
 	
 	-- SIGNAL op1								: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
 	-- SIGNAL op2								: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
-	SIGNAL op1								: STD_LOGIC_VECTOR(32 DOWNTO 0) := std_logic_vector(to_signed(15,33));
-	SIGNAL op2								: STD_LOGIC_VECTOR(32 DOWNTO 0) := std_logic_vector(to_signed(-25,33));
 	SIGNAL baugh_wooley_add					: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := (OTHERS => '0');
 	SIGNAL add_a, add_b, add_sum,add_cout	: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => '0'); --for final adder
 	SIGNAL c_in								: STD_LOGIC := '0';
@@ -188,17 +186,18 @@ ARCHITECTURE behavioral OF mul32 IS
 
 BEGIN
 
-	-- start_proc: PROCESS(clk,op1,op2)
-	-- BEGIN
+	start_proc: PROCESS(clk,muli.op1,muli.op2)
+	BEGIN
 		-- IF (clk='1' AND clk'EVENT AND muli.start = '1') THEN --start multiplication
-		-- 	-- op1 <= muli.op1;
-		-- 	-- op2 <= muli.op2;
-		-- 	op1 <= std_logic_vector(to_signed(5,33));
-		-- 	op2 <= std_logic_vector(to_signed(7,33));
-			
+			-- IF (op1 /= muli.op1 AND op2 /= muli.op2) THEN
+			-- 	op1 <= muli.op1;
+			-- 	op2 <= muli.op2;
+			-- op1 <= std_logic_vector(to_signed(5,33));
+			-- op2 <= std_logic_vector(to_signed(7,33));
+			-- END IF;	
 		-- END IF;
 
-	-- END PROCESS;		
+	END PROCESS;		
 
 
 	rst_proc: PROCESS (clk,rst)
@@ -206,7 +205,7 @@ BEGIN
 		IF (clk='1' AND clk'EVENT AND rst = '0') THEN -- rst active low
 			-- WallaceTree <= (OTHERS => (OTHERS => (OTHERS => '0'))); -- Reset WallaceTree
 			tmp_ready <= '0';
-			tmp_icc <= (OTHERS => '1');
+			-- tmp_icc <= (OTHERS => '1');
 			-- tmp_result <= (OTHERS => '0');
 			started <= '0';
 		END IF;
@@ -217,12 +216,12 @@ BEGIN
 	holdn_proc: PROCESS(clk,holdn)
 	BEGIN
 		IF(clk='1' AND clk'EVENT AND holdn = '0') THEN -- holdn active low
-			op1 <= muli.op1;
-			op2 <= muli.op2;
+			-- op1 <= muli.op1;
+			-- op2 <= muli.op2;
 		END IF;
 	END PROCESS;
 
-	wallace_proc: PROCESS (WallaceTree,op1,op2)
+	wallace_proc: PROCESS (WallaceTree,muli.op1,muli.op2)
 		--VARIABLE is_result_negative : STD_LOGIC := (op1(32) OR op2(32)) AND muli.signed;
 		VARIABLE x						: STD_LOGIC := '0';
 		VARIABLE y						: STD_LOGIC := '0';
@@ -243,16 +242,16 @@ BEGIN
 		FOR i IN 0 TO op2_width-1 LOOP -- i: op2 index
 			FOR j IN 0 TO op1_width-1 LOOP -- j: op1 1 index
 				IF ((j+i) <= (op1_width-1)) THEN --make sure each column starts from row 0
-					IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (((op1(32) OR op2(32)) AND muli.signed) = '1') THEN
-						WallaceTree(0,i,j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+					IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (((muli.op1(32) OR muli.op2(32)) AND muli.signed) = '1') THEN
+						WallaceTree(0,i,j+i) <= NOT(muli.op1(j) AND muli.op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 					ELSE
-						WallaceTree(0,i,j+i) <= op1(j) AND op2(i);
+						WallaceTree(0,i,j+i) <= muli.op1(j) AND muli.op2(i);
 					END IF;
 				ELSIF ((j+i)>(op1_width-1)) THEN
-					IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (((op1(32) OR op2(32)) AND muli.signed) = '1') THEN
-						WallaceTree(0,op1_width-1-j,j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+					IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (((muli.op1(32) OR muli.op2(32)) AND muli.signed) = '1') THEN
+						WallaceTree(0,op1_width-1-j,j+i) <= NOT(muli.op1(j) AND muli.op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 					ELSE
-						WallaceTree(0,op1_width-1-j,j+i) <= op1(j) AND op2(i);
+						WallaceTree(0,op1_width-1-j,j+i) <= muli.op1(j) AND muli.op2(i);
 					END IF;
 				END IF;
 			END LOOP;
@@ -350,22 +349,22 @@ BEGIN
 
 
 	-- Final process
-	out_proc: PROCESS (clk,op1,op2)
+	out_proc: PROCESS (clk,muli.op1,muli.op2)
 	BEGIN
 		IF(clk='1' AND clk'EVENT) THEN
-			IF (op1 = zeros XOR op2 = zeros) THEN
+			IF (muli.op1 = zeros XOR muli.op2 = zeros) THEN
 				tmp_icc(2) <= '1'; -- is result zero?
 			ELSE
 				tmp_icc(2) <= '0';
 			END IF;
 
-			IF (muli.signed = '1' AND ((op1(32) XOR op2(32)) = '1')) THEN
+			IF (muli.signed = '1' AND ((muli.op1(32) XOR muli.op2(32)) = '1')) THEN
 				tmp_icc(3) <= '1'; -- is result negative?
 			ELSE
 				tmp_icc (3) <= '0';
 			END IF;
 
-			IF (op1(32) = '1' OR op2(32) = '1') THEN
+			IF (muli.op1(32) = '1' OR muli.op2(32) = '1') THEN
 				tmp_result <= std_logic_vector(signed(add_a) + signed(add_b)+ signed(add_vector_baugh_wooley));
 			ELSE
 				tmp_result <= std_logic_vector(unsigned(add_a) + unsigned(add_b));
