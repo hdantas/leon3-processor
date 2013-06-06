@@ -1,0 +1,25 @@
+{/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd} {0 {vcom -work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5 -novopt {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd}
+###### /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd(4): LIBRARY grlib;
+** Error: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd(4): Library grlib not found.
+###### /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd(5): USE grlib.stdlib.all;
+** Error: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd(5): (vcom-1136) Unknown identifier "grlib".
+###### /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd(6): LIBRARY gaisler;
+** Error: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd(6): Library gaisler not found.
+###### /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd(7): USE gaisler.arith.all;
+** Error: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd(7): (vcom-1136) Unknown identifier "gaisler".
+###### /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd(10): ENTITY mul32_tb IS
+** Error: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd(10): VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0 11.0 12.0} {}} {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd} {0 {vcom -work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5 -novopt {/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd}
+###### /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd(89): LIBRARY grlib;
+** Error: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd(89): Library grlib not found.
+###### /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd(90): USE grlib.stdlib.all;
+** Error: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd(90): (vcom-1136) Unknown identifier "grlib".
+###### /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd(92): LIBRARY gaisler;
+** Error: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd(92): Library gaisler not found.
+###### /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd(93): USE gaisler.arith.all;
+** Error: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd(93): (vcom-1136) Unknown identifier "gaisler".
+###### /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd(99): ENTITY mul32 IS
+** Error: /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd(99): VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0 11.0 12.0} {}}

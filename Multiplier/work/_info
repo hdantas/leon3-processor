@@ -1,0 +1,325 @@
+m255
+K3
+13
+cModel Technology
+d/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410
+Ebk_adder
+Z0 w1369323699
+Z1 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z2 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z3 d/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier
+Z4 8/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/bk_adder.vhd
+Z5 F/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/bk_adder.vhd
+l0
+L4
+V^^bJ>;aKho8]m6JjzYB5@0
+Z6 OL;C;10.1d;51
+31
+Z7 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/bk_adder.vhd|
+Z8 o-work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5
+Z9 tShow_source 1 Show_Warning1 0 Show_Warning5 0 Explicit 1 Quiet 1
+Z10 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/bk_adder.vhd|
+!s100 F?[9eeM=_IB9905>mNco`2
+!i10b 1
+!s108 1369323836.009514
+Abehavioral
+DPx4 work 7 my_funs 0 22 G]iBG^kgDLS[iSOTRH8hA2
+R1
+R2
+DEx4 work 8 bk_adder 0 22 :91=gcilRAzchTcY@j1Ti1
+31
+l23
+L18
+ViPohh3H3kH]Q4?H4Dbc_D0
+R6
+R7
+R8
+R9
+R10
+!s108 1369319680.768047
+!i10b 1
+!s100 f5jj]bdUPY<HIEia;_8QU2
+Efa
+Z11 w1369397233
+R1
+R2
+R3
+Z12 8/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA.vhd
+Z13 F/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA.vhd
+l0
+L4
+V<`>@3GMPUFcY4SGgf_`X01
+R6
+31
+Z14 !s108 1370337591.341303
+Z15 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA.vhd|
+Z16 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA.vhd|
+R8
+R9
+!s100 `Vdb1n[5QdP9T^oI0j9cg0
+!i10b 1
+Artl
+R1
+R2
+DEx4 work 2 fa 0 22 <`>@3GMPUFcY4SGgf_`X01
+l15
+L14
+VOcD446G3lJEo3F14ZF9h62
+R6
+31
+R14
+R15
+R16
+R8
+R9
+!s100 4dW=<oUnBWhi]J=Nd?54j0
+!i10b 1
+Efa_array
+Z17 w1369479737
+R1
+R2
+R3
+Z18 8/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA_array.vhd
+Z19 F/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA_array.vhd
+l0
+L4
+V5@ne:;GJ_SfSFL=PzGXgm2
+R6
+31
+Z20 !s108 1370337592.062412
+Z21 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA_array.vhd|
+Z22 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/FA_array.vhd|
+R8
+R9
+!s100 g__l6CJ0fi?==FU;gnF4J2
+!i10b 1
+Artl
+R1
+R2
+DEx4 work 8 fa_array 0 22 5@ne:;GJ_SfSFL=PzGXgm2
+l29
+L17
+VR^Gi;5D]WWifBVW_cFVHX0
+R6
+31
+R20
+R21
+R22
+R8
+R9
+!s100 PcFR35hTYVaV1i7RidGic2
+!i10b 1
+Eha
+Z23 w1369330807
+R1
+R2
+R3
+Z24 8/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/HA.vhd
+Z25 F/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/HA.vhd
+l0
+L4
+VbNTlZQ5FhFa88AhFPNk`C2
+R6
+31
+Z26 !s108 1370337591.640116
+Z27 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/HA.vhd|
+Z28 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/HA.vhd|
+R8
+R9
+!s100 :TO6f?EMN?IN6=QJDPIg@0
+!i10b 1
+Artl
+R1
+R2
+DEx4 work 2 ha 0 22 bNTlZQ5FhFa88AhFPNk`C2
+l14
+L13
+V8K=Q1h6:zNSK46;HQR4gK0
+R6
+31
+R26
+R27
+R28
+R8
+R9
+!s100 R8U>Z<O^F=^CmAEzdI?[c2
+!i10b 1
+Emul32_tb
+Z29 w1370027034
+Z30 DPx4 work 12 typespackage 0 22 9?_`m]?RkLl8cd>a=ah@k0
+Z31 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+R1
+R2
+R3
+Z32 8/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd
+Z33 F/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd
+l0
+L7
+VnDRDbago;mf2Mf7NE>;RS3
+R6
+31
+Z34 !s108 1370261802.149440
+Z35 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd|
+Z36 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32_tb.vhd|
+R8
+R9
+!s100 88Ra;jl3SzJHVR]X6IabY3
+!i10b 1
+Atb
+Z37 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
+R30
+R31
+R1
+R2
+DEx4 work 8 mul32_tb 0 22 nDRDbago;mf2Mf7NE>;RS3
+l71
+L10
+V3ilXfzSBIz[F[;QT6RUdY0
+R6
+31
+R34
+R35
+R36
+R8
+R9
+!s100 8Mkl684N^h;AKaTN5;;OF2
+!i10b 1
+Pmypackage
+R31
+R1
+R2
+Z38 w1370373822
+R3
+Z39 8/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd
+Z40 F/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd
+l0
+L14
+Vm^LV@M?_1dGmlD4`9ShUi2
+!s100 QU:OAEDLDD;1TimdT>2^03
+R6
+31
+b1
+!i10b 1
+Z41 !s108 1370530781.780616
+Z42 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd|
+Z43 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/mul32.vhd|
+R8
+R9
+Bbody
+Z44 DPx4 work 9 mypackage 0 22 m^LV@M?_1dGmlD4`9ShUi2
+R31
+R1
+R2
+l0
+L26
+Z45 V5Vf7j>mY]2lJ1nPCP>V>@2
+!s100 3HE;ROSBkU:0B9dU7>GHh2
+R6
+31
+!i10b 1
+R41
+R42
+R43
+R8
+R9
+nbody
+Ptypespackage
+R1
+R2
+Z46 w1370363757
+R3
+Z47 8/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/ref/wallace_multiplier.vhd
+Z48 F/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/ref/wallace_multiplier.vhd
+l0
+L13
+V9?_`m]?RkLl8cd>a=ah@k0
+R6
+31
+Z49 !s108 1370363762.452862
+Z50 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/ref/wallace_multiplier.vhd|
+Z51 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/ref/wallace_multiplier.vhd|
+R8
+R9
+!s100 Wb`D0URVzgQK`[SS7^Wj13
+!i10b 1
+Ewallace_multiplier
+R46
+R30
+R44
+R31
+R1
+R2
+R3
+R47
+R48
+l0
+L30
+VH?5H>7l4KN>MVDzTNMXSz2
+R6
+31
+R49
+R50
+R51
+R8
+R9
+!s100 ^`dUcXk0K;SBhjm<6GWPi1
+!i10b 1
+Abehavioral
+R30
+R44
+R31
+R1
+R2
+DEx4 work 18 wallace_multiplier 0 22 H?5H>7l4KN>MVDzTNMXSz2
+l121
+L62
+VgVcoI_1=L73FezB1U7nzQ3
+R6
+31
+R49
+R50
+R51
+R8
+R9
+!s100 NTdR8jK@67DGVeVD8VV=>3
+!i10b 1
+Ewallace_multiplier_tb
+Z52 w1370363907
+R30
+R31
+R1
+R2
+R3
+Z53 8/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/ref/wallace_multiplier_tb.vhd
+Z54 F/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/ref/wallace_multiplier_tb.vhd
+l0
+L7
+VeN44VoNR_o]FbBMB5A4_h3
+R6
+31
+Z55 !s108 1370363917.921667
+Z56 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/ref/wallace_multiplier_tb.vhd|
+Z57 !s107 /home/nuno/Dropbox/Computer Engineering/1st Year/Q4/Processor Design Project (ET4171  5 ECTS)/Multiplier/src/ref/wallace_multiplier_tb.vhd|
+R8
+R9
+!s100 E^enDn[Je@56cU[E8mkel2
+!i10b 1
+Atb
+R37
+R30
+R31
+R1
+R2
+DEx4 work 21 wallace_multiplier_tb 0 22 eN44VoNR_o]FbBMB5A4_h3
+l71
+L10
+VNZMmChcR^CSioc[zjD=W^1
+R6
+31
+R55
+R56
+R57
+R8
+R9
+!s100 M1Vz?n:eo_e_SoZ<kfEF40
+!i10b 1
