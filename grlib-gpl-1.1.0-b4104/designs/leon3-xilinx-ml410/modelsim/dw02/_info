@@ -1,0 +1,71 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410
+Pdw02_components
+Z1 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 w1367588420
+Z5 d/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410
+Z6 8/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/tech/dw02/comp/DW02_components.vhd
+Z7 F/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/tech/dw02/comp/DW02_components.vhd
+l0
+L7
+VjX1[B073iBdc?OI@4;bIV3
+!s100 SiI:8C44oK18ED5c=2I[C1
+Z8 OL;C;10.1d;51
+31
+!i10b 1
+Z9 !s108 1370029260.882472
+Z10 !s90 -reportprogress|300|-work|dw02|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/tech/dw02/comp/DW02_components.vhd|
+Z11 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/tech/dw02/comp/DW02_components.vhd|
+Z12 !s102 -cover s
+Z13 o-work dw02 -93 -source -nowarn 1 -nowarn 5 -cover s
+Z14 tShow_source 1 Show_Warning1 0 Show_Warning5 0 Explicit 1 Quiet 1
+Edw02_mult_2_stage
+R4
+Z15 DPx5 grlib 7 version 0 22 >E1j8ek:`BfB9jgXAio662
+Z16 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z17 DPx5 grlib 6 stdlib 0 22 7Z967_JWakQb8]fo@LHbF2
+R1
+R2
+R3
+R5
+R6
+R7
+l0
+L30
+VDj[lDKNZ2eLSTWaM_=J=O2
+!s100 M1lRMAC3PkzjOhlFNZlfX1
+R8
+31
+!i10b 1
+R9
+R10
+R11
+R12
+R13
+R14
+Abehav
+R15
+R16
+R17
+R1
+R2
+R3
+DEx4 work 17 dw02_mult_2_stage 0 22 Dj[lDKNZ2eLSTWaM_=J=O2
+l45
+L41
+VAYH7=8VV98mnBaF4bkS4H3
+Z18 !s100 hX8]alT]?lDV;QL7mM8M02
+R8
+31
+!i10b 1
+R9
+R10
+R11
+R12
+R13
+R14
