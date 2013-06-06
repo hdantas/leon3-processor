@@ -26,7 +26,10 @@ ARCHITECTURE tb OF mul32_tb IS
 
 	COMPONENT mul32
 		GENERIC (
+			tech					: INTEGER;
+			infer					: INTEGER;
 			multype					: INTEGER;
+			pipe					: INTEGER;
 			mac						: INTEGER
 		);
 		PORT (
@@ -50,8 +53,11 @@ ARCHITECTURE tb OF mul32_tb IS
 BEGIN
 	multiplier: mul32
 	GENERIC MAP (
-		multype => 3,
-		mac => 0
+		tech => 0,
+		infer => 1,
+		multype => 0,
+		pipe => 1,
+		mac => 1
 	)
 	PORT MAP (
 		rst => t_rst,
@@ -77,17 +83,19 @@ BEGIN
 
 	-- Input Processes
 	inp_prc: PROCESS
-		CONSTANT max_val : INTEGER := -15;
-		CONSTANT min_val : INTEGER := -25;
+		CONSTANT max_val : INTEGER := 25;
+		CONSTANT min_val : INTEGER := -1;
 
 		VARIABLE v_a	: INTEGER := max_val;
 		VARIABLE v_b	: INTEGER := min_val;
 		VARIABLE i		: INTEGER := 1;--(max_val-min_val-1)/10;
 
 	BEGIN
-		
+		WAIT FOR 5 ns;
+
 		FOR j IN 0 TO 10 LOOP
 			
+			WAIT FOR 20 ns;
 			IF (v_a < min_val) OR (v_b > max_val) THEN
 				t_muli.op1 <= (OTHERS => 'U');
 				t_muli.op2 <= (OTHERS => 'U');
@@ -97,9 +105,9 @@ BEGIN
 				t_muli.op2 <= std_logic_vector(to_signed(v_b,33));
 			END IF;
 			IF (v_a < 0 OR v_b < 0) THEN
-				t_muli.signed <= '1';
+				t_muli.signed <= '0';
 			END IF;
-
+			t_muli.signed <= '1';
 			IF (j<5) THEN
 				v_a := v_a - i;
 				v_b := v_b + i;
@@ -107,7 +115,6 @@ BEGIN
 				v_a := v_a + i;
 				v_b := v_b + i;
 			END IF;
-			WAIT FOR 20 ns;
 		END LOOP;
 
 	END PROCESS;
@@ -118,11 +125,11 @@ BEGIN
 
 		t_muli.flush <= '0';
 		t_muli.mac <= '0';
-		t_muli.acc <= (OTHERS => '0');
+		t_muli.acc <= std_logic_vector(to_signed(100,40));
 
 
-		t_muli.start <= '0';
-		WAIT FOR 1 ns;
+		-- t_muli.start <= '0';
+		-- WAIT FOR 10 ns;
 		t_muli.start <= '1';
 		WAIT;
 	END PROCESS;
