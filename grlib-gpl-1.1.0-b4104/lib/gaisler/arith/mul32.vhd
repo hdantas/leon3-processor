@@ -63,25 +63,85 @@ PACKAGE BODY mypackage IS
   	END this_level_bits;
 
 	FUNCTION num_remainder_bits (num_bits:NATURAL) RETURN NATURAL IS
+		VARIABLE result: NATURAL := 0;
   	BEGIN
-		RETURN (num_bits - num_full_adders(num_bits)*3 - num_half_adders(num_bits)*2);
+		CASE num_bits IS
+			WHEN 1 => result := 1;
+			WHEN 4 => result := 1;
+			WHEN 7 => result := 1;
+			WHEN 10 => result := 1;
+			WHEN 13 => result := 1;
+			WHEN 16 => result := 1;
+			WHEN 19 => result := 1;
+			WHEN 22 => result := 1;
+			WHEN 25 => result := 1;
+			WHEN 28 => result := 1;
+			WHEN 31 => result := 1;
+			WHEN OTHERS => result := 0;
+		END CASE;
+
+		RETURN result;
   	END num_remainder_bits;
 
 	FUNCTION num_full_adders (num_bits:NATURAL) RETURN NATURAL IS
-		VARIABLE result: NATURAL := 3;
-		VARIABLE count: NATURAL := 0; 
+		VARIABLE result: NATURAL := 0;
   	BEGIN
-  		WHILE (result <= num_bits) LOOP -- count = floor(num_bits/3)
-  			result := result + 3;
-  			count := count + 1;
-  		END LOOP;
+		CASE num_bits IS
+			WHEN 3 => result := 1;
+			WHEN 4 => result := 1;
+			WHEN 5 => result := 1;
+			WHEN 6 => result := 2;
+			WHEN 7 => result := 2;
+			WHEN 8 => result := 2;
+			WHEN 9 => result := 3;
+			WHEN 10 => result := 3;
+			WHEN 11 => result := 3;
+			WHEN 12 => result := 4;
+			WHEN 13 => result := 4;
+			WHEN 14 => result := 4;
+			WHEN 15 => result := 5;
+			WHEN 16 => result := 5;
+			WHEN 17 => result := 5;
+			WHEN 18 => result := 6;
+			WHEN 19 => result := 6;
+			WHEN 20 => result := 6;
+			WHEN 21 => result := 7;
+			WHEN 22 => result := 7;
+			WHEN 23 => result := 7;
+			WHEN 24 => result := 8;
+			WHEN 25 => result := 8;
+			WHEN 26 => result := 8;
+			WHEN 27 => result := 9;
+			WHEN 28 => result := 9;
+			WHEN 29 => result := 9;
+			WHEN 30 => result := 10;
+			WHEN 31 => result := 10;
+			WHEN 32 => result := 10;
+			WHEN OTHERS => result := 0;
+		END CASE;
   		
-  		RETURN count;
+  		RETURN result;
   	END num_full_adders;
 
 	FUNCTION num_half_adders (num_bits:NATURAL) RETURN NATURAL IS
+		VARIABLE result: NATURAL := 0;
   	BEGIN
-  		RETURN ((num_bits - 3*num_full_adders(num_bits))/2);
+  		CASE num_bits IS
+			WHEN 2 => result := 1;
+			WHEN 5 => result := 1;
+			WHEN 8 => result := 1;
+			WHEN 11 => result := 1;
+			WHEN 14 => result := 1;
+			WHEN 17 => result := 1;
+			WHEN 20 => result := 1;
+			WHEN 23 => result := 1;
+			WHEN 26 => result := 1;
+			WHEN 29 => result := 1;
+			WHEN 32 => result := 1;
+			WHEN OTHERS => result := 0;
+		END CASE;
+
+		RETURN result;
   	END num_half_adders;
 
 END mypackage;
@@ -106,7 +166,6 @@ USE work.mypackage.all;
 ENTITY mul32 IS
 	GENERIC (
 		tech			    : INTEGER := 0;
-		infer				: INTEGER RANGE 0 TO 1 := 1;
 		multype				: INTEGER RANGE 0 TO 3 := 0;
 		pipe				: INTEGER RANGE 0 TO 1 := 0;
 		mac					: INTEGER RANGE 0 TO 1 := 0
@@ -142,18 +201,18 @@ ENTITY mul32 IS
 END mul32;
 
 ARCHITECTURE behavioral OF mul32 IS
-	TYPE layer_depth_type IS ARRAY(32 DOWNTO 3) OF INTEGER;
-	TYPE operand_size_type IS ARRAY(3 DOWNTO 0) OF INTEGER;
+	TYPE layer_depth_type IS ARRAY(32 DOWNTO 3) OF INTEGER RANGE 3 TO 9;
+	TYPE operand_size_type IS ARRAY(3 DOWNTO 0) OF INTEGER RANGE 8 TO 32;
 
 	CONSTANT op1_width_vector				: operand_size_type := (32,32,32,16);
 	CONSTANT op2_width_vector				: operand_size_type := (32,16,8,16);
 
-	CONSTANT width							: INTEGER := op1_width_vector(multype) + op2_width_vector(multype); -- result's width
-	CONSTANT op1_width						: INTEGER := op1_width_vector(multype);
-	CONSTANT op2_width						: INTEGER := op2_width_vector(multype);
+	CONSTANT width							: INTEGER RANGE 24 TO 64 := op1_width_vector(multype) + op2_width_vector(multype); -- result's width
+	CONSTANT op1_width						: INTEGER RANGE 16 TO 32 := op1_width_vector(multype);
+	CONSTANT op2_width						: INTEGER RANGE 8 TO 32 := op2_width_vector(multype);
 	
 	CONSTANT layer_depth					: layer_depth_type := (9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,6,5,5,4,3,3);
-	CONSTANT levels							: INTEGER := layer_depth(op2_width);
+	CONSTANT levels							: INTEGER RANGE 3 TO 9 := layer_depth(op2_width);
 
 	CONSTANT add_vector_baugh_wooley		: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := '1' & (width-2 DOWNTO op2_width+1 => '0') & '1' & (op2_width-1 DOWNTO 0 => '0');
 	CONSTANT zeros							: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
@@ -161,9 +220,12 @@ ARCHITECTURE behavioral OF mul32 IS
 	CONSTANT arrayX							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'X');
 	CONSTANT arrayU							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'U');
 	
-	TYPE WallaceTree_type1 IS ARRAY (width-1 DOWNTO 0) OF STD_LOGIC;
-	TYPE WallaceTree_type2 IS ARRAY (op2_width-1 DOWNTO 0) OF WallaceTree_type1;
-	TYPE WallaceTree_type3 IS ARRAY (levels-1 DOWNTO 0) OF WallaceTree_type2;
+	-- TYPE WallaceTree_type1 IS ARRAY (width-1 DOWNTO 0) OF STD_LOGIC;
+	-- TYPE WallaceTree_type2 IS ARRAY (op2_width-1 DOWNTO 0) OF WallaceTree_type1;
+	-- TYPE WallaceTree_type3 IS ARRAY (levels-1 DOWNTO 0) OF WallaceTree_type2;
+	TYPE WallaceTree_type1 IS ARRAY (64-1 DOWNTO 0) OF STD_LOGIC;
+	TYPE WallaceTree_type2 IS ARRAY (32-1 DOWNTO 0) OF WallaceTree_type1;
+	TYPE WallaceTree_type3 IS ARRAY (9-1 DOWNTO 0) OF WallaceTree_type2;	
 	
 	-- TYPE WallaceTree_type IS ARRAY (levels-1 DOWNTO 0,op2_width-1 DOWNTO 0, width-1 DOWNTO 0) OF STD_LOGIC;
 	TYPE number_bits_type IS ARRAY (width-1 DOWNTO 0) OF NATURAL;
@@ -196,13 +258,13 @@ BEGIN
 		VARIABLE y						: STD_LOGIC := '0';
 		VARIABLE cin					: STD_LOGIC := '0';
 
-		VARIABLE remainder_bits			: NATURAL := 0;
-		VARIABLE num_full_adds			: NATURAL := 0;
-		VARIABLE num_half_adds			: NATURAL := 0;
+		VARIABLE remainder_bits			: INTEGER RANGE 0 TO 1 := 0;
+		VARIABLE num_full_adds			: INTEGER RANGE 0 TO 10 := 0;
+		VARIABLE num_half_adds			: INTEGER RANGE 0 TO 1 := 0;
 
-		VARIABLE current_row			: NATURAL := 0;
-		VARIABLE next_level_row			: NATURAL := 0;
-		VARIABLE next_level_column_row	: NATURAL := 0;
+		VARIABLE current_row			: INTEGER RANGE 0 TO 29 := 0;
+		VARIABLE next_level_row			: INTEGER RANGE 0 TO 29 := 0;
+		VARIABLE next_level_column_row	: INTEGER RANGE 0 TO 29 := 0;
 
 		VARIABLE number_bits			: number_bits_type := (OTHERS => 0);
 		VARIABLE next_level_number_bits	: number_bits_type := (OTHERS => 0);
