@@ -96,6 +96,7 @@ read_hdl -vhdl -lib opencores ../../lib/opencores/ata/ocidec2_controller.vhd
 read_hdl ../../lib/opencores/ac97/ac97_top.v
 read_hdl -vhdl -lib gaisler ../../lib/gaisler/arith/arith.vhd
 read_hdl -vhdl -lib gaisler ../../lib/gaisler/arith/mul32.vhd
+read_hdl -vhdl -lib gaisler ../../lib/gaisler/arith/mul32Original.vhd
 read_hdl -vhdl -lib gaisler ../../lib/gaisler/arith/FA.vhd
 read_hdl -vhdl -lib gaisler ../../lib/gaisler/arith/qSelector.vhd
 read_hdl -vhdl -lib gaisler ../../lib/gaisler/arith/t3to2compressor.vhd

@@ -455,6 +455,10 @@ VALUE "<project>/../../lib/gaisler/arith/mul32.vhd,hdl"
 STATE="utd"
 LIBRARY="gaisler"
 ENDFILE
+VALUE "<project>/../../lib/gaisler/arith/mul32Original.vhd,hdl"
+STATE="utd"
+LIBRARY="gaisler"
+ENDFILE
 VALUE "<project>/../../lib/gaisler/arith/FA.vhd,hdl"
 STATE="utd"
 LIBRARY="gaisler"

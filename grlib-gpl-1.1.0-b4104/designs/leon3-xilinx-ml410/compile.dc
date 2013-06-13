@@ -112,6 +112,7 @@ sh mkdir synopsys/gaisler
 define_design_lib gaisler -path synopsys/gaisler 
 analyze -f VHDL -library gaisler ../../lib/gaisler/arith/arith.vhd
 analyze -f VHDL -library gaisler ../../lib/gaisler/arith/mul32.vhd
+analyze -f VHDL -library gaisler ../../lib/gaisler/arith/mul32Original.vhd
 analyze -f VHDL -library gaisler ../../lib/gaisler/arith/FA.vhd
 analyze -f VHDL -library gaisler ../../lib/gaisler/arith/qSelector.vhd
 analyze -f VHDL -library gaisler ../../lib/gaisler/arith/t3to2compressor.vhd

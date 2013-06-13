@@ -230,6 +230,8 @@ xfile add "../../lib/gaisler/arith/arith.vhd" -lib_vhdl gaisler
 puts "../../lib/gaisler/arith/arith.vhd"
 xfile add "../../lib/gaisler/arith/mul32.vhd" -lib_vhdl gaisler
 puts "../../lib/gaisler/arith/mul32.vhd"
+xfile add "../../lib/gaisler/arith/mul32Original.vhd" -lib_vhdl gaisler
+puts "../../lib/gaisler/arith/mul32Original.vhd"
 xfile add "../../lib/gaisler/arith/FA.vhd" -lib_vhdl gaisler
 puts "../../lib/gaisler/arith/FA.vhd"
 xfile add "../../lib/gaisler/arith/qSelector.vhd" -lib_vhdl gaisler

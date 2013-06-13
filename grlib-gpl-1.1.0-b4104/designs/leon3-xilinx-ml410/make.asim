@@ -131,6 +131,7 @@
 	alog -quiet  -work opencores ../../../../lib/opencores/ac97/ac97_top.v
 	acom -quiet  -accept87 -work  gaisler ../../../../lib/gaisler/arith/arith.vhd
 	acom -quiet  -accept87 -work  gaisler ../../../../lib/gaisler/arith/mul32.vhd
+	acom -quiet  -accept87 -work  gaisler ../../../../lib/gaisler/arith/mul32Original.vhd
 	acom -quiet  -accept87 -work  gaisler ../../../../lib/gaisler/arith/FA.vhd
 	acom -quiet  -accept87 -work  gaisler ../../../../lib/gaisler/arith/qSelector.vhd
 	acom -quiet  -accept87 -work  gaisler ../../../../lib/gaisler/arith/t3to2compressor.vhd

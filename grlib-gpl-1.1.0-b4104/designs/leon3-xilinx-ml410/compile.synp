@@ -107,6 +107,7 @@ add_file -vhdl -lib opencores ../../lib/opencores/ata/ocidec2_controller.vhd
 add_file -verilog ../../lib/opencores/ac97/ac97_top.v
 add_file -vhdl -lib gaisler ../../lib/gaisler/arith/arith.vhd
 add_file -vhdl -lib gaisler ../../lib/gaisler/arith/mul32.vhd
+add_file -vhdl -lib gaisler ../../lib/gaisler/arith/mul32Original.vhd
 add_file -vhdl -lib gaisler ../../lib/gaisler/arith/FA.vhd
 add_file -vhdl -lib gaisler ../../lib/gaisler/arith/qSelector.vhd
 add_file -vhdl -lib gaisler ../../lib/gaisler/arith/t3to2compressor.vhd

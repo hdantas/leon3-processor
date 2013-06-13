@@ -481,6 +481,9 @@ name = gaisler
   name = ../../lib/gaisler/arith/mul32.vhd
  []
  [file]
+  name = ../../lib/gaisler/arith/mul32Original.vhd
+ []
+ [file]
   name = ../../lib/gaisler/arith/FA.vhd
  []
  [file]

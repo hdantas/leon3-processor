@@ -111,6 +111,7 @@ add_input_file -format VHDL -work opencores ../../lib/opencores/ata/ocidec2_cont
 add_input_file -format VERILOG -work opencores ../../lib/opencores/ac97/ac97_top.v
 add_input_file -format VHDL -work gaisler ../../lib/gaisler/arith/arith.vhd
 add_input_file -format VHDL -work gaisler ../../lib/gaisler/arith/mul32.vhd
+add_input_file -format VHDL -work gaisler ../../lib/gaisler/arith/mul32Original.vhd
 add_input_file -format VHDL -work gaisler ../../lib/gaisler/arith/FA.vhd
 add_input_file -format VHDL -work gaisler ../../lib/gaisler/arith/qSelector.vhd
 add_input_file -format VHDL -work gaisler ../../lib/gaisler/arith/t3to2compressor.vhd

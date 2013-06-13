@@ -18,11 +18,30 @@ ARCHITECTURE tb OF mul32_tb IS
 
 	SIGNAL t_muli					: mul32_IN_type;
 	SIGNAL t_mulo					: mul32_OUT_type;
+	SIGNAL Ot_mulo					: mul32_OUT_type;
 	
 	SIGNAL t_db_tmp_result			: STD_LOGIC_VECTOR(63 DOWNTO 0);
 	SIGNAL t_db_prod_a				: STD_LOGIC_VECTOR(63 DOWNTO 0);
 	SIGNAL t_db_prod_b				: STD_LOGIC_VECTOR(63 DOWNTO 0);
 	SIGNAL t_db_number_bits_port	: STD_LOGIC_VECTOR(63 DOWNTO 0);
+	SIGNAL t_db_started				: STD_LOGIC;
+
+	COMPONENT mul32Original
+		GENERIC (
+			tech					: INTEGER;
+			multype					: INTEGER;
+			pipe					: INTEGER;
+			mac						: INTEGER
+		);
+		PORT (
+			rst						: IN STD_ULOGIC;
+			clk						: IN STD_ULOGIC;
+			holdn					: IN STD_ULOGIC;
+
+			muli					: IN mul32_IN_type;
+			mulo					: OUT mul32_OUT_type
+		);
+	END COMPONENT;
 
 	COMPONENT mul32
 		GENERIC (
@@ -45,7 +64,8 @@ ARCHITECTURE tb OF mul32_tb IS
 			db_tmp_result			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 			db_prod_a				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 			db_prod_b				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-			db_number_bits_port		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0)			
+			db_number_bits_port		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+			db_started				: OUT STD_LOGIC
 		);
 	END COMPONENT;
 	
@@ -69,7 +89,25 @@ BEGIN
 		db_tmp_result => t_db_tmp_result,
 		db_prod_a => t_db_prod_a,
 		db_prod_b => t_db_prod_b,
-		db_number_bits_port => t_db_number_bits_port
+		db_number_bits_port => t_db_number_bits_port,
+		db_started => t_db_started
+	);
+
+
+	Omultiplier: mul32Original
+	GENERIC MAP (
+		tech => 0,
+		multype => 0,
+		pipe => 1,
+		mac => 1
+	)
+	PORT MAP (
+		rst => t_rst,
+		clk => t_clk,
+		holdn => t_holdn,
+		
+		muli => t_muli,
+		mulo => Ot_mulo
 	);
 
 	-- Clock Process
@@ -84,7 +122,7 @@ BEGIN
 	-- Input Processes
 	inp_prc: PROCESS
 		CONSTANT max_val : INTEGER := 25;
-		CONSTANT min_val : INTEGER := -1;
+		CONSTANT min_val : INTEGER := -15;
 
 		VARIABLE v_a	: INTEGER := max_val;
 		VARIABLE v_b	: INTEGER := min_val;
@@ -105,9 +143,10 @@ BEGIN
 				t_muli.op2 <= std_logic_vector(to_signed(v_b,33));
 			END IF;
 			IF (v_a < 0 OR v_b < 0) THEN
+				t_muli.signed <= '1';
+			ELSE
 				t_muli.signed <= '0';
 			END IF;
-			t_muli.signed <= '1';
 			IF (j<5) THEN
 				v_a := v_a - i;
 				v_b := v_b + i;
@@ -128,10 +167,10 @@ BEGIN
 		t_muli.acc <= std_logic_vector(to_signed(100,40));
 
 
-		-- t_muli.start <= '0';
-		-- WAIT FOR 10 ns;
+		t_muli.start <= '0';
+		WAIT FOR 50 ns;
 		t_muli.start <= '1';
-		WAIT;
+		WAIT FOR 15 ns;
 	END PROCESS;
 
 	-- Reset Process

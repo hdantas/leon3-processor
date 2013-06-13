@@ -21,7 +21,7 @@ L26
 V;<37X2B14EY1B0I>:b]0D1
 Z13 OL;C;10.1d;51
 31
-Z14 !s108 1370029286.377286
+Z14 !s108 1371052077.484031
 Z15 !s90 -reportprogress|300|-work|work|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/ahbrom.vhd|
 Z16 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/ahbrom.vhd|
 Z17 !s102 -cover s
@@ -61,21 +61,21 @@ R7
 R8
 R9
 Z21 DPx7 techmap 7 gencomp 0 22 [a7<zWVMUMl@CPR:;h2gG1
-w1370117742
+w1370907770
 R10
 8/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/config.vhd
 F/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/config.vhd
 l0
 L12
-V`mmMY=cJEDXG9d:Q72i8F2
+VZ_NHd89=jg3ca:bfhfaQ=2
 R13
 31
 R17
 R18
 R19
-!s100 <8NnRF5FHPZPCBbkZU60T0
+!s100 RhV<Mo]Dk5WQQV=jKz;[41
 !i10b 1
-!s108 1370382959.283607
+!s108 1371052077.364770
 !s90 -reportprogress|300|-work|work|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/config.vhd|
 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/config.vhd|
 Ecpu_disas
@@ -95,7 +95,7 @@ L36
 VKSPGb^5EA4QbYK1?`0j;g3
 R13
 31
-Z27 !s108 1370029286.230018
+Z27 !s108 1371052077.240574
 Z28 !s90 -reportprogress|300|-work|work|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/cpu_disas.vhd|
 Z29 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/cpu_disas.vhd|
 R17
@@ -147,52 +147,9 @@ R18
 R19
 !s100 35GWW6za]@7hCZbGUzlER2
 !i10b 1
-!s108 1370029286.080848
+!s108 1371052076.993289
 !s90 -reportprogress|300|-work|work|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/debug.vhd|
 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/debug.vhd|
-Edivtestbench
-Z30 w1370011142
-Z31 DPx7 gaisler 5 arith 0 22 UU;kd[Jc]I77e1ePCYmL93
-R3
-R6
-R4
-R8
-R9
-R10
-Z32 8/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/DivTestbench.vhd
-Z33 F/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/DivTestbench.vhd
-l0
-L8
-Vjz_Sahf3K5J<BoI@da4YD3
-!s100 [C_5JKLQ`A:cSS_h7dici0
-R13
-31
-!i10b 1
-Z34 !s108 1370382982.817921
-Z35 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/DivTestbench.vhd|
-Z36 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/DivTestbench.vhd|
-Z37 o-work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5
-R19
-Artl
-R31
-R3
-R6
-R4
-R8
-R9
-DEx4 work 12 divtestbench 0 22 jz_Sahf3K5J<BoI@da4YD3
-l50
-L20
-VeCZ;LcceQJ7bJ?00FKM6]0
-!s100 Pm[2_mTPF`9olGZAzi4hM3
-R13
-31
-!i10b 1
-R34
-R35
-R36
-R37
-R19
 Egaisler_cpu_disas
 R22
 R23
@@ -245,24 +202,24 @@ R22
 R2
 R5
 R7
-Z38 DPx5 grlib 5 stdio 0 22 a;KkQ@mB[4BjaV2P64L>^2
+Z30 DPx5 grlib 5 stdio 0 22 a;KkQ@mB[4BjaV2P64L>^2
 R3
 R6
 R4
-Z39 DPx7 gaisler 3 sim 0 22 IkS`YclkKWem40oB7DglD0
+Z31 DPx7 gaisler 3 sim 0 22 IkS`YclkKWem40oB7DglD0
 R8
 R9
 R10
-Z40 8/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/grtestmod.vhd
-Z41 F/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/grtestmod.vhd
+Z32 8/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/grtestmod.vhd
+Z33 F/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/grtestmod.vhd
 l0
 L34
 ViSf7[926Mh1=b]:F^Zz_k1
 R13
 31
-Z42 !s108 1370029286.143615
-Z43 !s90 -reportprogress|300|-work|work|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/grtestmod.vhd|
-Z44 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/grtestmod.vhd|
+Z34 !s108 1371052077.089905
+Z35 !s90 -reportprogress|300|-work|work|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/grtestmod.vhd|
+Z36 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/grtestmod.vhd|
 R17
 R18
 R19
@@ -272,11 +229,11 @@ Asim
 R2
 R5
 R7
-R38
+R30
 R3
 R6
 R4
-R39
+R31
 R8
 R9
 DEx4 work 9 grtestmod 0 22 iSf7[926Mh1=b]:F^Zz_k1
@@ -285,26 +242,26 @@ L51
 V?OdI2d`1HhYIGik_nbYo@1
 R13
 31
-R42
-R43
-R44
+R34
+R35
+R36
 R17
 R18
 R19
 !s100 D3XV`@lT`0G5NE93gSM4H0
 !i10b 1
 Eleon3mp
-Z45 w1367588421
-Z46 DPx4 work 6 config 0 22 `mmMY=cJEDXG9d:Q72i8F2
-Z47 DPx3 esa 10 memoryctrl 0 22 V2k;^KE?0QMZ@:Pa7kjiR2
-Z48 DPx7 gaisler 9 spacewire 0 22 YIV[XgIlaKOfc@3>4n:VF2
-Z49 DPx7 gaisler 4 jtag 0 22 d4FB2WOQ0RRNjiDZ=URYX0
-Z50 DPx7 gaisler 3 net 0 22 2oZY=IYQ6H=Ae[NQhVVXc3
-Z51 DPx7 gaisler 4 misc 0 22 cOED6fNP1CT;K4`QRo@>i3
-Z52 DPx7 gaisler 4 uart 0 22 <[F9:1af[22`hEbX>_YDb0
-Z53 DPx7 gaisler 5 leon3 0 22 I^N9O05;NS9lM07B4L23o3
-Z54 DPx7 gaisler 7 memctrl 0 22 I0g7^KzS=4A31HnFM7G;j0
-Z55 DPx7 techmap 9 allclkgen 0 22 i@NKlYAWc@gS_a__PGoHU2
+Z37 w1367588421
+Z38 DPx4 work 6 config 0 22 Z_NHd89=jg3ca:bfhfaQ=2
+Z39 DPx3 esa 10 memoryctrl 0 22 V2k;^KE?0QMZ@:Pa7kjiR2
+Z40 DPx7 gaisler 9 spacewire 0 22 YIV[XgIlaKOfc@3>4n:VF2
+Z41 DPx7 gaisler 4 jtag 0 22 d4FB2WOQ0RRNjiDZ=URYX0
+Z42 DPx7 gaisler 3 net 0 22 2oZY=IYQ6H=Ae[NQhVVXc3
+Z43 DPx7 gaisler 4 misc 0 22 cOED6fNP1CT;K4`QRo@>i3
+Z44 DPx7 gaisler 4 uart 0 22 <[F9:1af[22`hEbX>_YDb0
+Z45 DPx7 gaisler 5 leon3 0 22 I^N9O05;NS9lM07B4L23o3
+Z46 DPx7 gaisler 7 memctrl 0 22 I0g7^KzS=4A31HnFM7G;j0
+Z47 DPx7 techmap 9 allclkgen 0 22 i@NKlYAWc@gS_a__PGoHU2
 R21
 R2
 R3
@@ -315,16 +272,16 @@ R7
 R8
 R9
 R10
-Z56 8/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.vhd
-Z57 F/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.vhd
+Z48 8/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.vhd
+Z49 F/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.vhd
 l0
 L46
 VgkT?_5QddJe>THR6=HONP3
 R13
 31
-Z58 !s108 1370029286.455957
-Z59 !s90 -reportprogress|300|-work|work|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.vhd|
-Z60 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.vhd|
+Z50 !s108 1371052077.603840
+Z51 !s90 -reportprogress|300|-work|work|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.vhd|
+Z52 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.vhd|
 R17
 R18
 R19
@@ -332,16 +289,16 @@ R19
 !i10b 1
 Artl
 R20
+R38
+R39
+R40
+R41
+R42
+R43
+R44
+R45
 R46
 R47
-R48
-R49
-R50
-R51
-R52
-R53
-R54
-R55
 R21
 R2
 R3
@@ -351,94 +308,60 @@ R6
 R7
 R8
 R9
-Z61 DEx4 work 7 leon3mp 0 22 gkT?_5QddJe>THR6=HONP3
+DEx4 work 7 leon3mp 0 22 gkT?_5QddJe>THR6=HONP3
 l258
 L154
 VRD3iDkhfY<DgB1=R[Q]TY3
 R13
 31
-R58
-R59
-R60
+R50
+R51
+R52
 R17
 R18
 R19
 !s100 4MEjNmZV9LQh<R<O=9cX[2
 !i10b 1
-Etestbench
-Z62 w1367960670
-R46
-Z63 DPx4 work 5 debug 0 22 LIV`773V]Ce4A<1`mMUPj1
-Z64 DPx7 cypress 10 components 0 22 ]5iK1602G7<z6?NOj>QW[0
-Z65 DPx6 micron 10 components 0 22 0TIhCD]P[_JiP8=;eZK8f2
-R38
-R39
-R21
-R2
-R51
-R52
+Emul32_tb
+Z53 w1371056043
+Z54 DPx7 gaisler 5 arith 0 22 UU;kd[Jc]I77e1ePCYmL93
 R3
 R4
-R5
 R6
-R7
-Z66 DPx7 gaisler 7 libdcom 0 22 aBf[HY;mCCl`R5]fmGVVS0
 R8
 R9
 R10
-Z67 8/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/testbench.vhd
-Z68 F/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/testbench.vhd
+Z55 8/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/mul32_tb.vhd
+Z56 F/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/mul32_tb.vhd
 l0
-L39
-V<UXTm=COGDGeX===93H^D2
+L10
+VjVRMR3iCOTEOQD9>hIk:f1
+!s100 eMCZ1bnhHf97lH>4T@Q281
 R13
 31
-Z69 !s108 1370029286.613652
-Z70 !s90 -reportprogress|300|-work|work|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/testbench.vhd|
-Z71 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/testbench.vhd|
-R17
-R18
-R19
-!s100 Nn1YC?_IoIUzKTS?F1;_A0
 !i10b 1
-Abehav
-R47
-R48
-R49
-R50
-R53
+Z57 !s108 1371056046.695052
+Z58 !s90 -reportprogress|300|-work|work|-93|-explicit|-quiet|-source|-nowarn|1|-nowarn|5|-novopt|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/mul32_tb.vhd|
+Z59 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/mul32_tb.vhd|
+Z60 o-work work -93 -explicit -quiet -source -nowarn 1 -nowarn 5
+R19
+Atb
 R54
-R55
-R61
-R46
-R63
-R64
-R65
-R38
-R39
-R21
-R2
-R51
-R52
 R3
 R4
-R5
 R6
-R7
-R66
 R8
 R9
-DEx4 work 9 testbench 0 22 <UXTm=COGDGeX===93H^D2
-l163
-L60
-VAa59KQkI9DkF<=ILhWbgP3
+Z61 DEx4 work 8 mul32_tb 0 22 jVRMR3iCOTEOQD9>hIk:f1
+l73
+L13
+V59ASUWXS?zd]gknk_:DhA0
+!s100 CEV8i;BhagGZ55Ll>aYK83
 R13
 31
-R69
-R70
-R71
-R17
-R18
-R19
-!s100 PQhCD[IPIUG=0FBE909la0
 !i10b 1
+R57
+R58
+R59
+R60
+R19

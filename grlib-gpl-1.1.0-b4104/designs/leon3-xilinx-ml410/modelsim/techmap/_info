@@ -26,7 +26,7 @@ Z13 o-work techmap -93 -source -nowarn 1 -nowarn 5 -cover s
 Z14 tShow_source 1 Show_Warning1 0 Show_Warning5 0 Explicit 1 Quiet 1
 !s100 ;9Egj0`XU4LYGE]zk2_i^0
 !i10b 1
-!s108 1370029263.788750
+!s108 1371052040.077707
 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allclkgen.vhd|
 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allclkgen.vhd|
 Pallddr
@@ -52,7 +52,7 @@ R13
 R14
 !s100 zDLj58PfNCM>`ohT3K3Oj0
 !i10b 1
-!s108 1370029263.968780
+!s108 1371052040.386180
 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allddr.vhd|
 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allddr.vhd|
 Pallmem
@@ -72,7 +72,7 @@ R13
 R14
 !s100 OMkRc>1eJdN1e9MdWKlN[3
 !i10b 1
-!s108 1370029264.062990
+!s108 1371052040.535306
 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allmem.vhd|
 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allmem.vhd|
 Pallpads
@@ -98,7 +98,7 @@ R13
 R14
 !s100 VSk^zK:Ti9E3z?Vn@L^jV2
 !i10b 1
-!s108 1370029264.128565
+!s108 1371052040.616481
 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allpads.vhd|
 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allpads.vhd|
 Palltap
@@ -118,7 +118,7 @@ R13
 R14
 !s100 P^=QhOm;Q0J0Ko;nIWY3C0
 !i10b 1
-!s108 1370029264.218741
+!s108 1371052040.766298
 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/alltap.vhd|
 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/alltap.vhd|
 Eclkand
@@ -140,7 +140,7 @@ L31
 Vi:V2cfCFil]G5d6fDlDh10
 R11
 31
-Z19 !s108 1370029264.448051
+Z19 !s108 1371052041.098995
 Z20 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkand.vhd|
 Z21 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkand.vhd|
 R12
@@ -185,7 +185,7 @@ L925
 VeBdLXGH>]g5oDDDlOOk<H1
 R11
 31
-Z25 !s108 1370029262.066788
+Z25 !s108 1371052037.797161
 Z26 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd|
 Z27 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd|
 R12
@@ -225,7 +225,7 @@ L34
 Vm]1_CY9l;Vll2IhzE;d2D2
 R11
 31
-Z32 !s108 1370029261.848917
+Z32 !s108 1371052037.504959
 Z33 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/buffer_unisim.vhd|
 Z34 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/buffer_unisim.vhd|
 R12
@@ -269,7 +269,7 @@ L32
 VZi^aP:BL>=Ieibg8jlRWh2
 R11
 31
-Z38 !s108 1370029264.271059
+Z38 !s108 1371052040.850856
 Z39 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkgen.vhd|
 Z40 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkgen.vhd|
 R12
@@ -589,7 +589,7 @@ L31
 VEb[KcHzX8@ek^OOM<RkG<1
 R11
 31
-Z48 !s108 1370029264.361797
+Z48 !s108 1371052040.952711
 Z49 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkmux.vhd|
 Z50 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkmux.vhd|
 R12
@@ -716,7 +716,7 @@ L32
 VS9K=[NmV9Ro2@nU=BWh_n0
 R11
 31
-Z54 !s108 1370029265.692664
+Z54 !s108 1371052042.769330
 Z55 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkpad.vhd|
 Z56 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkpad.vhd|
 R12
@@ -767,7 +767,7 @@ L32
 V:R8lXjbXRPO<E@8Y]Hab81
 R11
 31
-Z59 !s108 1370029265.786218
+Z59 !s108 1371052042.867893
 Z60 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkpad_ds.vhd|
 Z61 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkpad_ds.vhd|
 R12
@@ -816,7 +816,7 @@ L35
 VMz`YhQlFPAzofP=5iK>8N3
 R11
 31
-Z66 !s108 1370029267.459850
+Z66 !s108 1371052044.948966
 Z67 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/cpu_disas_net.vhd|
 Z68 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/cpu_disas_net.vhd|
 R12
@@ -865,7 +865,7 @@ L223
 V_AhQeKh=8jCWidO^AiW630
 R11
 31
-Z72 !s108 1370029264.719658
+Z72 !s108 1371052041.469432
 Z73 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ddrphy.vhd|
 Z74 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ddrphy.vhd|
 R12
@@ -916,7 +916,7 @@ L31
 V4XjPa9eRYZ18I^i[a_izL1
 R11
 31
-Z77 !s108 1370029264.538611
+Z77 !s108 1371052041.220268
 Z78 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ddr_ireg.vhd|
 Z79 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ddr_ireg.vhd|
 R12
@@ -967,7 +967,7 @@ L31
 VJQV8CROnz5>>76MblTgBb3
 R11
 31
-Z82 !s108 1370029264.630304
+Z82 !s108 1371052041.344140
 Z83 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ddr_oreg.vhd|
 Z84 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ddr_oreg.vhd|
 R12
@@ -1064,7 +1064,7 @@ L32
 VT<Xl>aU]i<HmZ`j6f4gL33
 R11
 31
-Z89 !s108 1370029261.591927
+Z89 !s108 1371052037.130097
 Z90 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/dw02/mul_dw_gen.vhd|
 Z91 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/dw02/mul_dw_gen.vhd|
 R12
@@ -1150,7 +1150,7 @@ L86
 VgjAnN5Z9nc<_HIe`8MYnb0
 R11
 31
-Z94 !s108 1370029261.492299
+Z94 !s108 1371052036.988992
 Z95 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd|
 Z96 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd|
 R12
@@ -1261,7 +1261,7 @@ L29
 V]4FlTzMEORKUY=I^c]WY]0
 R11
 31
-Z99 !s108 1370029261.367248
+Z99 !s108 1371052036.697515
 Z100 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_inferred.vhd|
 Z101 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_inferred.vhd|
 R12
@@ -1301,7 +1301,7 @@ L32
 VGBlEhL7=BCAAGAA2YCo8U0
 R11
 31
-Z104 !s108 1370029261.421068
+Z104 !s108 1371052036.819833
 Z105 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/mul_inferred.vhd|
 Z106 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/mul_inferred.vhd|
 R12
@@ -1351,7 +1351,7 @@ R13
 R14
 !s100 N;La:44V;6e^01A9mW`dC0
 !i10b 1
-!s108 1370029261.089312
+!s108 1371052036.329305
 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/gencomp/gencomp.vhd|
 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/gencomp/gencomp.vhd|
 Egeneric_ddr_phy
@@ -1418,7 +1418,7 @@ L220
 V7T00EeeY=kGFm9fdFOj5;0
 R11
 31
-Z109 !s108 1370029261.278605
+Z109 !s108 1371052036.579634
 Z110 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd|
 Z111 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd|
 R12
@@ -1679,7 +1679,7 @@ L31
 VQC3HhGinJSa94H3W8C9oU1
 R11
 31
-Z114 !s108 1370029267.278536
+Z114 !s108 1371052044.712405
 Z115 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grfpw_net.vhd|
 Z116 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grfpw_net.vhd|
 R12
@@ -1728,7 +1728,7 @@ L31
 V=AXUBkYXj1b]o`@=V1B]b3
 R11
 31
-Z119 !s108 1370029267.185609
+Z119 !s108 1371052044.586312
 Z120 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grlfpw_net.vhd|
 Z121 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grlfpw_net.vhd|
 R12
@@ -1778,7 +1778,7 @@ L31
 V]mcQ_UL=4FRg_?2[Ql]kd2
 R11
 31
-Z124 !s108 1370029267.708965
+Z124 !s108 1371052045.565150
 Z125 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grgates.vhd|
 Z126 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grgates.vhd|
 R12
@@ -1828,7 +1828,7 @@ L31
 VdX?MRSkk46YROOKNAf_d]3
 R11
 31
-Z129 !s108 1370029267.085425
+Z129 !s108 1371052044.441534
 Z130 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grspwc2_net.vhd|
 Z131 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grspwc2_net.vhd|
 R12
@@ -1871,7 +1871,7 @@ L30
 VNF6zgaM<S_<E@`RGkZE930
 R11
 31
-Z134 !s108 1370029262.738604
+Z134 !s108 1371052038.724459
 Z135 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/grspwc2_unisim.vhd|
 Z136 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/grspwc2_unisim.vhd|
 R12
@@ -1914,7 +1914,7 @@ L31
 V2<>9EHe4]gLTPe=2j0dRC3
 R11
 31
-Z139 !s108 1370029266.984000
+Z139 !s108 1371052044.290481
 Z140 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grspwc_net.vhd|
 Z141 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grspwc_net.vhd|
 R12
@@ -1957,7 +1957,7 @@ L30
 V?9[C<kT7R7c6HGGX6n4V;2
 R11
 31
-Z144 !s108 1370029262.671119
+Z144 !s108 1371052038.598084
 Z145 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/grspwc_unisim.vhd|
 Z146 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/grspwc_unisim.vhd|
 R12
@@ -2000,7 +2000,7 @@ L40
 V?[hQcNU@BNOl7jQMg]PoW0
 R11
 31
-Z149 !s108 1370029262.801818
+Z149 !s108 1371052038.797456
 Z150 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/grusbhc_unisim.vhd|
 Z151 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/grusbhc_unisim.vhd|
 R12
@@ -2050,7 +2050,7 @@ L32
 V>QzzSRjNb[]ENn<3^g71l1
 R11
 31
-Z154 !s108 1370029265.873986
+Z154 !s108 1371052042.990201
 Z155 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/inpad.vhd|
 Z156 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/inpad.vhd|
 R12
@@ -2102,7 +2102,7 @@ L35
 VQ:Vi5NQGm4bhM:DzzoWW32
 R11
 31
-Z159 !s108 1370029267.795406
+Z159 !s108 1371052045.688957
 Z160 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/inpad_ddr.vhd|
 Z161 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/inpad_ddr.vhd|
 R12
@@ -2203,7 +2203,7 @@ L32
 V:e<j?eJn^Y9AW6lhFm8A>2
 R11
 31
-Z164 !s108 1370029265.965008
+Z164 !s108 1371052043.105502
 Z165 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/inpad_ds.vhd|
 Z166 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/inpad_ds.vhd|
 R12
@@ -2352,7 +2352,7 @@ L32
 VYW]<3[Ub85n;3AfTF@ma70
 R11
 31
-Z169 !s108 1370029266.059353
+Z169 !s108 1371052043.207476
 Z170 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iodpad.vhd|
 Z171 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iodpad.vhd|
 R12
@@ -2452,7 +2452,7 @@ L32
 VRX2X][PWNAJ>eK;PJZ`KC3
 R11
 31
-Z174 !s108 1370029266.187744
+Z174 !s108 1371052043.351913
 Z175 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad.vhd|
 Z176 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad.vhd|
 R12
@@ -2504,7 +2504,7 @@ L35
 Vm?<jUW^X5Nd94<fM<AKcI0
 R11
 31
-Z179 !s108 1370029267.987383
+Z179 !s108 1371052045.953940
 Z180 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad_ddr.vhd|
 Z181 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad_ddr.vhd|
 R12
@@ -2654,7 +2654,7 @@ L32
 VJ8amXUP=JH:WXM90C^cAA3
 R11
 31
-Z184 !s108 1370029266.332739
+Z184 !s108 1371052043.482560
 Z185 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad_ds.vhd|
 Z186 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad_ds.vhd|
 R12
@@ -2901,7 +2901,7 @@ L32
 V@N9Wgoz`U[1`SelLMi[`W0
 R11
 31
-Z189 !s108 1370029266.429902
+Z189 !s108 1371052043.588713
 Z190 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/lvds_combo.vhd|
 Z191 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/lvds_combo.vhd|
 R12
@@ -2951,7 +2951,7 @@ L31
 VSWKF]I:kg<io=`A1HgiDL0
 R11
 31
-Z194 !s108 1370029267.373634
+Z194 !s108 1371052044.834017
 Z195 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/mul_61x61.vhd|
 Z196 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/mul_61x61.vhd|
 R12
@@ -3000,7 +3000,7 @@ L30
 VEaScl^QO<:MW@h0A1D^Tf3
 R11
 31
-Z199 !s108 1370029265.597847
+Z199 !s108 1371052042.649663
 Z200 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/nandtree.vhd|
 Z201 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/nandtree.vhd|
 R12
@@ -3054,7 +3054,7 @@ R13
 R14
 !s100 iC>`LJ3M`hA8]Rc3aK3fQ1
 !i10b 1
-!s108 1370029261.180488
+!s108 1371052036.451460
 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/gencomp/netcomp.vhd|
 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/gencomp/netcomp.vhd|
 Eoddrc3e
@@ -3078,7 +3078,7 @@ L306
 Vi7kmG:UVGU8eQJ42i6WRA2
 R11
 31
-Z206 !s108 1370029262.286632
+Z206 !s108 1371052038.110521
 Z207 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_unisim.vhd|
 Z208 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_unisim.vhd|
 R12
@@ -3180,7 +3180,7 @@ L32
 V8[SKL]]CKCdP4Z^I:5L[`0
 R11
 31
-Z212 !s108 1370029266.519299
+Z212 !s108 1371052043.688021
 Z213 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/odpad.vhd|
 Z214 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/odpad.vhd|
 R12
@@ -3280,7 +3280,7 @@ L32
 Vf2ZO3=4iRbkQS]A>U4FT63
 R11
 31
-Z217 !s108 1370029266.615128
+Z217 !s108 1371052043.801852
 Z218 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/outpad.vhd|
 Z219 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/outpad.vhd|
 R12
@@ -3332,7 +3332,7 @@ L36
 VW>Jj^aS]DBWfP]H16GhW81
 R11
 31
-Z222 !s108 1370029267.890893
+Z222 !s108 1371052045.820477
 Z223 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/outpad_ddr.vhd|
 Z224 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/outpad_ddr.vhd|
 R12
@@ -3433,7 +3433,7 @@ L32
 V:4dA]m@J`>R8oZIG4Ff4L0
 R11
 31
-Z227 !s108 1370029266.707520
+Z227 !s108 1371052043.940741
 Z228 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/outpad_ds.vhd|
 Z229 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/outpad_ds.vhd|
 R12
@@ -3582,7 +3582,7 @@ L32
 VTF8Oo:o2@BP_Nf<=G]<k]2
 R11
 31
-Z233 !s108 1370029265.329142
+Z233 !s108 1371052042.294267
 Z234 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/regfile_3p.vhd|
 Z235 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/regfile_3p.vhd|
 R12
@@ -3632,7 +3632,7 @@ L30
 VVGcIifWo??LlAb=VcXE_a0
 R11
 31
-Z238 !s108 1370029267.537896
+Z238 !s108 1371052045.081262
 Z239 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ringosc.vhd|
 Z240 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ringosc.vhd|
 R12
@@ -3682,7 +3682,7 @@ L32
 VCY_UI23L1k<91R84Um?J21
 R11
 31
-Z243 !s108 1370029266.893982
+Z243 !s108 1371052044.188841
 Z244 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/skew_outpad.vhd|
 Z245 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/skew_outpad.vhd|
 R12
@@ -3727,7 +3727,7 @@ L151
 Vi1:d=hhH91nNh?lojR44>3
 R11
 31
-Z248 !s108 1370029262.203903
+Z248 !s108 1371052037.979201
 Z249 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd|
 Z250 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd|
 R12
@@ -3777,7 +3777,7 @@ L1894
 V?ddOScHAXNU8MQPVKDW5j2
 R11
 31
-Z255 !s108 1370029262.389320
+Z255 !s108 1371052038.246156
 Z256 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd|
 Z257 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd|
 R12
@@ -3973,7 +3973,7 @@ L31
 VdTi=8lZDD9ES4Z>3g06zZ1
 R11
 31
-Z261 !s108 1370029262.915104
+Z261 !s108 1371052038.974675
 Z262 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ssrctrl_unisim.vhd|
 Z263 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ssrctrl_unisim.vhd|
 R12
@@ -4056,7 +4056,7 @@ L33
 VnJc1ca?:KHm[maCQg2Jz[1
 R11
 31
-Z266 !s108 1370029265.244763
+Z266 !s108 1371052042.198310
 Z267 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncfifo.vhd|
 Z268 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncfifo.vhd|
 R12
@@ -4106,7 +4106,7 @@ L31
 V^m]Wc<7Xe]oBPC7E^NC]V0
 R11
 31
-Z272 !s108 1370029264.821572
+Z272 !s108 1371052041.601776
 Z273 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram.vhd|
 Z274 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram.vhd|
 R12
@@ -4156,7 +4156,7 @@ L32
 VUWBoU6VG_:me7[i?WXDz?1
 R11
 31
-Z277 !s108 1370029268.173816
+Z277 !s108 1371052046.200988
 Z278 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram128.vhd|
 Z279 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram128.vhd|
 R12
@@ -4205,7 +4205,7 @@ L32
 VK]UH<F2?ea=k2D:`da^gJ3
 R11
 31
-Z282 !s108 1370029268.088514
+Z282 !s108 1371052046.076784
 Z283 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram128bw.vhd|
 Z284 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram128bw.vhd|
 R12
@@ -4256,7 +4256,7 @@ V5EkmPU_dVz]UJ[e=D@2Ce0
 R11
 31
 !i10b 1
-Z287 !s108 1370029268.259562
+Z287 !s108 1371052046.327549
 Z288 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram156bw.vhd|
 Z289 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram156bw.vhd|
 R12
@@ -4303,7 +4303,7 @@ L32
 VDXeiM`9@nHUR253JLQd;:0
 R11
 31
-Z293 !s108 1370029264.916496
+Z293 !s108 1371052041.749508
 Z294 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram64.vhd|
 Z295 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram64.vhd|
 R12
@@ -4353,7 +4353,7 @@ L32
 V[3cD1R?KQ0IZ[okOT;E2O0
 R11
 31
-Z298 !s108 1370029265.005413
+Z298 !s108 1371052041.929945
 Z299 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram_2p.vhd|
 Z300 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram_2p.vhd|
 R12
@@ -4404,7 +4404,7 @@ L32
 VU^[MAA:Zd]DLkl`1X`?ba3
 R11
 31
-Z303 !s108 1370029265.139175
+Z303 !s108 1371052042.058085
 Z304 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram_dp.vhd|
 Z305 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram_dp.vhd|
 R12
@@ -4451,7 +4451,7 @@ L38
 VKRRC01_39GG6HUbVka>L40
 R11
 31
-Z308 !s108 1370029263.193616
+Z308 !s108 1371052039.349555
 Z309 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/sysmon_unisim.vhd|
 Z310 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/sysmon_unisim.vhd|
 R12
@@ -4496,7 +4496,7 @@ L31
 VVdd4Vk;?:P1jhbTUXk2bS1
 R11
 31
-Z313 !s108 1370029267.623126
+Z313 !s108 1371052045.429992
 Z314 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/system_monitor.vhd|
 Z315 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/system_monitor.vhd|
 R12
@@ -4546,7 +4546,7 @@ L35
 V]hY<nY1OI>PVIeaJOTF][0
 R11
 31
-Z319 !s108 1370029265.420091
+Z319 !s108 1371052042.428063
 Z320 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/tap.vhd|
 Z321 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/tap.vhd|
 R12
@@ -4596,7 +4596,7 @@ L30
 V1aH_SY2g78ATM8FhNbzZS0
 R11
 31
-Z324 !s108 1370029265.508605
+Z324 !s108 1371052042.532640
 Z325 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/techbuf.vhd|
 Z326 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/techbuf.vhd|
 R12
@@ -4646,7 +4646,7 @@ L32
 Vb3i>`3CnFGMA2MZ^JUn6m0
 R11
 31
-Z329 !s108 1370029266.798326
+Z329 !s108 1371052044.063292
 Z330 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/toutpad.vhd|
 Z331 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/toutpad.vhd|
 R12
@@ -4798,7 +4798,7 @@ L473
 VgT[RA3zMZjPoAhz6lbR7D1
 R11
 31
-Z335 !s108 1370029261.911874
+Z335 !s108 1371052037.605264
 Z336 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd|
 Z337 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd|
 R12
@@ -5358,7 +5358,7 @@ L394
 VoE4H6Q;eC^m68`=g4kTjU3
 R11
 31
-Z345 !s108 1370029261.651452
+Z345 !s108 1371052037.238111
 Z346 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd|
 Z347 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd|
 R12
@@ -5896,7 +5896,7 @@ L7
 V3XFDoVWcbbWLoRkPGNhj:2
 R11
 31
-Z350 !s108 1370029263.266957
+Z350 !s108 1371052039.437118
 Z351 !s90 -reportprogress|300|-work|techmap|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/mul_unisim.vhd|
 Z352 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/mul_unisim.vhd|
 R12

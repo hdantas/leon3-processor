@@ -3961,6 +3961,7 @@ SPW__spwcomp = $(LIB_SPW)/spwcomp/_primary.dat
 OPENCORES__i2coc = $(LIB_OPENCORES)/i2coc/_primary.dat
 GRLIB__sparc_disas = $(LIB_GRLIB)/sparc_disas/_primary.dat
 GRLIB__sparc = $(LIB_GRLIB)/sparc/_primary.dat
+GRLIB__multlib = $(LIB_GRLIB)/multlib/_primary.dat
 IEEE__std_logic_arith = $(LIB_IEEE)/std_logic_arith/_primary.dat
 IEEE__std_logic_unsigned = $(LIB_IEEE)/std_logic_unsigned/_primary.dat
 GRLIB__stdio = $(LIB_GRLIB)/stdio/_primary.dat
@@ -4020,6 +4021,10 @@ GAISLER__phy = $(LIB_GAISLER)/phy/_primary.dat
 GAISLER__ocidec2_amba_slave__rtl = $(LIB_GAISLER)/ocidec2_amba_slave/rtl.dat
 GAISLER__ocidec2_amba_slave = $(LIB_GAISLER)/ocidec2_amba_slave/_primary.dat
 GAISLER__net = $(LIB_GAISLER)/net/_primary.dat
+GAISLER__mypackage__body = $(LIB_GAISLER)/mypackage/body.dat
+GAISLER__mypackage = $(LIB_GAISLER)/mypackage/_primary.dat
+GAISLER__mul32original__rtl = $(LIB_GAISLER)/mul32original/rtl.dat
+GAISLER__mul32original = $(LIB_GAISLER)/mul32original/_primary.dat
 GAISLER__mul32__behavioral = $(LIB_GAISLER)/mul32/behavioral.dat
 GAISLER__mul32 = $(LIB_GAISLER)/mul32/_primary.dat
 GAISLER__mmutw__rtl = $(LIB_GAISLER)/mmutw/rtl.dat
@@ -4258,6 +4263,10 @@ whole_library :     $(GAISLER__wild2ahb__rtl) \
     $(GAISLER__ocidec2_amba_slave__rtl) \
     $(GAISLER__ocidec2_amba_slave) \
     $(GAISLER__net) \
+    $(GAISLER__mypackage__body) \
+    $(GAISLER__mypackage) \
+    $(GAISLER__mul32original__rtl) \
+    $(GAISLER__mul32original) \
     $(GAISLER__mul32__behavioral) \
     $(GAISLER__mul32) \
     $(GAISLER__mmutw__rtl) \
@@ -5834,8 +5843,24 @@ $(GAISLER__mmutw__rtl) : ../../lib/gaisler/leon3/mmutw.vhd \
 		$(IEEE__std_logic_1164)
 	$(VCOM) -quiet -93 -work gaisler ../../lib/gaisler/leon3/mmutw.vhd
 
+$(GAISLER__mul32original) \
+$(GAISLER__mul32original__rtl) : ../../lib/gaisler/arith/mul32Original.vhd \
+		$(GRLIB__config) \
+		$(GRLIB__amba) \
+		$(TECHMAP__gencomp) \
+		$(GAISLER__arith) \
+		$(GRLIB__multlib) \
+		$(GRLIB__version) \
+		$(IEEE__numeric_std) \
+		$(GRLIB__stdlib) \
+		$(STD__textio) \
+		$(IEEE__std_logic_1164)
+	$(VCOM) -quiet -93 -work gaisler ../../lib/gaisler/arith/mul32Original.vhd
+
 $(GAISLER__mul32) \
-$(GAISLER__mul32__behavioral) : ../../lib/gaisler/arith/mul32.vhd \
+$(GAISLER__mul32__behavioral) \
+$(GAISLER__mypackage) \
+$(GAISLER__mypackage__body) : ../../lib/gaisler/arith/mul32.vhd \
 		$(GAISLER__arith) \
 		$(GRLIB__version) \
 		$(GRLIB__stdlib) \

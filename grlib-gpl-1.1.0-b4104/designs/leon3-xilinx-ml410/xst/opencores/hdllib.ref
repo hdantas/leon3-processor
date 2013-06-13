@@ -1,0 +1,5 @@
+AR i2c_master_byte_ctrl structural /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/opencores/i2c/i2c_master_byte_ctrl.vhd sub00/vhpl03 1371062452
+AR i2c_master_bit_ctrl structural /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/opencores/i2c/i2c_master_bit_ctrl.vhd sub00/vhpl01 1371062414
+EN i2c_master_byte_ctrl NULL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/opencores/i2c/i2c_master_byte_ctrl.vhd sub00/vhpl02 1371062451
+PH i2coc NULL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/opencores/i2c/i2coc.vhd sub00/vhpl04 1371062453
+EN i2c_master_bit_ctrl NULL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/opencores/i2c/i2c_master_bit_ctrl.vhd sub00/vhpl00 1371062413

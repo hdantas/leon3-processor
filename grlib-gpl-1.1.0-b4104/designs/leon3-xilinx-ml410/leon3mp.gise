@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="leon3mp.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="leon3mp.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="leon3mp.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="leon3mp.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="leon3mp.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="leon3mp.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="leon3mp_envsettings.html"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="leon3mp_files.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="leon3mp_libero.prj"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="leon3mp_summary.html"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="leon3mp_synplify.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="leon3mp_vhdl.prj"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="leon3mp_xst.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="mul32.ngr"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1370907909" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1370907909">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1370907909" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-6963364648637151486" xil_pn:start_ts="1370907909">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1370907909" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="698213721159722546" xil_pn:start_ts="1370907909">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1370907909" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1370907909">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1370907909" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-8060947631539269898" xil_pn:start_ts="1370907909">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1370907909" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="-6526816086491584780" xil_pn:start_ts="1370907909">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1370907909" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-1817226191729220932" xil_pn:start_ts="1370907909">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1371116357" xil_pn:in_ck="-7249901312625904116" xil_pn:name="TRANEXT_xstsynthesize_virtex4" xil_pn:prop_ck="-4745137418442550341" xil_pn:start_ts="1371062127">
+      <status xil_pn:value="AbortedRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="leon3mp.lso"/>
+      <outfile xil_pn:name="leon3mp.prj"/>
+      <outfile xil_pn:name="leon3mp.syr"/>
+      <outfile xil_pn:name="leon3mp.xst"/>
+      <outfile xil_pn:name="leon3mp_files.prj"/>
+      <outfile xil_pn:name="leon3mp_libero.prj"/>
+      <outfile xil_pn:name="leon3mp_synplify.prj"/>
+      <outfile xil_pn:name="mul32.ngr"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1370908021" xil_pn:in_ck="170258959983741258" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="8278415830998054507" xil_pn:start_ts="1370908021">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+  </transforms>
+
+</generated_project>

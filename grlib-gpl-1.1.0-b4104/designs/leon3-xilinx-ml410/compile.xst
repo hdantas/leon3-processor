@@ -107,6 +107,7 @@ elaborate -ifmt vhdl -work_lib opencores -ifn ../../lib/opencores/ata/ocidec2_co
 elaborate -ifmt verilog -work_lib opencores -ifn ../../lib/opencores/ac97/ac97_top.v
 elaborate -ifmt vhdl -work_lib gaisler -ifn ../../lib/gaisler/arith/arith.vhd
 elaborate -ifmt vhdl -work_lib gaisler -ifn ../../lib/gaisler/arith/mul32.vhd
+elaborate -ifmt vhdl -work_lib gaisler -ifn ../../lib/gaisler/arith/mul32Original.vhd
 elaborate -ifmt vhdl -work_lib gaisler -ifn ../../lib/gaisler/arith/FA.vhd
 elaborate -ifmt vhdl -work_lib gaisler -ifn ../../lib/gaisler/arith/qSelector.vhd
 elaborate -ifmt vhdl -work_lib gaisler -ifn ../../lib/gaisler/arith/t3to2compressor.vhd
