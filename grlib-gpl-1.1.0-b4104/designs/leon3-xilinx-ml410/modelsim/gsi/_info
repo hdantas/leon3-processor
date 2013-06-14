@@ -19,7 +19,7 @@ Vn7M13<;d=_@0jkLgS_W4k1
 Z10 OL;C;10.1d;51
 31
 b1
-Z11 !s108 1371052074.646623
+Z11 !s108 1371219477.498221
 Z12 !s90 -reportprogress|300|-work|gsi|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gsi/ssram/functions.vhd|
 Z13 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gsi/ssram/functions.vhd|
 Z14 !s102 -cover s
@@ -62,7 +62,7 @@ VI;QAb<W?UX:WB56J6VP^`1
 R10
 31
 !i10b 1
-Z19 !s108 1371052075.024698
+Z19 !s108 1371219477.957236
 Z20 !s90 -reportprogress|300|-work|gsi|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gsi/ssram/g880e18bt.vhd|
 Z21 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gsi/ssram/g880e18bt.vhd|
 R14
@@ -75,11 +75,11 @@ R3
 Z22 DPx3 gsi 9 functions 0 22 n7M13<;d=_@0jkLgS_W4k1
 R4
 R5
-DEx4 work 9 g880e18bt 0 22 I;QAb<W?UX:WB56J6VP^`1
+Z23 DEx4 work 9 g880e18bt 0 22 I;QAb<W?UX:WB56J6VP^`1
 l132
 L68
-V2CjH`zzdae;lcT@9cN1m82
-Z23 !s100 a:2HQ:OTB[Ke8^48FiDPb0
+Z24 V2CjH`zzdae;lcT@9cN1m82
+Z25 !s100 a:2HQ:OTB[Ke8^48FiDPb0
 R10
 31
 !i10b 1
@@ -91,26 +91,26 @@ R15
 R16
 Evhdl_burst_core
 R6
-Z24 DPx5 grlib 6 config 0 22 3SaBaXQG<hRDBY6>elTzF1
-Z25 DPx5 grlib 4 amba 0 22 eQ4bddV=CPO?cHYI^PW7b2
-Z26 DPx5 grlib 5 stdio 0 22 a;KkQ@mB[4BjaV2P64L>^2
+Z26 DPx5 grlib 6 config 0 22 3SaBaXQG<hRDBY6>elTzF1
+Z27 DPx5 grlib 4 amba 0 22 eQ4bddV=CPO?cHYI^PW7b2
+Z28 DPx5 grlib 5 stdio 0 22 a;KkQ@mB[4BjaV2P64L>^2
 R1
 R2
 R3
-Z27 DPx7 gaisler 3 sim 0 22 IkS`YclkKWem40oB7DglD0
+Z29 DPx7 gaisler 3 sim 0 22 IkS`YclkKWem40oB7DglD0
 R4
 R5
 R7
-Z28 8/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gsi/ssram/core_burst.vhd
-Z29 F/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gsi/ssram/core_burst.vhd
+Z30 8/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gsi/ssram/core_burst.vhd
+Z31 F/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gsi/ssram/core_burst.vhd
 l0
 L61
 VIDgnTG<@YY2z@RT_g62eh3
 R10
 31
-Z30 !s108 1371052074.894801
-Z31 !s90 -reportprogress|300|-work|gsi|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gsi/ssram/core_burst.vhd|
-Z32 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gsi/ssram/core_burst.vhd|
+Z32 !s108 1371219477.762133
+Z33 !s90 -reportprogress|300|-work|gsi|-93|-source|-nowarn|1|-nowarn|5|-cover|s|/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gsi/ssram/core_burst.vhd|
+Z34 !s107 /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gsi/ssram/core_burst.vhd|
 R14
 R15
 R16
@@ -118,13 +118,13 @@ R16
 !i10b 1
 Agsi_burst_core
 R22
-R24
-R25
 R26
+R27
+R28
 R1
 R2
 R3
-R27
+R29
 R4
 R5
 DEx4 work 15 vhdl_burst_core 0 22 IDgnTG<@YY2z@RT_g62eh3
@@ -134,9 +134,9 @@ VWUc[X2JObGL>0VFD1@CI_1
 !s100 >>3Fnk;KY@[_]T;Za<gnI0
 R10
 31
-R30
-R31
 R32
+R33
+R34
 R14
 R15
 R16

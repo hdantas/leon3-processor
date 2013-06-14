@@ -24,8 +24,6 @@
 
 } {} {}} ../../lib/grlib/amba/at/at_ahb_slv_pkg.vhd {1 {vcom -work grlib -93 -source -nowarn 1 -nowarn 5 -cover s /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/grlib/amba/at/at_ahb_slv_pkg.vhd
 
-} {} {}} ../../lib/gaisler/arith/mul32.vhd {1 {vcom -work gaisler -93 -source -nowarn 1 -nowarn 5 -cover s /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/arith/mul32.vhd
-
 } {} {}} ../../lib/gaisler/misc/charrom_package.vhd {1 {vcom -work gaisler -93 -source -nowarn 1 -nowarn 5 -cover s /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/misc/charrom_package.vhd
 
 } {} {}} ../../lib/grlib/sparc/sparc.vhd {1 {vcom -work grlib -93 -source -nowarn 1 -nowarn 5 -cover s /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/grlib/sparc/sparc.vhd

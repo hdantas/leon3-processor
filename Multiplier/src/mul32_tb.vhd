@@ -18,7 +18,7 @@ ARCHITECTURE tb OF mul32_tb IS
 
 	SIGNAL t_muli					: mul32_IN_type;
 	SIGNAL t_mulo					: mul32_OUT_type;
-	SIGNAL Ot_mulo					: mul32_OUT_type;
+	SIGNAL O_t_mulo					: mul32_OUT_type;
 	
 	SIGNAL t_db_tmp_result			: STD_LOGIC_VECTOR(63 DOWNTO 0);
 	SIGNAL t_db_prod_a				: STD_LOGIC_VECTOR(63 DOWNTO 0);
@@ -26,7 +26,13 @@ ARCHITECTURE tb OF mul32_tb IS
 	SIGNAL t_db_number_bits_port	: STD_LOGIC_VECTOR(63 DOWNTO 0);
 	SIGNAL t_db_started				: STD_LOGIC;
 
-	COMPONENT mul32Original
+	SIGNAL O_t_db_tmp_result		: STD_LOGIC_VECTOR(63 DOWNTO 0);
+	SIGNAL O_t_db_prod_a			: STD_LOGIC_VECTOR(63 DOWNTO 0);
+	SIGNAL O_t_db_prod_b			: STD_LOGIC_VECTOR(63 DOWNTO 0);
+	SIGNAL O_t_db_number_bits_port	: STD_LOGIC_VECTOR(63 DOWNTO 0);
+	SIGNAL O_t_db_started			: STD_LOGIC;
+
+	COMPONENT mul32Arrays
 		GENERIC (
 			tech					: INTEGER;
 			multype					: INTEGER;
@@ -39,14 +45,21 @@ ARCHITECTURE tb OF mul32_tb IS
 			holdn					: IN STD_ULOGIC;
 
 			muli					: IN mul32_IN_type;
-			mulo					: OUT mul32_OUT_type
+			mulo					: OUT mul32_OUT_type;
+
+			-- debugging signals
+			db_tmp_result			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+			db_prod_a				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+			db_prod_b				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+			db_number_bits_port		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+			db_started				: OUT STD_LOGIC			
 		);
 	END COMPONENT;
 
 	COMPONENT mul32
 		GENERIC (
 			tech					: INTEGER;
-			infer					: INTEGER;
+			-- infer					: INTEGER;
 			multype					: INTEGER;
 			pipe					: INTEGER;
 			mac						: INTEGER
@@ -74,7 +87,7 @@ BEGIN
 	multiplier: mul32
 	GENERIC MAP (
 		tech => 0,
-		infer => 1,
+		-- infer => 1,
 		multype => 0,
 		pipe => 1,
 		mac => 1
@@ -94,7 +107,7 @@ BEGIN
 	);
 
 
-	Omultiplier: mul32Original
+	Arraysmultiplier: mul32Arrays
 	GENERIC MAP (
 		tech => 0,
 		multype => 0,
@@ -107,7 +120,12 @@ BEGIN
 		holdn => t_holdn,
 		
 		muli => t_muli,
-		mulo => Ot_mulo
+		mulo => O_t_mulo,
+		db_tmp_result => O_t_db_tmp_result,
+		db_prod_a => O_t_db_prod_a,
+		db_prod_b => O_t_db_prod_b,
+		db_number_bits_port => O_t_db_number_bits_port,
+		db_started => O_t_db_started
 	);
 
 	-- Clock Process

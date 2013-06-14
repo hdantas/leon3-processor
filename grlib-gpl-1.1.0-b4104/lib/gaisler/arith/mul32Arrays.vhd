@@ -79,9 +79,9 @@ ARCHITECTURE behavioral OF mul32 IS
 	CONSTANT arrayX							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'X');
 	CONSTANT arrayU							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'U');
 	
-	TYPE WallaceTree_type1 IS ARRAY (width-1 DOWNTO 0) OF STD_LOGIC;
-	TYPE WallaceTree_type2 IS ARRAY (op2_width-1 DOWNTO 0) OF WallaceTree_type1;
-	TYPE WallaceTree_type3 IS ARRAY (levels-1 DOWNTO 0) OF WallaceTree_type2;
+	TYPE WallaceTree_type1 IS ARRAY (64-1 DOWNTO 0) OF STD_LOGIC;
+	TYPE WallaceTree_type2 IS ARRAY (32-1 DOWNTO 0) OF WallaceTree_type1;
+	TYPE WallaceTree_type3 IS ARRAY (9-1 DOWNTO 0) OF WallaceTree_type2;
 	
 	-- TYPE WallaceTree_type IS ARRAY (levels-1 DOWNTO 0,op2_width-1 DOWNTO 0, width-1 DOWNTO 0) OF STD_LOGIC;
 	TYPE number_bits_type IS ARRAY (width-1 DOWNTO 0) OF NATURAL;
@@ -132,7 +132,7 @@ BEGIN
 		VARIABLE is_signed_var			: STD_LOGIC := '0';
 
 	BEGIN
-		IF (clk='1' AND clk'event AND (rst = '0' OR muli.flush = '1')) THEN  -- missing reset HERE
+		IF (clk='1' AND clk'event AND (rst = '0' OR muli.flush = '1')) THEN
 			FOR k IN levels-1 DOWNTO 0 LOOP
 				FOR j IN op2_width-1 DOWNTO 0 LOOP
 					FOR i IN width-1 DOWNTO 0 LOOP
@@ -165,13 +165,13 @@ BEGIN
 						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (is_signed_var = '1') THEN
 							WallaceTree(0)(i)(j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 						ELSE
-							WallaceTree(0)(i)(j+i) <= op1(j) AND op2(i);
+							WallaceTree(0)(i)(j+i) <= op1(j) AND op2(i); -- regular multiplication
 						END IF;
 					ELSIF ((j+i)>(op1_width-1)) THEN
 						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (is_signed_var = '1') THEN
 							WallaceTree(0)(op1_width-1-j)(j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 						ELSE
-							WallaceTree(0)(op1_width-1-j)(j+i) <= op1(j) AND op2(i);
+							WallaceTree(0)(op1_width-1-j)(j+i) <= op1(j) AND op2(i); -- regular multiplication
 						END IF;
 					END IF;
 				END LOOP;
@@ -206,6 +206,7 @@ BEGIN
 							cin := WallaceTree(k)(current_row+2)(j);
 							
 							WallaceTree(k+1)(next_level_row)(j) <= compute_FA_sum(x,y,cin); -- save s
+
 							WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_FA_cout(x,y,cin); -- save cout
 							
 							current_row := current_row + 3; -- processed 3 inputs
@@ -216,10 +217,11 @@ BEGIN
 					
 					-- FOR i IN 0 to (num_half_adds-1) LOOP
 					IF (num_half_adds = 1) THEN -- max possible number of HA is 1
-						x := WallaceTree(k)(current_row)(j);
-						y := WallaceTree(k)(current_row+1)(j);
+						x := WallaceTree(k)(current_row)(j); -- op1 for HA
+						y := WallaceTree(k)(current_row+1)(j); -- op2 for HA
 						
 						WallaceTree(k+1)(next_level_row)(j) <= compute_HA_sum(x,y); -- save s
+
 						WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_HA_cout(x,y); -- save cout
 						
 						current_row := current_row + 2; -- processed 2 inputs
@@ -248,8 +250,9 @@ BEGIN
 
 			END LOOP;
 			FOR j IN 0 TO width-1 LOOP
-				add_a(j) <= WallaceTree(levels-1)(0)(j);
-				add_b(j) <= WallaceTree(levels-1)(1)(j);
+				add_a(j) <= WallaceTree(levels-1)(0)(j); -- op1 for final addition
+
+				add_b(j) <= WallaceTree(levels-1)(1)(j); -- op2 for final addition
 			END LOOP;
 		END IF;
 	END PROCESS;
@@ -308,8 +311,6 @@ BEGIN
 	db_prod_a <= (63 DOWNTO width => '0') & add_a;
 	db_prod_b <= (63 DOWNTO width => '0') & add_b;
 
-	-- db_prod_a <= (63 DOWNTO 33 => op1(32)) & op1;
-	-- db_prod_b <= (63 DOWNTO 33 => op2(32)) & op2;
 	
 END behavioral;
 	

@@ -11,9 +11,8 @@
 # OpenFile mul32_tb.mpf 
 # Loading project mul32_tb
 # Compile of mul32.vhd was successful.
-do mul32_tb_wave.do
-vsim work.mul32_tb
-# vsim work.mul32_tb 
+vsim -t ps work.mul32_tb
+# vsim -t ps work.mul32_tb 
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -24,19 +23,51 @@ vsim work.mul32_tb
 # Loading work.mul32_tb(tb)
 # Loading gaisler.mypackage(body)
 # Loading gaisler.mul32(behavioral)
-# Loading grlib.multlib
-# Loading grlib.config
-# Loading grlib.amba(body)
-# Loading techmap.gencomp
-# Loading gaisler.mul32original(rtl)
+# Loading gaisler.mul32arrays(behavioral)
 # ** Warning: (vsim-8684) No drivers exist on out port /mul32_tb/multiplier/mulo.nready, and its initial value is not used.
 # Therefore, simulation behavior may occur that is not in compliance with
 # the VHDL standard as the initial values come from the base signal /mul32_tb/t_mulo.nready.
-run
+# ** Warning: (vsim-8684) No drivers exist on out port /mul32_tb/Arraysmultiplier/mulo.nready, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mul32_tb/Ot_mulo.nready.
 do mul32_tb_wave.do
-restart
+run
+run
+run
+run
+run
+run
+run
+# Compile of mul32_tb.vhd was successful.
+restart -f
+# Loading work.mul32_tb(tb)
 # ** Warning: (vsim-8684) No drivers exist on out port /mul32_tb/multiplier/mulo.nready, and its initial value is not used.
 # Therefore, simulation behavior may occur that is not in compliance with
 # the VHDL standard as the initial values come from the base signal /mul32_tb/t_mulo.nready.
+# ** Warning: (vsim-8684) No drivers exist on out port /mul32_tb/Arraysmultiplier/mulo.nready, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mul32_tb/O_t_mulo.nready.
+# Warning in wave window restart: (vish-4014) No objects found matching '/mul32_tb/Ot_mulo'. 
+add wave -position insertpoint  \
+sim:/mul32_tb/O_t_mulo
+run
+run
+run
+run
+run
+# Compile of mul32.vhd was successful.
+# Compile of mul32Arrays.vhd was successful.
+# 2 compiles, 0 failed with no errors. 
+restart -f
+# Loading gaisler.mypackage(body)
+# Loading gaisler.mul32(behavioral)
+# Loading gaisler.mul32arrays(behavioral)
+# ** Warning: (vsim-8684) No drivers exist on out port /mul32_tb/multiplier/mulo.nready, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mul32_tb/t_mulo.nready.
+# ** Warning: (vsim-8684) No drivers exist on out port /mul32_tb/Arraysmultiplier/mulo.nready, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /mul32_tb/O_t_mulo.nready.
+run
 run
 run

@@ -220,9 +220,6 @@ ARCHITECTURE behavioral OF mul32 IS
 	CONSTANT arrayX							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'X');
 	CONSTANT arrayU							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'U');
 	
-	-- TYPE WallaceTree_type1 IS ARRAY (width-1 DOWNTO 0) OF STD_LOGIC;
-	-- TYPE WallaceTree_type2 IS ARRAY (op2_width-1 DOWNTO 0) OF WallaceTree_type1;
-	-- TYPE WallaceTree_type3 IS ARRAY (levels-1 DOWNTO 0) OF WallaceTree_type2;
 	-- TYPE WallaceTree_type1 IS ARRAY (64-1 DOWNTO 0) OF STD_LOGIC;
 	-- TYPE WallaceTree_type2 IS ARRAY (32-1 DOWNTO 0) OF WallaceTree_type1;
 	-- TYPE WallaceTree_type3 IS ARRAY (9-1 DOWNTO 0) OF WallaceTree_type2;
@@ -283,12 +280,12 @@ BEGIN
 		VARIABLE is_signed_var			: STD_LOGIC := '0';
 
 	BEGIN
-		IF (clk='1' AND clk'event AND (rst = '0' OR muli.flush = '1')) THEN  -- missing reset HERE
+		IF (clk='1' AND clk'event AND (rst = '0' OR muli.flush = '1')) THEN
 			FOR k IN levels-1 DOWNTO 0 LOOP
 				FOR i IN op2_width-1 DOWNTO 0 LOOP
 					FOR j IN width-1 DOWNTO 0 LOOP
 						-- WallaceTree(k)(i)(j) <= '0'; -- Reset WallaceTree
-						WallaceTree(j+maxj*(i+maxi*k)) <= '0'; -- Reset WallaceTree
+						WallaceTree(j+maxj*(i+maxi*k)) <= '0';
 					END LOOP;
 				END LOOP;
 			END LOOP;
@@ -316,17 +313,17 @@ BEGIN
 					IF ((j+i) <= (op1_width-1)) THEN --make sure each column starts from row 0
 						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (is_signed_var = '1') THEN
 							-- WallaceTree(0)(i)(j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
-							WallaceTree(j+i+maxj*i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+							WallaceTree(j+i+maxj*i) <= NOT(op1(j) AND op2(i));
 						ELSE
-							-- WallaceTree(0)(i)(j+i) <= op1(j) AND op2(i);
-							WallaceTree(j+i*maxj*i) <= op1(j) AND op2(i);
+							-- WallaceTree(0)(i)(j+i) <= op1(j) AND op2(i); -- regular multiplication
+							WallaceTree(j+i+maxj*i) <= op1(j) AND op2(i);
 						END IF;
 					ELSIF ((j+i)>(op1_width-1)) THEN
 						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (is_signed_var = '1') THEN
 							-- WallaceTree(0)(op1_width-1-j)(j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
-							WallaceTree(j+i+maxj*(op1_width-1-j)) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+							WallaceTree(j+i+maxj*(op1_width-1-j)) <= NOT(op1(j) AND op2(i));
 						ELSE
-							-- WallaceTree(0)(op1_width-1-j)(j+i) <= op1(j) AND op2(i);
+							-- WallaceTree(0)(op1_width-1-j)(j+i) <= op1(j) AND op2(i); -- regular multiplication
 							WallaceTree(j+i+maxj*(op1_width-1-j)) <= op1(j) AND op2(i);
 						END IF;
 					END IF;
@@ -365,9 +362,10 @@ BEGIN
 							cin := WallaceTree(j+maxj*(current_row+2+maxi*k));
 							
 							-- WallaceTree(k+1)(next_level_row)(j) <= compute_FA_sum(x,y,cin); -- save s
-							WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= compute_FA_sum(x,y,cin); -- save s
+							WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= compute_FA_sum(x,y,cin);
+
 							-- WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_FA_cout(x,y,cin); -- save cout
-							WallaceTree(j+1+maxj*(next_level_row+maxi*(k+1))) <= compute_FA_cout(x,y,cin); -- save cout
+							WallaceTree(j+1+maxj*(next_level_column_row+maxi*(k+1))) <= compute_FA_cout(x,y,cin);
 							
 							current_row := current_row + 3; -- processed 3 inputs
 							next_level_row := next_level_row + 1; -- wrote one s to next level
@@ -377,15 +375,16 @@ BEGIN
 					
 					-- FOR i IN 0 to (num_half_adds-1) LOOP
 					IF (num_half_adds = 1) THEN -- max possible number of HA is 1
-						-- x := WallaceTree(k)(current_row)(j);
+						-- x := WallaceTree(k)(current_row)(j); -- op1 for HA
 						x := WallaceTree(j+maxj*(current_row+maxi*k));
-						-- y := WallaceTree(k)(current_row+1)(j);
+						-- y := WallaceTree(k)(current_row+1)(j); -- op2 for HA
 						y := WallaceTree(j+maxj*(current_row+1+maxi*k));
 						
 						-- WallaceTree(k+1)(next_level_row)(j) <= compute_HA_sum(x,y); -- save s
-						WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= compute_HA_sum(x,y); -- save s
+						WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= compute_HA_sum(x,y);
+
 						-- WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_HA_cout(x,y); -- save cout
-						WallaceTree(j+1+maxj*(next_level_column_row+maxi*(k+1))) <= compute_HA_cout(x,y); -- save cout
+						WallaceTree(j+1+maxj*(next_level_column_row+maxi*(k+1))) <= compute_HA_cout(x,y);
 						
 						current_row := current_row + 2; -- processed 2 inputs
 						next_level_row := next_level_row + 1; -- wrote one s to next level
@@ -396,7 +395,7 @@ BEGIN
 					-- FOR i IN 0 to remainder_bits-1 LOOP -- left over bits, ie non processed (will at most be one bit)
 					IF (remainder_bits = 1) THEN -- possible to have 1 left over bit, ie non processed (will at most be one bit)
 						-- WallaceTree(k+1)(next_level_row)(j) <= WallaceTree(k)(current_row)(j); -- transfer bit to next level
-						WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= WallaceTree(j+maxj*(current_row+maxi*k)); -- transfer bit to next level
+						WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= WallaceTree(j+maxj*(current_row+maxi*k));
 						
 						current_row := current_row + 1; -- processed 1 input
 						next_level_row := next_level_row + 1; -- wrote one s to next level
@@ -414,9 +413,10 @@ BEGIN
 
 			END LOOP;
 			FOR j IN 0 TO width-1 LOOP
-				-- add_a(j) <= WallaceTree(levels-1)(0)(j);
+				-- add_a(j) <= WallaceTree(levels-1)(0)(j); -- op1 for final addition
 				add_a(j) <= WallaceTree(j+maxj*(maxi*(levels-1)));
-				-- add_b(j) <= WallaceTree(levels-1)(1)(j);
+
+				-- add_b(j) <= WallaceTree(levels-1)(1)(j); -- op2 for final addition
 				add_b(j) <= WallaceTree(j+maxj*(1+maxi*(levels-1)));
 			END LOOP;
 		END IF;
@@ -476,8 +476,6 @@ BEGIN
 	db_prod_a <= (63 DOWNTO width => '0') & add_a;
 	db_prod_b <= (63 DOWNTO width => '0') & add_b;
 
-	-- db_prod_a <= (63 DOWNTO 33 => op1(32)) & op1;
-	-- db_prod_b <= (63 DOWNTO 33 => op2(32)) & op2;
 	
 END behavioral;
 	
