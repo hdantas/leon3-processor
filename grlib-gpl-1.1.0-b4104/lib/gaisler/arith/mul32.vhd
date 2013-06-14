@@ -186,17 +186,17 @@ ENTITY mul32 IS
 		-- acc					: IN STD_LOGIC_VECTOR(39 DOWNTO 0);
 
 		-- mulo related signals
-		mulo				: OUT mul32_OUT_type;
+		mulo				: OUT mul32_OUT_type
 		-- ready				: OUT STD_LOGIC;
 		-- icc					: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		-- result				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 
 		-- debugging signals
-		db_tmp_result		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_number_bits_port	: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_started			: OUT STD_LOGIC := '0'
+		-- db_tmp_result		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		-- db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		-- db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		-- db_number_bits_port	: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		-- db_started			: OUT STD_LOGIC := '0'
 	);
 END mul32;
 
@@ -217,6 +217,7 @@ ARCHITECTURE behavioral OF mul32 IS
 	CONSTANT add_vector_baugh_wooley		: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := '1' & (width-2 DOWNTO op2_width+1 => '0') & '1' & (op2_width-1 DOWNTO 0 => '0');
 	CONSTANT zeros							: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
 	CONSTANT zeros64						: STD_LOGIC_VECTOR(63 DOWNTO 0) := (OTHERS => '0');
+	CONSTANT zerosWallace					: STD_LOGIC_VECTOR(levels*op1_width*width-1 DOWNTO 0) := (OTHERS => '0');
 	CONSTANT arrayX							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'X');
 	CONSTANT arrayU							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'U');
 	
@@ -231,9 +232,9 @@ ARCHITECTURE behavioral OF mul32 IS
 	-- SIGNAL WallaceTree						: WallaceTree_type3 := ((others => (others=> (others=>'0')))); -- Wallace tree
 	
 
-	CONSTANT maxk : INTEGER := 9;
-	CONSTANT maxi : INTEGER := 32;
-	CONSTANT maxj : INTEGER := 64;
+	CONSTANT maxk : INTEGER := levels;
+	CONSTANT maxi : INTEGER := op1_width;
+	CONSTANT maxj : INTEGER := width;
 	SIGNAL WallaceTree						: STD_LOGIC_VECTOR(maxk*maxi*maxj-1 DOWNTO 0) := (others=>'0'); -- Wallace tree
 
 
@@ -280,18 +281,12 @@ BEGIN
 		VARIABLE is_signed_var			: STD_LOGIC := '0';
 
 	BEGIN
-		IF (clk='1' AND clk'event AND (rst = '0' OR muli.flush = '1')) THEN
-			FOR k IN levels-1 DOWNTO 0 LOOP
-				FOR i IN op2_width-1 DOWNTO 0 LOOP
-					FOR j IN width-1 DOWNTO 0 LOOP
-						-- WallaceTree(k)(i)(j) <= '0'; -- Reset WallaceTree
-						WallaceTree(j+maxj*(i+maxi*k)) <= '0';
-					END LOOP;
-				END LOOP;
-			END LOOP;
-		ELSE
-			db_started <= started;
-			IF (clk='1' AND clk'event AND holdn = '1') THEN
+		IF (clk='1' AND clk'event) THEN
+			IF (rst = '0' OR muli.flush = '1') THEN
+				-- WallaceTree(k)(i)(j) <= '0'; -- Reset WallaceTree
+				WallaceTree <= zerosWallace;
+				-- db_started <= started;
+			ELSIF (holdn = '1') THEN
 				IF (started = '1') THEN
 					started := '0';
 					tmp_ready <= '1';
@@ -308,6 +303,7 @@ BEGIN
 				END IF;
 			END IF;
 
+		ELSE
 			FOR i IN 0 TO op2_width-1 LOOP -- i: op2 index
 				FOR j IN 0 TO op1_width-1 LOOP -- j: op1 1 index
 					IF ((j+i) <= (op1_width-1)) THEN --make sure each column starts from row 0
@@ -329,96 +325,96 @@ BEGIN
 					END IF;
 				END LOOP;
 			END LOOP;
-			FOR j IN 0 TO width-2 LOOP -- initialize number_bits (ie how many bits each column has)
-				IF (j <= (op2_width-1)) THEN
-					number_bits(j) := j+1;
-				ELSIF (j>=(width-op2_width-1)) THEN
-					number_bits(j) := width-1-j;
-				ELSE
-					number_bits(j) := op2_width;
-				END IF;
-			END LOOP;
+		-- 	FOR j IN 0 TO width-2 LOOP -- initialize number_bits (ie how many bits each column has)
+		-- 		IF (j <= (op2_width-1)) THEN
+		-- 			number_bits(j) := j+1;
+		-- 		ELSIF (j>=(width-op2_width-1)) THEN
+		-- 			number_bits(j) := width-1-j;
+		-- 		ELSE
+		-- 			number_bits(j) := op2_width;
+		-- 		END IF;
+		-- 	END LOOP;
 		 	
-			FOR k IN 0 TO levels-2 LOOP -- k = level
-				FOR j IN 0 TO width-2 LOOP -- j = column
-					current_row := 0; --pointer for row of current level
-					next_level_row := next_level_number_bits(j); -- pointer for row of next level (s from FA and HA and remainder bit go here)
-					-- it may not be 0 because there maybe couts from previous column
-					next_level_column_row := 0; -- pointer for row of next column of next level (carry outs go here)
+		-- 	FOR k IN 0 TO levels-2 LOOP -- k = level
+		-- 		FOR j IN 0 TO width-2 LOOP -- j = column
+		-- 			current_row := 0; --pointer for row of current level
+		-- 			next_level_row := next_level_number_bits(j); -- pointer for row of next level (s from FA and HA and remainder bit go here)
+		-- 			-- it may not be 0 because there maybe couts from previous column
+		-- 			next_level_column_row := 0; -- pointer for row of next column of next level (carry outs go here)
 					
-					remainder_bits := num_remainder_bits(number_bits(j));
-					num_full_adds := num_full_adders(number_bits(j));
-					num_half_adds := num_half_adders(number_bits(j));
+		-- 			remainder_bits := num_remainder_bits(number_bits(j));
+		-- 			num_full_adds := num_full_adders(number_bits(j));
+		-- 			num_half_adds := num_half_adders(number_bits(j));
 					
 					
-					--FOR i IN 0 to (num_full_adds-1) LOOP
-					FOR i IN 0 TO 10 LOOP -- max number of FA is 10 (for a 32*32 multiplication)
-						IF (i <= (num_full_adds-1)) THEN
-							-- x := WallaceTree(k)(current_row)(j);
-							x := WallaceTree(j+maxj*(current_row+maxi*k));
-							-- y := WallaceTree(k)(current_row+1)(j);
-							y := WallaceTree(j+maxj*(current_row+1+maxi*k));
-							-- cin := WallaceTree(k)(current_row+2)(j);
-							cin := WallaceTree(j+maxj*(current_row+2+maxi*k));
+		-- 			--FOR i IN 0 to (num_full_adds-1) LOOP
+		-- 			FOR i IN 0 TO 10 LOOP -- max number of FA is 10 (for a 32*32 multiplication)
+		-- 				IF (i <= (num_full_adds-1)) THEN
+		-- 					-- x := WallaceTree(k)(current_row)(j);
+		-- 					x := WallaceTree(j+maxj*(current_row+maxi*k));
+		-- 					-- y := WallaceTree(k)(current_row+1)(j);
+		-- 					y := WallaceTree(j+maxj*(current_row+1+maxi*k));
+		-- 					-- cin := WallaceTree(k)(current_row+2)(j);
+		-- 					cin := WallaceTree(j+maxj*(current_row+2+maxi*k));
 							
-							-- WallaceTree(k+1)(next_level_row)(j) <= compute_FA_sum(x,y,cin); -- save s
-							WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= compute_FA_sum(x,y,cin);
+		-- 					-- WallaceTree(k+1)(next_level_row)(j) <= compute_FA_sum(x,y,cin); -- save s
+		-- 					WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= compute_FA_sum(x,y,cin);
 
-							-- WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_FA_cout(x,y,cin); -- save cout
-							WallaceTree(j+1+maxj*(next_level_column_row+maxi*(k+1))) <= compute_FA_cout(x,y,cin);
+		-- 					-- WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_FA_cout(x,y,cin); -- save cout
+		-- 					WallaceTree(j+1+maxj*(next_level_column_row+maxi*(k+1))) <= compute_FA_cout(x,y,cin);
 							
-							current_row := current_row + 3; -- processed 3 inputs
-							next_level_row := next_level_row + 1; -- wrote one s to next level
-							next_level_column_row := next_level_column_row + 1; -- wronte one cout to next level
-						END IF;
-					END LOOP;
+		-- 					current_row := current_row + 3; -- processed 3 inputs
+		-- 					next_level_row := next_level_row + 1; -- wrote one s to next level
+		-- 					next_level_column_row := next_level_column_row + 1; -- wronte one cout to next level
+		-- 				END IF;
+		-- 			END LOOP;
 					
-					-- FOR i IN 0 to (num_half_adds-1) LOOP
-					IF (num_half_adds = 1) THEN -- max possible number of HA is 1
-						-- x := WallaceTree(k)(current_row)(j); -- op1 for HA
-						x := WallaceTree(j+maxj*(current_row+maxi*k));
-						-- y := WallaceTree(k)(current_row+1)(j); -- op2 for HA
-						y := WallaceTree(j+maxj*(current_row+1+maxi*k));
+		-- 			-- FOR i IN 0 to (num_half_adds-1) LOOP
+		-- 			IF (num_half_adds = 1) THEN -- max possible number of HA is 1
+		-- 				-- x := WallaceTree(k)(current_row)(j); -- op1 for HA
+		-- 				x := WallaceTree(j+maxj*(current_row+maxi*k));
+		-- 				-- y := WallaceTree(k)(current_row+1)(j); -- op2 for HA
+		-- 				y := WallaceTree(j+maxj*(current_row+1+maxi*k));
 						
-						-- WallaceTree(k+1)(next_level_row)(j) <= compute_HA_sum(x,y); -- save s
-						WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= compute_HA_sum(x,y);
+		-- 				-- WallaceTree(k+1)(next_level_row)(j) <= compute_HA_sum(x,y); -- save s
+		-- 				WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= compute_HA_sum(x,y);
 
-						-- WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_HA_cout(x,y); -- save cout
-						WallaceTree(j+1+maxj*(next_level_column_row+maxi*(k+1))) <= compute_HA_cout(x,y);
+		-- 				-- WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_HA_cout(x,y); -- save cout
+		-- 				WallaceTree(j+1+maxj*(next_level_column_row+maxi*(k+1))) <= compute_HA_cout(x,y);
 						
-						current_row := current_row + 2; -- processed 2 inputs
-						next_level_row := next_level_row + 1; -- wrote one s to next level
-						next_level_column_row := next_level_column_row + 1; -- wronte one cout to next level
-					END IF;
-					 -- END LOOP;
+		-- 				current_row := current_row + 2; -- processed 2 inputs
+		-- 				next_level_row := next_level_row + 1; -- wrote one s to next level
+		-- 				next_level_column_row := next_level_column_row + 1; -- wronte one cout to next level
+		-- 			END IF;
+		-- 			 -- END LOOP;
 
-					-- FOR i IN 0 to remainder_bits-1 LOOP -- left over bits, ie non processed (will at most be one bit)
-					IF (remainder_bits = 1) THEN -- possible to have 1 left over bit, ie non processed (will at most be one bit)
-						-- WallaceTree(k+1)(next_level_row)(j) <= WallaceTree(k)(current_row)(j); -- transfer bit to next level
-						WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= WallaceTree(j+maxj*(current_row+maxi*k));
+		-- 			-- FOR i IN 0 to remainder_bits-1 LOOP -- left over bits, ie non processed (will at most be one bit)
+		-- 			IF (remainder_bits = 1) THEN -- possible to have 1 left over bit, ie non processed (will at most be one bit)
+		-- 				-- WallaceTree(k+1)(next_level_row)(j) <= WallaceTree(k)(current_row)(j); -- transfer bit to next level
+		-- 				WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= WallaceTree(j+maxj*(current_row+maxi*k));
 						
-						current_row := current_row + 1; -- processed 1 input
-						next_level_row := next_level_row + 1; -- wrote one s to next level
-					END IF;
-					-- END LOOP;
+		-- 				current_row := current_row + 1; -- processed 1 input
+		-- 				next_level_row := next_level_row + 1; -- wrote one s to next level
+		-- 			END IF;
+		-- 			-- END LOOP;
 						
-						next_level_number_bits(j) := next_level_number_bits(j) + num_full_adds + num_half_adds + remainder_bits; -- update array with the number of bits written to next level
-						-- be careful as it might have carry outs from previous columns
-						next_level_number_bits(j+1) := num_full_adds + num_half_adds; -- update array with the number of couts generated (before this it should be 0)
-				END LOOP;
-				number_bits := next_level_number_bits;
-				FOR i IN width-1 DOWNTO 0 LOOP
-					next_level_number_bits(i) := 0;
-				END LOOP;
+		-- 				next_level_number_bits(j) := next_level_number_bits(j) + num_full_adds + num_half_adds + remainder_bits; -- update array with the number of bits written to next level
+		-- 				-- be careful as it might have carry outs from previous columns
+		-- 				next_level_number_bits(j+1) := num_full_adds + num_half_adds; -- update array with the number of couts generated (before this it should be 0)
+		-- 		END LOOP;
+		-- 		number_bits := next_level_number_bits;
+		-- 		FOR i IN width-1 DOWNTO 0 LOOP
+		-- 			next_level_number_bits(i) := 0;
+		-- 		END LOOP;
 
-			END LOOP;
-			FOR j IN 0 TO width-1 LOOP
-				-- add_a(j) <= WallaceTree(levels-1)(0)(j); -- op1 for final addition
-				add_a(j) <= WallaceTree(j+maxj*(maxi*(levels-1)));
+		-- 	END LOOP;
+		-- 	FOR j IN 0 TO width-1 LOOP
+		-- 		-- add_a(j) <= WallaceTree(levels-1)(0)(j); -- op1 for final addition
+		-- 		add_a(j) <= WallaceTree(j+maxj*(maxi*(levels-1)));
 
-				-- add_b(j) <= WallaceTree(levels-1)(1)(j); -- op2 for final addition
-				add_b(j) <= WallaceTree(j+maxj*(1+maxi*(levels-1)));
-			END LOOP;
+		-- 		-- add_b(j) <= WallaceTree(levels-1)(1)(j); -- op2 for final addition
+		-- 		add_b(j) <= WallaceTree(j+maxj*(1+maxi*(levels-1)));
+		-- 	END LOOP;
 		END IF;
 	END PROCESS;
 
@@ -470,11 +466,11 @@ BEGIN
 	mulo.result <= tmp_result;
 	
 	-- prod <= (OTHERS => '0');
-	db_tmp_result <= tmp_result;
-	db_number_bits_port <= (63 DOWNTO width => '0') & add_vector_baugh_wooley;
+	-- db_tmp_result <= tmp_result;
+	-- db_number_bits_port <= (63 DOWNTO width => '0') & add_vector_baugh_wooley;
 	
-	db_prod_a <= (63 DOWNTO width => '0') & add_a;
-	db_prod_b <= (63 DOWNTO width => '0') & add_b;
+	-- db_prod_a <= (63 DOWNTO width => '0') & add_a;
+	-- db_prod_b <= (63 DOWNTO width => '0') & add_b;
 
 	
 END behavioral;

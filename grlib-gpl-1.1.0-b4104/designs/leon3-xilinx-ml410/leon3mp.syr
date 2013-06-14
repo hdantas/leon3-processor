@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> 
 
@@ -1332,7 +1332,6 @@ Analyzing hierarchy for entity <iu3> in library <gaisler> (architecture <rtl>) w
 	v8 = 50
 
 Analyzing hierarchy for entity <mul32> in library <gaisler> (architecture <behavioral>) with generics.
-	infer = 1
 	mac = 0
 	multype = 3
 	pipe = 1
@@ -2436,11 +2435,6 @@ Analyzing generic Entity <proc3> in library <gaisler> (Architecture <rtl>).
 	tlb_rep = 1
 	tlb_type = 1
 	v8 = 50
-WARNING:Xst:753 - "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/leon3/proc3.vhd" line 152: Unconnected output port 'db_tmp_result' of component 'mul32'.
-WARNING:Xst:753 - "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/leon3/proc3.vhd" line 152: Unconnected output port 'db_prod_a' of component 'mul32'.
-WARNING:Xst:753 - "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/leon3/proc3.vhd" line 152: Unconnected output port 'db_prod_b' of component 'mul32'.
-WARNING:Xst:753 - "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/leon3/proc3.vhd" line 152: Unconnected output port 'db_number_bits_port' of component 'mul32'.
-WARNING:Xst:753 - "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/leon3/proc3.vhd" line 152: Unconnected output port 'db_started' of component 'mul32'.
 Entity <proc3> analyzed. Unit <proc3> generated.
 
 Analyzing generic Entity <iu3> in library <gaisler> (Architecture <rtl>).
@@ -2479,7 +2473,6 @@ INFO:Xst:2679 - Register <r.w.s.ef> in unit <iu3> has a constant value of 0 duri
 Entity <iu3> analyzed. Unit <iu3> generated.
 
 Analyzing generic Entity <mul32> in library <gaisler> (Architecture <behavioral>).
-	infer = 1
 	mac = 0
 	multype = 3
 	pipe = 1

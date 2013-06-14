@@ -225,21 +225,6 @@
 <msg type="warning" file="Xst" num="37" delta="old" >Detected unknown constraint/property &quot;<arg fmt="%s" index="1">sync_set_reset</arg>&quot;. This constraint/property is not supported by the current software release and will be ignored.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/leon3/proc3.vhd</arg>&quot; line <arg fmt="%d" index="2">152</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">db_tmp_result</arg>&apos; of component &apos;<arg fmt="%s" index="4">mul32</arg>&apos;.
-</msg>
-
-<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/leon3/proc3.vhd</arg>&quot; line <arg fmt="%d" index="2">152</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">db_prod_a</arg>&apos; of component &apos;<arg fmt="%s" index="4">mul32</arg>&apos;.
-</msg>
-
-<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/leon3/proc3.vhd</arg>&quot; line <arg fmt="%d" index="2">152</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">db_prod_b</arg>&apos; of component &apos;<arg fmt="%s" index="4">mul32</arg>&apos;.
-</msg>
-
-<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/leon3/proc3.vhd</arg>&quot; line <arg fmt="%d" index="2">152</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">db_number_bits_port</arg>&apos; of component &apos;<arg fmt="%s" index="4">mul32</arg>&apos;.
-</msg>
-
-<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/leon3/proc3.vhd</arg>&quot; line <arg fmt="%d" index="2">152</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">db_started</arg>&apos; of component &apos;<arg fmt="%s" index="4">mul32</arg>&apos;.
-</msg>
-
 <msg type="warning" file="Xst" num="790" delta="old" >&quot;<arg fmt="%s" index="1">/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/leon3/iu3.vhd</arg>&quot; line <arg fmt="%d" index="2">1095</arg>: Index value(s) does not match array range, simulation mismatch.
 </msg>
 

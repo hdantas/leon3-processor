@@ -219,6 +219,3 @@ vhdl gaisler ../../lib/gaisler/ata/atactrl_dma.vhd
 vhdl gaisler ../../lib/gaisler/ata/atactrl.vhd
 vhdl esa ../../lib/esa/memoryctrl/memoryctrl.vhd
 vhdl esa ../../lib/esa/memoryctrl/mctrl.vhd
-vhdl work config.vhd
-vhdl work ahbrom.vhd
-vhdl work leon3mp.vhd
