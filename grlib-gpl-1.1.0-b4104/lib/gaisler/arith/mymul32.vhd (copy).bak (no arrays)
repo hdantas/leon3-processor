@@ -415,7 +415,7 @@ BEGIN
 			END LOOP;
 			FOR j IN 0 TO width-1 LOOP
 				-- add_a(j) <= WallaceTree(levels-1)(0)(j);
-				add_a(j) <= WallaceTree(j+maxj*(maxi*(levels-1)));
+				add_a(j) <= WallaceTree(j+maxj*maxi*(levels-1));
 				-- add_b(j) <= WallaceTree(levels-1)(1)(j);
 				add_b(j) <= WallaceTree(j+maxj*(1+maxi*(levels-1)));
 			END LOOP;

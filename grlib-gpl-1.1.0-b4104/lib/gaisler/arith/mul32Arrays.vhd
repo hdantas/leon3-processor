@@ -9,148 +9,6 @@
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
-USE IEEE.numeric_std.all;
-
-PACKAGE mypackage is
-
-	FUNCTION compute_FA_sum (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC;
-	FUNCTION compute_FA_cout (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC;
-	FUNCTION compute_HA_sum (x:STD_LOGIC;y:STD_LOGIC) RETURN STD_LOGIC;
-	FUNCTION compute_HA_cout (x:STD_LOGIC;y:STD_LOGIC) RETURN STD_LOGIC;  
-	FUNCTION this_level_bits (previous_level_bits:NATURAL;previous_column_bits:NATURAL) RETURN NATURAL;
-	FUNCTION num_full_adders (num_bits:NATURAL) RETURN NATURAL;
-	FUNCTION num_half_adders (num_bits:NATURAL) RETURN NATURAL;
-	FUNCTION num_remainder_bits (num_bits:NATURAL) RETURN NATURAL;
-END mypackage;
-
-PACKAGE BODY mypackage IS
-	FUNCTION compute_FA_sum (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC IS
-	BEGIN
-    	RETURN (x XOR y XOR c_in);
-  	END compute_FA_sum;
-
-	FUNCTION compute_FA_cout (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC IS
-	BEGIN
-    	RETURN ((x AND y) OR (c_in AND (x XOR y)));
-  	END compute_FA_cout;
-
-  FUNCTION compute_HA_sum (x:STD_LOGIC;y:STD_LOGIC) RETURN STD_LOGIC IS
-  BEGIN
-      RETURN (x XOR y);
-    END compute_HA_sum;
-
-  FUNCTION compute_HA_cout (x:STD_LOGIC;y:STD_LOGIC) RETURN STD_LOGIC IS
-  BEGIN
-      RETURN (x AND y);
-    END compute_HA_cout;
-
-
-  	FUNCTION this_level_bits (previous_level_bits:NATURAL;previous_column_bits:NATURAL) RETURN NATURAL IS
-  		VARIABLE result: NATURAL := 0;
-  		VARIABLE this_level: NATURAL := 0;
-  		VARIABLE previous_column: NATURAL := 0;
-  		VARIABLE num_FA: NATURAL := 0;
-  		VARIABLE num_HA: NATURAL := 0;
-  	BEGIN
-  		previous_column := num_half_adders(previous_column_bits) + num_full_adders(previous_column_bits); --couts from previous column
-
-  		num_HA := num_half_adders(previous_level_bits);
-  		num_FA := num_full_adders(previous_level_bits);
-  		this_level := num_FA + num_HA; -- s from FA and HA from previous level
-  		result := previous_column + this_level + previous_level_bits - num_FA*3 - num_HA*2; -- add remainder bit if one exists
-
-  		RETURN result;
-  	END this_level_bits;
-
-	FUNCTION num_remainder_bits (num_bits:NATURAL) RETURN NATURAL IS
-		VARIABLE result: NATURAL := 0;
-  	BEGIN
-		CASE num_bits IS
-			WHEN 1 => result := 1;
-			WHEN 4 => result := 1;
-			WHEN 7 => result := 1;
-			WHEN 10 => result := 1;
-			WHEN 13 => result := 1;
-			WHEN 16 => result := 1;
-			WHEN 19 => result := 1;
-			WHEN 22 => result := 1;
-			WHEN 25 => result := 1;
-			WHEN 28 => result := 1;
-			WHEN 31 => result := 1;
-			WHEN OTHERS => result := 0;
-		END CASE;
-
-		RETURN result;
-  	END num_remainder_bits;
-
-	FUNCTION num_full_adders (num_bits:NATURAL) RETURN NATURAL IS
-		VARIABLE result: NATURAL := 0;
-  	BEGIN
-		CASE num_bits IS
-			WHEN 3 => result := 1;
-			WHEN 4 => result := 1;
-			WHEN 5 => result := 1;
-			WHEN 6 => result := 2;
-			WHEN 7 => result := 2;
-			WHEN 8 => result := 2;
-			WHEN 9 => result := 3;
-			WHEN 10 => result := 3;
-			WHEN 11 => result := 3;
-			WHEN 12 => result := 4;
-			WHEN 13 => result := 4;
-			WHEN 14 => result := 4;
-			WHEN 15 => result := 5;
-			WHEN 16 => result := 5;
-			WHEN 17 => result := 5;
-			WHEN 18 => result := 6;
-			WHEN 19 => result := 6;
-			WHEN 20 => result := 6;
-			WHEN 21 => result := 7;
-			WHEN 22 => result := 7;
-			WHEN 23 => result := 7;
-			WHEN 24 => result := 8;
-			WHEN 25 => result := 8;
-			WHEN 26 => result := 8;
-			WHEN 27 => result := 9;
-			WHEN 28 => result := 9;
-			WHEN 29 => result := 9;
-			WHEN 30 => result := 10;
-			WHEN 31 => result := 10;
-			WHEN 32 => result := 10;
-			WHEN OTHERS => result := 0;
-		END CASE;
-  		
-  		RETURN result;
-  	END num_full_adders;
-
-	FUNCTION num_half_adders (num_bits:NATURAL) RETURN NATURAL IS
-		VARIABLE result: NATURAL := 0;
-  	BEGIN
-  		CASE num_bits IS
-			WHEN 2 => result := 1;
-			WHEN 5 => result := 1;
-			WHEN 8 => result := 1;
-			WHEN 11 => result := 1;
-			WHEN 14 => result := 1;
-			WHEN 17 => result := 1;
-			WHEN 20 => result := 1;
-			WHEN 23 => result := 1;
-			WHEN 26 => result := 1;
-			WHEN 29 => result := 1;
-			WHEN 32 => result := 1;
-			WHEN OTHERS => result := 0;
-		END CASE;
-
-		RETURN result;
-  	END num_half_adders;
-
-END mypackage;
-
-
-
-
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
 
 LIBRARY grlib;
@@ -159,13 +17,14 @@ USE grlib.stdlib.all;
 LIBRARY gaisler;
 USE gaisler.arith.all;
 
-USE work.mypackage.all;
+USE gaisler.mypackage.all;
 
 
 
-ENTITY mul32 IS
+ENTITY mul32Arrays IS
 	GENERIC (
 		tech			    : INTEGER := 0;
+		infer				: INTEGER RANGE 0 TO 1 := 1;
 		multype				: INTEGER RANGE 0 TO 3 := 0;
 		pipe				: INTEGER RANGE 0 TO 1 := 0;
 		mac					: INTEGER RANGE 0 TO 1 := 0
@@ -198,7 +57,7 @@ ENTITY mul32 IS
 		db_number_bits_port	: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 		db_started			: OUT STD_LOGIC := '0'
 	);
-END mul32;
+END mul32Arrays;
 
 ARCHITECTURE behavioral OF mul32 IS
 	TYPE layer_depth_type IS ARRAY(32 DOWNTO 3) OF INTEGER RANGE 3 TO 9;
@@ -220,26 +79,16 @@ ARCHITECTURE behavioral OF mul32 IS
 	CONSTANT arrayX							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'X');
 	CONSTANT arrayU							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'U');
 	
-	-- TYPE WallaceTree_type1 IS ARRAY (width-1 DOWNTO 0) OF STD_LOGIC;
-	-- TYPE WallaceTree_type2 IS ARRAY (op2_width-1 DOWNTO 0) OF WallaceTree_type1;
-	-- TYPE WallaceTree_type3 IS ARRAY (levels-1 DOWNTO 0) OF WallaceTree_type2;
-	-- TYPE WallaceTree_type1 IS ARRAY (64-1 DOWNTO 0) OF STD_LOGIC;
-	-- TYPE WallaceTree_type2 IS ARRAY (32-1 DOWNTO 0) OF WallaceTree_type1;
-	-- TYPE WallaceTree_type3 IS ARRAY (9-1 DOWNTO 0) OF WallaceTree_type2;
+	TYPE WallaceTree_type1 IS ARRAY (width-1 DOWNTO 0) OF STD_LOGIC;
+	TYPE WallaceTree_type2 IS ARRAY (op2_width-1 DOWNTO 0) OF WallaceTree_type1;
+	TYPE WallaceTree_type3 IS ARRAY (levels-1 DOWNTO 0) OF WallaceTree_type2;
 	
 	-- TYPE WallaceTree_type IS ARRAY (levels-1 DOWNTO 0,op2_width-1 DOWNTO 0, width-1 DOWNTO 0) OF STD_LOGIC;
 	TYPE number_bits_type IS ARRAY (width-1 DOWNTO 0) OF NATURAL;
 
 	-- SIGNAL WallaceTree						: WallaceTree_type := (OTHERS => (OTHERS => (OTHERS => '0'))); -- Wallace tree
-	-- SIGNAL WallaceTree						: WallaceTree_type3 := ((others => (others=> (others=>'0')))); -- Wallace tree
+	SIGNAL WallaceTree						: WallaceTree_type3 := ((others => (others=> (others=>'0')))); -- Wallace tree
 	
-
-	CONSTANT maxk : INTEGER := 9;
-	CONSTANT maxi : INTEGER := 32;
-	CONSTANT maxj : INTEGER := 64;
-	SIGNAL WallaceTree						: STD_LOGIC_VECTOR(maxk*maxi*maxj-1 DOWNTO 0) := (others=>'0'); -- Wallace tree
-
-
 	-- SIGNAL op1								: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
 	-- SIGNAL op2								: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL baugh_wooley_add					: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := (OTHERS => '0');
@@ -285,10 +134,9 @@ BEGIN
 	BEGIN
 		IF (clk='1' AND clk'event AND (rst = '0' OR muli.flush = '1')) THEN  -- missing reset HERE
 			FOR k IN levels-1 DOWNTO 0 LOOP
-				FOR i IN op2_width-1 DOWNTO 0 LOOP
-					FOR j IN width-1 DOWNTO 0 LOOP
-						-- WallaceTree(k)(i)(j) <= '0'; -- Reset WallaceTree
-						WallaceTree(j+maxj*(i+maxi*k)) <= '0'; -- Reset WallaceTree
+				FOR j IN op2_width-1 DOWNTO 0 LOOP
+					FOR i IN width-1 DOWNTO 0 LOOP
+						WallaceTree(k)(j)(i) <= '0'; -- Reset WallaceTree
 					END LOOP;
 				END LOOP;
 			END LOOP;
@@ -315,19 +163,15 @@ BEGIN
 				FOR j IN 0 TO op1_width-1 LOOP -- j: op1 1 index
 					IF ((j+i) <= (op1_width-1)) THEN --make sure each column starts from row 0
 						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (is_signed_var = '1') THEN
-							-- WallaceTree(0)(i)(j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
-							WallaceTree(j+i+maxj*i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+							WallaceTree(0)(i)(j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 						ELSE
-							-- WallaceTree(0)(i)(j+i) <= op1(j) AND op2(i);
-							WallaceTree(j+i*maxj*i) <= op1(j) AND op2(i);
+							WallaceTree(0)(i)(j+i) <= op1(j) AND op2(i);
 						END IF;
 					ELSIF ((j+i)>(op1_width-1)) THEN
 						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (is_signed_var = '1') THEN
-							-- WallaceTree(0)(op1_width-1-j)(j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
-							WallaceTree(j+i+maxj*(op1_width-1-j)) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+							WallaceTree(0)(op1_width-1-j)(j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 						ELSE
-							-- WallaceTree(0)(op1_width-1-j)(j+i) <= op1(j) AND op2(i);
-							WallaceTree(j+i+maxj*(op1_width-1-j)) <= op1(j) AND op2(i);
+							WallaceTree(0)(op1_width-1-j)(j+i) <= op1(j) AND op2(i);
 						END IF;
 					END IF;
 				END LOOP;
@@ -357,17 +201,12 @@ BEGIN
 					--FOR i IN 0 to (num_full_adds-1) LOOP
 					FOR i IN 0 TO 10 LOOP -- max number of FA is 10 (for a 32*32 multiplication)
 						IF (i <= (num_full_adds-1)) THEN
-							-- x := WallaceTree(k)(current_row)(j);
-							x := WallaceTree(j+maxj*(current_row+maxi*k));
-							-- y := WallaceTree(k)(current_row+1)(j);
-							y := WallaceTree(j+maxj*(current_row+1+maxi*k));
-							-- cin := WallaceTree(k)(current_row+2)(j);
-							cin := WallaceTree(j+maxj*(current_row+2+maxi*k));
+							x := WallaceTree(k)(current_row)(j);
+							y := WallaceTree(k)(current_row+1)(j);
+							cin := WallaceTree(k)(current_row+2)(j);
 							
-							-- WallaceTree(k+1)(next_level_row)(j) <= compute_FA_sum(x,y,cin); -- save s
-							WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= compute_FA_sum(x,y,cin); -- save s
-							-- WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_FA_cout(x,y,cin); -- save cout
-							WallaceTree(j+1+maxj*(next_level_row+maxi*(k+1))) <= compute_FA_cout(x,y,cin); -- save cout
+							WallaceTree(k+1)(next_level_row)(j) <= compute_FA_sum(x,y,cin); -- save s
+							WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_FA_cout(x,y,cin); -- save cout
 							
 							current_row := current_row + 3; -- processed 3 inputs
 							next_level_row := next_level_row + 1; -- wrote one s to next level
@@ -377,15 +216,11 @@ BEGIN
 					
 					-- FOR i IN 0 to (num_half_adds-1) LOOP
 					IF (num_half_adds = 1) THEN -- max possible number of HA is 1
-						-- x := WallaceTree(k)(current_row)(j);
-						x := WallaceTree(j+maxj*(current_row+maxi*k));
-						-- y := WallaceTree(k)(current_row+1)(j);
-						y := WallaceTree(j+maxj*(current_row+1+maxi*k));
+						x := WallaceTree(k)(current_row)(j);
+						y := WallaceTree(k)(current_row+1)(j);
 						
-						-- WallaceTree(k+1)(next_level_row)(j) <= compute_HA_sum(x,y); -- save s
-						WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= compute_HA_sum(x,y); -- save s
-						-- WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_HA_cout(x,y); -- save cout
-						WallaceTree(j+1+maxj*(next_level_column_row+maxi*(k+1))) <= compute_HA_cout(x,y); -- save cout
+						WallaceTree(k+1)(next_level_row)(j) <= compute_HA_sum(x,y); -- save s
+						WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_HA_cout(x,y); -- save cout
 						
 						current_row := current_row + 2; -- processed 2 inputs
 						next_level_row := next_level_row + 1; -- wrote one s to next level
@@ -395,8 +230,7 @@ BEGIN
 
 					-- FOR i IN 0 to remainder_bits-1 LOOP -- left over bits, ie non processed (will at most be one bit)
 					IF (remainder_bits = 1) THEN -- possible to have 1 left over bit, ie non processed (will at most be one bit)
-						-- WallaceTree(k+1)(next_level_row)(j) <= WallaceTree(k)(current_row)(j); -- transfer bit to next level
-						WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) <= WallaceTree(j+maxj*(current_row+maxi*k)); -- transfer bit to next level
+						WallaceTree(k+1)(next_level_row)(j) <= WallaceTree(k)(current_row)(j); -- transfer bit to next level
 						
 						current_row := current_row + 1; -- processed 1 input
 						next_level_row := next_level_row + 1; -- wrote one s to next level
@@ -414,10 +248,8 @@ BEGIN
 
 			END LOOP;
 			FOR j IN 0 TO width-1 LOOP
-				-- add_a(j) <= WallaceTree(levels-1)(0)(j);
-				add_a(j) <= WallaceTree(j+maxj*(maxi*(levels-1)));
-				-- add_b(j) <= WallaceTree(levels-1)(1)(j);
-				add_b(j) <= WallaceTree(j+maxj*(1+maxi*(levels-1)));
+				add_a(j) <= WallaceTree(levels-1)(0)(j);
+				add_b(j) <= WallaceTree(levels-1)(1)(j);
 			END LOOP;
 		END IF;
 	END PROCESS;
