@@ -13,3 +13,7 @@ xst -intstyle ise -ifn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3
 xst -intstyle ise -ifn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.xst" -ofn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.syr" 
 xst -intstyle ise -ifn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.xst" -ofn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.syr" 
 xst -intstyle ise -ifn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.xst" -ofn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.syr" 
+xst -intstyle ise -ifn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.xst" -ofn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.syr" 
+xst -intstyle ise -ifn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.xst" -ofn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.syr" 
+xst -intstyle ise -ifn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.xst" -ofn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.syr" 
+xst -intstyle ise -ifn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.xst" -ofn "/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.syr" 

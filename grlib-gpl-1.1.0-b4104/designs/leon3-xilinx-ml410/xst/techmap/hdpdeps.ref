@@ -1,8 +1,8 @@
 V3 781
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/gencomp/gencomp.vhd 2013/05/03.15:40:17 P.28xd
-PH techmap/gencomp 1371232188 \
+PH techmap/gencomp 1371247546 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/gencomp/gencomp.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/amba 1371232181 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/amba 1371247539 \
       CD syncram CD syncram_2p CD syncram_dp CD regfile_3p CD syncram64 CD syncram128 \
       CD syncramft CD syncram_2pft CD syncfifo CD syncram128bw CD syncram156bw \
       CD syncram256bw CD inpad CD inpadv CD iopad CD iopadv CD iopadvv CD iodpad \
@@ -14,80 +14,80 @@ PH techmap/gencomp 1371232188 \
       CD clkand CD clkmux CD tap CD ddr_ireg CD ddr_oreg CD ddrphy CD ddr2phy \
       CD mul_61x61 CD ringosc CD system_monitor CD nandtree CD grmux2
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/gencomp/netcomp.vhd 2013/05/03.15:40:17 P.28xd
-PH techmap/netcomp 1371232348 \
+PH techmap/netcomp 1371247706 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/gencomp/netcomp.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/amba 1371232181 \
-      PH techmap/gencomp 1371232188 CD grusbhc_net CD grspwc_net CD grspwc2_net \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/amba 1371247539 \
+      PH techmap/gencomp 1371247546 CD grusbhc_net CD grspwc_net CD grspwc2_net \
       CD grlfpw_net CD grfpw_net CD leon3ft_net CD ftmctrl_net CD ssrctrl_net \
       CD ftsrctrl_net CD grlfpw4_net CD grfpw4_net
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/gen_ddr_phy_oreg 1371232307 \
+EN techmap/gen_ddr_phy_oreg 1371247665 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/gen_ddr_phy_oreg/rtl 1371232308 \
+AR techmap/gen_ddr_phy_oreg/rtl 1371247666 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd \
-      EN techmap/gen_ddr_phy_oreg 1371232307
-EN techmap/gen_ddr_phy_ireg 1371232309 \
-      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd \
-      PB ieee/std_logic_1164 1341906176
-AR techmap/gen_ddr_phy_ireg/rtl 1371232310 \
-      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd \
-      EN techmap/gen_ddr_phy_ireg 1371232309
-EN techmap/gen_ddr_phy_reg 1371232311 \
+      EN techmap/gen_ddr_phy_oreg 1371247665
+EN techmap/gen_ddr_phy_ireg 1371247667 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/gen_ddr_phy_reg/rtl 1371232312 \
+AR techmap/gen_ddr_phy_ireg/rtl 1371247668 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd \
-      EN techmap/gen_ddr_phy_reg 1371232311
-EN techmap/generic_ddr_phy 1371232313 \
+      EN techmap/gen_ddr_phy_ireg 1371247667
+EN techmap/gen_ddr_phy_reg 1371247669 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188 \
-      LB grlib PB grlib/stdlib 1371232179
-AR techmap/generic_ddr_phy/rtl 1371232314 \
+      PB ieee/std_logic_1164 1341906176
+AR techmap/gen_ddr_phy_reg/rtl 1371247670 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd \
-      EN techmap/generic_ddr_phy 1371232313 CP gen_ddr_phy_oreg CP outpad \
+      EN techmap/gen_ddr_phy_reg 1371247669
+EN techmap/generic_ddr_phy 1371247671 \
+      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546 \
+      LB grlib PB grlib/stdlib 1371247537
+AR techmap/generic_ddr_phy/rtl 1371247672 \
+      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/ddr_phy_inferred.vhd \
+      EN techmap/generic_ddr_phy 1371247671 CP gen_ddr_phy_oreg CP outpad \
       CP gen_ddr_phy_reg CP iopad CP gen_ddr_phy_ireg
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/generic_syncram 1371232214 \
+EN techmap/generic_syncram 1371247572 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179
-AR techmap/generic_syncram/behavioral 1371232215 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537
+AR techmap/generic_syncram/behavioral 1371247573 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd \
-      EN techmap/generic_syncram 1371232214
-EN techmap/generic_syncram_reg 1371232216 \
+      EN techmap/generic_syncram 1371247572
+EN techmap/generic_syncram_reg 1371247574 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179
-AR techmap/generic_syncram_reg/behavioral 1371232217 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537
+AR techmap/generic_syncram_reg/behavioral 1371247575 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd \
-      EN techmap/generic_syncram_reg 1371232216
-EN techmap/generic_syncram_2p 1371232218 \
+      EN techmap/generic_syncram_reg 1371247574
+EN techmap/generic_syncram_2p 1371247576 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179
-AR techmap/generic_syncram_2p/behav 1371232219 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537
+AR techmap/generic_syncram_2p/behav 1371247577 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd \
-      EN techmap/generic_syncram_2p 1371232218
-EN techmap/generic_syncram_2p_reg 1371232220 \
+      EN techmap/generic_syncram_2p 1371247576
+EN techmap/generic_syncram_2p_reg 1371247578 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179
-AR techmap/generic_syncram_2p_reg/behav 1371232221 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537
+AR techmap/generic_syncram_2p_reg/behav 1371247579 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd \
-      EN techmap/generic_syncram_2p_reg 1371232220
-EN techmap/generic_regfile_3p 1371232222 \
+      EN techmap/generic_syncram_2p_reg 1371247578
+EN techmap/generic_regfile_3p 1371247580 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179
-AR techmap/generic_regfile_3p/rtl 1371232223 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537
+AR techmap/generic_regfile_3p/rtl 1371247581 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd \
-      EN techmap/generic_regfile_3p 1371232222
-EN techmap/generic_regfile_4p 1371232224 \
+      EN techmap/generic_regfile_3p 1371247580
+EN techmap/generic_regfile_4p 1371247582 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179
-AR techmap/generic_regfile_4p/rtl 1371232225 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537
+AR techmap/generic_regfile_4p/rtl 1371247583 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/inferred/memory_inferred.vhd \
-      EN techmap/generic_regfile_4p 1371232224
+      EN techmap/generic_regfile_4p 1371247582
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allclkgen.vhd 2013/05/03.15:40:17 P.28xd
-PH techmap/allclkgen 1371232226 \
+PH techmap/allclkgen 1371247584 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allclkgen.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546 \
       CD clkgen_virtex2 CD clkgen_spartan3 CD clkgen_virtex5 CD clkgen_axcelerator \
       CD clkgen_altera_mf CD clkgen_stratixii CD clkgen_cycloneiii \
       CD clkgen_stratixiii CD clkgen_rh_lib18t CD clkmul_virtex2 CD clkand_unisim \
@@ -96,9 +96,9 @@ PH techmap/allclkgen 1371232226 \
       CD clkgen_proasic3l CD cyclone3_pll CD stratix3_pll CD clkgen_dare \
       CD clkgen_easic90 CD clkmux_rhlib18t
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allddr.vhd 2013/05/03.15:40:17 P.28xd
-PH techmap/allddr 1371232315 \
+PH techmap/allddr 1371247673 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allddr.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546 \
       CD unisim_iddr_reg CD gen_iddr_reg CD ec_oddr_reg CD unisim_oddr_reg \
       CD gen_oddr_reg CD axcel_oddr_reg CD axcel_iddr_reg CD nextreme_oddr_reg \
       CD nextreme_iddr_reg CD apa3_oddr_reg CD apa3_iddr_reg CD apa3e_oddr_reg \
@@ -108,7 +108,7 @@ PH techmap/allddr 1371232315 \
       CD virtex5_ddr2_phy CD stratixii_ddr2_phy CD stratixiii_ddr2_phy \
       CD spartan3a_ddr2_phy CD easic90_ddr2_phy CD spartan6_ddr2_phy
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allmem.vhd 2013/05/03.15:40:17 P.28xd
-PH techmap/allmem 1371232257 \
+PH techmap/allmem 1371247615 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allmem.vhd \
       PB ieee/std_logic_1164 1341906176 CD axcel_syncram CD axcel_syncram_2p \
       CD proasic_syncram CD proasic_syncram_2p CD proasic3_syncram \
@@ -133,9 +133,9 @@ PH techmap/allmem 1371232257 \
       CD tm65gplus_syncram_2p CD generic_regfile_4p CD cmos9sf_syncram \
       CD cmos9sf_syncram_2p
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allpads.vhd 2013/05/03.15:40:17 P.28xd
-PH techmap/allpads 1371232189 \
+PH techmap/allpads 1371247547 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/allpads.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546 \
       CD apa3_clkpad CD apa3_clkpad_ds CD apa3_inpad CD apa3_inpad_ds CD apa3_iopad \
       CD apa3_iopad_ds CD apa3_odpad CD apa3_outpad CD apa3_outpad_ds \
       CD apa3_toutpad CD apa3_toutpad_ds CD apa3e_clkpad CD apa3e_clkpad_ds \
@@ -165,184 +165,184 @@ PH techmap/allpads 1371232189 \
       CD nextreme_iopad CD nextreme_toutpad CD atc18rha_inpad CD atc18rha_iopad \
       CD atc18rha_outpad CD atc18rha_odpad CD atc18rha_toutpad CD atc18rha_clkpad
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/alltap.vhd 2013/05/03.15:40:17 P.28xd
-PH techmap/alltap 1371232290 \
+PH techmap/alltap 1371247648 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/alltap.vhd \
       PB ieee/std_logic_1164 1341906176 CD tap_gen CD virtex_tap CD virtex2_tap \
       CD virtex4_tap CD virtex5_tap CD spartan3_tap CD altera_tap CD fusion_tap \
       CD proasic3_tap CD proasic3e_tap CD proasic3l_tap CD virtex6_tap \
       CD spartan6_tap
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkand.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/clkand 1371232346 \
+EN techmap/clkand 1371247704 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkand.vhd \
-      PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188 \
-      PH techmap/allclkgen 1371232226
-AR techmap/clkand/rtl 1371232347 \
+      PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546 \
+      PH techmap/allclkgen 1371247584
+AR techmap/clkand/rtl 1371247705 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkand.vhd \
-      EN techmap/clkand 1371232346 CP clkand_unisim CP clkand_ut025crh \
+      EN techmap/clkand 1371247704 CP clkand_unisim CP clkand_ut025crh \
       CP clkand_rh_lib18t
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkgen.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/clkgen 1371232355 \
+EN techmap/clkgen 1371247713 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkgen.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188 \
-      PH techmap/allclkgen 1371232226
-AR techmap/clkgen/struct 1371232356 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546 \
+      PH techmap/allclkgen 1371247584
+AR techmap/clkgen/struct 1371247714 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkgen.vhd \
-      EN techmap/clkgen 1371232355 CP clkgen_virtex2 CP clkgen_virtex5 \
+      EN techmap/clkgen 1371247713 CP clkgen_virtex2 CP clkgen_virtex5 \
       CP clkgen_spartan3 CP clkgen_altera_mf CP clkgen_stratixii \
       CP clkgen_cycloneiii CP clkgen_stratixiii CP clkgen_axcelerator \
       CP clkgen_rh_lib18t CP clkgen_proasic3 CP clkgen_proasic3e \
       CP clkgen_proasic3l CP clkgen_fusion CP clkgen_dare CP clkgen_easic90
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkpad.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/clkpad 1371232243 \
+EN techmap/clkpad 1371247601 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkpad.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188 \
-      PH techmap/allpads 1371232189
-AR techmap/clkpad/rtl 1371232244 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546 \
+      PH techmap/allpads 1371247547
+AR techmap/clkpad/rtl 1371247602 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/clkpad.vhd \
-      EN techmap/clkpad 1371232243 CP unisim_clkpad CP axcel_clkpad CP apa3_clkpad \
+      EN techmap/clkpad 1371247601 CP unisim_clkpad CP axcel_clkpad CP apa3_clkpad \
       CP apa3e_clkpad CP apa3l_clkpad CP fusion_clkpad CP atc18_clkpad \
       CP atc18rha_clkpad CP umc_inpad CP rhumc_inpad CP ihp25_clkpad \
       CP rh_lib18t_inpad CP ut025crh_inpad CP peregrine_inpad
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ddrphy.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/ddrphy 1371232342 \
+EN techmap/ddrphy 1371247700 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ddrphy.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179 \
-      LB techmap PH techmap/gencomp 1371232188 PH techmap/allddr 1371232315
-AR techmap/ddrphy/rtl 1371232343 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537 \
+      LB techmap PH techmap/gencomp 1371247546 PH techmap/allddr 1371247673
+AR techmap/ddrphy/rtl 1371247701 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ddrphy.vhd \
-      EN techmap/ddrphy 1371232342 CP generic_ddr_phy CP stratixii_ddr_phy \
+      EN techmap/ddrphy 1371247700 CP generic_ddr_phy CP stratixii_ddr_phy \
       CP cycloneiii_ddr_phy CP virtex2_ddr_phy CP virtex4_ddr_phy \
       CP spartan3e_ddr_phy
-EN techmap/ddr2phy 1371232344 \
+EN techmap/ddr2phy 1371247702 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ddrphy.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179 \
-      LB techmap PH techmap/gencomp 1371232188 PH techmap/allddr 1371232315
-AR techmap/ddr2phy/rtl 1371232345 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537 \
+      LB techmap PH techmap/gencomp 1371247546 PH techmap/allddr 1371247673
+AR techmap/ddr2phy/rtl 1371247703 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/ddrphy.vhd \
-      EN techmap/ddr2phy 1371232344 CP virtex5_ddr2_phy CP stratixii_ddr2_phy \
+      EN techmap/ddr2phy 1371247702 CP virtex5_ddr2_phy CP stratixii_ddr2_phy \
       CP stratixiii_ddr2_phy CP spartan3a_ddr2_phy CP easic90_ddr2_phy
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grfpw_net.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/grfpw_net 1371232340 \
+EN techmap/grfpw_net 1371247698 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grfpw_net.vhd \
-      PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188
-AR techmap/grfpw_net/rtl 1371232341 \
+      PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546
+AR techmap/grfpw_net/rtl 1371247699 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grfpw_net.vhd \
-      EN techmap/grfpw_net 1371232340 CP grfpw_0_unisim CP grfpw_0_stratixii \
+      EN techmap/grfpw_net 1371247698 CP grfpw_0_unisim CP grfpw_0_stratixii \
       CP grfpw_0_stratixiii CP grfpw_0_cycloneiii CP grfpw_tsmc90 \
       CP grfpw_tm65gplus
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grgates.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/grmux2 1371232258 \
+EN techmap/grmux2 1371247616 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grgates.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188 \
-      PH techmap/allclkgen 1371232226
-AR techmap/grmux2/rtl 1371232259 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546 \
+      PH techmap/allclkgen 1371247584
+AR techmap/grmux2/rtl 1371247617 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grgates.vhd \
-      EN techmap/grmux2 1371232258 CP clkmux_rhlib18t
+      EN techmap/grmux2 1371247616 CP clkmux_rhlib18t
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grlfpw_net.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/grlfpw_net 1371232338 \
+EN techmap/grlfpw_net 1371247696 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grlfpw_net.vhd \
-      PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188
-AR techmap/grlfpw_net/rtl 1371232339 \
+      PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546
+AR techmap/grlfpw_net/rtl 1371247697 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/grlfpw_net.vhd \
-      EN techmap/grlfpw_net 1371232338 CP grlfpw_0_stratixii \
+      EN techmap/grlfpw_net 1371247696 CP grlfpw_0_stratixii \
       CP grlfpw_0_stratixiii CP grlfpw_0_cycloneiii CP grlfpw_0_axcelerator \
       CP grlfpw_0_proasic3 CP grlfpw_0_unisim
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/inpad.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/inpad 1371232351 \
+EN techmap/inpad 1371247709 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/inpad.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188 \
-      PH techmap/allpads 1371232189
-AR techmap/inpad/rtl 1371232352 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546 \
+      PH techmap/allpads 1371247547
+AR techmap/inpad/rtl 1371247710 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/inpad.vhd \
-      EN techmap/inpad 1371232351 CP unisim_inpad CP axcel_inpad CP apa3_inpad \
+      EN techmap/inpad 1371247709 CP unisim_inpad CP axcel_inpad CP apa3_inpad \
       CP apa3e_inpad CP apa3l_inpad CP fusion_inpad CP atc18_inpad CP atc18rha_inpad \
       CP umc_inpad CP rhumc_inpad CP ihp25_inpad CP ihp25rh_inpad CP rh_lib18t_inpad \
       CP ut025crh_inpad CP peregrine_inpad CP nextreme_inpad
-EN techmap/inpadv 1371232353 \
+EN techmap/inpadv 1371247711 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/inpad.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188
-AR techmap/inpadv/rtl 1371232354 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546
+AR techmap/inpadv/rtl 1371247712 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/inpad.vhd \
-      EN techmap/inpadv 1371232353 CP inpad
+      EN techmap/inpadv 1371247711 CP inpad
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/iopad 1371232251 \
+EN techmap/iopad 1371247609 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188 \
-      PH techmap/allpads 1371232189
-AR techmap/iopad/rtl 1371232252 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546 \
+      PH techmap/allpads 1371247547
+AR techmap/iopad/rtl 1371247610 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad.vhd \
-      EN techmap/iopad 1371232251 CP unisim_iopad CP axcel_iopad CP apa3_iopad \
+      EN techmap/iopad 1371247609 CP unisim_iopad CP axcel_iopad CP apa3_iopad \
       CP apa3e_iopad CP apa3l_iopad CP fusion_iopad CP atc18_iopad CP atc18rha_iopad \
       CP umc_iopad CP rhumc_iopad CP ihp25_iopad CP ihp25rh_iopad CP rh_lib18t_iopad \
       CP ut025crh_iopad CP peregrine_iopad CP nextreme_iopad
-EN techmap/iopadv 1371232253 \
+EN techmap/iopadv 1371247611 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188
-AR techmap/iopadv/rtl 1371232254 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546
+AR techmap/iopadv/rtl 1371247612 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad.vhd \
-      EN techmap/iopadv 1371232253 CP iopad
-EN techmap/iopadvv 1371232255 \
+      EN techmap/iopadv 1371247611 CP iopad
+EN techmap/iopadvv 1371247613 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188
-AR techmap/iopadvv/rtl 1371232256 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546
+AR techmap/iopadvv/rtl 1371247614 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad.vhd \
-      EN techmap/iopadvv 1371232255 CP iopad
+      EN techmap/iopadvv 1371247613 CP iopad
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad_ds.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/iopad_ds 1371232245 \
+EN techmap/iopad_ds 1371247603 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad_ds.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188 \
-      PH techmap/allpads 1371232189
-AR techmap/iopad_ds/rtl 1371232246 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546 \
+      PH techmap/allpads 1371247547
+AR techmap/iopad_ds/rtl 1371247604 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad_ds.vhd \
-      EN techmap/iopad_ds 1371232245 CP unisim_iopad_ds CP apa3_iopad_ds \
+      EN techmap/iopad_ds 1371247603 CP unisim_iopad_ds CP apa3_iopad_ds \
       CP apa3e_iopad_ds CP apa3l_iopad_ds CP fusion_iopad_ds
-EN techmap/iopad_dsv 1371232247 \
+EN techmap/iopad_dsv 1371247605 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad_ds.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188
-AR techmap/iopad_dsv/rtl 1371232248 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546
+AR techmap/iopad_dsv/rtl 1371247606 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad_ds.vhd \
-      EN techmap/iopad_dsv 1371232247 CP iopad_ds
-EN techmap/iopad_dsvv 1371232249 \
+      EN techmap/iopad_dsv 1371247605 CP iopad_ds
+EN techmap/iopad_dsvv 1371247607 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad_ds.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188
-AR techmap/iopad_dsvv/rtl 1371232250 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546
+AR techmap/iopad_dsvv/rtl 1371247608 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/iopad_ds.vhd \
-      EN techmap/iopad_dsvv 1371232249 CP iopad_ds
+      EN techmap/iopad_dsvv 1371247607 CP iopad_ds
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/outpad.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/outpad 1371232239 \
+EN techmap/outpad 1371247597 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/outpad.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188 \
-      PH techmap/allpads 1371232189
-AR techmap/outpad/rtl 1371232240 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546 \
+      PH techmap/allpads 1371247547
+AR techmap/outpad/rtl 1371247598 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/outpad.vhd \
-      EN techmap/outpad 1371232239 CP unisim_outpad CP axcel_outpad CP apa3_outpad \
+      EN techmap/outpad 1371247597 CP unisim_outpad CP axcel_outpad CP apa3_outpad \
       CP apa3e_outpad CP apa3l_outpad CP fusion_outpad CP atc18_outpad \
       CP atc18rha_outpad CP umc_outpad CP rhumc_outpad CP ihp25_outpad \
       CP ihp25rh_outpad CP rh_lib18t_iopad CP ut025crh_outpad CP peregrine_toutpad \
       CP nextreme_toutpad
-EN techmap/outpadv 1371232241 \
+EN techmap/outpadv 1371247599 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/outpad.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188
-AR techmap/outpadv/rtl 1371232242 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546
+AR techmap/outpadv/rtl 1371247600 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/outpad.vhd \
-      EN techmap/outpadv 1371232241 CP outpad
+      EN techmap/outpadv 1371247599 CP outpad
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/regfile_3p.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/regfile_3p 1371232336 \
+EN techmap/regfile_3p 1371247694 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/regfile_3p.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188 \
-      PH techmap/allmem 1371232257
-AR techmap/regfile_3p/rtl 1371232337 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546 \
+      PH techmap/allmem 1371247615
+AR techmap/regfile_3p/rtl 1371247695 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/regfile_3p.vhd \
-      EN techmap/regfile_3p 1371232336 CP generic_regfile_3p \
+      EN techmap/regfile_3p 1371247694 CP generic_regfile_3p \
       CP peregrine_regfile_3p CP syncram_2p
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/syncram 1371232330 \
+EN techmap/syncram 1371247688 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram.vhd \
-      PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188 \
-      PH techmap/allmem 1371232257
-AR techmap/syncram/rtl 1371232331 \
+      PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546 \
+      PH techmap/allmem 1371247615
+AR techmap/syncram/rtl 1371247689 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram.vhd \
-      EN techmap/syncram 1371232330 CP grmux2 CP generic_syncram CP virtex_syncram \
+      EN techmap/syncram 1371247688 CP grmux2 CP generic_syncram CP virtex_syncram \
       CP unisim_syncram CP virage_syncram CP atc18rha_syncram CP axcel_syncram \
       CP proasic_syncram CP umc_syncram CP rhumc_syncram CP proasic3_syncram \
       CP proasic3e_syncram CP proasic3l_syncram CP fusion_syncram CP ihp25_syncram \
@@ -351,21 +351,21 @@ AR techmap/syncram/rtl 1371232331 \
       CP custom1_syncram CP eclipse_syncram_2p CP virage90_syncram \
       CP nextreme_syncram CP smic13_syncram CP tm65gplus_syncram CP cmos9sf_syncram
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram64.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/syncram64 1371232332 \
+EN techmap/syncram64 1371247690 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram64.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188
-AR techmap/syncram64/rtl 1371232333 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546
+AR techmap/syncram64/rtl 1371247691 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram64.vhd \
-      EN techmap/syncram64 1371232332 CP unisim_syncram64 CP artisan_syncram64 \
+      EN techmap/syncram64 1371247690 CP unisim_syncram64 CP artisan_syncram64 \
       CP custom1_syncram64 CP smic13_syncram64 CP syncram
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram_2p.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/syncram_2p 1371232328 \
+EN techmap/syncram_2p 1371247686 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram_2p.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188 \
-      PH techmap/allmem 1371232257
-AR techmap/syncram_2p/rtl 1371232329 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546 \
+      PH techmap/allmem 1371247615
+AR techmap/syncram_2p/rtl 1371247687 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram_2p.vhd \
-      EN techmap/syncram_2p 1371232328 CP grmux2 CP generic_syncram_2p \
+      EN techmap/syncram_2p 1371247686 CP grmux2 CP generic_syncram_2p \
       CP virtex_syncram_dp CP unisim_syncram_2p CP virage_syncram_2p \
       CP virage_syncram_dp CP atc18rha_syncram_2p CP axcel_syncram_2p \
       CP proasic_syncram_2p CP proasic3_syncram_2p CP proasic3e_syncram_2p \
@@ -375,337 +375,337 @@ AR techmap/syncram_2p/rtl 1371232329 \
       CP virage90_syncram_dp CP nextreme_syncram_2p CP smic13_syncram_2p \
       CP tm65gplus_syncram_2p CP cmos9sf_syncram_2p
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram_dp.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/syncram_dp 1371232334 \
+EN techmap/syncram_dp 1371247692 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram_dp.vhd \
-      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371232188 \
-      PH techmap/allmem 1371232257
-AR techmap/syncram_dp/rtl 1371232335 \
+      LB techmap PB ieee/std_logic_1164 1341906176 PH techmap/gencomp 1371247546 \
+      PH techmap/allmem 1371247615
+AR techmap/syncram_dp/rtl 1371247693 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/syncram_dp.vhd \
-      EN techmap/syncram_dp 1371232334 CP virtex_syncram_dp CP unisim_syncram_dp \
+      EN techmap/syncram_dp 1371247692 CP virtex_syncram_dp CP unisim_syncram_dp \
       CP virage_syncram_dp CP artisan_syncram_dp CP axcel_syncram_2p \
       CP proasic3_syncram_dp CP proasic3e_syncram_dp CP proasic3l_syncram_dp \
       CP fusion_syncram_dp CP altera_syncram_dp CP ec_syncram_dp \
       CP virage90_syncram_dp CP atc18rha_syncram_dp CP smic13_syncram_dp \
       CP tm65gplus_syncram_dp
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/tap.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/tap 1371232349 \
+EN techmap/tap 1371247707 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/tap.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188 \
-      PH techmap/alltap 1371232290 LB grlib PB grlib/stdlib 1371232179
-AR techmap/tap/rtl 1371232350 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546 \
+      PH techmap/alltap 1371247648 LB grlib PB grlib/stdlib 1371247537
+AR techmap/tap/rtl 1371247708 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/tap.vhd \
-      EN techmap/tap 1371232349 CP virtex_tap CP virtex2_tap CP virtex4_tap \
+      EN techmap/tap 1371247707 CP virtex_tap CP virtex2_tap CP virtex4_tap \
       CP virtex5_tap CP virtex6_tap CP spartan3_tap CP spartan6_tap CP altera_tap \
       CP proasic3_tap CP proasic3e_tap CP proasic3l_tap CP fusion_tap CP grmux2 \
       CP techbuf CP tap_gen
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/techbuf.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/techbuf 1371232305 \
+EN techmap/techbuf 1371247663 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/techbuf.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/techbuf/rtl 1371232306 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/techbuf/rtl 1371247664 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/maps/techbuf.vhd \
-      EN techmap/techbuf 1371232305 CP clkbuf_fusion CP clkbuf_apa3 CP clkbuf_apa3e \
+      EN techmap/techbuf 1371247663 CP clkbuf_fusion CP clkbuf_apa3 CP clkbuf_apa3e \
       CP clkbuf_apa3l CP clkbuf_actel CP clkbuf_xilinx CP clkbuf_ut025crh \
       CP clkbuf_nextreme
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/buffer_unisim.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/clkbuf_xilinx 1371232227 \
+EN techmap/clkbuf_xilinx 1371247585 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/buffer_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/clkbuf_xilinx/rtl 1371232228 \
+AR techmap/clkbuf_xilinx/rtl 1371247586 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/buffer_unisim.vhd \
-      EN techmap/clkbuf_xilinx 1371232227 CP bufgmux CP bufg
-EN techmap/clkmux_xilinx 1371232229 \
+      EN techmap/clkbuf_xilinx 1371247585 CP bufgmux CP bufg
+EN techmap/clkmux_xilinx 1371247587 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/buffer_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/clkmux_xilinx/rtl 1371232230 \
+AR techmap/clkmux_xilinx/rtl 1371247588 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/buffer_unisim.vhd \
-      EN techmap/clkmux_xilinx 1371232229 CP bufgmux
+      EN techmap/clkmux_xilinx 1371247587 CP bufgmux
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/clkgen_virtex2 1371232276 \
+EN techmap/clkgen_virtex2 1371247634 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/clkgen_virtex2/struct 1371232277 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/clkgen_virtex2/struct 1371247635 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      EN techmap/clkgen_virtex2 1371232276 CP BUFGDLL CP bufg CP IBUFG CP DCM \
+      EN techmap/clkgen_virtex2 1371247634 CP BUFGDLL CP bufg CP IBUFG CP DCM \
       CP bufgmux
-EN techmap/clkgen_virtex 1371232278 \
+EN techmap/clkgen_virtex 1371247636 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/clkgen_virtex/rtl 1371232279 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/clkgen_virtex/rtl 1371247637 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      EN techmap/clkgen_virtex 1371232278 CP BUFGDLL CP bufg CP CLKDLL
-EN techmap/clkmul_virtex2 1371232280 \
+      EN techmap/clkgen_virtex 1371247636 CP BUFGDLL CP bufg CP CLKDLL
+EN techmap/clkmul_virtex2 1371247638 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/clkmul_virtex2/struct 1371232281 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/clkmul_virtex2/struct 1371247639 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      EN techmap/clkmul_virtex2 1371232280 CP bufg CP DCM
-EN techmap/clkgen_spartan3 1371232282 \
+      EN techmap/clkmul_virtex2 1371247638 CP bufg CP DCM
+EN techmap/clkgen_spartan3 1371247640 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/clkgen_spartan3/struct 1371232283 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/clkgen_spartan3/struct 1371247641 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      EN techmap/clkgen_spartan3 1371232282 CP BUFGDLL CP bufg CP bufgmux CP DCM
-EN techmap/clkgen_virtex5 1371232284 \
+      EN techmap/clkgen_spartan3 1371247640 CP BUFGDLL CP bufg CP bufgmux CP DCM
+EN techmap/clkgen_virtex5 1371247642 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/clkgen_virtex5/struct 1371232285 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/clkgen_virtex5/struct 1371247643 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      EN techmap/clkgen_virtex5 1371232284 CP BUFGDLL CP bufg CP bufgmux CP DCM
-EN techmap/clkand_unisim 1371232286 \
-      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176
-AR techmap/clkand_unisim/rtl 1371232287 \
-      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      EN techmap/clkand_unisim 1371232286 CP bufgce
-EN techmap/clkmux_unisim 1371232288 \
+      EN techmap/clkgen_virtex5 1371247642 CP BUFGDLL CP bufg CP bufgmux CP DCM
+EN techmap/clkand_unisim 1371247644 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/clkmux_unisim/rtl 1371232289 \
+AR techmap/clkand_unisim/rtl 1371247645 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
-      EN techmap/clkmux_unisim 1371232288 CP bufgmux
+      EN techmap/clkand_unisim 1371247644 CP bufgce
+EN techmap/clkmux_unisim 1371247646 \
+      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
+      PB ieee/std_logic_1164 1341906176
+AR techmap/clkmux_unisim/rtl 1371247647 \
+      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/clkgen_unisim.vhd \
+      EN techmap/clkmux_unisim 1371247646 CP bufgmux
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/virtex4_ddr_phy 1371232316 \
+EN techmap/virtex4_ddr_phy 1371247674 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179 \
-      LB techmap PH techmap/gencomp 1371232188
-AR techmap/virtex4_ddr_phy/rtl 1371232317 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537 \
+      LB techmap PH techmap/gencomp 1371247546
+AR techmap/virtex4_ddr_phy/rtl 1371247675 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd \
-      EN techmap/virtex4_ddr_phy 1371232316 CP bufg CP DCM CP clkpad CP ODDR \
+      EN techmap/virtex4_ddr_phy 1371247674 CP bufg CP DCM CP clkpad CP ODDR \
       CP outpad CP FD CP iopad CP IDDR
-EN techmap/virtex2_ddr_phy 1371232318 \
+EN techmap/virtex2_ddr_phy 1371247676 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179 \
-      LB techmap PH techmap/gencomp 1371232188 EN techmap/oddrv2 1371232235
-AR techmap/virtex2_ddr_phy/rtl 1371232319 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537 \
+      LB techmap PH techmap/gencomp 1371247546 EN techmap/oddrv2 1371247593
+AR techmap/virtex2_ddr_phy/rtl 1371247677 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd \
-      EN techmap/virtex2_ddr_phy 1371232318 CP bufg CP DCM CP FDDRRSE CP outpad CP FD \
+      EN techmap/virtex2_ddr_phy 1371247676 CP bufg CP DCM CP FDDRRSE CP outpad CP FD \
       CP oddrv2 CP iopad CP clkpad CP IFDDRRSE
-EN techmap/spartan3e_ddr_phy 1371232320 \
+EN techmap/spartan3e_ddr_phy 1371247678 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179 \
-      LB techmap PH techmap/gencomp 1371232188 EN techmap/oddrc3e 1371232237
-AR techmap/spartan3e_ddr_phy/rtl 1371232321 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537 \
+      LB techmap PH techmap/gencomp 1371247546 EN techmap/oddrc3e 1371247595
+AR techmap/spartan3e_ddr_phy/rtl 1371247679 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd \
-      EN techmap/spartan3e_ddr_phy 1371232320 CP bufg CP DCM CP ODDR2 CP outpad CP FD \
+      EN techmap/spartan3e_ddr_phy 1371247678 CP bufg CP DCM CP ODDR2 CP outpad CP FD \
       CP oddrc3e CP iopad CP clkpad CP IDDR2
-EN techmap/virtex5_ddr2_phy 1371232322 \
+EN techmap/virtex5_ddr2_phy 1371247680 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179 \
-      LB techmap PH techmap/gencomp 1371232188
-AR techmap/virtex5_ddr2_phy/rtl 1371232323 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537 \
+      LB techmap PH techmap/gencomp 1371247546
+AR techmap/virtex5_ddr2_phy/rtl 1371247681 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd \
-      EN techmap/virtex5_ddr2_phy 1371232322 CP bufg CP DCM CP IDELAYCTRL CP ODDR \
+      EN techmap/virtex5_ddr2_phy 1371247680 CP bufg CP DCM CP IDELAYCTRL CP ODDR \
       CP outpad CP FD CP iopad_ds CP iopad CP IDELAY CP IDDR
-EN techmap/spartan3a_ddr2_phy 1371232324 \
+EN techmap/spartan3a_ddr2_phy 1371247682 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179 \
-      LB techmap PH techmap/gencomp 1371232188
-AR techmap/spartan3a_ddr2_phy/rtl 1371232325 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537 \
+      LB techmap PH techmap/gencomp 1371247546
+AR techmap/spartan3a_ddr2_phy/rtl 1371247683 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd \
-      EN techmap/spartan3a_ddr2_phy 1371232324 CP bufg CP DCM CP ODDR2 CP outpad \
+      EN techmap/spartan3a_ddr2_phy 1371247682 CP bufg CP DCM CP ODDR2 CP outpad \
       CP clkpad CP FD CP iopad_ds CP IDDR2 CP iopad
-EN techmap/spartan6_ddr2_phy 1371232326 \
+EN techmap/spartan6_ddr2_phy 1371247684 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371232179 \
-      LB techmap PH techmap/gencomp 1371232188
-AR techmap/spartan6_ddr2_phy/rtl 1371232327 \
+      PB ieee/std_logic_1164 1341906176 LB grlib PB grlib/stdlib 1371247537 \
+      LB techmap PH techmap/gencomp 1371247546
+AR techmap/spartan6_ddr2_phy/rtl 1371247685 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_phy_unisim.vhd \
-      EN techmap/spartan6_ddr2_phy 1371232326 CP bufg CP DCM CP ODDR2 CP outpad \
+      EN techmap/spartan6_ddr2_phy 1371247684 CP bufg CP DCM CP ODDR2 CP outpad \
       CP clkpad CP FD CP iopad_ds CP IDDR2 CP iopad
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_unisim.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/unisim_iddr_reg 1371232231 \
+EN techmap/unisim_iddr_reg 1371247589 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/unisim_iddr_reg/rtl 1371232232 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/unisim_iddr_reg/rtl 1371247590 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_unisim.vhd \
-      EN techmap/unisim_iddr_reg 1371232231 CP IDDR
-EN techmap/unisim_oddr_reg 1371232233 \
+      EN techmap/unisim_iddr_reg 1371247589 CP IDDR
+EN techmap/unisim_oddr_reg 1371247591 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/unisim_oddr_reg/rtl 1371232234 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/unisim_oddr_reg/rtl 1371247592 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_unisim.vhd \
-      EN techmap/unisim_oddr_reg 1371232233 CP ODDR CP FDDRRSE
-EN techmap/oddrv2 1371232235 \
+      EN techmap/unisim_oddr_reg 1371247591 CP ODDR CP FDDRRSE
+EN techmap/oddrv2 1371247593 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/oddrv2/rtl 1371232236 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/oddrv2/rtl 1371247594 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_unisim.vhd \
-      EN techmap/oddrv2 1371232235 CP FD CP FDDRRSE
-EN techmap/oddrc3e 1371232237 \
+      EN techmap/oddrv2 1371247593 CP FD CP FDDRRSE
+EN techmap/oddrc3e 1371247595 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/oddrc3e/rtl 1371232238 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/oddrc3e/rtl 1371247596 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/ddr_unisim.vhd \
-      EN techmap/oddrc3e 1371232237 CP FD CP ODDR2
+      EN techmap/oddrc3e 1371247595 CP FD CP ODDR2
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/virtex_syncram 1371232260 \
+EN techmap/virtex_syncram 1371247618 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/virtex_syncram/behav 1371232261 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/virtex_syncram/behav 1371247619 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
-      EN techmap/virtex_syncram 1371232260 CP generic_syncram CP RAMB4_S16_S16 \
+      EN techmap/virtex_syncram 1371247618 CP generic_syncram CP RAMB4_S16_S16 \
       CP RAMB4_S16 CP RAMB4_S8 CP RAMB4_S4 CP RAMB4_S2 CP RAMB4_S1
-EN techmap/virtex_syncram_dp 1371232262 \
+EN techmap/virtex_syncram_dp 1371247620 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/virtex_syncram_dp/behav 1371232263 \
+AR techmap/virtex_syncram_dp/behav 1371247621 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
-      EN techmap/virtex_syncram_dp 1371232262 CP RAMB4_S16_S16 CP RAMB4_S8_S8 \
+      EN techmap/virtex_syncram_dp 1371247620 CP RAMB4_S16_S16 CP RAMB4_S8_S8 \
       CP RAMB4_S4_S4 CP RAMB4_S2_S2 CP RAMB4_S1_S1
-EN techmap/unisim_syncram 1371232264 \
+EN techmap/unisim_syncram 1371247622 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/unisim_syncram/behav 1371232265 \
+AR techmap/unisim_syncram/behav 1371247623 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
-      EN techmap/unisim_syncram 1371232264 CP generic_syncram CP RAMB16_S36_S36 \
+      EN techmap/unisim_syncram 1371247622 CP generic_syncram CP RAMB16_S36_S36 \
       CP RAMB16_S36 CP RAMB16_S18 CP RAMB16_S9 CP RAMB16_S4 CP RAMB16_S2 CP RAMB16_S1
-EN techmap/unisim_syncram_dp 1371232266 \
+EN techmap/unisim_syncram_dp 1371247624 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/unisim_syncram_dp/behav 1371232267 \
+AR techmap/unisim_syncram_dp/behav 1371247625 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
-      EN techmap/unisim_syncram_dp 1371232266 CP RAMB16_S36_S36 CP RAMB16_S18_S18 \
+      EN techmap/unisim_syncram_dp 1371247624 CP RAMB16_S36_S36 CP RAMB16_S18_S18 \
       CP RAMB16_S9_S9 CP RAMB16_S4_S4 CP RAMB16_S2_S2 CP RAMB16_S1_S1
-EN techmap/unisim_syncram_2p 1371232268 \
+EN techmap/unisim_syncram_2p 1371247626 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/unisim_syncram_2p/behav 1371232269 \
+AR techmap/unisim_syncram_2p/behav 1371247627 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
-      EN techmap/unisim_syncram_2p 1371232268 CP generic_syncram_2p \
+      EN techmap/unisim_syncram_2p 1371247626 CP generic_syncram_2p \
       CP unisim_syncram_dp
-EN techmap/unisim_syncram64 1371232270 \
+EN techmap/unisim_syncram64 1371247628 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/unisim_syncram64/behav 1371232271 \
+AR techmap/unisim_syncram64/behav 1371247629 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
-      EN techmap/unisim_syncram64 1371232270 CP RAMB16_S36_S36 CP unisim_syncram
-EN techmap/unisim_syncram128 1371232272 \
-      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176
-AR techmap/unisim_syncram128/behav 1371232273 \
-      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
-      EN techmap/unisim_syncram128 1371232272 CP unisim_syncram64
-EN techmap/unisim_syncram128bw 1371232274 \
+      EN techmap/unisim_syncram64 1371247628 CP RAMB16_S36_S36 CP unisim_syncram
+EN techmap/unisim_syncram128 1371247630 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/unisim_syncram128bw/behav 1371232275 \
+AR techmap/unisim_syncram128/behav 1371247631 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
-      EN techmap/unisim_syncram128bw 1371232274 CP RAMB16_S9_S9 CP unisim_syncram
+      EN techmap/unisim_syncram128 1371247630 CP unisim_syncram64
+EN techmap/unisim_syncram128bw 1371247632 \
+      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
+      PB ieee/std_logic_1164 1341906176
+AR techmap/unisim_syncram128bw/behav 1371247633 \
+      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/memory_unisim.vhd \
+      EN techmap/unisim_syncram128bw 1371247632 CP RAMB16_S9_S9 CP unisim_syncram
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/unisim_inpad 1371232190 \
+EN techmap/unisim_inpad 1371247548 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/unisim_inpad/rtl 1371232191 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/unisim_inpad/rtl 1371247549 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      EN techmap/unisim_inpad 1371232190 CP IBUF
-EN techmap/unisim_iopad 1371232192 \
+      EN techmap/unisim_inpad 1371247548 CP IBUF
+EN techmap/unisim_iopad 1371247550 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/unisim_iopad/rtl 1371232193 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/unisim_iopad/rtl 1371247551 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      EN techmap/unisim_iopad 1371232192 CP IOBUF
-EN techmap/unisim_outpad 1371232194 \
+      EN techmap/unisim_iopad 1371247550 CP IOBUF
+EN techmap/unisim_outpad 1371247552 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/unisim_outpad/rtl 1371232195 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/unisim_outpad/rtl 1371247553 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      EN techmap/unisim_outpad 1371232194 CP OBUF
-EN techmap/unisim_toutpad 1371232196 \
+      EN techmap/unisim_outpad 1371247552 CP OBUF
+EN techmap/unisim_toutpad 1371247554 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/unisim_toutpad/rtl 1371232197 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/unisim_toutpad/rtl 1371247555 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      EN techmap/unisim_toutpad 1371232196 CP OBUFT
-EN techmap/unisim_skew_outpad 1371232198 \
+      EN techmap/unisim_toutpad 1371247554 CP OBUFT
+EN techmap/unisim_skew_outpad 1371247556 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/unisim_skew_outpad/rtl 1371232199 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/unisim_skew_outpad/rtl 1371247557 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      EN techmap/unisim_skew_outpad 1371232198 CP DCM CP bufg CP OBUF
-EN techmap/unisim_clkpad 1371232200 \
+      EN techmap/unisim_skew_outpad 1371247556 CP DCM CP bufg CP OBUF
+EN techmap/unisim_clkpad 1371247558 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/unisim_clkpad/rtl 1371232201 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/unisim_clkpad/rtl 1371247559 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      EN techmap/unisim_clkpad 1371232200 CP IBUFG CP IBUF CP bufgmux CP bufg \
+      EN techmap/unisim_clkpad 1371247558 CP IBUFG CP IBUF CP bufgmux CP bufg \
       CP CLKDLL CP CLKDLLHF
-EN techmap/unisim_inpad_ds 1371232202 \
+EN techmap/unisim_inpad_ds 1371247560 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/unisim_inpad_ds/rtl 1371232203 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/unisim_inpad_ds/rtl 1371247561 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      EN techmap/unisim_inpad_ds 1371232202 CP IBUFDS_LVDS_33 CP IBUFDS_LVDS_25
-EN techmap/unisim_clkpad_ds 1371232204 \
+      EN techmap/unisim_inpad_ds 1371247560 CP IBUFDS_LVDS_33 CP IBUFDS_LVDS_25
+EN techmap/unisim_clkpad_ds 1371247562 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/unisim_clkpad_ds/rtl 1371232205 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/unisim_clkpad_ds/rtl 1371247563 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      EN techmap/unisim_clkpad_ds 1371232204 CP IBUFGDS_LVDS_33 CP IBUFGDS_LVDS_25
-EN techmap/virtex4_inpad_ds 1371232206 \
+      EN techmap/unisim_clkpad_ds 1371247562 CP IBUFGDS_LVDS_33 CP IBUFGDS_LVDS_25
+EN techmap/virtex4_inpad_ds 1371247564 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/virtex4_inpad_ds/rtl 1371232207 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/virtex4_inpad_ds/rtl 1371247565 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      EN techmap/virtex4_inpad_ds 1371232206 CP IBUFDS
-EN techmap/virtex4_clkpad_ds 1371232208 \
+      EN techmap/virtex4_inpad_ds 1371247564 CP IBUFDS
+EN techmap/virtex4_clkpad_ds 1371247566 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/virtex4_clkpad_ds/rtl 1371232209 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/virtex4_clkpad_ds/rtl 1371247567 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      EN techmap/virtex4_clkpad_ds 1371232208 CP IBUFGDS
-EN techmap/unisim_iopad_ds 1371232210 \
+      EN techmap/virtex4_clkpad_ds 1371247566 CP IBUFGDS
+EN techmap/unisim_iopad_ds 1371247568 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/unisim_iopad_ds/rtl 1371232211 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/unisim_iopad_ds/rtl 1371247569 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      EN techmap/unisim_iopad_ds 1371232210 CP IOBUFDS
-EN techmap/unisim_outpad_ds 1371232212 \
+      EN techmap/unisim_iopad_ds 1371247568 CP IOBUFDS
+EN techmap/unisim_outpad_ds 1371247570 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371232188
-AR techmap/unisim_outpad_ds/rtl 1371232213 \
+      PB ieee/std_logic_1164 1341906176 LB techmap PH techmap/gencomp 1371247546
+AR techmap/unisim_outpad_ds/rtl 1371247571 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/pads_unisim.vhd \
-      EN techmap/unisim_outpad_ds 1371232212 CP OBUFDS
+      EN techmap/unisim_outpad_ds 1371247570 CP OBUFDS
 FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd 2013/05/03.15:40:17 P.28xd
-EN techmap/virtex_tap 1371232291 \
+EN techmap/virtex_tap 1371247649 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/virtex_tap/rtl 1371232292 \
+AR techmap/virtex_tap/rtl 1371247650 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
-      EN techmap/virtex_tap 1371232291 CP BSCAN_VIRTEX
-EN techmap/virtex2_tap 1371232293 \
-      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176
-AR techmap/virtex2_tap/rtl 1371232294 \
-      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
-      EN techmap/virtex2_tap 1371232293 CP BSCAN_VIRTEX2
-EN techmap/spartan3_tap 1371232295 \
+      EN techmap/virtex_tap 1371247649 CP BSCAN_VIRTEX
+EN techmap/virtex2_tap 1371247651 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/spartan3_tap/rtl 1371232296 \
+AR techmap/virtex2_tap/rtl 1371247652 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
-      EN techmap/spartan3_tap 1371232295 CP BSCAN_SPARTAN3
-EN techmap/virtex4_tap 1371232297 \
-      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176
-AR techmap/virtex4_tap/rtl 1371232298 \
-      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
-      EN techmap/virtex4_tap 1371232297 CP BSCAN_VIRTEX4
-EN techmap/virtex5_tap 1371232299 \
+      EN techmap/virtex2_tap 1371247651 CP BSCAN_VIRTEX2
+EN techmap/spartan3_tap 1371247653 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/virtex5_tap/rtl 1371232300 \
+AR techmap/spartan3_tap/rtl 1371247654 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
-      EN techmap/virtex5_tap 1371232299 CP BSCAN_VIRTEX5
-EN techmap/virtex6_tap 1371232301 \
-      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
-      PB ieee/std_logic_1164 1341906176
-AR techmap/virtex6_tap/rtl 1371232302 \
-      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
-      EN techmap/virtex6_tap 1371232301 CP BSCAN_VIRTEX6
-EN techmap/spartan6_tap 1371232303 \
+      EN techmap/spartan3_tap 1371247653 CP BSCAN_SPARTAN3
+EN techmap/virtex4_tap 1371247655 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
       PB ieee/std_logic_1164 1341906176
-AR techmap/spartan6_tap/rtl 1371232304 \
+AR techmap/virtex4_tap/rtl 1371247656 \
       FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
-      EN techmap/spartan6_tap 1371232303 CP BSCAN_SPARTAN6
+      EN techmap/virtex4_tap 1371247655 CP BSCAN_VIRTEX4
+EN techmap/virtex5_tap 1371247657 \
+      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
+      PB ieee/std_logic_1164 1341906176
+AR techmap/virtex5_tap/rtl 1371247658 \
+      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
+      EN techmap/virtex5_tap 1371247657 CP BSCAN_VIRTEX5
+EN techmap/virtex6_tap 1371247659 \
+      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
+      PB ieee/std_logic_1164 1341906176
+AR techmap/virtex6_tap/rtl 1371247660 \
+      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
+      EN techmap/virtex6_tap 1371247659 CP BSCAN_VIRTEX6
+EN techmap/spartan6_tap 1371247661 \
+      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
+      PB ieee/std_logic_1164 1341906176
+AR techmap/spartan6_tap/rtl 1371247662 \
+      FL /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/tap_unisim.vhd \
+      EN techmap/spartan6_tap 1371247661 CP BSCAN_SPARTAN6

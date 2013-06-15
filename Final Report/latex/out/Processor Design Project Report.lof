@@ -1,0 +1,6 @@
+\select@language {english}
+\select@language {english}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Resulting tree after executing step 1 for and 8 bit by 8 bit multiplication.\relax }}{iii}{figure.caption.4}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces \relax }}{iv}{figure.caption.5}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Detail of Wallace Tree from~cite{betterwallace}. It is clearly visible a significant percentage of unused area.}}}{iv}{subfigure.2.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Modified Wallace Tree from~cite{betterwallace}. The image reflects the better area utilization based on the algorithm present in the paper.}}}{iv}{subfigure.2.2}
