@@ -18,6 +18,9 @@ USE grlib.stdlib.all;
 LIBRARY gaisler;
 USE gaisler.arith.all;
 
+-- LIBRARY mypackage;
+-- USE mypackage.mypackage.all;
+
 ENTITY mul32 IS
 	GENERIC (
 		tech				: INTEGER := 0;
@@ -41,20 +44,25 @@ ENTITY mul32 IS
 		-- acc					: IN STD_LOGIC_VECTOR(39 DOWNTO 0);
 
 		-- mulo related signals
-		mulo				: OUT mul32_OUT_type;
+		mulo				: OUT mul32_OUT_type
 		-- ready				: OUT STD_LOGIC;
 		-- icc					: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		-- result				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 
 		-- debugging signals
-		db_tmp_result		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_number_bits_port	: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_started			: OUT STD_LOGIC := '0';
-		db_op1				: OUT STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
-		db_op2				: OUT STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
-		db_is_signed		: OUT STD_LOGIC := '0'
+		-- db_tmp_result		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		-- db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		-- db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		-- db_number_bits_port	: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		-- db_started			: OUT STD_LOGIC := '0';
+		-- db_op1				: OUT STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
+		-- db_op2				: OUT STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
+		-- db_is_signed		: OUT STD_LOGIC := '0';
+
+		-- db_numberFA			: OUT numberFA_all_type;
+		-- db_numberHA			: OUT number_all_type;
+		-- db_numberRE			: OUT number_all_type;
+		-- db_numberCI			: OUT numberCI_all_type
 	);
 END mul32;
 
@@ -75,7 +83,6 @@ ARCHITECTURE behavioral OF mul32 IS
 	CONSTANT add_vector_baugh_wooley		: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := '1' & (width-2 DOWNTO op2_width+1 => '0') & '1' & (op2_width-1 DOWNTO 0 => '0');
 	CONSTANT zeros							: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
 	CONSTANT zeros64						: STD_LOGIC_VECTOR(63 DOWNTO 0) := (OTHERS => '0');
-	CONSTANT zerosWallace					: STD_LOGIC_VECTOR(levels*op1_width*width-1 DOWNTO 0) := (OTHERS => '0');
 	CONSTANT arrayX							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'X');
 	CONSTANT arrayU							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'U');
 	
@@ -87,12 +94,10 @@ ARCHITECTURE behavioral OF mul32 IS
 	CONSTANT maxi : INTEGER := op1_width;
 	CONSTANT maxj : INTEGER := width;
 	
-	TYPE numberFA_all_type IS ARRAY(1191 DOWNTO 0) OF INTEGER RANGE 0 TO 10;
-	TYPE numberCI_all_type IS ARRAY(1191 DOWNTO 0) OF INTEGER RANGE 0 TO 11;
-	TYPE number_all_type IS ARRAY(1191 DOWNTO 0) OF INTEGER RANGE 0 TO 1;
+	TYPE numberFA_all_type IS ARRAY(1191 DOWNTO 0) OF INTEGER RANGE -1 TO 10;
+	TYPE numberCI_all_type IS ARRAY(1191 DOWNTO 0) OF INTEGER RANGE -1 TO 11;
+	TYPE number_all_type IS ARRAY(1191 DOWNTO 0) OF INTEGER RANGE -1 TO 1;
 
-	-- TYPE numberFA_type IS ARRAY((maxk-1)*maxj-1 DOWNTO 0) OF INTEGER RANGE 0 TO 10;
-	-- TYPE number_type IS ARRAY((maxk-1)*maxj-1 DOWNTO 0) OF INTEGER RANGE 0 TO 10;
 	
 
 
@@ -107,15 +112,17 @@ ARCHITECTURE behavioral OF mul32 IS
 	CONSTANT bottom_range					: INTEGER := number_range(multype);
 	CONSTANT top_range						: INTEGER := number_range(multype+1)-1;
 
-	CONSTANT numberFA						: numberFA_all_type := (1191 DOWNTO (maxk-1)*maxj => 0) & numberFA_all(top_range DOWNTO bottom_range);
-	CONSTANT numberHA						: number_all_type := (1191 DOWNTO (maxk-1)*maxj => 0) & numberHA_all(top_range DOWNTO bottom_range);
-	CONSTANT numberRE						: number_all_type := (1191 DOWNTO (maxk-1)*maxj => 0) & numberRE_all(top_range DOWNTO bottom_range);
-	CONSTANT numberCI						: numberCI_all_type := (1191 DOWNTO (maxk-1)*maxj => 0) & numberCI_all(top_range DOWNTO bottom_range);
+	CONSTANT numberFA						: numberFA_all_type := (1191 DOWNTO (maxk-1)*maxj => -1) & numberFA_all(top_range DOWNTO bottom_range);
+	CONSTANT numberHA						: number_all_type := (1191 DOWNTO (maxk-1)*maxj => -1) & numberHA_all(top_range DOWNTO bottom_range);
+	CONSTANT numberRE						: number_all_type := (1191 DOWNTO (maxk-1)*maxj => -1) & numberRE_all(top_range DOWNTO bottom_range);
+	CONSTANT numberCI						: numberCI_all_type := (1191 DOWNTO (maxk-1)*maxj => -1) & numberCI_all(top_range DOWNTO bottom_range);
 
 	SIGNAL tmp_started						: STD_LOGIC := '0';
 
 	SIGNAL op1								: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL op2								: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
+	CONSTANT zerosOp						: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
+
 	SIGNAL baugh_wooley_add					: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := (OTHERS => '0');
 	SIGNAL add_a, add_b, add_sum,add_cout	: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => '0'); --for final adder
 	SIGNAL c_in								: STD_LOGIC := '0';
@@ -131,7 +138,8 @@ ARCHITECTURE behavioral OF mul32 IS
 	SIGNAL is_signed						: STD_LOGIC := '0';
 		
 	SIGNAL number_bits						: number_bits_type := (OTHERS => 0);
-	SIGNAL WallaceTree						: STD_LOGIC_VECTOR(maxk*maxi*maxj-1 DOWNTO 0) := (others=>'0'); -- Wallace tree
+	SIGNAL WallaceTree						: STD_LOGIC_VECTOR(maxk*maxi*maxj-1 DOWNTO 0) := (OTHERS => '0'); -- Wallace tree
+	CONSTANT zerosWallace					: STD_LOGIC_VECTOR(maxk*maxi*maxj-1 DOWNTO 0) := (OTHERS => '0');
 
 
 
@@ -157,18 +165,14 @@ end component;
 
 BEGIN
 
-	rst_proc: PROCESS(clk)
-	BEGIN
-		IF (clk='1' AND clk'event) AND (rst = '0' OR muli.flush = '1') THEN
-			WallaceTree <= zerosWallace;
-		END IF;
-	END PROCESS;
-
-
-	hold_proc: PROCESS(clk)
+	rst_hold_proc: PROCESS(clk)
 		VARIABLE started				: STD_LOGIC := '0';
 	BEGIN
-		IF (clk='1' AND clk'event AND rst = '1' AND muli.flush = '0' AND holdn = '1') THEN
+		IF (clk='1' AND clk'event) AND (rst = '0' OR muli.flush = '1') THEN
+			op1 <= zerosOp;
+			op2 <= zerosOp;
+
+		ELSIF (clk='1' AND clk'event AND rst = '1' AND muli.flush = '0' AND holdn = '1') THEN
 			IF (started = '1') THEN
 				started := '0';
 				tmp_ready <= '1';
@@ -237,14 +241,14 @@ BEGIN
 		columns: for j in 0 to width-2 generate
 			full_adders: for i in 0 to numberFA(j+maxj*k)-1 generate
 				PortFA: FA port map(
-					-- x => WallaceTree(k)(numberCI(k)(j)+3*i))(j),
-					x => WallaceTree(j+maxj*(numberCI(j+maxj*k)+3*i+maxi*k)),
-					-- y => WallaceTree(k)(numberCI(k)(j)+3*i+1)(j),
-					y => WallaceTree(j+maxj*(numberCI(j+maxj*k)+3*i+1+maxi*k)),
-					-- cin => WallaceTree(k)(numberCI(k)(j)+3*i+2)(j),
-					cin => WallaceTree(j+maxj*(numberCI(j+maxj*k)+3*i+2+maxi*k)),
-					-- s => WallaceTree(k+1)(i)(j),
-					s => WallaceTree(j+maxj*(i+maxi*(k+1))),
+					-- x => WallaceTree(k)(3*i))(j),
+					x => WallaceTree(j+maxj*(3*i+maxi*k)),
+					-- y => WallaceTree(k)(3*i+1)(j),
+					y => WallaceTree(j+maxj*(3*i+1+maxi*k)),
+					-- cin => WallaceTree(k)(3*i+2)(j),
+					cin => WallaceTree(j+maxj*(3*i+2+maxi*k)),
+					-- s => WallaceTree(k+1)(numberCI(k)(j)+i)(j),
+					s => WallaceTree(j+maxj*(numberCI(j+maxj*k)+i+maxi*(k+1))),
 					-- cout => WallaceTree(k+1)(i)(j+1)
 					cout => WallaceTree(j+1+maxj*(i+maxi*(k+1)))
 				);
@@ -252,12 +256,12 @@ BEGIN
 
 			half_adders: if numberHA(j+maxj*k) = 1 generate
 				PortHA: HA port map(
-					-- x => WallaceTree(k)(numberCI(k)(j)+3*numberFA(k)(j))(j),
-					x => WallaceTree(j+maxj*(numberCI(j+maxj*k)+3*numberFA(j+maxj*k)+maxi*k)),
-					-- y => WallaceTree(k)(numberCI(k)(j)+3*numberFA(k)(j)+1)(j),
-					y => WallaceTree(j+maxj*(numberCI(j+maxj*k)+3*numberFA(j+maxj*k)+1+maxi*k)),
-					-- s => WallaceTree(k+1)(numberFA(k)(j))(j),
-					s => WallaceTree(j+maxj*(numberFA(j+maxj*k)+maxi*(k+1))),
+					-- x => WallaceTree(k)(3*numberFA(k)(j))(j),
+					x => WallaceTree(j+maxj*(3*numberFA(j+maxj*k)+maxi*k)),
+					-- y => WallaceTree(k)(3*numberFA(k)(j)+1)(j),
+					y => WallaceTree(j+maxj*(3*numberFA(j+maxj*k)+1+maxi*k)),
+					-- s => WallaceTree(k+1)(numberFA(k)(j)+numberCI(k)(j))(j),
+					s => WallaceTree(j+maxj*(numberFA(j+maxj*k)+numberCI(j+maxj*k)+maxi*(k+1))),
 					-- cout => WallaceTree(k+1)(numberFA(k)(j))(j+1)
 					cout => WallaceTree(j+1+maxj*(numberFA(j+maxj*k)+maxi*(k+1)))
 				);
@@ -289,8 +293,8 @@ BEGIN
 		-- add_a(j) <= WallaceTree(j+maxj*(maxi*(levels-1))); -- op1 for final addition
 		-- add_b(j) <= WallaceTree(j+maxj*(1+maxi*(levels-1))); -- op2 for final addition
 
-		add_a(j) <= WallaceTree(j+maxj*(maxi*(1))); -- op1 for final addition
-		add_b(j) <= WallaceTree(j+maxj*(1+maxi*(1))); -- op2 for final addition
+		add_a(j) <= WallaceTree(j+maxj*(maxi*(levels-1))); -- op1 for final addition
+		add_b(j) <= WallaceTree(j+maxj*(1+maxi*(levels-1))); -- op2 for final addition
 	end generate final_op;
 
 	-- Final process
@@ -339,15 +343,20 @@ BEGIN
 	mulo.icc <= tmp_icc;
 	mulo.result <= tmp_result;
 
-	db_tmp_result <= tmp_result;
-	db_number_bits_port <= (63 DOWNTO width => '0') & add_vector_baugh_wooley;
+	-- db_tmp_result <= tmp_result;
+	-- db_number_bits_port <= (63 DOWNTO width => '0') & add_vector_baugh_wooley;
 	
-	db_op1 <= op1;
-	db_op2 <= op2;
-	db_is_signed <= is_signed;
+	-- db_op1 <= op1;
+	-- db_op2 <= op2;
+	-- db_is_signed <= is_signed;
 
-	db_prod_a <= (63 DOWNTO width => '0') & add_a;
-	db_prod_b <= (63 DOWNTO width => '0') & add_b;
-	db_started <= tmp_started;
+	-- db_prod_a <= (63 DOWNTO width => '0') & add_a;
+	-- db_prod_b <= (63 DOWNTO width => '0') & add_b;
+	-- db_started <= tmp_started;
 	
+	-- db_numberFA <= numberFA;
+	-- db_numberHA <= numberHA;
+	-- db_numberRE <= numberRE;
+	-- db_numberCI <= numberCI;
+
 END behavioral;
