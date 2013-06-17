@@ -1,7 +1,7 @@
 arith.vhd
-mul32.vhd
-mul32Original.vhd
+HA.vhd
 FA.vhd
+mul32.vhd
 qSelector.vhd
 t3to2compressor.vhd
 div32.vhd

@@ -7,147 +7,6 @@
 -- Description:	
 ------------------------------------------------------------------------------
 
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
-USE IEEE.numeric_std.all;
-
-PACKAGE mypackage is
-
-	FUNCTION compute_FA_sum (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC;
-	FUNCTION compute_FA_cout (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC;
-	FUNCTION compute_HA_sum (x:STD_LOGIC;y:STD_LOGIC) RETURN STD_LOGIC;
-	FUNCTION compute_HA_cout (x:STD_LOGIC;y:STD_LOGIC) RETURN STD_LOGIC;  
-	FUNCTION this_level_bits (previous_level_bits:NATURAL;previous_column_bits:NATURAL) RETURN NATURAL;
-	FUNCTION num_full_adders (num_bits:NATURAL) RETURN NATURAL;
-	FUNCTION num_half_adders (num_bits:NATURAL) RETURN NATURAL;
-	FUNCTION num_remainder_bits (num_bits:NATURAL) RETURN NATURAL;
-END mypackage;
-
-PACKAGE BODY mypackage IS
-	FUNCTION compute_FA_sum (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC IS
-	BEGIN
-    	RETURN (x XOR y XOR c_in);
-  	END compute_FA_sum;
-
-	FUNCTION compute_FA_cout (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC IS
-	BEGIN
-    	RETURN ((x AND y) OR (c_in AND (x XOR y)));
-  	END compute_FA_cout;
-
-  FUNCTION compute_HA_sum (x:STD_LOGIC;y:STD_LOGIC) RETURN STD_LOGIC IS
-  BEGIN
-      RETURN (x XOR y);
-    END compute_HA_sum;
-
-  FUNCTION compute_HA_cout (x:STD_LOGIC;y:STD_LOGIC) RETURN STD_LOGIC IS
-  BEGIN
-      RETURN (x AND y);
-    END compute_HA_cout;
-
-
-  	FUNCTION this_level_bits (previous_level_bits:NATURAL;previous_column_bits:NATURAL) RETURN NATURAL IS
-  		VARIABLE result: NATURAL := 0;
-  		VARIABLE this_level: NATURAL := 0;
-  		VARIABLE previous_column: NATURAL := 0;
-  		VARIABLE num_FA: NATURAL := 0;
-  		VARIABLE num_HA: NATURAL := 0;
-  	BEGIN
-  		previous_column := num_half_adders(previous_column_bits) + num_full_adders(previous_column_bits); --couts from previous column
-
-  		num_HA := num_half_adders(previous_level_bits);
-  		num_FA := num_full_adders(previous_level_bits);
-  		this_level := num_FA + num_HA; -- s from FA and HA from previous level
-  		result := previous_column + this_level + previous_level_bits - num_FA*3 - num_HA*2; -- add remainder bit if one exists
-
-  		RETURN result;
-  	END this_level_bits;
-
-	FUNCTION num_remainder_bits (num_bits:NATURAL) RETURN NATURAL IS
-		VARIABLE result: NATURAL := 0;
-  	BEGIN
-		CASE num_bits IS
-			WHEN 1 => result := 1;
-			WHEN 4 => result := 1;
-			WHEN 7 => result := 1;
-			WHEN 10 => result := 1;
-			WHEN 13 => result := 1;
-			WHEN 16 => result := 1;
-			WHEN 19 => result := 1;
-			WHEN 22 => result := 1;
-			WHEN 25 => result := 1;
-			WHEN 28 => result := 1;
-			WHEN 31 => result := 1;
-			WHEN OTHERS => result := 0;
-		END CASE;
-
-		RETURN result;
-  	END num_remainder_bits;
-
-	FUNCTION num_full_adders (num_bits:NATURAL) RETURN NATURAL IS
-		VARIABLE result: NATURAL := 0;
-  	BEGIN
-		CASE num_bits IS
-			WHEN 3 => result := 1;
-			WHEN 4 => result := 1;
-			WHEN 5 => result := 1;
-			WHEN 6 => result := 2;
-			WHEN 7 => result := 2;
-			WHEN 8 => result := 2;
-			WHEN 9 => result := 3;
-			WHEN 10 => result := 3;
-			WHEN 11 => result := 3;
-			WHEN 12 => result := 4;
-			WHEN 13 => result := 4;
-			WHEN 14 => result := 4;
-			WHEN 15 => result := 5;
-			WHEN 16 => result := 5;
-			WHEN 17 => result := 5;
-			WHEN 18 => result := 6;
-			WHEN 19 => result := 6;
-			WHEN 20 => result := 6;
-			WHEN 21 => result := 7;
-			WHEN 22 => result := 7;
-			WHEN 23 => result := 7;
-			WHEN 24 => result := 8;
-			WHEN 25 => result := 8;
-			WHEN 26 => result := 8;
-			WHEN 27 => result := 9;
-			WHEN 28 => result := 9;
-			WHEN 29 => result := 9;
-			WHEN 30 => result := 10;
-			WHEN 31 => result := 10;
-			WHEN 32 => result := 10;
-			WHEN OTHERS => result := 0;
-		END CASE;
-  		
-  		RETURN result;
-  	END num_full_adders;
-
-	FUNCTION num_half_adders (num_bits:NATURAL) RETURN NATURAL IS
-		VARIABLE result: NATURAL := 0;
-  	BEGIN
-  		CASE num_bits IS
-			WHEN 2 => result := 1;
-			WHEN 5 => result := 1;
-			WHEN 8 => result := 1;
-			WHEN 11 => result := 1;
-			WHEN 14 => result := 1;
-			WHEN 17 => result := 1;
-			WHEN 20 => result := 1;
-			WHEN 23 => result := 1;
-			WHEN 26 => result := 1;
-			WHEN 29 => result := 1;
-			WHEN 32 => result := 1;
-			WHEN OTHERS => result := 0;
-		END CASE;
-
-		RETURN result;
-  	END num_half_adders;
-
-END mypackage;
-
-
-
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
@@ -159,13 +18,9 @@ USE grlib.stdlib.all;
 LIBRARY gaisler;
 USE gaisler.arith.all;
 
-USE work.mypackage.all;
-
-
-
 ENTITY mul32 IS
 	GENERIC (
-		tech			    : INTEGER := 0;
+		tech				: INTEGER := 0;
 		multype				: INTEGER RANGE 0 TO 3 := 0;
 		pipe				: INTEGER RANGE 0 TO 1 := 0;
 		mac					: INTEGER RANGE 0 TO 1 := 0
@@ -186,22 +41,25 @@ ENTITY mul32 IS
 		-- acc					: IN STD_LOGIC_VECTOR(39 DOWNTO 0);
 
 		-- mulo related signals
-		mulo				: OUT mul32_OUT_type
+		mulo				: OUT mul32_OUT_type;
 		-- ready				: OUT STD_LOGIC;
 		-- icc					: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		-- result				: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 
 		-- debugging signals
-		-- db_tmp_result		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		-- db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		-- db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		-- db_number_bits_port	: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		-- db_started			: OUT STD_LOGIC := '0'
+		db_tmp_result		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		db_number_bits_port	: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		db_started			: OUT STD_LOGIC := '0';
+		db_op1				: OUT STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
+		db_op2				: OUT STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
+		db_is_signed		: OUT STD_LOGIC := '0'
 	);
 END mul32;
 
 ARCHITECTURE behavioral OF mul32 IS
-	TYPE layer_depth_type IS ARRAY(32 DOWNTO 3) OF INTEGER RANGE 3 TO 9;
+	TYPE layer_depth_type IS ARRAY(3 DOWNTO 0) OF INTEGER RANGE 3 TO 9;
 	TYPE operand_size_type IS ARRAY(3 DOWNTO 0) OF INTEGER RANGE 8 TO 32;
 
 	CONSTANT op1_width_vector				: operand_size_type := (32,32,32,16);
@@ -211,8 +69,8 @@ ARCHITECTURE behavioral OF mul32 IS
 	CONSTANT op1_width						: INTEGER RANGE 16 TO 32 := op1_width_vector(multype);
 	CONSTANT op2_width						: INTEGER RANGE 8 TO 32 := op2_width_vector(multype);
 	
-	CONSTANT layer_depth					: layer_depth_type := (9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,6,5,5,4,3,3);
-	CONSTANT levels							: INTEGER RANGE 3 TO 9 := layer_depth(op2_width);
+	CONSTANT layer_depth					: layer_depth_type := (9,7,6,7);
+	CONSTANT levels							: INTEGER RANGE 3 TO 9 := layer_depth(multype);
 
 	CONSTANT add_vector_baugh_wooley		: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := '1' & (width-2 DOWNTO op2_width+1 => '0') & '1' & (op2_width-1 DOWNTO 0 => '0');
 	CONSTANT zeros							: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
@@ -221,25 +79,43 @@ ARCHITECTURE behavioral OF mul32 IS
 	CONSTANT arrayX							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'X');
 	CONSTANT arrayU							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'U');
 	
-	-- TYPE WallaceTree_type1 IS ARRAY (64-1 DOWNTO 0) OF STD_LOGIC;
-	-- TYPE WallaceTree_type2 IS ARRAY (32-1 DOWNTO 0) OF WallaceTree_type1;
-	-- TYPE WallaceTree_type3 IS ARRAY (9-1 DOWNTO 0) OF WallaceTree_type2;
-	
-	-- TYPE WallaceTree_type IS ARRAY (levels-1 DOWNTO 0,op2_width-1 DOWNTO 0, width-1 DOWNTO 0) OF STD_LOGIC;
-	TYPE number_bits_type IS ARRAY (width-1 DOWNTO 0) OF NATURAL;
 
-	-- SIGNAL WallaceTree						: WallaceTree_type := (OTHERS => (OTHERS => (OTHERS => '0'))); -- Wallace tree
-	-- SIGNAL WallaceTree						: WallaceTree_type3 := ((others => (others=> (others=>'0')))); -- Wallace tree
+	TYPE number_bits_type IS ARRAY (width-1 DOWNTO 0) OF NATURAL;
 	
 
 	CONSTANT maxk : INTEGER := levels;
 	CONSTANT maxi : INTEGER := op1_width;
 	CONSTANT maxj : INTEGER := width;
 	
+	TYPE numberFA_all_type IS ARRAY(1191 DOWNTO 0) OF INTEGER RANGE 0 TO 10;
+	TYPE numberCI_all_type IS ARRAY(1191 DOWNTO 0) OF INTEGER RANGE 0 TO 11;
+	TYPE number_all_type IS ARRAY(1191 DOWNTO 0) OF INTEGER RANGE 0 TO 1;
+
+	-- TYPE numberFA_type IS ARRAY((maxk-1)*maxj-1 DOWNTO 0) OF INTEGER RANGE 0 TO 10;
+	-- TYPE number_type IS ARRAY((maxk-1)*maxj-1 DOWNTO 0) OF INTEGER RANGE 0 TO 10;
+	
 
 
-	-- SIGNAL op1								: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
-	-- SIGNAL op2								: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
+	CONSTANT numberFA_all					: numberFA_all_type := (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,5,4,4,4,4,4,4,4,3,3,3,3,3,3,3,2,2,2,2,2,2,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,2,2,2,2,2,2,3,3,3,4,4,4,4,4,4,5,5,5,6,6,6,6,6,6,7,7,7,6,6,6,6,5,5,5,5,5,4,4,4,4,3,3,3,3,3,2,2,2,2,1,1,1,1,1,0,0,0,0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7,8,8,8,9,9,9,10,10,10,10,10,9,9,9,8,8,8,7,7,7,6,6,6,5,5,5,4,4,4,3,3,3,2,2,2,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,1,1,1,1,1,0,0,0,0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,3,3,3,2,2,2,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,0,0,0,0,0,0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,2,2,2,2,1,1,1,1,1,0,0,0,0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,4,4,4,3,3,3,2,2,2,1,1,1,0,0);
+	CONSTANT numberHA_all					: number_all_type := (1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,1,1,1,0,0,0,0,1,1,0,0,0,0,1,1,1,0,1,1,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,1,1,1,0,0,0,0,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,0,0,0,0,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,1,0,1,1,1,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,1,1,0,0,0,0,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,1,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0);
+	CONSTANT numberRE_all					: number_all_type := (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,1,1,1,0,0,0,0,1,1,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,1,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,1,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,1,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,1,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,1,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,1,1,1,0,0,0,0,1,1,0,1,1,0,0,0,0,0,1,1,0,0,0,0,1,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,1,0,1,0,0,0,1,1,0,0,0,1,0,0,0,1,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1);
+	CONSTANT numberCI_all					: numberCI_all_type := (1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,4,4,4,4,4,4,4,3,3,3,3,3,3,3,2,2,2,2,2,2,2,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,2,2,2,3,3,3,3,3,3,4,4,4,5,5,5,5,5,5,6,6,6,7,7,7,7,7,7,7,6,6,6,6,6,5,5,5,5,4,4,4,4,4,3,3,3,3,2,2,2,2,2,1,1,1,1,0,0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7,8,8,8,9,9,9,10,10,10,11,10,10,10,9,9,9,8,8,8,7,7,7,6,6,6,5,5,5,4,4,4,3,3,3,2,2,2,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,2,2,2,2,2,1,1,1,1,0,0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,3,3,3,2,2,2,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,0,0,0,0,1,1,1,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,2,2,2,2,2,2,2,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,2,2,2,3,3,3,3,3,3,4,3,3,3,3,2,2,2,2,2,1,1,1,1,0,0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,5,5,4,4,4,3,3,3,2,2,2,1,1,1,0,0);
+
+	TYPE number_range_type IS ARRAY(4 DOWNTO 0) OF INTEGER RANGE 0 TO 1192;
+	CONSTANT number_range					: number_range_type := (1192,680,392,192,0);
+
+	CONSTANT bottom_range					: INTEGER := number_range(multype);
+	CONSTANT top_range						: INTEGER := number_range(multype+1)-1;
+
+	CONSTANT numberFA						: numberFA_all_type := (1191 DOWNTO (maxk-1)*maxj => 0) & numberFA_all(top_range DOWNTO bottom_range);
+	CONSTANT numberHA						: number_all_type := (1191 DOWNTO (maxk-1)*maxj => 0) & numberHA_all(top_range DOWNTO bottom_range);
+	CONSTANT numberRE						: number_all_type := (1191 DOWNTO (maxk-1)*maxj => 0) & numberRE_all(top_range DOWNTO bottom_range);
+	CONSTANT numberCI						: numberCI_all_type := (1191 DOWNTO (maxk-1)*maxj => 0) & numberCI_all(top_range DOWNTO bottom_range);
+
+	SIGNAL tmp_started						: STD_LOGIC := '0';
+
+	SIGNAL op1								: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
+	SIGNAL op2								: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL baugh_wooley_add					: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := (OTHERS => '0');
 	SIGNAL add_a, add_b, add_sum,add_cout	: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => '0'); --for final adder
 	SIGNAL c_in								: STD_LOGIC := '0';
@@ -251,178 +127,171 @@ ARCHITECTURE behavioral OF mul32 IS
 	SIGNAL tmp_icc							: STD_LOGIC_VECTOR (3 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL tmp_result						: STD_LOGIC_VECTOR(63 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL tmp_ready						: STD_LOGIC := '0';
-	SIGNAL is_signed						: STD_LOGIC := '0';
 	SIGNAL is_negative						: STD_LOGIC := '0';
-
+	SIGNAL is_signed						: STD_LOGIC := '0';
 		
+	SIGNAL number_bits						: number_bits_type := (OTHERS => 0);
+	SIGNAL WallaceTree						: STD_LOGIC_VECTOR(maxk*maxi*maxj-1 DOWNTO 0) := (others=>'0'); -- Wallace tree
+
+
+
+	component FA is
+	port (		
+		x     	: in  std_logic;
+		y     	: in  std_logic;
+		cin   	: in  std_logic;
+		s    	: out  std_logic;
+		cout    : out std_logic
+	);
+	end component;
+
+
+	component HA is
+	port (		
+		x     	: in  std_logic;
+		y     	: in  std_logic;
+		s    	: out  std_logic;
+		cout    : out std_logic
+	);
+end component;
 
 BEGIN
 
-	wallace_proc: PROCESS (clk,rst)
-		VARIABLE x						: STD_LOGIC := '0';
-		VARIABLE y						: STD_LOGIC := '0';
-		VARIABLE cin					: STD_LOGIC := '0';
-
-		VARIABLE remainder_bits			: INTEGER RANGE 0 TO 1 := 0;
-		VARIABLE num_full_adds			: INTEGER RANGE 0 TO 10 := 0;
-		VARIABLE num_half_adds			: INTEGER RANGE 0 TO 1 := 0;
-
-		VARIABLE current_row			: INTEGER RANGE 0 TO 29 := 0;
-		VARIABLE next_level_row			: INTEGER RANGE 0 TO 29 := 0;
-		VARIABLE next_level_column_row	: INTEGER RANGE 0 TO 29 := 0;
-
-		VARIABLE number_bits			: number_bits_type := (OTHERS => 0);
-		VARIABLE next_level_number_bits	: number_bits_type := (OTHERS => 0);
-
-		VARIABLE op1					: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
-		VARIABLE op2					: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
-
-		VARIABLE started				: STD_LOGIC := '0';
-		VARIABLE is_signed_var			: STD_LOGIC := '0';
-
-		VARIABLE WallaceTree			: STD_LOGIC_VECTOR(maxk*maxi*maxj-1 DOWNTO 0) := (others=>'0'); -- Wallace tree
+	rst_proc: PROCESS(clk)
 	BEGIN
-		IF (clk='1' AND clk'event) THEN
-			IF (rst = '0' OR muli.flush = '1') THEN
-				-- WallaceTree(k)(i)(j) <= '0'; -- Reset WallaceTree
-				WallaceTree := zerosWallace;
-				-- db_started <= started;
-			ELSIF (holdn = '1') THEN
-				IF (started = '1') THEN
-					started := '0';
-					tmp_ready <= '1';
-				END IF;
-
-				IF (muli.start = '1') THEN
-					op1 := muli.op1;
-					op2 := muli.op2;
-					is_signed <= muli.signed AND (op1(32) OR op2(32));
-					is_signed_var := muli.signed AND (op1(32) OR op2(32));
-					is_negative <= muli.signed AND (op1(32) XOR op2(32));
-					started := '1';
-					tmp_ready <= '0';
-				END IF;
-			END IF;
-
-		ELSE
-		 	-- LOOP 1
-			FOR i IN 0 TO op2_width-1 LOOP -- i: op2 index
-				FOR j IN 0 TO op1_width-1 LOOP -- j: op1 1 index
-					IF ((j+i) <= (op1_width-1)) THEN --make sure each column starts from row 0
-						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (is_signed_var = '1') THEN
-							-- WallaceTree(0)(i)(j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
-							WallaceTree(j+i+maxj*i) := NOT(op1(j) AND op2(i));
-						ELSE
-							-- WallaceTree(0)(i)(j+i) <= op1(j) AND op2(i); -- regular multiplication
-							WallaceTree(j+i+maxj*i) := op1(j) AND op2(i);
-						END IF;
-					ELSIF ((j+i)>(op1_width-1)) THEN
-						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (is_signed_var = '1') THEN
-							-- WallaceTree(0)(op1_width-1-j)(j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
-							WallaceTree(j+i+maxj*(op1_width-1-j)) := NOT(op1(j) AND op2(i));
-						ELSE
-							-- WallaceTree(0)(op1_width-1-j)(j+i) <= op1(j) AND op2(i); -- regular multiplication
-							WallaceTree(j+i+maxj*(op1_width-1-j)) := op1(j) AND op2(i);
-						END IF;
-					END IF;
-				END LOOP;
-			END LOOP;
-
-			-- LOOP 2
-			FOR j IN 0 TO width-2 LOOP -- initialize number_bits (ie how many bits each column has)
-				IF (j <= (op2_width-1)) THEN
-					number_bits(j) := j+1;
-				ELSIF (j>=(width-op2_width-1)) THEN
-					number_bits(j) := width-1-j;
-				ELSE
-					number_bits(j) := op2_width;
-				END IF;
-			END LOOP;
-
--- SYNTHESIZES UNTIL HERE		 	
-			FOR k IN 0 TO levels-2 LOOP -- k = level
-				FOR j IN 0 TO width-2 LOOP -- j = column
-					current_row := 0; --pointer for row of current level
-					next_level_row := next_level_number_bits(j); -- pointer for row of next level (s from FA and HA and remainder bit go here)
-					-- it may not be 0 because there maybe couts from previous column
-					next_level_column_row := 0; -- pointer for row of next column of next level (carry outs go here)
-					
-					remainder_bits := num_remainder_bits(number_bits(j));
-					num_full_adds := num_full_adders(number_bits(j));
-					num_half_adds := num_half_adders(number_bits(j));
-					
-					
-					--FOR i IN 0 to (num_full_adds-1) LOOP
-					FOR i IN 0 TO 10 LOOP -- max number of FA is 10 (for a 32*32 multiplication)
-						IF (i <= (num_full_adds-1)) THEN
-							-- x := WallaceTree(k)(current_row)(j);
-							x := WallaceTree(j+maxj*(current_row+maxi*k));
-							-- y := WallaceTree(k)(current_row+1)(j);
-							y := WallaceTree(j+maxj*(current_row+1+maxi*k));
-							-- cin := WallaceTree(k)(current_row+2)(j);
-							cin := WallaceTree(j+maxj*(current_row+2+maxi*k));
-							
-							-- WallaceTree(k+1)(next_level_row)(j) <= compute_FA_sum(x,y,cin); -- save s
-							WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) := compute_FA_sum(x,y,cin);
-
-							-- WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_FA_cout(x,y,cin); -- save cout
-							WallaceTree(j+1+maxj*(next_level_column_row+maxi*(k+1))) := compute_FA_cout(x,y,cin);
-							
-							current_row := current_row + 3; -- processed 3 inputs
-							next_level_row := next_level_row + 1; -- wrote one s to next level
-							next_level_column_row := next_level_column_row + 1; -- wronte one cout to next level
-						END IF;
-					END LOOP;
-					
-					-- FOR i IN 0 to (num_half_adds-1) LOOP
-					IF (num_half_adds = 1) THEN -- max possible number of HA is 1
-						-- x := WallaceTree(k)(current_row)(j); -- op1 for HA
-						x := WallaceTree(j+maxj*(current_row+maxi*k));
-						-- y := WallaceTree(k)(current_row+1)(j); -- op2 for HA
-						y := WallaceTree(j+maxj*(current_row+1+maxi*k));
-						
-						-- WallaceTree(k+1)(next_level_row)(j) <= compute_HA_sum(x,y); -- save s
-						WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) := compute_HA_sum(x,y);
-
-						-- WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_HA_cout(x,y); -- save cout
-						WallaceTree(j+1+maxj*(next_level_column_row+maxi*(k+1))) := compute_HA_cout(x,y);
-						
-						current_row := current_row + 2; -- processed 2 inputs
-						next_level_row := next_level_row + 1; -- wrote one s to next level
-						next_level_column_row := next_level_column_row + 1; -- wronte one cout to next level
-					END IF;
-					 -- END LOOP;
-
-					-- FOR i IN 0 to remainder_bits-1 LOOP -- left over bits, ie non processed (will at most be one bit)
-					IF (remainder_bits = 1) THEN -- possible to have 1 left over bit, ie non processed (will at most be one bit)
-						-- WallaceTree(k+1)(next_level_row)(j) <= WallaceTree(k)(current_row)(j); -- transfer bit to next level
-						WallaceTree(j+maxj*(next_level_row+maxi*(k+1))) := WallaceTree(j+maxj*(current_row+maxi*k));
-						
-						current_row := current_row + 1; -- processed 1 input
-						next_level_row := next_level_row + 1; -- wrote one s to next level
-					END IF;
-					-- END LOOP;
-						
-						next_level_number_bits(j) := next_level_number_bits(j) + num_full_adds + num_half_adds + remainder_bits; -- update array with the number of bits written to next level
-						-- be careful as it might have carry outs from previous columns
-						next_level_number_bits(j+1) := num_full_adds + num_half_adds; -- update array with the number of couts generated (before this it should be 0)
-				END LOOP;
-				number_bits := next_level_number_bits;
-				FOR i IN width-1 DOWNTO 0 LOOP
-					next_level_number_bits(i) := 0;
-				END LOOP;
-
-			END LOOP;
-			FOR j IN 0 TO width-1 LOOP
-				-- add_a(j) <= WallaceTree(levels-1)(0)(j); -- op1 for final addition
-				add_a(j) <= WallaceTree(j+maxj*(maxi*(levels-1)));
-
-				-- add_b(j) <= WallaceTree(levels-1)(1)(j); -- op2 for final addition
-				add_b(j) <= WallaceTree(j+maxj*(1+maxi*(levels-1)));
-			END LOOP;
+		IF (clk='1' AND clk'event) AND (rst = '0' OR muli.flush = '1') THEN
+			WallaceTree <= zerosWallace;
 		END IF;
 	END PROCESS;
 
+
+	hold_proc: PROCESS(clk)
+		VARIABLE started				: STD_LOGIC := '0';
+	BEGIN
+		IF (clk='1' AND clk'event AND rst = '1' AND muli.flush = '0' AND holdn = '1') THEN
+			IF (started = '1') THEN
+				started := '0';
+				tmp_ready <= '1';
+			END IF;
+
+			IF (muli.start = '1') THEN
+				op1 <= muli.op1;
+				op2 <= muli.op2;
+				is_signed <= muli.signed AND (muli.op1(32) OR muli.op2(32));
+				is_negative <= muli.signed AND (muli.op1(32) XOR muli.op2(32));
+				started := '1';
+				tmp_ready <= '0';
+			END IF;
+			
+			tmp_started <= started;
+
+		END IF;
+	END PROCESS;
+
+
+	--step 1 wallace algorithm (first level of the tree)
+	init_step_row: for i in 0 to op2_width-1 generate
+		init_step_columns: for j in 0 to op1_width-1 generate
+			
+			first_half: if ((j+i) <= (op1_width-1)) generate
+				neg_operation1: if (((j = op1_width-1) OR (i = op2_width-1)) AND ((i+j) /= (width - 2))) generate
+					WallaceTree(j+i+maxj*i) <= (op1(j) AND op2(i)) XOR is_signed; -- negate AND if is a signed multiplication
+				end generate neg_operation1;
+
+				pos_operation1: IF (((j /= op1_width-1) AND (i /= op2_width-1)) OR ((i+j) = (width - 2))) generate
+					WallaceTree(j+i+maxj*i) <= op1(j) AND op2(i);
+				end generate pos_operation1;
+			end generate first_half;
+
+
+			second_half: if (j+i) > (op1_width-1) generate
+				neg_operation2: IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) generate
+					WallaceTree(j+i+maxj*(op1_width-1-j)) <= (op1(j) AND op2(i)) XOR is_signed;  -- negate AND if is a signed multiplication
+				end generate neg_operation2;
+
+				pos_operation2: IF (((j /= op1_width-1) AND (i /= op2_width-1)) OR ((i+j) = (width - 2))) generate
+					WallaceTree(j+i+maxj*(op1_width-1-j)) <= op1(j) AND op2(i);
+				end generate pos_operation2;
+			end generate second_half;
+
+		end generate init_step_columns;
+	end generate init_step_row;
+
+
+	init_number_bits: for j IN 0 TO (width-2) generate -- update number bits each column has
+		lower_half: IF (j < (op2_width-1)) generate
+			number_bits(j) <= j+1;
+		end generate lower_half;
+
+		upper_half:	IF (j > (op1_width-1)) generate
+			number_bits(j) <= width-1-j;
+		end generate upper_half;
+
+		remaining:	if ((j >= (op2_width-1)) AND (j <= (op1_width-1))) generate
+			number_bits(j) <= op2_width;
+		end generate remaining;
+
+	end generate init_number_bits;
+
+	update_wallace: for k in 0 to levels-2 generate
+		columns: for j in 0 to width-2 generate
+			full_adders: for i in 0 to numberFA(j+maxj*k)-1 generate
+				PortFA: FA port map(
+					-- x => WallaceTree(k)(numberCI(k)(j)+3*i))(j),
+					x => WallaceTree(j+maxj*(numberCI(j+maxj*k)+3*i+maxi*k)),
+					-- y => WallaceTree(k)(numberCI(k)(j)+3*i+1)(j),
+					y => WallaceTree(j+maxj*(numberCI(j+maxj*k)+3*i+1+maxi*k)),
+					-- cin => WallaceTree(k)(numberCI(k)(j)+3*i+2)(j),
+					cin => WallaceTree(j+maxj*(numberCI(j+maxj*k)+3*i+2+maxi*k)),
+					-- s => WallaceTree(k+1)(i)(j),
+					s => WallaceTree(j+maxj*(i+maxi*(k+1))),
+					-- cout => WallaceTree(k+1)(i)(j+1)
+					cout => WallaceTree(j+1+maxj*(i+maxi*(k+1)))
+				);
+			end generate full_adders;
+
+			half_adders: if numberHA(j+maxj*k) = 1 generate
+				PortHA: HA port map(
+					-- x => WallaceTree(k)(numberCI(k)(j)+3*numberFA(k)(j))(j),
+					x => WallaceTree(j+maxj*(numberCI(j+maxj*k)+3*numberFA(j+maxj*k)+maxi*k)),
+					-- y => WallaceTree(k)(numberCI(k)(j)+3*numberFA(k)(j)+1)(j),
+					y => WallaceTree(j+maxj*(numberCI(j+maxj*k)+3*numberFA(j+maxj*k)+1+maxi*k)),
+					-- s => WallaceTree(k+1)(numberFA(k)(j))(j),
+					s => WallaceTree(j+maxj*(numberFA(j+maxj*k)+maxi*(k+1))),
+					-- cout => WallaceTree(k+1)(numberFA(k)(j))(j+1)
+					cout => WallaceTree(j+1+maxj*(numberFA(j+maxj*k)+maxi*(k+1)))
+				);
+			end generate half_adders;
+
+			remaining: if numberRE(j+maxj*k) = 1 generate
+				-- WallaceTree(k+1)(numberFA(k)(j)+numberHA(k)(j)+numberCI(k)(j))(j) <= WallaceTree(k)(3*numberFA(j)+2*numberHA(j))(j);
+				WallaceTree(j+maxj*(numberFA(j+maxj*k)+numberHA(j+maxj*k)+numberCI(j+maxj*k)+maxi*(k+1))) <= WallaceTree(j+maxj*(3*numberFA(j+maxj*k)+2*numberHA(j+maxj*k)+maxi*k));
+			end generate remaining;
+
+		end generate columns;
+	end generate update_wallace;
+ 
+
+	-- register_proc: PROCESS (clk)
+	-- BEGIN
+	-- 	IF (clk='1' AND clk'event AND holdn = '1') THEN
+	-- 		FOR j IN 0 TO width-1 LOOP
+	-- 			-- add_a(j) <= WallaceTree(j+maxj*(maxi*(levels-1))); -- op1 for final addition
+	-- 			-- add_b(j) <= WallaceTree(j+maxj*(1+maxi*(levels-1))); -- op2 for final addition
+
+	-- 			add_a(j) <= WallaceTree(j+maxj*(maxi*(0))); -- op1 for final addition
+	-- 			add_b(j) <= WallaceTree(j+maxj*(1+maxi*(0))); -- op2 for final addition				
+	-- 		END LOOP;
+	-- 	END IF;
+	-- END PROCESS;
+
+	final_op: for j IN 0 TO width-1 generate
+		-- add_a(j) <= WallaceTree(j+maxj*(maxi*(levels-1))); -- op1 for final addition
+		-- add_b(j) <= WallaceTree(j+maxj*(1+maxi*(levels-1))); -- op2 for final addition
+
+		add_a(j) <= WallaceTree(j+maxj*(maxi*(1))); -- op1 for final addition
+		add_b(j) <= WallaceTree(j+maxj*(1+maxi*(1))); -- op2 for final addition
+	end generate final_op;
 
 	-- Final process
 	out_proc: PROCESS (clk)
@@ -469,15 +338,16 @@ BEGIN
 	mulo.ready <= tmp_ready;
 	mulo.icc <= tmp_icc;
 	mulo.result <= tmp_result;
-	
-	-- prod <= (OTHERS => '0');
-	-- db_tmp_result <= tmp_result;
-	-- db_number_bits_port <= (63 DOWNTO width => '0') & add_vector_baugh_wooley;
-	
-	-- db_prod_a <= (63 DOWNTO width => '0') & add_a;
-	-- db_prod_b <= (63 DOWNTO width => '0') & add_b;
 
+	db_tmp_result <= tmp_result;
+	db_number_bits_port <= (63 DOWNTO width => '0') & add_vector_baugh_wooley;
+	
+	db_op1 <= op1;
+	db_op2 <= op2;
+	db_is_signed <= is_signed;
+
+	db_prod_a <= (63 DOWNTO width => '0') & add_a;
+	db_prod_b <= (63 DOWNTO width => '0') & add_b;
+	db_started <= tmp_started;
 	
 END behavioral;
-	
-	

@@ -11,7 +11,7 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE IEEE.numeric_std.all;
 
-PACKAGE mypackage is
+PACKAGE mypackage2 is
 
 	FUNCTION compute_FA_sum (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC;
 	FUNCTION compute_FA_cout (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC;
@@ -21,9 +21,9 @@ PACKAGE mypackage is
 	FUNCTION num_full_adders (num_bits:NATURAL) RETURN NATURAL;
 	FUNCTION num_half_adders (num_bits:NATURAL) RETURN NATURAL;
 	FUNCTION num_remainder_bits (num_bits:NATURAL) RETURN NATURAL;
-END mypackage;
+END mypackage2;
 
-PACKAGE BODY mypackage IS
+PACKAGE BODY mypackage2 IS
 	FUNCTION compute_FA_sum (x:STD_LOGIC;y:STD_LOGIC;c_in:STD_LOGIC) RETURN STD_LOGIC IS
 	BEGIN
     	RETURN (x XOR y XOR c_in);
@@ -77,7 +77,10 @@ PACKAGE BODY mypackage IS
   		RETURN ((num_bits - 3*num_full_adders(num_bits))/2);
   	END num_half_adders;
 
-END mypackage;
+END mypackage2;
+
+
+
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
@@ -89,12 +92,11 @@ USE grlib.stdlib.all;
 LIBRARY gaisler;
 USE gaisler.arith.all;
 
-library work;
 USE work.mypackage.all;
 
 
 
-ENTITY mul32Arrays IS
+ENTITY mymul32 IS
 	GENERIC (
 		tech			    : INTEGER := 0;
 		infer				: INTEGER RANGE 0 TO 1 := 1;
@@ -128,23 +130,23 @@ ENTITY mul32Arrays IS
 		db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 		db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 		db_number_bits_port	: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_started			: OUT STD_LOGIC := '0'
+		db_started			: OUT STD_LOGIC
 	);
-END mul32Arrays;
+END mymul32;
 
-ARCHITECTURE behavioral OF mul32Arrays IS
-	TYPE layer_depth_type IS ARRAY(32 DOWNTO 3) OF INTEGER RANGE 3 TO 9;
-	TYPE operand_size_type IS ARRAY(3 DOWNTO 0) OF INTEGER RANGE 8 TO 32;
+ARCHITECTURE behavioral OF mymul32 IS
+	TYPE layer_depth_type IS ARRAY(32 DOWNTO 3) OF INTEGER;
+	TYPE operand_size_type IS ARRAY(3 DOWNTO 0) OF INTEGER;
 
 	CONSTANT op1_width_vector				: operand_size_type := (32,32,32,16);
 	CONSTANT op2_width_vector				: operand_size_type := (32,16,8,16);
 
-	CONSTANT width							: INTEGER RANGE 24 TO 64 := op1_width_vector(multype) + op2_width_vector(multype); -- result's width
-	CONSTANT op1_width						: INTEGER RANGE 16 TO 32 := op1_width_vector(multype);
-	CONSTANT op2_width						: INTEGER RANGE 8 TO 32 := op2_width_vector(multype);
+	CONSTANT width							: INTEGER := op1_width_vector(multype) + op2_width_vector(multype); -- result's width
+	CONSTANT op1_width						: INTEGER := op1_width_vector(multype);
+	CONSTANT op2_width						: INTEGER := op2_width_vector(multype);
 	
 	CONSTANT layer_depth					: layer_depth_type := (9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,6,5,5,4,3,3);
-	CONSTANT levels							: INTEGER RANGE 3 TO 9 := layer_depth(op2_width);
+	CONSTANT levels							: INTEGER := layer_depth(op2_width);
 
 	CONSTANT add_vector_baugh_wooley		: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := '1' & (width-2 DOWNTO op2_width+1 => '0') & '1' & (op2_width-1 DOWNTO 0 => '0');
 	CONSTANT zeros							: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
@@ -152,15 +154,15 @@ ARCHITECTURE behavioral OF mul32Arrays IS
 	CONSTANT arrayX							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'X');
 	CONSTANT arrayU							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'U');
 	
-	TYPE WallaceTree_type1 IS ARRAY (64-1 DOWNTO 0) OF STD_LOGIC;
-	TYPE WallaceTree_type2 IS ARRAY (32-1 DOWNTO 0) OF WallaceTree_type1;
-	TYPE WallaceTree_type3 IS ARRAY (9-1 DOWNTO 0) OF WallaceTree_type2;
+	TYPE WallaceTree_type1 IS ARRAY (width-1 DOWNTO 0) OF STD_LOGIC;
+	TYPE WallaceTree_type2 IS ARRAY (op2_width-1 DOWNTO 0) OF WallaceTree_type1;
+	TYPE WallaceTree_type3 IS ARRAY (levels-1 DOWNTO 0) OF WallaceTree_type2;
 	
-	-- TYPE WallaceTree_type IS ARRAY (levels-1 DOWNTO 0,op2_width-1 DOWNTO 0, width-1 DOWNTO 0) OF STD_LOGIC;
+	TYPE WallaceTree_type IS ARRAY (levels-1 DOWNTO 0,op2_width-1 DOWNTO 0, width-1 DOWNTO 0) OF STD_LOGIC;
 	TYPE number_bits_type IS ARRAY (width-1 DOWNTO 0) OF NATURAL;
 
-	-- SIGNAL WallaceTree						: WallaceTree_type := (OTHERS => (OTHERS => (OTHERS => '0'))); -- Wallace tree
-	SIGNAL WallaceTree						: WallaceTree_type3 := ((others => (others=> (others=>'0')))); -- Wallace tree
+	SIGNAL WallaceTree						: WallaceTree_type := (OTHERS => (OTHERS => (OTHERS => '0'))); -- Wallace tree
+	-- SIGNAL WallaceTree						: WallaceTree_type3 := (OTHERS => '0')(OTHERS => '0')(OTHERS => '0'); -- Wallace tree
 	
 	-- SIGNAL op1								: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
 	-- SIGNAL op2								: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
@@ -175,77 +177,63 @@ ARCHITECTURE behavioral OF mul32Arrays IS
 	SIGNAL tmp_icc							: STD_LOGIC_VECTOR (3 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL tmp_result						: STD_LOGIC_VECTOR(63 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL tmp_ready						: STD_LOGIC := '0';
-	SIGNAL is_signed						: STD_LOGIC := '0';
-	SIGNAL is_negative						: STD_LOGIC := '0';
-
 		
 
 BEGIN
 
-	wallace_proc: PROCESS (WallaceTree,clk,rst)
+	wallace_proc: PROCESS (WallaceTree,muli.op1,muli.op2,clk,rst,muli.flush)
 		VARIABLE x						: STD_LOGIC := '0';
 		VARIABLE y						: STD_LOGIC := '0';
 		VARIABLE cin					: STD_LOGIC := '0';
 
-		VARIABLE remainder_bits			: INTEGER RANGE 0 TO 1 := 0;
-		VARIABLE num_full_adds			: INTEGER RANGE 0 TO 10 := 0;
-		VARIABLE num_half_adds			: INTEGER RANGE 0 TO 1 := 0;
+		VARIABLE remainder_bits			: NATURAL := 0;
+		VARIABLE num_full_adds			: NATURAL := 0;
+		VARIABLE num_half_adds			: NATURAL := 0;
 
-		VARIABLE current_row			: INTEGER RANGE 0 TO 29 := 0;
-		VARIABLE next_level_row			: INTEGER RANGE 0 TO 29 := 0;
-		VARIABLE next_level_column_row	: INTEGER RANGE 0 TO 29 := 0;
+		VARIABLE current_row			: NATURAL := 0;
+		VARIABLE next_level_row			: NATURAL := 0;
+		VARIABLE next_level_column_row	: NATURAL := 0;
 
 		VARIABLE number_bits			: number_bits_type := (OTHERS => 0);
 		VARIABLE next_level_number_bits	: number_bits_type := (OTHERS => 0);
 
-		VARIABLE op1					: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
-		VARIABLE op2					: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
-
-		VARIABLE started				: STD_LOGIC := '0';
-		VARIABLE is_signed_var			: STD_LOGIC := '0';
+		VARIABLE started				: NATURAL := 0;
 
 	BEGIN
-		IF (clk='1' AND clk'event AND (rst = '0' OR muli.flush = '1')) THEN
+		IF (muli.op1'EVENT OR muli.op2'EVENT) THEN
+			started := 0; -- inputs have changed
+		END IF;
+
+		IF (clk='1' AND clk'EVENT AND started = 0 AND muli.start = '1') THEN
+			started := 1; -- after change in inputs the start has gone up.
+		END IF;
+
+		IF (muli.start='0' AND muli.start'EVENT AND started = 1) THEN
+			started := 2; -- falling edge
+		END IF;
+
+		IF (clk='1' AND clk'EVENT AND (rst = '0' OR muli.flush = '1')) THEN 
 			FOR k IN levels-1 DOWNTO 0 LOOP
 				FOR j IN op2_width-1 DOWNTO 0 LOOP
 					FOR i IN width-1 DOWNTO 0 LOOP
-						WallaceTree(k)(j)(i) <= '0'; -- Reset WallaceTree
+						WallaceTree(k,j,i) <= '0'; -- Reset WallaceTree
 					END LOOP;
 				END LOOP;
 			END LOOP;
-		ELSE
-			IF (clk='1' AND clk'event AND holdn = '1') THEN
-				IF (started = '1') THEN
-					started := '0';
-					tmp_ready <= '1';
-				END IF;
-
-				IF (muli.start = '1') THEN
-					op1 := muli.op1;
-					op2 := muli.op2;
-					is_signed <= muli.signed AND (op1(32) OR op2(32));
-					is_signed_var := muli.signed AND (op1(32) OR op2(32));
-					is_negative <= muli.signed AND (op1(32) XOR op2(32));
-					started := '1';
-					tmp_ready <= '0';
-				END IF;
-				
-				db_started <= started;
-			END IF;
-
+		ELSIF ((rst = '1' AND muli.flush = '0')AND started = 2) THEN
 			FOR i IN 0 TO op2_width-1 LOOP -- i: op2 index
 				FOR j IN 0 TO op1_width-1 LOOP -- j: op1 1 index
 					IF ((j+i) <= (op1_width-1)) THEN --make sure each column starts from row 0
-						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (is_signed_var = '1') THEN
-							WallaceTree(0)(i)(j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (((muli.op1(32) OR muli.op2(32)) AND muli.signed) = '1') THEN
+							WallaceTree(0,i,j+i) <= NOT(muli.op1(j) AND muli.op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 						ELSE
-							WallaceTree(0)(i)(j+i) <= op1(j) AND op2(i); -- regular multiplication
+							WallaceTree(0,i,j+i) <= muli.op1(j) AND muli.op2(i);
 						END IF;
 					ELSIF ((j+i)>(op1_width-1)) THEN
-						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (is_signed_var = '1') THEN
-							WallaceTree(0)(op1_width-1-j)(j+i) <= NOT(op1(j) AND op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
+						IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) AND (((muli.op1(32) OR muli.op2(32)) AND muli.signed) = '1') THEN
+							WallaceTree(0,op1_width-1-j,j+i) <= NOT(muli.op1(j) AND muli.op2(i)); -- negate some bits for signed numbers (modified baugh wooley, check slide 63 of Part 3 Multiplication)
 						ELSE
-							WallaceTree(0)(op1_width-1-j)(j+i) <= op1(j) AND op2(i); -- regular multiplication
+							WallaceTree(0,op1_width-1-j,j+i) <= muli.op1(j) AND muli.op2(i);
 						END IF;
 					END IF;
 				END LOOP;
@@ -272,108 +260,112 @@ BEGIN
 					num_half_adds := num_half_adders(number_bits(j));
 					
 					
-					--FOR i IN 0 to (num_full_adds-1) LOOP
-					FOR i IN 0 TO 10 LOOP -- max number of FA is 10 (for a 32*32 multiplication)
-						IF (i <= (num_full_adds-1)) THEN
-							x := WallaceTree(k)(current_row)(j);
-							y := WallaceTree(k)(current_row+1)(j);
-							cin := WallaceTree(k)(current_row+2)(j);
-							
-							WallaceTree(k+1)(next_level_row)(j) <= compute_FA_sum(x,y,cin); -- save s
-
-							WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_FA_cout(x,y,cin); -- save cout
-							
-							current_row := current_row + 3; -- processed 3 inputs
-							next_level_row := next_level_row + 1; -- wrote one s to next level
-							next_level_column_row := next_level_column_row + 1; -- wronte one cout to next level
-						END IF;
-					END LOOP;
-					
-					-- FOR i IN 0 to (num_half_adds-1) LOOP
-					IF (num_half_adds = 1) THEN -- max possible number of HA is 1
-						x := WallaceTree(k)(current_row)(j); -- op1 for HA
-						y := WallaceTree(k)(current_row+1)(j); -- op2 for HA
+					FOR i IN 0 to (num_full_adds-1) LOOP
 						
-						WallaceTree(k+1)(next_level_row)(j) <= compute_HA_sum(x,y); -- save s
-
-						WallaceTree(k+1)(next_level_column_row)(j+1) <= compute_HA_cout(x,y); -- save cout
+						x := WallaceTree(k,current_row,j);
+						y := WallaceTree(k,current_row+1,j);
+						cin := WallaceTree(k,current_row+2,j);
+						
+						WallaceTree(k+1,next_level_row,j) <= compute_FA_sum(x,y,cin); -- save s
+						WallaceTree(k+1,next_level_column_row,j+1) <= compute_FA_cout(x,y,cin); -- save cout
+						
+						current_row := current_row + 3; -- processed 3 inputs
+						next_level_row := next_level_row + 1; -- wrote one s to next level
+						next_level_column_row := next_level_column_row + 1; -- wronte one cout to next level
+					END LOOP;
+						
+					FOR i IN 0 to (num_half_adds-1) LOOP
+						
+						x := WallaceTree(k,current_row,j);
+						y := WallaceTree(k,current_row+1,j);
+						
+						WallaceTree(k+1,next_level_row,j) <= compute_HA_sum(x,y); -- save s
+						WallaceTree(k+1,next_level_column_row,j+1) <= compute_HA_cout(x,y); -- save cout
 						
 						current_row := current_row + 2; -- processed 2 inputs
 						next_level_row := next_level_row + 1; -- wrote one s to next level
 						next_level_column_row := next_level_column_row + 1; -- wronte one cout to next level
-					END IF;
-					 -- END LOOP;
-
-					-- FOR i IN 0 to remainder_bits-1 LOOP -- left over bits, ie non processed (will at most be one bit)
-					IF (remainder_bits = 1) THEN -- possible to have 1 left over bit, ie non processed (will at most be one bit)
-						WallaceTree(k+1)(next_level_row)(j) <= WallaceTree(k)(current_row)(j); -- transfer bit to next level
+					END LOOP;
+					FOR i IN 0 to remainder_bits-1 LOOP -- left over bits, ie non processed (will at most be one bit)
+						
+						WallaceTree(k+1,next_level_row,j) <= WallaceTree(k,current_row,j); -- transfer bit to next level
 						
 						current_row := current_row + 1; -- processed 1 input
 						next_level_row := next_level_row + 1; -- wrote one s to next level
-					END IF;
-					-- END LOOP;
+					END LOOP;
 						
 						next_level_number_bits(j) := next_level_number_bits(j) + num_full_adds + num_half_adds + remainder_bits; -- update array with the number of bits written to next level
 						-- be careful as it might have carry outs from previous columns
 						next_level_number_bits(j+1) := num_full_adds + num_half_adds; -- update array with the number of couts generated (before this it should be 0)
 				END LOOP;
 				number_bits := next_level_number_bits;
-				FOR i IN width-1 DOWNTO 0 LOOP
-					next_level_number_bits(i) := 0;
-				END LOOP;
-
+				next_level_number_bits := (OTHERS => 0);
 			END LOOP;
+
 			FOR j IN 0 TO width-1 LOOP
-				-- add_a(j) <= WallaceTree(levels-1)(0)(j); -- op1 for final addition
-				-- add_b(j) <= WallaceTree(levels-1)(1)(j); -- op2 for final addition
-
-				add_a(j) <= WallaceTree(1)(0)(j); -- op1 for final addition
-				add_b(j) <= WallaceTree(1)(1)(j); -- op2 for final addition				
+				add_a(j) <= WallaceTree(levels-1,0,j);
+				add_b(j) <= WallaceTree(levels-1,1,j);
 			END LOOP;
+
 		END IF;
 	END PROCESS;
 
 
 	-- Final process
-	out_proc: PROCESS (clk)
+	out_proc: PROCESS (clk,muli.op1,muli.op2,rst,muli.flush)
 	VARIABLE result : STD_LOGIC_VECTOR(63 DOWNTO 0) := (OTHERS => '0');
 	BEGIN
-		IF (clk='1' AND clk'event) THEN
-			IF(rst = '0' OR muli.flush = '1') THEN
-				tmp_icc <= "0000";
-				tmp_result <= std_logic_vector(unsigned(zeros64));
-
-			ELSIF (holdn = '1') THEN
-				IF (is_signed = '1') THEN
-					IF (mac = 1 and muli.mac = '1') THEN
-						result := std_logic_vector(signed(add_a) + signed(add_b)+ signed(add_vector_baugh_wooley) + signed(muli.acc) + signed(zeros64));
-					ELSE
-						result := std_logic_vector(signed(add_a) + signed(add_b)+ signed(add_vector_baugh_wooley) + signed(zeros64));
-					END IF;
+		IF(clk='1' AND clk'EVENT AND (rst = '1' AND muli.flush = '0') AND holdn = '1') THEN
+			IF ((muli.op1(32) = '1' OR muli.op2(32) = '1') AND muli.signed = '1') THEN
+				IF (mac = 1 and muli.mac = '1') THEN
+					result := std_logic_vector(signed(add_a) + signed(add_b)+ signed(add_vector_baugh_wooley) + signed(muli.acc) + signed(zeros64));
 				ELSE
-					IF (mac = 1 and muli.mac = '1') THEN
-						result := std_logic_vector(unsigned(add_a) + unsigned(add_b)+ unsigned(muli.acc) + unsigned(zeros64));
-					ELSE
-						result := std_logic_vector(unsigned(add_a) + unsigned(add_b)+ unsigned(zeros64));
-					END IF;
+					result := std_logic_vector(signed(add_a) + signed(add_b)+ signed(add_vector_baugh_wooley) + signed(zeros64));
 				END IF;
-
-
-				IF (result = zeros64) THEN
-					tmp_icc(2) <= '1'; -- is result zero?
+			ELSE
+				IF (mac = 1 and muli.mac = '1') THEN
+					result := std_logic_vector(unsigned(add_a) + unsigned(add_b)+ unsigned(muli.acc) + unsigned(zeros64));
 				ELSE
-					tmp_icc(2) <= '0';
+					result := std_logic_vector(unsigned(add_a) + unsigned(add_b)+ unsigned(zeros64));
 				END IF;
-
-				IF (is_negative = '1') THEN
-					tmp_icc(3) <= '1'; -- is result negative?
-				ELSE
-					tmp_icc (3) <= '0';
-				END IF;
-
-				tmp_result <= result;
 			END IF;
+
+
+			IF (result = zeros64) THEN
+				tmp_icc(2) <= '1'; -- is result zero?
+			ELSE
+				tmp_icc(2) <= '0';
+			END IF;
+
+			IF (muli.signed = '1' AND ((muli.op1(32) XOR muli.op2(32)) = '1')) THEN
+				tmp_icc(3) <= '1'; -- is result negative?
+			ELSE
+				tmp_icc (3) <= '0';
+			END IF;
+
+
+			tmp_result <= result;
+
+		ELSIF (clk='1' AND clk'EVENT AND (rst = '0' OR muli.flush = '1')) THEN
+			FOR i IN 3 DOWNTO 0 LOOP
+				tmp_icc(i) <= '0';
+			END LOOP;
+			FOR i IN 63 DOWNTO 0 LOOP
+				tmp_result(i) <= '0';
+			END LOOP;
 		END IF;
+	END PROCESS;
+	
+	ready_process: PROCESS (clk,add_a,add_b)
+	VARIABLE ready : NATURAL := 0;
+	BEGIN
+		-- IF (clk'EVENT AND clk = '1') THEN
+			IF ((add_a'EVENT OR add_b'EVENT) AND add_a /= arrayX AND add_a /= arrayU AND add_b /= arrayX AND add_b /= arrayU ) THEN
+				tmp_ready <= '1';
+			ELSIF (clk'EVENT AND clk = '1') THEN
+				tmp_ready <= '0';
+			END IF;
+		-- END IF;/
 	END PROCESS;
 	
 	mulo.ready <= tmp_ready;
@@ -387,6 +379,8 @@ BEGIN
 	db_prod_a <= (63 DOWNTO width => '0') & add_a;
 	db_prod_b <= (63 DOWNTO width => '0') & add_b;
 
+	-- db_prod_a <= (63 DOWNTO 33 => op1(32)) & op1;
+	-- db_prod_b <= (63 DOWNTO 33 => op2(32)) & op2;
 	
 END behavioral;
 	
