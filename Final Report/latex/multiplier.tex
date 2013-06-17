@@ -1,14 +1,25 @@
 \newcommand{\AND}{\texttt{AND}\xspace}
+\newcommand{\RST}{\texttt{RST}\xspace}
+\newcommand{\CLK}{\texttt{CLK}\xspace}
+\newcommand{\HOLDN}{\texttt{HOLDN}\xspace}
+\newcommand{\MULI}{\texttt{MULI}\xspace}
+\newcommand{\MULO}{\texttt{MULO}\xspace}
+\newcommand{\infer}{\texttt{infer}\xspace}
+\newcommand{\multype}{\texttt{multype}\xspace}
+\newcommand{\pipe}{\texttt{pipe}\xspace}
+\newcommand{\mac}{\texttt{mac}\xspace}
+\newcommand{\STDV}{\texttt{STD\_LOGIC\_VECTOR}\xspace}
 
 \section{Multiplier}
 
 
 \subsection{Wallace Tree Multiplier}
+\label{sec:wallace}
 
 For this project it was decided the most appropriate multiplier scheme would be the Wallace Tree Multiplier. The most important reason for this choice is due to its great performance although at the cost of gates and area.
 
 The Wallace tree is a regular hardware structure to multiply two operands.
-It was invented by Chris Wallace in 1964.
+It was invented by Chris Wallace, an Australian Computer Scientist in 1964.
 
 The algorithm can be divided in three major steps:
 \begin{enumerate}
@@ -30,14 +41,14 @@ For our particular implementation the aforementioned description was modified to
 
 \subsection{Advantages and Disadvantages}
 
-The main advantages of this scheme is the speed obtained and regular mapping in hardware. The structure of the tree is consistent throughout the several steps. On the other this design is costly in the amount of gates used and there is some waste of area. This is particular noticeable on the extremes of each line of the tree, as shown in figure~\ref{fig:paper_wastedarea}. \Cite{betterwallace} details possible improvements that can be accomplished in this regard to improve the area cost of the Wallace multiplier. The main idea is to split the tree into two overlapping trees, hence saving area. Thereafter the additions take place in opposite directions. 
+The main advantages of this scheme is the speed obtained and regular mapping in hardware. The structure of the tree is consistent throughout the several steps. On the other this design is costly in the amount of gates used and there is some waste of area. This is particular noticeable on the extremes of each line of the tree, as shown in figure~\ref{fig:paper_wastedarea}. \cite{betterwallace} details possible improvements that can be accomplished in this regard to improve the area cost of the Wallace multiplier. The main idea is to split the tree into two overlapping trees, hence saving area. Thereafter the additions take place in opposite directions. 
 However due to lack of time it was not possible to implement the proposed ideas.
 
 \begin{figure}[H]
 \centering
 
-\subfloat[Detail of Wallace Tree from~cite{betterwallace}. It is clearly visible a significant percentage of unused area.]{\label{fig:paper_wastedarea}\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{paper_wastedarea.png}}\qquad
-\subfloat[Modified Wallace Tree from~cite{betterwallace}. The image reflects the better area utilization based on the algorithm present in the paper.]{\label{fig:paper_improvedarea}\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{paper_improvedarea.png}}
+\subfloat[Detail of Wallace Tree from~\cite{betterwallace}. It is clearly visible a significant percentage of unused area.]{\label{fig:paper_wastedarea}\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{paper_wastedarea.png}}\qquad
+\subfloat[Modified Wallace Tree from~\cite{betterwallace}. The image reflects the better area utilization based on the algorithm present in the paper.]{\label{fig:paper_improvedarea}\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{paper_improvedarea.png}}
 \caption{}
 \label{fig:paper}
 \end{figure}
@@ -45,3 +56,34 @@ However due to lack of time it was not possible to implement the proposed ideas.
 
 \subsection{Implementation and Simulation Results}
 \label{sec:implementation}
+
+This section will be used to introduce the reader to the implementation requirements for the multiplier. Followed by a simple, high-level description of the architecture used to accomplish them.
+
+The implementation tries to closely mimic the three algorithm steps. However other signals necessary for the correct interface with the processor were added. According to the documentation~\cite{doc}, there are 4 input signals, \RST, \CLK and \MULI and 1 output signal \MULO. Moreover, there are 4 generics: \infer, \multype, \pipe and \mac. \MULI includes the 32 bit operands (along with an extra signal bit), and severals flag to request flushing of the current operation, indicate signed multiplication, to initiate, and to start multiply and accumulate. On the other hand \MULO includes a self explanatory ready signal, a nready signal (not used), condition codes that reflect if the result is zero or negative and finally the 64 bit result.
+
+The most significant generic is multype that configures the multiplier to different operand's sizes. These are 16x16, 32x8, 32x16 and 32x32. It is important to note that a discrepancy between the documentation and the actual code exists regarding the multiplier. The infer generic has been replace by tech (related to the target architecture) in the original VHDL file: \texttt{mul32.vhd}. Our custom multiplier replicates this configuration.
+
+As mentioned in~\ref{sec:wallace} the algorithm can be divided in three major parts.
+
+On part 1 the operands are \texttt{AND}ed together and their weights are adjusted. To reflect this a three dimensional \STDV was created and named \texttt{WallaceTree}. The first dimension reflects the number of stages (or levels) necessary to finish the operation. This values are computed offline for the four multype possibilities. The second dimension relates to the number of `lines' of the matrix, or its height. This values is always equal to the width of the first operand. Finally, the third accounts for the number of columns, or its width, which is necessarily equal to the sum of the width's of each operand. In practice the 3D array was converted to 1D as synthesis tools have better support for the latter, nonetheless the same principles stand.
+
+To be able to multiply signed operands the modified Baugh-Wooley multiplication was used (\emph{cf.}~\cite{part3}). Therefore some values are complemented if the input is signed. Moreover on the final step a constant value is added to the two operands.
+This completes the first step.
+
+Thereafter each group of 3 or 2 bits must be compressed to 1, using full-adders and half-adders respectively. If a odd number of bits exists in a certain column the last bit is transfered to the next level. Repeating this process sufficient times\footnote{The exact number of iterations required can be inferred from the integer constant \texttt{levels} previously mentioned.}, the height of the matrix is reduced to 2. These can be added with a conventional adder to determine the final result.
+
+To help with these operations the exact number of full-adders and half-adders for each column of each stage were precomputed.
+Having this information the appropriate inputs (x, y and carry in for the full adder) and outputs (s and carry out) are mapped to a full (or half) adder instance to determine the result.
+
+Step 3 is simply an addition with the first two `lines' of the last stage of the \texttt{WallaceTree} signal. However, if the multiplication is signed an extra \STDV is added to these, as explained in~\cite{part3}.
+
+The extra signals indicating that the result is ready and the condition codes are updated to reflect the result of the operation.  
+The evolution of the signals driven by our testbench is shown in~\ref{fig:mul32_wave}.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{mul32_wave.png}
+\caption{Screenshot of the Modelsim's Wave for the multiplier. For this particular simulation a 16x16 operation is shown, along with all the appropriate signals.}
+\label{fig:mul32_wave}
+\end{figure}
