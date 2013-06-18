@@ -38,8 +38,8 @@ power consumption at different clock frequencies.
 From the synthesis report we can also see the slowest path which determines the max clock
 frequency.
 
-This path is from ``ddrsp0.ddrc0/ddr\_phy0/ddr\_phy0/xc4v.ddr\_phy0/ddgen[24].gi/FF1'' to
-``ddrsp0.ddrc0/ddr32.ddrc/read\_buff/xc2v.x0/a0.x0/Mram\_rfd1''
+This path is from ``ddrsp0.ddrc0/ddr32.ddrc/ra.raddr\_0'' to ``ddrsp0.ddrc0/ddr\_phy0/ddr\_phy0/xc4v.ddr\_phy0/casgen''.
+
 
 Those components belong to the SDRAM controller and the path is located between the controller
 and the physical interface with the memory.
@@ -52,13 +52,13 @@ The synthesis of our modified version gave us the results showed in Table 2:
 \begin{tabular}{c>{\color{white}\columncolor{Cyan}}c}
 \bottomrule
 
-Timing Summary (max clock freq. [\MHz]) & 80.535 \\
-\# of Occupied Slices & 10479\\
-Total \# of 4-input LUTs & 17865\\
-Quiescent power [\W] & 2.468\\
-Dynamic power [\W] & 0.743\\
-Total power [\W] & 3.211\\
-P/f [\si[per-mode=symbol]{\W\per\MHz}] & 0.03987\\\toprule
+Timing Summary (max clock freq. [\MHz]) & 40.197 \\
+\# of Occupied Slices & 11886\\
+Total \# of 4-input LUTs & 20469\\
+Quiescent power [\W] & 2.511\\
+Dynamic power [\W] & 0.832\\
+Total power [\W] & 3.343\\
+P/f [\si[per-mode=symbol]{\W\per\MHz}] & 0.08317\\\toprule
 \end{tabular}
 \caption{Resource Utilization Modified Version.}
 \label{tbl:resoutce_utilization_modified}
@@ -108,15 +108,15 @@ The scores obtained with the modified processor are reported in Table 4.
 \begin{tabular}{c>{\color{white}\columncolor{Cyan}}c}
 \bottomrule
 
-Stanford [\s] & 2.26\\
-Whetstone [\s] & 113.25\\
-Gmpbench Multiply [\Oppers] & 801\\
-Gmpbench Divide [\Oppers] & 16335\\
-Gmpbench RSA [\Oppers] & 5284\\
-Division [\s] & 7.65\\
-Mibench JPEG (average) [\s] & 22.465\\
-SSD [\s] & 10.21\\
-Total [\s] & \textbf{213.30}\\
+Stanford [\s] & 2.21\\
+Whetstone [\s] & 112.08\\
+Gmpbench Multiply [\Oppers] & 914\\
+Gmpbench Divide [\Oppers] & 19205\\
+Gmpbench RSA [\Oppers] & 5353\\
+Division [\s] & 7.31\\
+Mibench JPEG (average) [\s] & 21.76\\
+SSD [\s] & 8.60\\
+Total [\s] & \textbf{206.92}\\
 \toprule
 \end{tabular}
 \caption{Benchmarks Scores Modified Version}
