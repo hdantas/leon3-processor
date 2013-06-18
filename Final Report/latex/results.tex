@@ -1,3 +1,10 @@
+\renewcommand{\kHz}{\si{\kHz}\xspace}
+\renewcommand{\MHz}{\si{\MHz}\xspace}
+\renewcommand{\W}{\si{\W}\xspace}
+\renewcommand{\s}{\si{\s}\xspace}
+\newcommand{\Oppers}{~\si[per-mode=symbol]{Op\per\s}\xspace}
+
+
 \section{Results}
 
 \subsection{Synthesis}
@@ -7,12 +14,22 @@ performance of the baseline version of the processor.
 
 The synthesis tool reported the values in the Table 1 for the resources utilization.
 
-\begin{figure}[H]
+\begin{table}[H]
 \centering
-\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{mul32_wave.png}
-\caption{Screenshot of the Modelsim's Wave for the multiplier. For this particular simulation a 16x16 operation is shown, along with all the appropriate signals.}
-\label{fig:mul32_wave}
-\end{figure}
+\begin{tabular}{c>{\color{white}\columncolor{Cyan}}c}
+\bottomrule
+
+Timing Summary (max clock freq. [\MHz]) & 80.522\\
+\# of Occupied Slices & 9904\\
+Total \# of 4-input LUTs & 16889\\
+Quiescent power [\W] & 2.467\\
+Dynamic power [\W] & 0.721\\
+Total power [\W] & 3.188\\
+P/f [\si[per-mode=symbol]{\W\per\MHz} ] & 0.03959\\\toprule
+\end{tabular}
+\caption{Resource Utilization Baseline.}
+\label{tbl:resoutce_utilization}
+\end{table}
 
 Notice that the value ``P/f'' indicate the energetic efficiency of the processor, since the power
 consumption is almost proportional to the clock frequency we can use this value to estimate the
@@ -30,12 +47,22 @@ and the physical interface with the memory.
 The synthesis of our modified version gave us the results showed in Table 2:
 
 
-\begin{figure}[H]
+\begin{table}[H]
 \centering
-\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{mul32_wave.png}
-\caption{Screenshot of the Modelsim's Wave for the multiplier. For this particular simulation a 16x16 operation is shown, along with all the appropriate signals.}
-\label{fig:mul32_wave}
-\end{figure}
+\begin{tabular}{c>{\color{white}\columncolor{Cyan}}c}
+\bottomrule
+
+Timing Summary (max clock freq. [\MHz]) & 80.535 \\
+\# of Occupied Slices & 10479\\
+Total \# of 4-input LUTs & 17865\\
+Quiescent power [\W] & 2.468\\
+Dynamic power [\W] & 0.743\\
+Total power [\W] & 3.211\\
+P/f [\si[per-mode=symbol]{\W\per\MHz}] & 0.03987\\\toprule
+\end{tabular}
+\caption{Resource Utilization Modified Version.}
+\label{tbl:resoutce_utilization_modified}
+\end{table}
 
 As we expected the area consumption is quite worse because the unit we designed is way more
 complex than the baseline, in particular the look-up table in the divider consumes lots of area.
@@ -54,21 +81,47 @@ Once the processor is synthesized has been loaded in a FPGA board, then Linux ha
 on the processor as much as several benchmarks. In Table 3 the execution times of these
 benchmarks are reported, for detailed scores see the excel file attached.
 
-\begin{figure}[H]
+\begin{table}[H]
 \centering
-\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{mul32_wave.png}
-\caption{Screenshot of the Modelsim's Wave for the multiplier. For this particular simulation a 16x16 operation is shown, along with all the appropriate signals.}
-\label{fig:mul32_wave}
-\end{figure}
+\begin{tabular}{c>{\color{white}\columncolor{Cyan}}c}
+\bottomrule
+
+Stanford [\s] & 2.30\\
+Whetstone [\s] & 116.2\\
+Gmpbench Multiply [\Oppers] & 781\\
+Gmpbench Divide [\Oppers] & 15876\\
+Gmpbench RSA [\Oppers] & 5123\\
+Division [\s] & 8.06\\
+Mibench JPEG (average) [\s] & 23.215\\
+SSD [\s] & 10.59\\
+Total [\s] & \textbf{219.28}\\
+\toprule
+\end{tabular}
+\caption{Benchmarks Scores Baseline}
+\label{tbl:benchmarks_baseline}
+\end{table}
 
 The scores obtained with the modified processor are reported in Table 4.
 
-\begin{figure}[H]
+\begin{table}[H]
 \centering
-\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{mul32_wave.png}
-\caption{Screenshot of the Modelsim's Wave for the multiplier. For this particular simulation a 16x16 operation is shown, along with all the appropriate signals.}
-\label{fig:mul32_wave}
-\end{figure}
+\begin{tabular}{c>{\color{white}\columncolor{Cyan}}c}
+\bottomrule
+
+Stanford [\s] & 2.26\\
+Whetstone [\s] & 113.25\\
+Gmpbench Multiply [\Oppers] & 801\\
+Gmpbench Divide [\Oppers] & 16335\\
+Gmpbench RSA [\Oppers] & 5284\\
+Division [\s] & 7.65\\
+Mibench JPEG (average) [\s] & 22.465\\
+SSD [\s] & 10.21\\
+Total [\s] & \textbf{213.30}\\
+\toprule
+\end{tabular}
+\caption{Benchmarks Scores Modified Version}
+\label{tbl:benchmarks_modified}
+\end{table}
 
 From these results we can see that almost every benchmark had a slight improvement, in the end
 the total execution time improved by 2.7\%.
@@ -83,11 +136,11 @@ benchmarks is only about 10\% better).
 In order to get a fair comparison between the baseline and the improved processor some standard
 metrics have to be calculated and studied.
 
-Usually these metrics are A, the area consumption here calculated as the weighted sum of the
+Usually these metrics are \texttt{A}, the area consumption here calculated as the weighted sum of the
 number of occupied slices and the number of 4-input LUTs used where the weight is the reciprocal
-of the number of available resources, D is the delay or the reciprocal of the max clock frequency
-and indicate the delay of the slowest path, P is the power and it's simply calculated as the total
-power consumed by the Dhrystone benchmark used for the simulation and BS is the benchmark
+of the number of available resources, \texttt{D} is the delay or the reciprocal of the max clock frequency
+and indicate the delay of the slowest path, \texttt{P} is the power and it's simply calculated as the total
+power consumed by the Dhrystone benchmark used for the simulation and \texttt{BS} is the benchmark
 score which indicate how fast a program can be executed, it's calculated as the total execution
 time of the benchmarks on the FPGA board.
 
@@ -99,10 +152,10 @@ metrics show the overall performance.
 
 Since we want to speed-up the execution of the software while keeping the power consumption
 low because this is a processor designed for embedded applications, the composite metric we are
-interested the most is P*BS which show how much the processor is able to execute the software
+interested the most is \texttt{P$\times$BS} which show how much the processor is able to execute the software
 fast with the same amount of energy.
 
-Other composite metrics are A*D, A*BS and P*D. Since we focused on the improvement of the
+Other composite metrics are \texttt{A$\times$D}, \texttt{A$\times$BS} and \texttt{P$\times$D}. Since we focused on the improvement of the
 execution time and power consumption one can notice that these metrics are worse in our version
 compared to the baseline, because the area consumption has increased notably and the delay
 hadn't had any significant changes.
@@ -110,9 +163,57 @@ hadn't had any significant changes.
 Both the baseline version's and our improved version's synthesis and benchmark results have be
 condensed in this metrics and their values are in the Table 5.
 
-\begin{figure}[H]
+\begin{table}[H]
 \centering
-\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{mul32_wave.png}
-\caption{Screenshot of the Modelsim's Wave for the multiplier. For this particular simulation a 16x16 operation is shown, along with all the appropriate signals.}
-\label{fig:mul32_wave}
-\end{figure}
+\begin{tabular}{ccccc}
+
+&
+\multicolumn{4}{c}{Primitive Metrics}\\
+Version &
+\ttfamily A &
+\ttfamily D &
+\ttfamily P &
+\ttfamily BS \\
+Baseline &
+\num{2.68E+04} &
+\num{1.24E-02} &
+\num{3.19E+00} &
+\num{2.19E+02} \\
+Modified &
+\num{2.83E+04} &
+\num{1.24E-02} &
+\num{3.21E+00} &
+\num{2.13E+02} \\
+Improvements &
+\color{green} 5.8\% &
+- &
+\color{green} 0.7\% &
+\color{red} -2.7\% \\
+
+\midrule
+
+& \multicolumn{4}{c}{Composite Metrics}\\
+Version &
+\ttfamily A$\times$D &
+\ttfamily A$\times$BS &
+\ttfamily P$\times$D &
+\ttfamily P$\times$BS\\
+Baseline &
+\num{3.33E+02} &
+\num{5.88E+06} &
+\num{3.96E-02} &
+\num{6.99E+02} \\
+Modified &
+\num{3.52E+02} &
+\num{6.05E+06} &
+\num{3.99E-02} &
+\num{6.85E+02} \\
+Improvements &
+\color{green} 5.8\% &
+\color{green} 2.9\% &
+\color{green} 0.7\% &
+\color{red} -2.0\%\\
+\end{tabular}
+\caption{Final Metrics For Baseline And Improved Versions}
+\label{tbl:final_metrics}
+\end{table}

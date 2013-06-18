@@ -22,9 +22,9 @@ to be computed correctly.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{mul32_wave.png}
-\caption{Screenshot of the Modelsim's Wave for the multiplier. For this particular simulation a 16x16 operation is shown, along with all the appropriate signals.}
-\label{fig:mul32_wave}
+\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{DivisorStateMachine.png}
+\caption{Divider State Diagram.}
+\label{fig:div_state_dia}
 \end{figure}
 
 After that, the real computation begins and lasts 16 clock cycles. The block diagram of the divider
@@ -32,9 +32,9 @@ while it's in this state is shown in Fig. 5.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{mul32_wave.png}
-\caption{Screenshot of the Modelsim's Wave for the multiplier. For this particular simulation a 16x16 operation is shown, along with all the appropriate signals.}
-\label{fig:mul32_wave}
+\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{DivisorDiagram.png}
+\caption{Divider Block Diagram (during Core Computation, State = 1).}
+\label{fig:div_block_dia}
 \end{figure}
 
 The algorithm is very similar to the original radix-2 version but in this case the partial reminder (x)
@@ -64,9 +64,9 @@ delay) and finally the new partial reminder is calculated with a 35-bit adder, `
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{mul32_wave.png}
-\caption{Screenshot of the Modelsim's Wave for the multiplier. For this particular simulation a 16x16 operation is shown, along with all the appropriate signals.}
-\label{fig:mul32_wave}
+\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{radix4pd.png}
+\caption{Radix-4 P-D Plot (Red Dots are Exceptions).}
+\label{fig:div_pd_plot}
 \end{figure}
 
 Other solutions have been analyzed, such as having a look-up table only for unsigned division, half
@@ -81,7 +81,7 @@ undefined, but since there is an overflow the result has no meaning so this is a
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{mul32_wave.png}
-\caption{Screenshot of the Modelsim's Wave for the multiplier. For this particular simulation a 16x16 operation is shown, along with all the appropriate signals.}
+\includegraphics[width=0.45\textwidth,height=0.2\textheight,keepaspectratio]{myDivisionvsOriginal.png}
+\caption{Signal Dump Of Radix-4 Divider Vs. Original Divider.}
 \label{fig:mul32_wave}
 \end{figure}

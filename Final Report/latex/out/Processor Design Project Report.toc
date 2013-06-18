@@ -1,7 +1,7 @@
 \select@language {english}
 \select@language {english}
 \contentsline {section}{List of Figures}{ii}{section*.2}
-\contentsline {section}{List of Tables}{iii}{section*.3}
+\contentsline {section}{List of Tables}{ii}{section*.3}
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}
 \contentsline {section}{\numberline {2}Improved Arithmetic Cores}{1}{section.2}
 \contentsline {section}{\numberline {3}Multiplier}{2}{section.3}

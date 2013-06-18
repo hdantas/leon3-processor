@@ -1,15 +1,20 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.5.1)  18 JUN 2013 12:23
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.22)  19 JUN 2013 00:12
 entering extended mode
- restricted \write18 enabled.
  %&-line parsing enabled.
 **big-report.tex
 (./big-report.tex
 LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, af
-rikaans, armenian, coptic, ukenglish, usenglishmax, esperanto, estonian, friula
-n, icelandic, indonesian, interlingua, irish, kurmanji, piedmontese, portuguese
-, romanian, romansh, serbian, serbianc, slovenian, turkish, uppersorbian, welsh
-, loaded.
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, h
+ungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, ma
+rathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, 
+kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
+ piedmontese, polish, portuguese, romanian, romansh, russian, sanskrit, serbian
+, serbianc, slovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, u
+ppersorbian, welsh, loaded.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/size12.clo
@@ -510,11 +515,13 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
+
+Package epstopdf Warning: Shell escape feature is not enabled.
+
 Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 452.
-
 (/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
@@ -1481,56 +1488,8 @@ LaTeX Warning: Label `fig:mul32_wave' multiply defined.
 
 LaTeX Warning: Label `fig:mul32_wave@cref' multiply defined.
 
-
-LaTeX Warning: Label `fig:mul32_wave' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave@cref' multiply defined.
-
-) (out//results.aux
-
-LaTeX Warning: Label `fig:mul32_wave' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave' multiply defined.
-
-
-LaTeX Warning: Label `fig:mul32_wave@cref' multiply defined.
-
-) (out//conclusion.aux) (out//bibliography.aux) (out//appendices.aux))
+) (out//results.aux) (out//conclusion.aux) (out//bibliography.aux)
+(out//appendices.aux))
 \openout1 = `"Processor Design Project Report.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
@@ -1641,10 +1600,7 @@ File: ts1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 r-basic-dictionary/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/siunitx/config/siunitx-abbreviati
-ons.cfg
-File: siunitx-abbreviations.cfg 2013/03/11 v2.5q siunitx: Abbreviated units
-)
+(./siunitx-abbreviations.cfg)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1705,12 +1661,12 @@ es/tudelft-logo.jpg>]
 \tf@lof=\write6
 \openout6 = `"Processor Design Project Report.lof"'.
 
- [2]
+
 (out//Processor Design Project Report.lot)
 \tf@lot=\write7
 \openout7 = `"Processor Design Project Report.lot"'.
 
- [3]
+ [2]
 \openout2 = `intro.aux'.
 
  (./intro.tex
@@ -1730,7 +1686,7 @@ Overfull \hbox (0.4616pt too wide) in paragraph at lines 21--23
 i-ply two operands.
  []
 
-<figures/Wallace_tree.png, id=186, 704.6325pt x 876.27374pt>
+<figures/Wallace_tree.png, id=163, 704.6325pt x 876.27374pt>
 File: figures/Wallace_tree.png Graphic file (type png)
 
 <use figures/Wallace_tree.png>
@@ -1740,21 +1696,21 @@ Package pdftex.def Info: figures/Wallace_tree.png used on input line 30.
 
 
  <./figures/Wallace_tree.png>]
-<figures/paper_wastedarea.png, id=200, 531.48563pt x 82.80937pt>
+<figures/paper_wastedarea.png, id=178, 531.48563pt x 82.80937pt>
 File: figures/paper_wastedarea.png Graphic file (type png)
 
 <use figures/paper_wastedarea.png>
 Package pdftex.def Info: figures/paper_wastedarea.png used on input line 50.
 (pdftex.def)             Requested size: 175.49622pt x 27.3436pt.
 
-<figures/paper_improvedarea.png, id=203, 426.84468pt x 92.59593pt>
+<figures/paper_improvedarea.png, id=181, 426.84468pt x 92.59593pt>
 File: figures/paper_improvedarea.png Graphic file (type png)
 
 <use figures/paper_improvedarea.png>
 Package pdftex.def Info: figures/paper_improvedarea.png used on input line 51.
 (pdftex.def)             Requested size: 175.50244pt x 38.07195pt.
  [3 <./figures/paper_wastedarea.png> <./figures/paper_improvedarea.png>]
-<figures/mul32_wave.png, id=222, 68.17924pt x 68.17924pt>
+<figures/mul32_wave.png, id=199, 68.17924pt x 68.17924pt>
 File: figures/mul32_wave.png Graphic file (type png)
 
 <use figures/mul32_wave.png>
@@ -1763,72 +1719,55 @@ Package pdftex.def Info: figures/mul32_wave.png used on input line 86.
 ) [4] [5 <./figures/mul32_wave.png>]
 \openout2 = `divider.aux'.
 
- (./divider.tex
-File: figures/mul32_wave.png Graphic file (type png)
-<use figures/mul32_wave.png>
-Package pdftex.def Info: figures/mul32_wave.png used on input line 25.
-(pdftex.def)             Requested size: 118.41037pt x 118.41037pt.
-File: figures/mul32_wave.png Graphic file (type png)
- <use figures/mul32_wave.png>
-Package pdftex.def Info: figures/mul32_wave.png used on input line 35.
-(pdftex.def)             Requested size: 118.41037pt x 118.41037pt.
+ (./divider.tex <figures/DivisorStateMachine.png, id=216, 210.03468pt x 248.428
+13pt>
+File: figures/DivisorStateMachine.png Graphic file (type png)
+
+<use figures/DivisorStateMachine.png>
+Package pdftex.def Info: figures/DivisorStateMachine.png used on input line 25.
+
+(pdftex.def)             Requested size: 100.10081pt x 118.39882pt.
+
+<figures/DivisorDiagram.png, id=217, 444.91219pt x 225.84375pt>
+File: figures/DivisorDiagram.png Graphic file (type png)
+
+<use figures/DivisorDiagram.png>
+Package pdftex.def Info: figures/DivisorDiagram.png used on input line 35.
+(pdftex.def)             Requested size: 175.49738pt x 89.08496pt.
  [6
 
 
-]
-File: figures/mul32_wave.png Graphic file (type png)
+ <./figures/DivisorStateMachine.png> <./figures/DivisorDiagram.png>]
+<figures/radix4pd.png, id=223, 983.675pt x 904.37875pt>
+File: figures/radix4pd.png Graphic file (type png)
 
-<use figures/mul32_wave.png>
-Package pdftex.def Info: figures/mul32_wave.png used on input line 67.
-(pdftex.def)             Requested size: 118.41037pt x 118.41037pt.
- [7]
-File: figures/mul32_wave.png Graphic file (type png)
- <use figures/mul32_wave.png>
-Package pdftex.def Info: figures/mul32_wave.png used on input line 84.
-(pdftex.def)             Requested size: 118.41037pt x 118.41037pt.
-) [8]
+<use figures/radix4pd.png>
+Package pdftex.def Info: figures/radix4pd.png used on input line 67.
+(pdftex.def)             Requested size: 128.7678pt x 118.38754pt.
+ [7 <./figures/radix4pd.png>]
+<figures/myDivisionvsOriginal.png, id=228, 989.19562pt x 301.8778pt>
+File: figures/myDivisionvsOriginal.png Graphic file (type png)
+
+<use figures/myDivisionvsOriginal.png>
+Package pdftex.def Info: figures/myDivisionvsOriginal.png used on input line 84
+.
+(pdftex.def)             Requested size: 175.49666pt x 53.55719pt.
+) [8 <./figures/myDivisionvsOriginal.png>]
 \openout2 = `results.aux'.
 
-
-(./results.tex
-File: figures/mul32_wave.png Graphic file (type png)
- <use figures/mul32_wave.png>
-Package pdftex.def Info: figures/mul32_wave.png used on input line 12.
-(pdftex.def)             Requested size: 118.41037pt x 118.41037pt.
-
-Overfull \hbox (84.97536pt too wide) in paragraph at lines 24--26
+ (./results.tex
+Overfull \hbox (84.97536pt too wide) in paragraph at lines 41--43
 []\T1/cmr/m/n/12 This path is from ``ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_ph
 y0/ddgen[24].gi/FF1''
  []
 
-File: figures/mul32_wave.png Graphic file (type png)
-<use figures/mul32_wave.png>
-Package pdftex.def Info: figures/mul32_wave.png used on input line 35.
-(pdftex.def)             Requested size: 118.41037pt x 118.41037pt.
- [9
+[9
 
 
-]
-File: figures/mul32_wave.png Graphic file (type png)
- <use figures/mul32_wave.png>
-Package pdftex.def Info: figures/mul32_wave.png used on input line 59.
-(pdftex.def)             Requested size: 118.41037pt x 118.41037pt.
- [10]
-File: figures/mul32_wave.png Graphic file (type png)
-
-<use figures/mul32_wave.png>
-Package pdftex.def Info: figures/mul32_wave.png used on input line 68.
-(pdftex.def)             Requested size: 118.41037pt x 118.41037pt.
- [11]
-File: figures/mul32_wave.png Graphic file (type png)
- <use figures/mul32_wave.png>
-Package pdftex.def Info: figures/mul32_wave.png used on input line 115.
-(pdftex.def)             Requested size: 118.41037pt x 118.41037pt.
-) [12]
+] [10] [11]) [12]
 \openout2 = `conclusion.aux'.
 
-
-(./conclusion.tex) [13
+ (./conclusion.tex) [13
 
 
 ]
@@ -1840,16 +1779,16 @@ Package pdftex.def Info: figures/mul32_wave.png used on input line 115.
 ]
 \openout2 = `appendices.aux'.
 
- (./appendices.tex) [15
+
+(./appendices.tex) [15
 
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
-
-(out//Processor Design Project Report.aux (out//intro.aux) (out//multiplier.aux
-) (out//divider.aux) (out//results.aux) (out//conclusion.aux)
-(out//bibliography.aux) (out//appendices.aux))
+ (out//Processor Design Project Report.aux
+(out//intro.aux) (out//multiplier.aux) (out//divider.aux) (out//results.aux)
+(out//conclusion.aux) (out//bibliography.aux) (out//appendices.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 137.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
 Package rerunfilecheck Info: File `"Processor Design Project Report".out' has n
@@ -1861,36 +1800,40 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 29185 strings out of 494450
- 561923 string characters out of 3167827
- 604614 words of memory out of 3000000
- 31726 multiletter control sequences out of 15000+200000
+ 29204 strings out of 493481
+ 562442 string characters out of 3140986
+ 605902 words of memory out of 3000000
+ 31829 multiletter control sequences out of 15000+200000
  25209 words of font info for 70 fonts, out of 3000000 for 9000
- 416 hyphenation exceptions out of 8191
- 63i,10n,96p,969b,743s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 957 hyphenation exceptions out of 8191
+ 63i,13n,96p,969b,959s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr
-/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/l
-ocal/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/loc
-al/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local
-/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/t
-exlive/2012/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/local/tex
-live/2012/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texli
-ve/2012/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive
-/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2
-012/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/201
-2/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2012/
-texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2012/te
-xmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2012/texm
-f-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2012/texmf-
-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on "out//Processor Design Project Report.pdf" (19 pages, 357107 
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
+sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
+ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/loc
+al/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local
+/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/t
+exlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/tex
+live/2012/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texli
+ve/2012/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive
+/2012/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2
+012/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/local/texlive/201
+2/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2012/
+texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2012/te
+xmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2012/texm
+f-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2012/texmf-
+dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2012/texmf-di
+st/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2012/texmf-dist
+/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2012/texmf-dist/f
+onts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2012/texmf-dist/fon
+ts/type1/public/cm-super/sftt1200.pfb>
+Output written on "out//Processor Design Project Report.pdf" (18 pages, 487114 
 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 305 compressed objects within 4 object streams
- 65 named destinations out of 1000 (max. 500000)
- 198 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 354 PDF objects out of 1000 (max. 8388607)
+ 295 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 218 words of extra memory for PDF output out of 10000 (max. 10000000)
 
