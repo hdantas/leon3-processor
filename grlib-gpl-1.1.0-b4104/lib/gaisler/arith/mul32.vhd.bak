@@ -34,7 +34,7 @@ use gaisler.arith.all;
 library techmap;
 use techmap.gencomp.all;
 
-entity mul32Original is
+entity mul32 is
 generic (
     tech    : integer := 0;
     multype : integer range 0 to 3 := 0;
@@ -50,7 +50,7 @@ port (
 );
 end;
 
-architecture rtl of mul32Original is
+architecture rtl of mul32 is
 component axcel_mul_33x33_signed
    generic (
       pipe:          Integer := 0);

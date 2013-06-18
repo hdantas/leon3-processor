@@ -168,30 +168,42 @@ BEGIN
 	rst_hold_proc: PROCESS(clk)
 		VARIABLE started				: STD_LOGIC := '0';
 	BEGIN
-		IF (clk='1' AND clk'event) AND (rst = '0' OR muli.flush = '1') THEN
-			op1 <= zerosOp;
-			op2 <= zerosOp;
-
-		ELSIF (clk='1' AND clk'event AND rst = '1' AND muli.flush = '0' AND holdn = '1') THEN
-			IF (started = '1') THEN
+		IF (clk='1' AND clk'event) THEN
+			IF (rst = '0' OR muli.flush = '1') THEN --reset
+				op1 <= zerosOp;
+				op2 <= zerosOp;
 				started := '0';
-				tmp_ready <= '1';
-			END IF;
-
-			IF (muli.start = '1') THEN
-				op1 <= muli.op1;
-				op2 <= muli.op2;
-				is_signed <= muli.signed AND (muli.op1(32) OR muli.op2(32));
-				is_negative <= muli.signed AND (muli.op1(32) XOR muli.op2(32));
-				started := '1';
-				tmp_ready <= '0';
-			END IF;
+			-- ELSE
+			-- 	op1 <= muli.op1;
+			-- 	op2 <= muli.op2;
+			-- 	is_signed <= muli.signed AND (muli.op1(32) OR muli.op2(32));
+			-- 	is_negative <= muli.signed AND (muli.op1(32) XOR muli.op2(32));
 			
-			tmp_started <= started;
+			-- ELSIF (holdn = '0') THEN
+			-- 	started := '0';
+			-- ELSIF (holdn = '1') THEN
+			-- 	IF (muli.op1 /= op1) OR (muli.op2 /= op2) THEN
+			-- 		started := '0';
+			-- 	END IF;
 
+			-- 	IF (started = '1') THEN
+			-- 		started := '0';
+			-- 		tmp_ready <= '1';
+			-- 	END IF;
+
+			-- 	IF (muli.start = '1') THEN
+			-- 		op1 <= muli.op1;
+			-- 		op2 <= muli.op2;
+			-- 		is_signed <= muli.signed AND (muli.op1(32) OR muli.op2(32));
+			-- 		is_negative <= muli.signed AND (muli.op1(32) XOR muli.op2(32));
+			-- 		started := '1';
+			-- 		tmp_ready <= '0';
+			-- 	END IF;
+
+			END IF;
+			tmp_started <= started;
 		END IF;
 	END PROCESS;
-
 
 	--step 1 wallace algorithm (first level of the tree)
 	init_step_row: for i in 0 to op2_width-1 generate
@@ -199,22 +211,22 @@ BEGIN
 			
 			first_half: if ((j+i) <= (op1_width-1)) generate
 				neg_operation1: if (((j = op1_width-1) OR (i = op2_width-1)) AND ((i+j) /= (width - 2))) generate
-					WallaceTree(j+i+maxj*i) <= (op1(j) AND op2(i)) XOR is_signed; -- negate AND if is a signed multiplication
+					WallaceTree(j+i+maxj*i) <= (muli.op1(j) AND muli.op2(i)) XOR muli.signed; -- negate AND if is a signed multiplication
 				end generate neg_operation1;
 
 				pos_operation1: IF (((j /= op1_width-1) AND (i /= op2_width-1)) OR ((i+j) = (width - 2))) generate
-					WallaceTree(j+i+maxj*i) <= op1(j) AND op2(i);
+					WallaceTree(j+i+maxj*i) <= muli.op1(j) AND muli.op2(i);
 				end generate pos_operation1;
 			end generate first_half;
 
 
 			second_half: if (j+i) > (op1_width-1) generate
 				neg_operation2: IF ((j = op1_width-1) OR (i= op2_width-1)) AND ((i+j) /= (width - 2)) generate
-					WallaceTree(j+i+maxj*(op1_width-1-j)) <= (op1(j) AND op2(i)) XOR is_signed;  -- negate AND if is a signed multiplication
+					WallaceTree(j+i+maxj*(op1_width-1-j)) <= (muli.op1(j) AND muli.op2(i)) XOR muli.signed;  -- negate AND if is a signed multiplication
 				end generate neg_operation2;
 
 				pos_operation2: IF (((j /= op1_width-1) AND (i /= op2_width-1)) OR ((i+j) = (width - 2))) generate
-					WallaceTree(j+i+maxj*(op1_width-1-j)) <= op1(j) AND op2(i);
+					WallaceTree(j+i+maxj*(op1_width-1-j)) <= muli.op1(j) AND muli.op2(i);
 				end generate pos_operation2;
 			end generate second_half;
 
@@ -275,20 +287,6 @@ BEGIN
 		end generate columns;
 	end generate update_wallace;
  
-
-	-- register_proc: PROCESS (clk)
-	-- BEGIN
-	-- 	IF (clk='1' AND clk'event AND holdn = '1') THEN
-	-- 		FOR j IN 0 TO width-1 LOOP
-	-- 			-- add_a(j) <= WallaceTree(j+maxj*(maxi*(levels-1))); -- op1 for final addition
-	-- 			-- add_b(j) <= WallaceTree(j+maxj*(1+maxi*(levels-1))); -- op2 for final addition
-
-	-- 			add_a(j) <= WallaceTree(j+maxj*(maxi*(0))); -- op1 for final addition
-	-- 			add_b(j) <= WallaceTree(j+maxj*(1+maxi*(0))); -- op2 for final addition				
-	-- 		END LOOP;
-	-- 	END IF;
-	-- END PROCESS;
-
 	final_op: for j IN 0 TO width-1 generate
 		-- add_a(j) <= WallaceTree(j+maxj*(maxi*(levels-1))); -- op1 for final addition
 		-- add_b(j) <= WallaceTree(j+maxj*(1+maxi*(levels-1))); -- op2 for final addition
@@ -305,9 +303,9 @@ BEGIN
 			IF(rst = '0' OR muli.flush = '1') THEN
 				tmp_icc <= "0000";
 				tmp_result <= std_logic_vector(unsigned(zeros64));
-
+			
 			ELSIF (holdn = '1') THEN
-				IF (is_signed = '1') THEN
+				IF (muli.signed = '1') THEN
 					IF (mac = 1 and muli.mac = '1') THEN
 						result := std_logic_vector(signed(add_a) + signed(add_b)+ signed(add_vector_baugh_wooley) + signed(muli.acc) + signed(zeros64));
 					ELSE
@@ -328,7 +326,7 @@ BEGIN
 					tmp_icc(2) <= '0';
 				END IF;
 
-				IF (is_negative = '1') THEN
+				IF (muli.signed = '1' AND (muli.op1(32) XOR muli.op2(32)) = '1') THEN
 					tmp_icc(3) <= '1'; -- is result negative?
 				ELSE
 					tmp_icc (3) <= '0';
@@ -342,6 +340,7 @@ BEGIN
 	mulo.ready <= tmp_ready;
 	mulo.icc <= tmp_icc;
 	mulo.result <= tmp_result;
+
 
 	-- db_tmp_result <= tmp_result;
 	-- db_number_bits_port <= (63 DOWNTO width => '0') & add_vector_baugh_wooley;

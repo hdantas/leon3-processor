@@ -1,0 +1,24 @@
+\section{Conclusions and further improvements}
+
+The improvements have not been as good as we expected but now our modified processor is more
+preformat from an energetic point of view making it more suitable for embedded applications.
+
+Because of lack of time we didn't do any other changes, but of course there are many things to
+change in the architecture to improve further the performance.
+
+The size and structure of the cache memory can be changed to decrease the probability of misses
+and so the benchmarks execution time, but this can be done using the configuration tool and so it
+would have not been an our real achievement, moreover increasing the cache size probably would
+have increased also the power consumption making things worse.
+
+The LEON3 uses a static branch prediction in the integer unit, which is a good compromise
+between power consumption, because no difficult computation is needed, and gain in terms of
+execution time. To improve performance further a 1 bit or a 2 bit branch prediction buffer
+algorithm. The calculation needed is more complicated and it has to be done very often (30% of
+the instructions are branches) so the power consumption probably would increase, but the gain in
+terms of execution time could be worth it.
+
+In the end another heavy modification that could have been done could have been making the
+integer unit super-scalar and implementing Out of Order execution. This could have make us gain
+significant performance in terms of execution time, but a complete re-design of the integer unit
+would have been needed, and it would have been impossible to do in such a short time.

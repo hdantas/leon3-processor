@@ -72,8 +72,8 @@ This completes the first step.
 
 Thereafter each group of 3 or 2 bits must be compressed to 1, using full-adders and half-adders respectively. If a odd number of bits exists in a certain column the last bit is transfered to the next level. Repeating this process sufficient times\footnote{The exact number of iterations required can be inferred from the integer constant \texttt{levels} previously mentioned.}, the height of the matrix is reduced to 2. These can be added with a conventional adder to determine the final result.
 
-To help with these operations the exact number of full-adders and half-adders for each column of each stage were precomputed.
-Having this information the appropriate inputs (x, y and carry in for the full adder) and outputs (s and carry out) are mapped to a full (or half) adder instance to determine the result.
+To help with these operations the exact number of full-adders and half-adders for each column of each stage were precomputed. Moreover two other constants arrays exist that indicate the number of carry ins each column receives and if it has a remainder bit (odd numbered of lines).
+Having this information the location of the appropriate inputs (x, y and carry in for the full adder) and outputs (s and carry out) are mapped to a full (or half) adder instance to determine the result.
 
 Step 3 is simply an addition with the first two `lines' of the last stage of the \texttt{WallaceTree} signal. However, if the multiplication is signed an extra \STDV is added to these, as explained in~\cite{part3}.
 

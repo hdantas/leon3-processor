@@ -1,8 +1,20 @@
 \select@language {english}
 \select@language {english}
 \contentsline {section}{List of Figures}{ii}{section*.2}
-\contentsline {section}{List of Tables}{ii}{section*.3}
-\contentsline {section}{\numberline {1}Multiplier}{iii}{section.1}
-\contentsline {subsection}{\numberline {1.1}Wallace Tree Multiplier}{iii}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Advantages and Disadvantages}{iv}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Implementation and Simulation Results}{iv}{subsection.1.3}
+\contentsline {section}{List of Tables}{iii}{section*.3}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Improved Arithmetic Cores}{1}{section.2}
+\contentsline {section}{\numberline {3}Multiplier}{2}{section.3}
+\contentsline {subsection}{\numberline {3.1}Wallace Tree Multiplier}{2}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Advantages and Disadvantages}{3}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Implementation and Simulation Results}{3}{subsection.3.3}
+\contentsline {section}{\numberline {4}Divider}{6}{section.4}
+\contentsline {section}{\numberline {5}Results}{9}{section.5}
+\contentsline {subsection}{\numberline {5.1}Synthesis}{9}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Benchmark Scores}{10}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Metrics Comparison}{11}{subsection.5.3}
+\contentsline {section}{\numberline {6}Conclusions and further improvements}{13}{section.6}
+\contentsline {section}{\numberline {A}Baseline}{15}{appendix.A}
+\contentsline {subsection}{\numberline {A.1}Dhrystone report}{15}{subsection.A.1}
+\contentsline {section}{\numberline {B}Improved Version}{15}{appendix.B}
+\contentsline {subsection}{\numberline {B.1}Dhrystone report}{15}{subsection.B.1}
