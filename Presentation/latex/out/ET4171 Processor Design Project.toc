@@ -1,0 +1,10 @@
+\select@language {english}
+\beamer@endinputifotherversion {3.26pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Objectives}{3}{0}{1}
+\beamer@sectionintoc {2}{Multiplier}{4}{0}{2}
+\beamer@sectionintoc {3}{Divider}{9}{0}{3}
+\beamer@sectionintoc {4}{Synthesis Results}{14}{0}{4}
+\beamer@sectionintoc {5}{Benchmarks Scores}{15}{0}{5}
+\beamer@sectionintoc {6}{Conclusion}{16}{0}{6}
+\beamer@sectionintoc {7}{Further Improvements}{18}{0}{7}

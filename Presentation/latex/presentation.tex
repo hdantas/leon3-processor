@@ -1,0 +1,152 @@
+\documentclass{beamer}
+
+%Document language and encoding
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\selectlanguage{english}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{multirow}
+\usepackage{booktabs}
+%\setbeamertemplate{caption}[numbered]
+\usepackage{caption}
+\usepackage{siunitx} \sisetup{load-configurations=abbreviations} %use correctly typed SI units
+\usepackage{xspace}
+\captionsetup[figure]{labelformat=empty}
+\newcommand{\figh}[1]{\includegraphics[width=0.4\linewidth]{#1}}
+\newcommand{\figv}[1]{\includegraphics[height=0.15\textheight,keepaspectratio]{#1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\hypersetup
+{
+        colorlinks=false,
+        linkcolor=black,       % \ref{...} and \pageref{...}
+        urlcolor=black,       % \href{...}{...} external (URL)
+        filecolor=black,     % \href{...} local file
+        pdftitle={ET4171 Processor Design Project},
+        pdfauthor={Henrique Dantas and Luca Feltrin},
+        pdfsubject={LEON3 processor optimization},
+        pdfkeywords={},
+        pdfproducer={pdfLaTeX},
+        bookmarksopen=true,
+        pdfborder={0 0 0}
+}
+
+
+\usetheme[pageofpages=of,% String used between the current page and the
+                         % total page count.
+          %bullet=circle,% Use circles instead of squares for bullets.
+          titleline=true,% Show a line below the frame title.
+          alternativetitlepage=true,% Use the fancy title page.
+          titlepagelogo=Figures/tudelft,% Logo for the first page.
+          %watermark=watermark-polito,% Watermark used in every page.
+          %watermarkheight=100px,% Height of the watermark.
+          %watermarkheightmult=4,% The watermark image is 4 times bigger
+                                % than watermarkheight.
+          ]{Torino}
+%\usecolortheme{nouvelle}
+
+\newenvironment<>{problock}[1]{%
+    \begin{actionenv}#2%
+        \def\insertblocktitle{#1}%
+        \par%
+        \mode<presentation>{%
+            \setbeamercolor{block title}{fg=white,bg=green!20!black}
+            \setbeamercolor{block body}{fg=black,bg=green!10!black!10}
+            \setbeamercolor{itemize item}{fg=green!20!black}
+            \setbeamercolor{itemize subitem}{fg=green}
+            %\setbeamertemplate{itemize item}[+]
+        }%
+    \usebeamertemplate{block begin}}{\par\usebeamertemplate{block end}\end{actionenv}
+}
+
+\newenvironment<>{conblock}[1]{%
+    \begin{actionenv}#2%
+        \def\insertblocktitle{#1}%
+        \par%
+        \mode<presentation>{%
+            \setbeamercolor{block title}{fg=white,bg=red!40!black}
+            \setbeamercolor{block body}{fg=black,bg=red!10}
+            \setbeamercolor{itemize item}{fg=red!40!black}
+            \setbeamercolor{itemize subitem}{fg=red}
+            %\setbeamertemplate{itemize item}[-]
+        }%
+    \usebeamertemplate{block begin}}{\par\usebeamertemplate{block end}\end{actionenv}
+}
+
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\definecolor{pbgray}{RGB}{51,149,48}% background color for the progress bar
+%\definecolor{chameleongreen1}{RGB}{98,189,25}
+%\definecolor{chameleongreen2}{RGB}{188,225,141}
+%\definecolor{chameleongreen3}{RGB}{51,149,48}
+%\definecolor{chameleongreen4}{RGB}{0,98,90}
+
+
+%% ORIGINAL COLOR %% \definecolor{pbgray}{HTML}{575757}% background color for the progress bar
+\makeatletter
+\def\progressbar@progressbar{} % the progress bar
+\newcount\progressbar@tmpcounta% auxiliary counter
+\newcount\progressbar@tmpcountb% auxiliary counter
+\newdimen\progressbar@pbht %progressbar height
+\newdimen\progressbar@pbwd %progressbar width
+\newdimen\progressbar@tmpdim % auxiliary dimension
+
+\progressbar@pbwd=\textwidth
+\progressbar@pbht=0.5pt
+%%http://tex.stackexchange.com/questions/59742/progress-bar-for-latex-beamer
+% the progress bar
+\def\progressbar@progressbar{%
+
+    \progressbar@tmpcounta=\insertframenumber
+    \progressbar@tmpcountb=\inserttotalframenumber
+    \progressbar@tmpdim=\progressbar@pbwd
+    \advance\progressbar@tmpcountb by -2
+    \advance\progressbar@tmpcounta by -2
+    \multiply\progressbar@tmpdim by \progressbar@tmpcounta
+    \divide\progressbar@tmpdim by \progressbar@tmpcountb
+
+  \begin{tikzpicture}[very thin]
+    \draw[chameleongreen3!60,line width=\progressbar@pbht] (0pt,0pt) -- ++ (\progressbar@pbwd,0pt);
+    \draw[draw=none]  (\progressbar@pbwd,0pt) -- ++ (2pt,0pt);
+
+    \draw[fill=pbgray!60,draw=none] %
+       ( $ (\progressbar@tmpdim, \progressbar@pbht) + (0,-3.5pt) $ ) -- ++(60:6pt) -- ++(180:6pt) -- ++ (300:6pt) ;
+
+   % \node[draw=pbgray!30,text width=3.5em,align=center,inner sep=1pt,
+   %  text=pbgray!70,anchor=east] at (0,0) {\insertframenumber/\inserttotalframenumber};
+  \end{tikzpicture}%
+}
+
+\addtobeamertemplate{headline}{}
+{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=-1.5ex,center,dp=1ex]{white}%
+    \progressbar@progressbar%
+  \end{beamercolorbox}%
+}
+\makeatother
+
+
+
+\begin{document}
+
+\title{\textbf{ET4171 Processor Design Project}}
+\subtitle{LEON3 processor optimization }
+\author{Henrique~Dantas\\
+\vspace{0.5cm} Luca~Feltrin}
+\institute{Delft University of Technology}
+\date{\today} 
+
+{ % to delimit a block (we only want to remove the header for this frame)
+\makeatletter % to change template
+    \setbeamertemplate{headline}[default] % not mandatory, but I though it was better to set it blank
+    \def\beamer@entrycode{\vspace*{-\headheight}} % here is the part we are interested in :)
+\makeatother
+\frame{\titlepage}
+}
+\input{file}
+
+\end{document}
