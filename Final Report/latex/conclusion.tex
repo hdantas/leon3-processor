@@ -1,24 +1,23 @@
 \section{Conclusions and further improvements}
 
-The improvements have not been as good as we expected but now our modified processor is more
-preformat from an energetic point of view making it more suitable for embedded applications.
+The improvements made to the arithmetic units have improved the benchmark performance of the processor. Although they are modest, they reflect the chosen target scenario.
 
-Because of lack of time we didn't do any other changes, but of course there are many things to
+Because of lack of time we were unable to perform more changes, but of course there are many things to
 change in the architecture to improve further the performance.
 
-The size and structure of the cache memory can be changed to decrease the probability of misses
-and so the benchmarks execution time, but this can be done using the configuration tool and so it
-would have not been an our real achievement, moreover increasing the cache size probably would
-have increased also the power consumption making things worse.
+Different configurations for the multiplier should have been tested to decrease its impact on power and maximum frequency.
+
+The size and structure of the cache memory could be changed to decrease the probability of misses and consequently the benchmarks execution time. Although this could have been done using the configuration tool it
+would have not been fruit of our own merit. Moreover increasing the cache size probably would
+have increased also the power consumption, escalating even more this issue.
 
 The LEON3 uses a static branch prediction in the integer unit, which is a good compromise
-between power consumption, because no difficult computation is needed, and gain in terms of
-execution time. To improve performance further a 1 bit or a 2 bit branch prediction buffer
-algorithm. The calculation needed is more complicated and it has to be done very often (30% of
-the instructions are branches) so the power consumption probably would increase, but the gain in
-terms of execution time could be worth it.
+between power consumption, as no difficult computation is needed, yet there are gains in terms of execution time.
+To improve performance further, a 1 bit or a 2 bit branch prediction buffer
+algorithm could be implemented. The calculations needed are more intricate and computed more often (30\% of
+the instructions are branches) henceforth the power consumption would probably increase. On the other hand the gains in terms of execution time could make up for the loss.
 
-In the end another heavy modification that could have been done could have been making the
-integer unit super-scalar and implementing Out of Order execution. This could have make us gain
-significant performance in terms of execution time, but a complete re-design of the integer unit
-would have been needed, and it would have been impossible to do in such a short time.
+In the end another heavy modification that could have been done is making the
+integer unit super-scalar and implementing Out of Order execution. Hypothetically it could yield 
+significant performance improvements in terms of execution time. Notwithstanding a complete re-design of the integer unit
+would have been needed, which deemed it impossible to complete in the (small) time budget for this project.

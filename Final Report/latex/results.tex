@@ -12,7 +12,7 @@
 In order to evaluate the performance of our improved processor we need first to evaluate the
 performance of the baseline version of the processor.
 
-The synthesis tool reported the values in the Table 1 for the resources utilization.
+The synthesis tool reported the values shown in table~\ref{tbl:resource_utilization} for the resources utilization.
 
 \begin{table}[H]
 \centering
@@ -28,23 +28,23 @@ Total power [\W] & 3.188\\
 P/f [\si[per-mode=symbol]{\W\per\MHz} ] & 0.03959\\\toprule
 \end{tabular}
 \caption{Resource Utilization Baseline.}
-\label{tbl:resoutce_utilization}
+\label{tbl:resource_utilization}
 \end{table}
 
-Notice that the value ``P/f'' indicate the energetic efficiency of the processor, since the power
-consumption is almost proportional to the clock frequency we can use this value to estimate the
+Notice that the value ``P/f'' indicates the energetic efficiency of the processor. Another useful insight is the fact that the power
+consumption is almost proportional to the clock frequency, therfore we can use this value to estimate the
 power consumption at different clock frequencies.
 
 From the synthesis report we can also see the slowest path which determines the max clock
 frequency.
 
-This path is from ``ddrsp0.ddrc0/ddr32.ddrc/ra.raddr\_0'' to ``ddrsp0.ddrc0/ddr\_phy0/ddr\_phy0/xc4v.ddr\_phy0/casgen''.
+This path is from \texttt{``ddrsp0.ddrc0/ddr32.ddrc/ra.raddr\_0''} to \texttt{``ddrsp0. ddrc0/ddr\_phy0/ddr\_phy0/xc4v.ddr\_phy0/casgen''}.
 
 
 Those components belong to the SDRAM controller and the path is located between the controller
 and the physical interface with the memory.
 
-The synthesis of our modified version gave us the results showed in Table 2:
+The synthesis of our modified version gave us the results showed in table~\ref{tbl:resource_utilization_modified}:
 
 
 \begin{table}[H]
@@ -61,25 +61,22 @@ Total power [\W] & 3.343\\
 P/f [\si[per-mode=symbol]{\W\per\MHz}] & 0.08317\\\toprule
 \end{tabular}
 \caption{Resource Utilization Modified Version.}
-\label{tbl:resoutce_utilization_modified}
+\label{tbl:resource_utilization_modified}
 \end{table}
 
-As we expected the area consumption is quite worse because the unit we designed is way more
-complex than the baseline, in particular the look-up table in the divider consumes lots of area.
+As expected the area consumption is moderately higher than before as the units we designed are more complex than the baseline. In particular the lookup table in the divider, and the Wallace tree structure in the multiplier are very space-hungry.
 
-Also the power consumption increased for the same reason, the algorithm is more complicated so
-more energy is consumed to do all the calculations, but fortunately the disadvantage is negligible
-compared to the advantage as it will be shown later.
+Also the power consumption increased for the same reason, the algorithms are more complicated so
+more energy is expended for all the calculations. However this trade-off was envisioned at the start of the project, and as we will see later the benchmark's performance improved.
 
-The only parameter which is better is the max clock frequency achievable but probably this is only
-due to the synthesis tool that rearranged the processor's component in a different way that is
-better for the clock performance.
+The most significant change is in the maximum clock frequency which was drastically reduced. The main culprit is the multiplier which only takes one clock cycle to finish. Originally, the unit was designed to complete after two cycles. However it was verified that when the processor is configured with a two-cycle latency, it expects the 32x32 operation to finish in one cycle. Thus the multiplier had to be adjusted for this behavior.
+
+Alternatively, the \texttt{mul32} unit could be adapted to the remaining multiplier configuration (\emph{i.e.}~4-cycle latency) so the maximum frequency would not be so severely affected.
 
 \subsection{Benchmark Scores}
 
-Once the processor is synthesized has been loaded in a FPGA board, then Linux has been launched
-on the processor as much as several benchmarks. In Table 3 the execution times of these
-benchmarks are reported, for detailed scores see the excel file attached.
+Once the processor is synthesized and has been loaded in a FPGA board, Linux is initiated on the processor along with several benchmarks. In table~\ref{tbl:benchmarks_baseline} the execution times of these
+benchmarks are reported, for detailed scores please see the accompanying Excel file.
 
 \begin{table}[H]
 \centering
@@ -97,11 +94,11 @@ SSD [\s] & 10.59\\
 Total [\s] & \textbf{219.28}\\
 \toprule
 \end{tabular}
-\caption{Benchmarks Scores Baseline}
+\caption{Benchmarks Scores Baseline.}
 \label{tbl:benchmarks_baseline}
 \end{table}
 
-The scores obtained with the modified processor are reported in Table 4.
+The scores obtained with the modified processor are reported in table~\ref{tbl:benchmarks_modified}.
 
 \begin{table}[H]
 \centering
@@ -119,17 +116,17 @@ SSD [\s] & 8.60\\
 Total [\s] & \textbf{206.92}\\
 \toprule
 \end{tabular}
-\caption{Benchmarks Scores Modified Version}
+\caption{Benchmarks Scores Modified Version.}
 \label{tbl:benchmarks_modified}
 \end{table}
 
-From these results we can see that almost every benchmark had a slight improvement, in the end
-the total execution time improved by 2.7\%.
+From these results we can see that almost every benchmark had a healthy improvement, in the end
+the total execution time improved by 5.6\%.
 
-These scores are not as good as we expected but probably the execution of an operative system
-on the processor cause a not negligible overhead in the execution due to the scheduling (the
+These scores are not as good as expected but likely the execution of the operating system
+on the processor causes a non negligible overhead in the execution due to the scheduling. As an example, the
 divider takes about half the time to execute but the execution time of the division related
-benchmarks is only about 10\% better).
+benchmarks is only about 10\% better.
 
 \subsection{Metrics Comparison}
 
@@ -145,23 +142,19 @@ score which indicate how fast a program can be executed, it's calculated as the 
 time of the benchmarks on the FPGA board.
 
 Moreover some composite metrics can be observed: these metrics consider two or more primitive
-metrics and often are more interesting than these ones because when a modification is done on
-the processor usually we obtain two opposite effects, one primitive metrics increases while
-another one decreases, but what we want is that all in all we have an improvement. Composite
-metrics show the overall performance.
+metrics and often are more interesting than the latter because any improvement in one metric is usually accompanied by decrease in other. Composite metrics show the overall performance, and give insight on the trade-offs.
 
 Since we want to speed-up the execution of the software while keeping the power consumption
 low because this is a processor designed for embedded applications, the composite metric we are
-interested the most is \texttt{P$\times$BS} which show how much the processor is able to execute the software
-fast with the same amount of energy.
+interested the most is \texttt{P$\times$BS}. It reflects how much the processor is able to compute for the same amount of energy.
 
-Other composite metrics are \texttt{A$\times$D}, \texttt{A$\times$BS} and \texttt{P$\times$D}. Since we focused on the improvement of the
-execution time and power consumption one can notice that these metrics are worse in our version
-compared to the baseline, because the area consumption has increased notably and the delay
-hadn't had any significant changes.
+Additional composite metrics are \texttt{A$\times$D}, \texttt{A$\times$BS} and \texttt{P$\times$D}. Since we focused on the
+execution time and power consumption one can notice that the other metrics are worse in our version
+compared to the baseline.
 
-Both the baseline version's and our improved version's synthesis and benchmark results have be
-condensed in this metrics and their values are in the Table 5.
+All the baseline's and modified units' synthesis and benchmark results have been condensed in table~\ref{tbl:final_metrics}.
+
+ Due to the important impact the multiplier has on these metrics, results are shown before and after this custom unit is integrated.
 
 \begin{table}[H]
 \centering
@@ -179,16 +172,26 @@ Baseline &
 \num{1.24E-02} &
 \num{3.19E+00} &
 \num{2.19E+02} \\
-Modified &
+Modified (Div)&
 \num{2.83E+04} &
 \num{1.24E-02} &
 \num{3.21E+00} &
 \num{2.13E+02} \\
-Improvements &
-\color{green} 5.8\% &
+Modified (Mul\&Div)&
+\num{3,24E+04} &
+\num{2,49E-02} &
+\num{3,34E+00} &
+\num{2,07E+02} \\
+Improvements (Div) &
+\color{red} 5.8s\% &
 - &
-\color{green} 0.7\% &
-\color{red} -2.7\% \\
+\color{red} 0.7\% &
+\color{green} -2.7\% \\
+Improvements (Mul\&Div) &
+\color{red} 21\% &
+\color{red} 100\% &
+\color{red} 5\% &
+\color{green} -6\% \\
 
 \midrule
 
@@ -203,17 +206,27 @@ Baseline &
 \num{5.88E+06} &
 \num{3.96E-02} &
 \num{6.99E+02} \\
-Modified &
+Modified (Div)&
 \num{3.52E+02} &
 \num{6.05E+06} &
 \num{3.99E-02} &
 \num{6.85E+02} \\
-Improvements &
-\color{green} 5.8\% &
-\color{green} 2.9\% &
-\color{green} 0.7\% &
-\color{red} -2.0\%\\
+Modified (Mul\&Div)&
+\num{8,05E+02} &
+\num{6,69E+06} &
+\num{8,32E-02} &
+\num{6,92E+02} \\
+Improvements (Div) &
+\color{red} 5.8s\% &
+\color{red} 2.9\% &
+\color{red} 0.7\% &
+\color{green} -2.0\% \\
+Improvements (Mul\&Div)&
+\color{red} 142\% &
+\color{red} 14\% &
+\color{red} 110\% &
+\color{green} -1\%\\
 \end{tabular}
-\caption{Final Metrics For Baseline And Improved Versions}
+\caption{Final Metrics For Baseline And Improved Versions.}
 \label{tbl:final_metrics}
 \end{table}
