@@ -56,23 +56,44 @@ Algorithm:
 }
 
 \frame{\frametitle{Implementation Details}
+
+\begin{newblock}{Interface with the Processor}
 3 Input Signals:\texttt{RST}, \texttt{CLK} and \texttt{MULI}\\
 1 Output Signal:\texttt{MULO}\\
 4 generics: \texttt{infer}, \texttt{multype}, \texttt{pipe} and \texttt{mac}
+\end{newblock}
 
-Constants used: WallaceTree (3D logic vector), stages, FA, HA, CIN and RE.
+\begin{newblock}{Signals and Constants}
+WallaceTree (3D logic vector)\\
+Stages\\
+FA, HA, CIN and RE.
+\end{newblock}
 }
 
-\frame{\frametitle{Implementation Details II}
-For negative operation - Alternative Baugh Wooley
-Negate AND operations (when includes MSD from op1 or op2 but not both)
-Add a constant vector at the end.
+\frame{\frametitle{Negative Operations}
+Alternative Baugh Wooley
+% \begin{columns}
+% \begin{column}{0.45\textwidth}
+\begin{itemize}
+\item Negate some AND operations.
+\item Add a constant vector at the end.
+\end{itemize}
+% \end{column}
+% \begin{column}{0.45\textwidth}
+\begin{figure}
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{Figures/modified-bw.png}
+\caption{}
+\end{figure}
+% \end{column}
+% \end{columns}
 }
 
-\frame{\frametitle{Implementation Details III}
-Feed inputs to FOR-GENERATES (with IF-GENERATES)
-IF holdn is HIGH update Add the two final numbers with Baugh-Wooley vector (for signed operations) (ready and nready are not used).
-Update MULO.(result/ICC).
+\frame{\frametitle{VHDL statements}
+\begin{itemize}
+\item Feed inputs to FOR-GENERATES (with IF-GENERATES)
+\item IF holdn is HIGH update add the two final numbers with Baugh-Wooley vector (for signed operations) (ready and nready are not used).
+\item Update MULO.(result/ICC).
+\end{itemize}
 }
 
 \section{Divider}
@@ -93,21 +114,21 @@ Radix-4					& \multicolumn{2}{c}{\color{green!50!black} \bfseries Good compromis
 \end{center}
 }
 
-\frame{\frametitle{Divider II}
+\frame{\frametitle{Divider State Machine}
 \begin{figure}
 \includegraphics[width=0.9\textwidth,height=0.8\textheight,keepaspectratio]{Figures/DivisorStateMachine.png}
 \caption{}
 \end{figure}
 }
 
-\frame{\frametitle{Divider III}
+\frame{\frametitle{Divider Diagram}
 \begin{figure}
-\includegraphics[width=0.9\textwidth,height=0.8\textheight,keepaspectratio]{Figures/DivisorDiagram.png}
+\includegraphics[width=0.9\textwidth,height=0.8\textheight,keepaspectratio]{Figures/DivisorDiagramSpecial.png}
 \caption{}
 \end{figure}
 }
 
-\frame{\frametitle{Dvider IV}
+\frame{\frametitle{Signed and Unsigned Division}
 \begin{itemize}
 \item Signed division (signed p-d plot) vs. Unsigned division (half p-d plot) + 1 cycle for sign
 \begin{itemize}
@@ -116,7 +137,7 @@ Radix-4					& \multicolumn{2}{c}{\color{green!50!black} \bfseries Good compromis
 \end{itemize}
 }
 
-\frame{\frametitle{Divider V}
+\frame{\frametitle{Divider Simulation}
 \begin{figure}
 \includegraphics[width=0.9\textwidth,height=0.8\textheight,keepaspectratio]{Figures/myDivisionvsOriginal.png}
 \caption{Baseline vs. Radix-4: 19 cycles vs 36}
@@ -137,7 +158,7 @@ LUTs & 16889 & 17865 & 20469\\
 Quiescent power [\W] & 2.467 & 2.468 & 2.511\\
 Dynamic power [\W] & 0.721 & 0.743 & 0.832\\
 Total power [\W] & 3.188 & 3.211 & 3.343\\
-P/f [\si[per-mode=symbol]{\W\per\MHz} ] & 0.03959 & 0.03987 & 0.08317\\\toprule
+P/f [\si[per-mode=symbol]{\W\per\MHz} ] & 0.03959 & 0.03987 & 0.08317
 \end{tabular}
 \end{table}
 }
@@ -160,15 +181,14 @@ Gmpbench RSA [\Oppers] & 5123 & 5353\\
 Division [\s] & 8.06 & 7.31\\
 Mibench JPEG (average) [\s] & 23.215 & 21.76\\
 SSD [\s] & 10.59 & 8.60\\
-Total [\s] & \textbf{219.28} & \textbf{206.92}\\
-\toprule
+Total [\s] & \textbf{219.28} & \textbf{206.92}
 \end{tabular}
 \end{table}
 %Only slight improvement probably due to the Operating System's Scheduling
 }
 
 \section{Conclusion}
-\frame{\frametitle{Conclusion - Comparison with Matrics (Div)}
+\frame{\frametitle{Conclusion - Comparison with Metrics (Div)}
 
 \begin{table}[H]
 \centering
@@ -186,7 +206,7 @@ Total [\s] & \textbf{219.28} & \textbf{206.92}\\
 \end{table}
 }
 
-\frame{\frametitle{Conclusion II - Comparison with Matrics (Div \& Mul)}
+\frame{\frametitle{Conclusion II - Comparison with Metrics (Div \& Mul)}
 \begin{table}[H]
 \centering
 \begin{tabular}{cccc}

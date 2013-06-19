@@ -47,6 +47,27 @@
           ]{Torino}
 %\usecolortheme{nouvelle}
 
+\newenvironment<>{newblock}[1]{%
+    \begin{actionenv}#2%
+        \def\insertblocktitle{#1}%
+        \par%
+        \mode<presentation>{%
+            \setbeamercolor{block title}{fg=white,bg=chameleongreen3}
+            \setbeamercolor{block body}{fg=black,bg=white}
+            \setbeamercolor{itemize item}{fg=green!20!black}
+            \setbeamercolor{itemize subitem}{fg=green}
+            %\setbeamertemplate{itemize item}[+]
+        }%
+    \usebeamertemplate{block begin}}{\par\usebeamertemplate{block end}\end{actionenv}
+}
+
+\definecolor{pbgray}{RGB}{51,149,48}% background color for the progress bar
+\definecolor{chameleongreen1}{RGB}{98,189,25}
+\definecolor{chameleongreen2}{RGB}{188,225,141}
+\definecolor{chameleongreen3}{RGB}{51,149,48}
+\definecolor{chameleongreen4}{RGB}{0,98,90}
+
+
 \newenvironment<>{problock}[1]{%
     \begin{actionenv}#2%
         \def\insertblocktitle{#1}%
@@ -79,11 +100,6 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 
-\definecolor{pbgray}{RGB}{51,149,48}% background color for the progress bar
-%\definecolor{chameleongreen1}{RGB}{98,189,25}
-%\definecolor{chameleongreen2}{RGB}{188,225,141}
-%\definecolor{chameleongreen3}{RGB}{51,149,48}
-%\definecolor{chameleongreen4}{RGB}{0,98,90}
 
 
 %% ORIGINAL COLOR %% \definecolor{pbgray}{HTML}{575757}% background color for the progress bar
