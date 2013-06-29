@@ -10,10 +10,10 @@
 \newcommand{\mac}{\texttt{mac}\xspace}
 \newcommand{\STDV}{\texttt{STD\_LOGIC\_VECTOR}\xspace}
 
-\section{Multiplier}
+\subsection{Multiplier}
 
 
-\subsection{Wallace Tree Multiplier}
+\subsubsection{Wallace Tree Multiplier}
 \label{sec:wallace}
 
 For this project it was decided the most appropriate multiplier scheme would be the Wallace Tree Multiplier. The most important reason for this choice is due to its great performance although at the cost of gates and area.
@@ -39,7 +39,7 @@ The algorithm can be divided in three major steps:
 
 For our particular implementation the aforementioned description was modified to accommodate signed numbers through the use of the modified Baugh-Wooley algorithm. The details of this alteration will be explained in section~\ref{sec:implementation}.
 
-\subsection{Advantages and Disadvantages}
+\subsubsection{Advantages and Disadvantages}
 
 The main advantages of this scheme are the speed obtained and regular mapping in hardware. The structure of the tree is consistent throughout the several steps. On the other hand, this design is costly in the amount of gates necessary and total area. The latter can be improved by reorganizing the tree for efficiency. The `waste' in the traditional structure is particularly noticeable on the extremes of each line of the tree, as shown in figure~\ref{fig:paper_wastedarea}. \cite{betterwallace} details possible techniques that can be implemented to tackle this issue and reduce the area cost of the Wallace multiplier. The main idea is to split the tree into two overlapping trees, hence saving area. Thereafter the additions take place in opposite directions. 
 However due to lack of time it was not possible to implement the proposed ideas on the multiplier.
@@ -54,7 +54,7 @@ However due to lack of time it was not possible to implement the proposed ideas 
 \end{figure}
 
 
-\subsection{Implementation and Simulation Results}
+\subsubsection{Implementation and Simulation Results}
 \label{sec:implementation}
 
 This section will be used to introduce the reader to the implementation requirements for the multiplier. Followed by a simple, high-level description of the architecture used to accomplish them.

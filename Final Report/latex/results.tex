@@ -141,6 +141,9 @@ power consumed by the Dhrystone benchmark used for the simulation and \texttt{BS
 score which indicate how fast a program can be executed, it's calculated as the total execution
 time of the benchmarks on the FPGA board.
 
+For the area we are using that complex formula because in order to have a parameter which indicate the true cost of our implementation we needed something more than just the number of resources used.
+We assumed that the number of resource available on the device is inverse proportional to their effective cost, so if we use their reciprocal as a weight to calculate the average, we obtain a metric which is most likely nearer to the effective cost of the implementation once implemeted on chip.
+
 Moreover some composite metrics can be observed: these metrics consider two or more primitive
 metrics and often are more interesting than the latter because any improvement in one metric is usually accompanied by decrease in other. Composite metrics show the overall performance, and give insight on the trade-offs.
 

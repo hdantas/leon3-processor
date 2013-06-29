@@ -6,14 +6,22 @@ For the Processor Design Project course we have been asked to improve the perfor
 LEON3, a 32-bit SPARC V8 processor designed for embedded applications.
 Our main target is to decrease the computation time for certain benchmarks keeping the power
 consumption as low as possible, thus for us the most relevant compound metric is the
-\texttt{power}$\times$\texttt{benchmark} score (\texttt{P}$\times$\texttt{BS}).
+\texttt{power}$\times$\texttt{benchmark score} (\texttt{P}$\times$\texttt{BS}).
 
 The SPARC V8 architecture contemplates the use of instruction and special hardware for integer
 multiplications and divisions, but with the original configuration the multiplier takes 5 clock cycles
 to calculate the result and the divider 36, so one of the first things we decided to do is to improve
 these arithmetic cores. Simple algorithms can be implemented to obtain significant improvements.
 
-In addition other changes are described at the end of this document.
+The division is not a very common operation, even if in the baseline version is quite slow and can be improved, but the multiplication on the other hand is very common and apart from the calculation for the application software, can be also used to calculate addresses for array access, and so almost every kind of benchmark we are going to run on the processor, as well as the operative system, can take benefit by an improvement, this if of course the compiler is smart enough to use the dedicated istruction when needed.
+
+In section 2 an analysis of the current baseline of the processor is done in order to find the weak points that will be improved.
+Then in section 3 the improvement of the arithmetic unit, the multiplier and divider, is discussed.
+In section 4 the results from the simulation, synthesis and the FPGA board are presented and discussed, it's also discussed our methodology to compare different designs based on some metrics.
+In the end some further improvements of the processor are suggested for future works.
+
+\pagebreak
+\section{Baseline Analysis and Working Plan}
 
 \pagebreak
 \section{Improved Arithmetic Cores}
