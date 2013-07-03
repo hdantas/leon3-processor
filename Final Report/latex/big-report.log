@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.4.2)  29 JUN 2013 18:41
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.4.2)  2 JUL 2013 18:24
 entering extended mode
 **C:/Users/Feltro/pdp/Final*Report/latex/big-report.tex
 ("C:/Users/Feltro/pdp/Final Report/latex/big-report.tex"
@@ -1637,99 +1637,135 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 9.
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [1
 
-] [2]) [3]
-("C:\Users\Feltro\pdp\Final Report\latex\multiplier.tex"
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 30.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 30.
+ [2]
+Overfull \hbox (7.92387pt too wide) in paragraph at lines 49--50
+[]\T1/cmr/m/n/12 ------------------HENRIQUE: MAYBE WRITE SOME-THING MORE HERE
+ []
+
+
+Overfull \hbox (18.22824pt too wide) in paragraph at lines 51--52
+\T1/cmr/m/n/12 cated in the DRAM con-troller ( from \T1/cmtt/m/n/12 ``ddrsp0.dd
+rc0/ddr32.ddrc/ra.raddr_0''
+ []
+
+[3] [4]) [5] ("C:\Users\Feltro\pdp\Final Report\latex\multiplier.tex"
 Overfull \hbox (0.4616pt too wide) in paragraph at lines 21--23
 []\T1/cmr/m/n/12 The Wal-lace tree is a reg-u-lar hard-ware struc-ture to mul-t
 i-ply two operands.
  []
 
-<figures/Wallace_tree.png, id=155, 704.6325pt x 876.27374pt>
+<figures/Wallace_tree.png, id=166, 704.6325pt x 876.27374pt>
 File: figures/Wallace_tree.png Graphic file (type png)
 
 <use figures/Wallace_tree.png>
 Package pdftex.def Info: figures/Wallace_tree.png used on input line 30.
 (pdftex.def)             Requested size: 190.4146pt x 236.79762pt.
- [4
+ [6
 
 
  <C:/Users/Feltro/pdp/Final Report/latex/figures/Wallace_tree.png>]
-<figures/paper_wastedarea.png, id=169, 531.48563pt x 82.80937pt>
+<figures/paper_wastedarea.png, id=179, 531.48563pt x 82.80937pt>
 File: figures/paper_wastedarea.png Graphic file (type png)
 
 <use figures/paper_wastedarea.png>
 Package pdftex.def Info: figures/paper_wastedarea.png used on input line 50.
 (pdftex.def)             Requested size: 331.50458pt x 51.65083pt.
 
-<figures/paper_improvedarea.png, id=172, 426.84468pt x 92.59593pt>
+<figures/paper_improvedarea.png, id=182, 426.84468pt x 92.59593pt>
 File: figures/paper_improvedarea.png Graphic file (type png)
 
 <use figures/paper_improvedarea.png>
 Package pdftex.def Info: figures/paper_improvedarea.png used on input line 51.
 (pdftex.def)             Requested size: 331.52417pt x 71.91792pt.
- [5 <C:/Users/Feltro/pdp/Final Report/latex/figures/paper_wastedarea.png> <C:/U
-sers/Feltro/pdp/Final Report/latex/figures/paper_improvedarea.png>] [6]
-<figures/mul32_wave.png, id=199, 1345.025pt x 722.7pt>
+ [7 <C:/Users/Feltro/pdp/Final Report/latex/figures/paper_wastedarea.png> <C:/U
+sers/Feltro/pdp/Final Report/latex/figures/paper_improvedarea.png>] [8]
+<figures/mul32_wave.png, id=209, 1345.025pt x 722.7pt>
 File: figures/mul32_wave.png Graphic file (type png)
 
 <use figures/mul32_wave.png>
 Package pdftex.def Info: figures/mul32_wave.png used on input line 86.
 (pdftex.def)             Requested size: 390.00621pt x 209.55557pt.
-) [7 <C:/Users/Feltro/pdp/Final Report/latex/figures/mul32_wave.png>] ("C:\User
+) [9 <C:/Users/Feltro/pdp/Final Report/latex/figures/mul32_wave.png>] ("C:\User
 s\Feltro\pdp\Final Report\latex\divider.tex"
-<figures/DivisorStateMachine.png, id=209, 210.03468pt x 248.42813pt>
+<figures/DivisorStateMachine.png, id=219, 673.01437pt x 752.8125pt>
 File: figures/DivisorStateMachine.png Graphic file (type png)
 
 <use figures/DivisorStateMachine.png>
-Package pdftex.def Info: figures/DivisorStateMachine.png used on input line 25.
+Package pdftex.def Info: figures/DivisorStateMachine.png used on input line 28.
 
-(pdftex.def)             Requested size: 200.20483pt x 236.80142pt.
+(pdftex.def)             Requested size: 211.69257pt x 236.79257pt.
+ [10
 
-<figures/DivisorDiagram.png, id=211, 444.91219pt x 225.84375pt>
+
+]
+<figures/DivisorDiagram.png, id=226, 1341.51187pt x 683.55376pt>
 File: figures/DivisorDiagram.png Graphic file (type png)
 
 <use figures/DivisorDiagram.png>
-Package pdftex.def Info: figures/DivisorDiagram.png used on input line 35.
-(pdftex.def)             Requested size: 331.5041pt x 168.27618pt.
- [8
+Package pdftex.def Info: figures/DivisorDiagram.png used on input line 41.
+(pdftex.def)             Requested size: 464.72578pt x 236.79631pt.
 
+Overfull \hbox (74.72578pt too wide) in paragraph at lines 41--42
+ [][] 
+ []
 
- <C:/Users/Feltro/pdp/Final Report/latex/figures/DivisorStateMachine.png>]
-<figures/radix4pd.png, id=218, 983.675pt x 904.37875pt>
+[11 <C:/Users/Feltro/pdp/Final Report/latex/figures/DivisorStateMachine.png>]
+[12 <C:/Users/Feltro/pdp/Final Report/latex/figures/DivisorDiagram.png>]
+<figures/radix4pd.png, id=237, 983.675pt x 904.37875pt>
 File: figures/radix4pd.png Graphic file (type png)
 
 <use figures/radix4pd.png>
-Package pdftex.def Info: figures/radix4pd.png used on input line 67.
+Package pdftex.def Info: figures/radix4pd.png used on input line 66.
 (pdftex.def)             Requested size: 331.50319pt x 304.77997pt.
- [9 <C:/Users/Feltro/pdp/Final Report/latex/figures/DivisorDiagram.png>]
-<figures/myDivisionvsOriginal.png, id=223, 989.19562pt x 301.8778pt>
+
+<figures/SubGenExplanation.png, id=238, 651.18282pt x 506.6428pt>
+File: figures/SubGenExplanation.png Graphic file (type png)
+
+<use figures/SubGenExplanation.png>
+Package pdftex.def Info: figures/SubGenExplanation.png used on input line 73.
+(pdftex.def)             Requested size: 380.44858pt x 296.00218pt.
+ [13 <C:/Users/Feltro/pdp/Final Report/latex/figures/radix4pd.png>] [14 <C:/Use
+rs/Feltro/pdp/Final Report/latex/figures/SubGenExplanation.png>]
+<figures/myDivisionvsOriginal.png, id=249, 989.19562pt x 301.8778pt>
 File: figures/myDivisionvsOriginal.png Graphic file (type png)
 
 <use figures/myDivisionvsOriginal.png>
-Package pdftex.def Info: figures/myDivisionvsOriginal.png used on input line 84
+Package pdftex.def Info: figures/myDivisionvsOriginal.png used on input line 96
 .
-(pdftex.def)             Requested size: 389.99594pt x 119.01701pt.
-) [10 <C:/Users/Feltro/pdp/Final Report/latex/figures/radix4pd.png>] [11 <C:/Us
-ers/Feltro/pdp/Final Report/latex/figures/myDivisionvsOriginal.png>] ("C:\Users
-\Feltro\pdp\Final Report\latex\results.tex"
+(pdftex.def)             Requested size: 468.00116pt x 142.82227pt.
+
+Overfull \hbox (78.00116pt too wide) in paragraph at lines 96--97
+ [][] 
+ []
+
+) [15 <C:/Users/Feltro/pdp/Final Report/latex/figures/myDivisionvsOriginal.png>
+] ("C:\Users\Feltro\pdp\Final Report\latex\results.tex"
 Overfull \hbox (3.48167pt too wide) in paragraph at lines 41--42
 []\T1/cmr/m/n/12 This path is from \T1/cmtt/m/n/12 ``ddrsp0.ddrc0/ddr32.ddrc/ra
 .raddr_0'' \T1/cmr/m/n/12 to \T1/cmtt/m/n/12 ``ddrsp0.
  []
 
-[12
+[16
 
 
-] [13] [14]
+] [17] [18]
 Overfull \hbox (24.79538pt too wide) in paragraph at lines 164--233
  [][] 
  []
 
-) [15] ("C:\Users\Feltro\pdp\Final Report\latex\conclusion.tex") [16
+) [19] ("C:\Users\Feltro\pdp\Final Report\latex\conclusion.tex") [20
 
 
 ]
-("C:\Users\Feltro\pdp\Final Report\latex\bibliography.tex") [17
+("C:\Users\Feltro\pdp\Final Report\latex\bibliography.tex") [21
 
 
 ]
@@ -1750,13 +1786,13 @@ Package rerunfilecheck Info: File `big-report.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
  ) 
 Here is how much of TeX's memory you used:
- 28878 strings out of 493921
- 555843 string characters out of 3147280
+ 28907 strings out of 493921
+ 556368 string characters out of 3147280
  595753 words of memory out of 3000000
- 31498 multiletter control sequences out of 15000+200000
+ 31518 multiletter control sequences out of 15000+200000
  25209 words of font info for 70 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 63i,13n,96p,1022b,995s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,13n,96p,1022b,993s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}<C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
@@ -1777,9 +1813,9 @@ C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfti1200.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfti1440.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/public/cm-super/sftt1000.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on big-report.pdf (20 pages, 558934 bytes).
+Output written on big-report.pdf (24 pages, 725894 bytes).
 PDF statistics:
- 354 PDF objects out of 1000 (max. 8388607)
- 63 named destinations out of 1000 (max. 500000)
- 194 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 376 PDF objects out of 1000 (max. 8388607)
+ 68 named destinations out of 1000 (max. 500000)
+ 199 words of extra memory for PDF output out of 10000 (max. 10000000)
 

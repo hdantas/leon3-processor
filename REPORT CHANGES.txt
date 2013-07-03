@@ -12,15 +12,18 @@ At the end of the introduction add also the organization (outline) of the report
 *******************************************************************************
 
 
-
+********************DONE (SOME NOTES FOR HENRIQUE) ****************************
 Section 2 should look more like a motivation - much more descriptive and detailed than what you said in the introduction. I assume that this is what you intended it to be, but it looks a bit out of the context (there is no introduction to it), it is very short and not conclusive. Detail:
 - how did you analyze the baseline processor in order to discover its weak points (did you scan also the benchmarks?);
 - what were your findings based on which you have decided to make your improvements;
 - what do you expect from implementing those changes. Update also the title.
+*******************************************************************************
 
+----------------------DONE FOR DIVIDER-----------------------------------------
 In sections 3 and 4 you did not motivate well enough your choices for the multiplier/divider. Make a survey of different possibilities and give reasons for your choices. Refer to some published work. Also, it is not clear how did you verify your new multiplier/divider? What kind of test-benches did you make? What were their coverage?
 
 Please describe the action of each handshaking signal between your multiplier/divider and the other part of Leon3 processor in the form of a state machine or timing diagram, accordingly.
+-------------------------------------------------------------------------------
 
 In section 5 your baseline numbers are not the right ones - it may be that you didn't update the values from the newest result file from blackboard, or that you synthesized your own baseline design with DSPs and used those numbers. Next, it is not clear if your design works at 80 MHz or at 40 MHz. It is also difficult to track the differences if you have two tables - 5.1 and 5.2. Make just one table as the headers are the same. This holds for the benchmarks tables as well. Regarding the metrics comparison, again, why did you use the equivalent 40MHz frequency delay and not the 80 MHz one? 
 
