@@ -25,7 +25,15 @@ In sections 3 and 4 you did not motivate well enough your choices for the multip
 Please describe the action of each handshaking signal between your multiplier/divider and the other part of Leon3 processor in the form of a state machine or timing diagram, accordingly.
 -------------------------------------------------------------------------------
 
-In section 5 your baseline numbers are not the right ones - it may be that you didn't update the values from the newest result file from blackboard, or that you synthesized your own baseline design with DSPs and used those numbers. Next, it is not clear if your design works at 80 MHz or at 40 MHz. It is also difficult to track the differences if you have two tables - 5.1 and 5.2. Make just one table as the headers are the same. This holds for the benchmarks tables as well. Regarding the metrics comparison, again, why did you use the equivalent 40MHz frequency delay and not the 80 MHz one? 
+In section 5 your baseline numbers are not the right ones - it may be that you didn't update the values from the newest result file from blackboard, or that you synthesized your own baseline design with DSPs and used those numbers. Next, it is not clear if your design works at 80 MHz or at 40 MHz. 
+
+--------------------------DONE: ONLY MULTIPLIER LEFT TO UPDATE----------------
+It is also difficult to track the differences if you have two tables - 5.1 and 5.2. Make just one table as the headers are the same. This holds for the benchmarks tables as well. 
+------------------------------------------------------------------------------
+
+Regarding the metrics comparison, again, why did you use the equivalent 40MHz frequency delay and not the 80 MHz one? 
+
+Note by Luca: According to what said during the presentation the multiplier is not clocked but apparently can manage to complete the operation in less than 2 cycles so everything works, the only problem is that the synthesis gives 40MHz, it would be great to check if the slowest path is in the multiplier now instead of in the ram, check if that path has a delay smaller than 2 cycles and if apart of the multiplier the "second slowest path" is still enough to have more than 80MHz, if it is we can use that clock (1/2nd slowest path) as the clock frequency and correct the metrics.
 
 *****************************DONE*************************
 Please describe and argue the formula for metric A.
@@ -42,6 +50,10 @@ Refine also the conclusions and include a summary of your work. You should also 
 
 Conclusions can also include some feedback to help us to improve the project for the next generations (not mandatory but it is more than welcome).
 
+------------------------DONE FOR DIVIDER----------------------------------------
 The figures are not descriptive enough. Make more figures to present the multiplier and the divider. Start from the top level and then go inside and present each important component, i.e., component that you have implemented in a special manner, in such a way that it is clear where it is placed and why.
+--------------------------------------------------------------------------------
 
+++++++++++++++OUR REPORT IS AWESOME, FUCK YOU+++++++++++++++++++++++++++++++++++
 Your report should have a clear flow from the beginning to the end. Sections should nicely and logically follow each other, with links to the next ones.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

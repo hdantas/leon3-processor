@@ -14,23 +14,6 @@ performance of the baseline version of the processor.
 
 The synthesis tool reported the values shown in table~\ref{tbl:resource_utilization} for the resources utilization.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{c>{\color{white}\columncolor{Cyan}}c}
-\bottomrule
-
-Timing Summary (max clock freq. [\MHz]) & 80.522\\
-\# of Occupied Slices & 9904\\
-Total \# of 4-input LUTs & 16889\\
-Quiescent power [\W] & 2.467\\
-Dynamic power [\W] & 0.721\\
-Total power [\W] & 3.188\\
-P/f [\si[per-mode=symbol]{\W\per\MHz} ] & 0.03959\\\toprule
-\end{tabular}
-\caption{Resource Utilization Baseline.}
-\label{tbl:resource_utilization}
-\end{table}
-
 Notice that the value ``P/f'' indicates the energetic efficiency of the processor. Another useful insight is the fact that the power
 consumption is almost proportional to the clock frequency, therfore we can use this value to estimate the
 power consumption at different clock frequencies.
@@ -40,28 +23,26 @@ frequency.
 
 This path is from \texttt{``ddrsp0.ddrc0/ddr32.ddrc/ra.raddr\_0''} to \texttt{``ddrsp0. ddrc0/ddr\_phy0/ddr\_phy0/xc4v.ddr\_phy0/casgen''}.
 
-
 Those components belong to the SDRAM controller and the path is located between the controller
 and the physical interface with the memory.
 
-The synthesis of our modified version gave us the results showed in table~\ref{tbl:resource_utilization_modified}:
-
+The synthesis of our modified version gave us the results showed as well in table~\ref{tbl:resource_utilization}:
 
 \begin{table}[H]
 \centering
-\begin{tabular}{c>{\color{white}\columncolor{Cyan}}c}
+\begin{tabular}{cccc>{\color{white}\columncolor{Cyan}}c}
 \bottomrule
-
-Timing Summary (max clock freq. [\MHz]) & 40.197 \\
-\# of Occupied Slices & 11886\\
-Total \# of 4-input LUTs & 20469\\
-Quiescent power [\W] & 2.511\\
-Dynamic power [\W] & 0.832\\
-Total power [\W] & 3.343\\
-P/f [\si[per-mode=symbol]{\W\per\MHz}] & 0.08317\\\toprule
+ & Baseline & Only Multiplier & Only Divider & Final Version \\
+Max clk freq. [\MHz] & 80.522 & - & 80.535 & 40.197 \\
+\# of Occupied Slices & 9904 & -  & 10479 & 11886\\
+Total \# of 4-input LUTs & 16889 & -  & 17865 & 20469\\
+Quiescent power [\W] & 2.467 & - & 2.468 & 2.511\\
+Dynamic power [\W] & 0.721 & - & 0.743 & 0.832\\
+Total power [\W] & 3.188 & - & 3.211 & 3.343\\
+P/f [\si[per-mode=symbol]{\W\per\MHz}] & 0.03959 & - & 0.03987 & 0.08317\\\toprule
 \end{tabular}
-\caption{Resource Utilization Modified Version.}
-\label{tbl:resource_utilization_modified}
+\caption{Resource Utilization}
+\label{tbl:resource_utilization}
 \end{table}
 
 As expected the area consumption is moderately higher than before as the units we designed are more complex than the baseline. In particular the lookup table in the divider, and the Wallace tree structure in the multiplier are very space-hungry.
@@ -119,6 +100,7 @@ Total [\s] & \textbf{206.92}\\
 \caption{Benchmarks Scores Modified Version.}
 \label{tbl:benchmarks_modified}
 \end{table}
+
 
 From these results we can see that almost every benchmark had a healthy improvement, in the end
 the total execution time improved by 5.6\%.
