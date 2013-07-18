@@ -142,8 +142,6 @@
 
 } {} {}} ../../lib/opencores/ata/ocidec2_controller.vhd {1 {vcom -work opencores -93 -source -nowarn 1 -nowarn 5 -cover s /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/opencores/ata/ocidec2_controller.vhd
 
-} {} {}} /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/arith/mul32Arrays.vhd {1 {vcom -work gaisler -93 -explicit -quiet -source -nowarn 1 -nowarn 5 -novopt /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/arith/mul32Arrays.vhd
-
 } {} {}} ../../lib/gaisler/leon3/mmutlb.vhd {1 {vcom -work gaisler -93 -source -nowarn 1 -nowarn 5 -cover s /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/leon3/mmutlb.vhd
 
 } {} {}} ../../lib/work/debug/grtestmod.vhd {2 {vcom -work work -93 -source -nowarn 1 -nowarn 5 -cover s /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/work/debug/grtestmod.vhd
@@ -197,6 +195,8 @@
 } {} {}} ../../lib/esa/memoryctrl/memoryctrl.vhd {1 {vcom -work esa -93 -source -nowarn 1 -nowarn 5 -cover s /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/esa/memoryctrl/memoryctrl.vhd
 
 } {} {}} ../../lib/techmap/unisim/buffer_unisim.vhd {1 {vcom -work techmap -93 -source -nowarn 1 -nowarn 5 -cover s /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/techmap/unisim/buffer_unisim.vhd
+
+} {} {}} testbench.vhd {1 {vcom -work work -93 -source -nowarn 1 -nowarn 5 -cover s /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/testbench.vhd
 
 } {} {}} ../../lib/gaisler/sim/grusb_dclsim.vhd {2 {vcom -work gaisler -93 -source -nowarn 1 -nowarn 5 -cover s /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/sim/grusb_dclsim.vhd
 ###### /home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/sim/grusb_dclsim.vhd(120): end grusb_dclsim;

@@ -6,7 +6,7 @@
 
 
 \section{Results}
-
+\label{sec:results}
 \subsection{Synthesis}
 
 In order to evaluate the performance of our improved processor we need first to evaluate the
@@ -15,13 +15,11 @@ performance of the baseline version of the processor.
 The synthesis tool reported the values shown in table~\ref{tbl:resource_utilization} for the resources utilization.
 
 Notice that the value ``P/f'' indicates the energetic efficiency of the processor. Another useful insight is the fact that the power
-consumption is almost proportional to the clock frequency, therfore we can use this value to estimate the
+consumption is almost proportional to the clock frequency, therefore we can use this value to estimate the
 power consumption at different clock frequencies.
 
-From the synthesis report we can also see the slowest path which determines the max clock
-frequency.
-
-This path is from \texttt{``ddrsp0.ddrc0/ddr32.ddrc/ra.raddr\_0''} to \texttt{``ddrsp0. ddrc0/ddr\_phy0/ddr\_phy0/xc4v.ddr\_phy0/casgen''}.
+From the synthesis report we can also see the slowest path which determines the max clock frequency.
+This path is from \url{ddrsp0.ddrc0/ddr32.ddrc/ra.raddr_0} to \url{ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/casgen}.
 
 Those components belong to the SDRAM controller and the path is located between the controller
 and the physical interface with the memory.
@@ -30,9 +28,9 @@ The synthesis of our modified version gave us the results showed as well in tabl
 
 \begin{table}[H]
 \centering
-\begin{tabular}{cccc>{\color{white}\columncolor{Cyan}}c}
+\begin{tabular}{lccc>{\color{white}\columncolor{Cyan}}c}
 \bottomrule
- & Baseline & Only Multiplier & Only Divider & Final Version \\
+ & Baseline & Multiplier & Divider & Both \\
 Max clk freq. [\MHz] & 80.522 & - & 80.535 & 40.197 \\
 \# of Occupied Slices & 9904 & -  & 10479 & 11886\\
 Total \# of 4-input LUTs & 16889 & -  & 17865 & 20469\\
@@ -123,15 +121,16 @@ power consumed by the Dhrystone benchmark used for the simulation and \texttt{BS
 score which indicate how fast a program can be executed, it's calculated as the total execution
 time of the benchmarks on the FPGA board.
 
-For the area we are using that complex formula because in order to have a parameter which indicate the true cost of our implementation we needed something more than just the number of resources used.
-We assumed that the number of resource available on the device is inverse proportional to their effective cost, so if we use their reciprocal as a weight to calculate the average, we obtain a metric which is most likely nearer to the effective cost of the implementation once implemeted on chip.
+For the area we are using the weighted formula to account for the true cost of our implementation instead of just the number of resources used.
+We make the simplistic assumption that the number of resources available on the device is inversely proportional to their effective cost. Thus we use their reciprocal as a weight to calculate the average. Therefore we obtain a metric which is likely similar to the actual cost of the implementation on a chip.
 
-Moreover some composite metrics can be observed: these metrics consider two or more primitive
-metrics and often are more interesting than the latter because any improvement in one metric is usually accompanied by decrease in other. Composite metrics show the overall performance, and give insight on the trade-offs.
+Moreover some composite metrics can be observed. These metrics consider two or more primitive
+metrics and are often more interesting than the latter because improvements in one metric are usually accompanied by decrease in other.
+Thus composite metrics show the overall performance, and give insight on the necessary trade-offs.
 
 Since we want to speed-up the execution of the software while keeping the power consumption
-low because this is a processor designed for embedded applications, the composite metric we are
-interested the most is \texttt{P$\times$BS}. It reflects how much the processor is able to compute for the same amount of energy.
+low as our target applications are embedded systems, the composite metric we are
+interested the most is \texttt{P$\times$BS}. It reflects how much the processor is able to compute for the same unit of energy.
 
 Additional composite metrics are \texttt{A$\times$D}, \texttt{A$\times$BS} and \texttt{P$\times$D}. Since we focused on the
 execution time and power consumption one can notice that the other metrics are worse in our version
@@ -143,11 +142,12 @@ All the baseline's and modified units' synthesis and benchmark results have been
 
 \begin{table}[H]
 \centering
-\begin{tabular}{ccccc}
 
+\resizebox{\textwidth}{!}{ %scales the font automagically to fit the maximum text width! Nice :)
+\begin{tabular}{lcccc}
 &
 \multicolumn{4}{c}{Primitive Metrics}\\
-Version &
+&
 \ttfamily A &
 \ttfamily D &
 \ttfamily P &
@@ -168,7 +168,7 @@ Modified (Mul\&Div)&
 \num{3,34E+00} &
 \num{2,07E+02} \\
 Improvements (Div) &
-\color{red} 5.8s\% &
+\color{red} 5.8\% &
 - &
 \color{red} 0.7\% &
 \color{green} -2.7\% \\
@@ -181,7 +181,7 @@ Improvements (Mul\&Div) &
 \midrule
 
 & \multicolumn{4}{c}{Composite Metrics}\\
-Version &
+&
 \ttfamily A$\times$D &
 \ttfamily A$\times$BS &
 \ttfamily P$\times$D &
@@ -202,7 +202,7 @@ Modified (Mul\&Div)&
 \num{8,32E-02} &
 \num{6,92E+02} \\
 Improvements (Div) &
-\color{red} 5.8s\% &
+\color{red} 5.8\% &
 \color{red} 2.9\% &
 \color{red} 0.7\% &
 \color{green} -2.0\% \\
@@ -211,7 +211,7 @@ Improvements (Mul\&Div)&
 \color{red} 14\% &
 \color{red} 110\% &
 \color{green} -1\%\\
-\end{tabular}
+\end{tabular}}
 \caption{Final Metrics For Baseline And Improved Versions.}
 \label{tbl:final_metrics}
 \end{table}

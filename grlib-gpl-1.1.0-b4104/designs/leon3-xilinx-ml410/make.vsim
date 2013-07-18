@@ -131,9 +131,9 @@ vsim:
 	vlog -quiet  -work opencores ../../lib/opencores/ata/ata_device_oc.v
 	vlog -quiet  -work opencores +incdir+../../lib/opencores/ac97 ../../lib/opencores/ac97/ac97_top.v
 	vcom -quiet  -93  -work gaisler ../../lib/gaisler/arith/arith.vhd
-	vcom -quiet  -93  -work gaisler ../../lib/gaisler/arith/mul32.vhd
-	vcom -quiet  -93  -work gaisler ../../lib/gaisler/arith/mul32Original.vhd
+	vcom -quiet  -93  -work gaisler ../../lib/gaisler/arith/HA.vhd
 	vcom -quiet  -93  -work gaisler ../../lib/gaisler/arith/FA.vhd
+	vcom -quiet  -93  -work gaisler ../../lib/gaisler/arith/mul32.vhd
 	vcom -quiet  -93  -work gaisler ../../lib/gaisler/arith/qSelector.vhd
 	vcom -quiet  -93  -work gaisler ../../lib/gaisler/arith/t3to2compressor.vhd
 	vcom -quiet  -93  -work gaisler ../../lib/gaisler/arith/div32.vhd

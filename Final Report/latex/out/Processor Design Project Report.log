@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.22)  19 JUN 2013 09:04
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.22)  18 JUL 2013 16:38
 entering extended mode
  %&-line parsing enabled.
 **big-report.tex
@@ -1480,9 +1480,9 @@ Package cleveref Info: no abbreviation of names on input line 7386.
 Package hyperref Info: Option `colorlinks' set `false' on input line 54.
 Package hyperref Info: Option `bookmarksopen' set `true' on input line 54.
 
-(out//Processor Design Project Report.aux (out//intro.aux) (out//multiplier.aux
-) (out//divider.aux) (out//results.aux) (out//conclusion.aux)
-(out//bibliography.aux))
+(out//Processor Design Project Report.aux (out//intro.aux) (out//baseline.aux)
+(out//multiplier.aux) (out//divider.aux) (out//results.aux)
+(out//conclusion.aux) (out//bibliography.aux))
 \openout1 = `"Processor Design Project Report.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
@@ -1650,151 +1650,237 @@ es/tudelft-logo.jpg>]
 \openout5 = `"Processor Design Project Report.toc"'.
 
  [1]
-(out//Processor Design Project Report.lof)
-\tf@lof=\write6
-\openout6 = `"Processor Design Project Report.lof"'.
-
-
-(out//Processor Design Project Report.lot)
-\tf@lot=\write7
-\openout7 = `"Processor Design Project Report.lot"'.
-
- [2]
-\openout2 = `intro.aux'.
-
- (./intro.tex
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 9.
+(out//Processor Design Project Report.lof
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 7.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [1
-
-]) [2]
-\openout2 = `multiplier.aux'.
-
-
-(./multiplier.tex
-Overfull \hbox (0.4616pt too wide) in paragraph at lines 21--23
-[]\T1/cmr/m/n/12 The Wal-lace tree is a reg-u-lar hard-ware struc-ture to mul-t
-i-ply two operands.
+)
+Overfull \hbox (1.53221pt too wide) in paragraph at lines 12--12
+ [][] [][]\T1/cmr/m/n/12 Black box di-a-grams de-scrib-ing the in-ter-face port
+s of the Adders 
  []
 
-<figures/Wallace_tree.png, id=147, 704.6325pt x 876.27374pt>
-File: figures/Wallace_tree.png Graphic file (type png)
+)
+\tf@lof=\write6
+\openout6 = `"Processor Design Project Report.lof"'.
 
-<use figures/Wallace_tree.png>
-Package pdftex.def Info: figures/Wallace_tree.png used on input line 30.
-(pdftex.def)             Requested size: 190.4146pt x 236.79762pt.
- [3
+ (out//Processor Design Project Report.lot [2])
+\tf@lot=\write7
+\openout7 = `"Processor Design Project Report.lot"'.
+
+ [3]
+\openout2 = `intro.aux'.
+
+ (./intro.tex) [1
+
+]
+\openout2 = `baseline.aux'.
 
 
- <./figures/Wallace_tree.png>]
-<figures/paper_wastedarea.png, id=160, 531.48563pt x 82.80937pt>
+(./baseline.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 7.
+ (/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 7.
+
+[2
+
+
+] [3]) [4]
+\openout2 = `multiplier.aux'.
+
+ (./multiplier.tex
+\@float@every@Example=\toks45
+\c@Example=\count298
+ [5
+
+
+]
+Package hyperref Info: bookmark level for unknown Example defaults to 0 on inpu
+t line 81.
+ [6]
+<figures/Wallace_tree_8x8_trimmed.pdf, id=212, 524.19986pt x 285.26328pt>
+File: figures/Wallace_tree_8x8_trimmed.pdf Graphic file (type pdf)
+
+<use figures/Wallace_tree_8x8_trimmed.pdf>
+Package pdftex.def Info: figures/Wallace_tree_8x8_trimmed.pdf used on input lin
+e 101.
+(pdftex.def)             Requested size: 273.00142pt x 148.56409pt.
+ [7 <./figures/Wallace_tree_8x8_trimmed.pdf>] <figures/paper_wastedarea.png, id
+=228, 531.48563pt x 82.80937pt>
 File: figures/paper_wastedarea.png Graphic file (type png)
 
 <use figures/paper_wastedarea.png>
-Package pdftex.def Info: figures/paper_wastedarea.png used on input line 50.
+Package pdftex.def Info: figures/paper_wastedarea.png used on input line 135.
 (pdftex.def)             Requested size: 331.50458pt x 51.65083pt.
 
-<figures/paper_improvedarea.png, id=163, 426.84468pt x 92.59593pt>
+<figures/paper_improvedarea.png, id=231, 426.84468pt x 92.59593pt>
 File: figures/paper_improvedarea.png Graphic file (type png)
 
 <use figures/paper_improvedarea.png>
-Package pdftex.def Info: figures/paper_improvedarea.png used on input line 51.
-(pdftex.def)             Requested size: 331.52417pt x 71.91792pt.
- [4 <./figures/paper_wastedarea.png> <./figures/paper_improvedarea.png>] [5]
-<figures/mul32_wave.png, id=192, 1345.025pt x 722.7pt>
-File: figures/mul32_wave.png Graphic file (type png)
+Package pdftex.def Info: figures/paper_improvedarea.png used on input line 136.
 
-<use figures/mul32_wave.png>
-Package pdftex.def Info: figures/mul32_wave.png used on input line 86.
-(pdftex.def)             Requested size: 390.00621pt x 209.55557pt.
-) [6 <./figures/mul32_wave.png>]
+(pdftex.def)             Requested size: 331.52417pt x 71.91792pt.
+ [8 <./figures/paper_wastedarea.png> <./figures/paper_improvedarea.png>]
+<figures/empty.jpg, id=246, 470.75874pt x 702.625pt>
+File: figures/empty.jpg Graphic file (type jpg)
+ <use figures/empty.jpg>
+Package pdftex.def Info: figures/empty.jpg used on input line 156.
+(pdftex.def)             Requested size: 158.65514pt x 236.7987pt.
+
+[9]
+File: figures/empty.jpg Graphic file (type jpg)
+ <use figures/empty.jpg>
+Package pdftex.def Info: figures/empty.jpg used on input line 169.
+(pdftex.def)             Requested size: 158.65514pt x 236.7987pt.
+ [10 <./figures/empty.jpg>]
+File: figures/empty.jpg Graphic file (type jpg)
+ <use figures/empty.jpg>
+Package pdftex.def Info: figures/empty.jpg used on input line 178.
+(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
+File: figures/empty.jpg Graphic file (type jpg)
+
+<use figures/empty.jpg>
+Package pdftex.def Info: figures/empty.jpg used on input line 179.
+(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
+File: figures/empty.jpg Graphic file (type jpg)
+ <use figures/empty.jpg>
+Package pdftex.def Info: figures/empty.jpg used on input line 189.
+(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
+File: figures/empty.jpg Graphic file (type jpg)
+ <use figures/empty.jpg>
+Package pdftex.def Info: figures/empty.jpg used on input line 190.
+(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
+
+[11]
+File: figures/empty.jpg Graphic file (type jpg)
+ <use figures/empty.jpg>
+Package pdftex.def Info: figures/empty.jpg used on input line 200.
+(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
+File: figures/empty.jpg Graphic file (type jpg)
+ <use figures/empty.jpg>
+Package pdftex.def Info: figures/empty.jpg used on input line 201.
+(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
+File: figures/empty.jpg Graphic file (type jpg)
+ <use figures/empty.jpg>
+Package pdftex.def Info: figures/empty.jpg used on input line 202.
+(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
+
+[12]
+<figures/handshaking_modified_noholdn.png, id=289, 688.5725pt x 371.3875pt>
+File: figures/handshaking_modified_noholdn.png Graphic file (type png)
+
+<use figures/handshaking_modified_noholdn.png>
+Package pdftex.def Info: figures/handshaking_modified_noholdn.png used on input
+ line 225.
+(pdftex.def)             Requested size: 390.00029pt x 210.35pt.
+ [13]
+<figures/handshaking_original_noholdn.png, id=297, 706.64pt x 366.36874pt>
+File: figures/handshaking_original_noholdn.png Graphic file (type png)
+
+<use figures/handshaking_original_noholdn.png>
+Package pdftex.def Info: figures/handshaking_original_noholdn.png used on input
+ line 234.
+(pdftex.def)             Requested size: 390.001pt x 202.20221pt.
+
+<figures/handshaking_original_holdn.png, id=298, 1093.08376pt x 382.42876pt>
+File: figures/handshaking_original_holdn.png Graphic file (type png)
+
+<use figures/handshaking_original_holdn.png>
+Package pdftex.def Info: figures/handshaking_original_holdn.png used on input l
+ine 235.
+(pdftex.def)             Requested size: 389.99055pt x 136.44298pt.
+ [14 <./figures/handshaking_modified_noholdn.png>]
+File: figures/empty.jpg Graphic file (type jpg)
+ <use figures/empty.jpg>
+Package pdftex.def Info: figures/empty.jpg used on input line 245.
+(pdftex.def)             Requested size: 158.65514pt x 236.7987pt.
+ [15 <./figures/handshaking_original_noholdn.png> <./figures/handshaking_origin
+al_holdn.png>]) [16]
 \openout2 = `divider.aux'.
 
  (./divider.tex
-<figures/DivisorStateMachine.png, id=202, 210.03468pt x 248.42813pt>
+<figures/DivisorStateMachine.png, id=318, 673.01437pt x 752.8125pt>
 File: figures/DivisorStateMachine.png Graphic file (type png)
 
 <use figures/DivisorStateMachine.png>
-Package pdftex.def Info: figures/DivisorStateMachine.png used on input line 25.
+Package pdftex.def Info: figures/DivisorStateMachine.png used on input line 29.
 
-(pdftex.def)             Requested size: 200.20483pt x 236.80142pt.
+(pdftex.def)             Requested size: 211.69257pt x 236.79257pt.
+ [17
 
-<figures/DivisorDiagram.png, id=204, 444.91219pt x 225.84375pt>
+
+]
+<figures/DivisorDiagram.png, id=326, 1341.51187pt x 683.55376pt>
 File: figures/DivisorDiagram.png Graphic file (type png)
 
 <use figures/DivisorDiagram.png>
-Package pdftex.def Info: figures/DivisorDiagram.png used on input line 35.
-(pdftex.def)             Requested size: 331.5041pt x 168.27618pt.
- [7
-
-
- <./figures/DivisorStateMachine.png>]
-<figures/radix4pd.png, id=211, 983.675pt x 904.37875pt>
+Package pdftex.def Info: figures/DivisorDiagram.png used on input line 42.
+(pdftex.def)             Requested size: 389.99055pt x 198.71573pt.
+ [18 <./figures/DivisorStateMachine.png>]
+<figures/radix4pd.png, id=332, 983.675pt x 904.37875pt>
 File: figures/radix4pd.png Graphic file (type png)
 
 <use figures/radix4pd.png>
-Package pdftex.def Info: figures/radix4pd.png used on input line 67.
+Package pdftex.def Info: figures/radix4pd.png used on input line 55.
 (pdftex.def)             Requested size: 331.50319pt x 304.77997pt.
- [8 <./figures/DivisorDiagram.png>]
-<figures/myDivisionvsOriginal.png, id=216, 989.19562pt x 301.8778pt>
+ [19 <./figures/DivisorDiagram.png>] [20 <./figures/radix4pd.png>]
+<figures/SubGenExplanation.png, id=342, 651.18282pt x 506.6428pt>
+File: figures/SubGenExplanation.png Graphic file (type png)
+
+<use figures/SubGenExplanation.png>
+Package pdftex.def Info: figures/SubGenExplanation.png used on input line 77.
+(pdftex.def)             Requested size: 380.44858pt x 296.00218pt.
+ [21 <./figures/SubGenExplanation.png>]
+<figures/myDivisionvsOriginal.png, id=350, 989.19562pt x 301.8778pt>
 File: figures/myDivisionvsOriginal.png Graphic file (type png)
 
 <use figures/myDivisionvsOriginal.png>
-Package pdftex.def Info: figures/myDivisionvsOriginal.png used on input line 84
-.
+Package pdftex.def Info: figures/myDivisionvsOriginal.png used on input line 10
+3.
 (pdftex.def)             Requested size: 389.99594pt x 119.01701pt.
-) [9 <./figures/radix4pd.png>] [10 <./figures/myDivisionvsOriginal.png>]
+) [22] [23 <./figures/myDivisionvsOriginal.png>]
 \openout2 = `results.aux'.
 
- (./results.tex
-Overfull \hbox (3.48167pt too wide) in paragraph at lines 41--42
-[]\T1/cmr/m/n/12 This path is from \T1/cmtt/m/n/12 ``ddrsp0.ddrc0/ddr32.ddrc/ra
-.raddr_0'' \T1/cmr/m/n/12 to \T1/cmtt/m/n/12 ``ddrsp0.
- []
-
-[11
+ (./results.tex [24
 
 
-] [12] [13]
-Overfull \hbox (24.79538pt too wide) in paragraph at lines 161--230
- [][] 
- []
-
-) [14]
+] [25] [26]) [27]
 \openout2 = `conclusion.aux'.
 
- (./conclusion.tex) [15
+ (./conclusion.tex) [28
 
 
 ]
 \openout2 = `bibliography.aux'.
 
- (./bibliography.tex) [16
+
+(./bibliography.tex) [29
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
-
-(out//Processor Design Project Report.aux (out//intro.aux) (out//multiplier.aux
-) (out//divider.aux) (out//results.aux) (out//conclusion.aux)
-(out//bibliography.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 137.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 138.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 138.
+ (out//Processor Design Project Report.aux
+(out//intro.aux) (out//baseline.aux) (out//multiplier.aux) (out//divider.aux)
+(out//results.aux) (out//conclusion.aux) (out//bibliography.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 138.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 138.
 Package rerunfilecheck Info: File `"Processor Design Project Report".out' has n
 ot changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 29190 strings out of 493481
- 562238 string characters out of 3140986
- 606904 words of memory out of 3000000
- 31825 multiletter control sequences out of 15000+200000
- 25209 words of font info for 70 fonts, out of 3000000 for 9000
+ 29361 strings out of 493481
+ 565252 string characters out of 3140986
+ 612904 words of memory out of 3000000
+ 31948 multiletter control sequences out of 15000+200000
+ 25975 words of font info for 71 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,13n,96p,983b,959s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,14n,96p,1256b,957s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
 /usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
@@ -1817,11 +1903,11 @@ st/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2012/texmf-dist
 /fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2012/texmf-dist/f
 onts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2012/texmf-dist/fon
 ts/type1/public/cm-super/sftt1200.pfb>
-Output written on "out//Processor Design Project Report.pdf" (19 pages, 518798 
+Output written on "out//Processor Design Project Report.pdf" (33 pages, 713033 
 bytes).
 PDF statistics:
- 349 PDF objects out of 1000 (max. 8388607)
- 290 compressed objects within 3 object streams
- 61 named destinations out of 1000 (max. 500000)
- 186 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 490 PDF objects out of 1000 (max. 8388607)
+ 411 compressed objects within 5 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 

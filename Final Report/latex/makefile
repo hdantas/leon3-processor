@@ -5,4 +5,4 @@ tex:big-report.tex
 
 clean:
 	cd out/
-	rm -f *.lof *.lot *.toc *.aux *.out *.log
+	trash-put -f *.lof *.lot *.toc *.aux *.out *.log

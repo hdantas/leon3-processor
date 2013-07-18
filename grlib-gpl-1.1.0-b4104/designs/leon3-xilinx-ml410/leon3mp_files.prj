@@ -107,9 +107,9 @@ vhdl opencores ../../lib/opencores/ata/atahost_pio_controller.vhd
 vhdl opencores ../../lib/opencores/ata/ocidec2_controller.vhd
 verilog opencores ../../lib/opencores/ac97/ac97_top.v
 vhdl gaisler ../../lib/gaisler/arith/arith.vhd
-vhdl gaisler ../../lib/gaisler/arith/mul32.vhd
-vhdl gaisler ../../lib/gaisler/arith/mul32Original.vhd
+vhdl gaisler ../../lib/gaisler/arith/HA.vhd
 vhdl gaisler ../../lib/gaisler/arith/FA.vhd
+vhdl gaisler ../../lib/gaisler/arith/mul32.vhd
 vhdl gaisler ../../lib/gaisler/arith/qSelector.vhd
 vhdl gaisler ../../lib/gaisler/arith/t3to2compressor.vhd
 vhdl gaisler ../../lib/gaisler/arith/div32.vhd

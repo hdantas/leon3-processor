@@ -127,9 +127,9 @@ LIBFILE ../../lib/opencores/ata/ocidec2_controller.vhd opencores vhdl
 LIBFILE ../../lib/opencores/ac97/ac97_top.v opencores verilog
 SUBLIB gaisler VhdlLibrary vhdl
 LIBFILE ../../lib/gaisler/arith/arith.vhd gaisler vhdl
-LIBFILE ../../lib/gaisler/arith/mul32.vhd gaisler vhdl
-LIBFILE ../../lib/gaisler/arith/mul32Original.vhd gaisler vhdl
+LIBFILE ../../lib/gaisler/arith/HA.vhd gaisler vhdl
 LIBFILE ../../lib/gaisler/arith/FA.vhd gaisler vhdl
+LIBFILE ../../lib/gaisler/arith/mul32.vhd gaisler vhdl
 LIBFILE ../../lib/gaisler/arith/qSelector.vhd gaisler vhdl
 LIBFILE ../../lib/gaisler/arith/t3to2compressor.vhd gaisler vhdl
 LIBFILE ../../lib/gaisler/arith/div32.vhd gaisler vhdl

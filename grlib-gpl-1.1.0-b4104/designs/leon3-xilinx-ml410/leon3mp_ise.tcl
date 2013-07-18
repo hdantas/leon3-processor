@@ -228,12 +228,12 @@ puts "../../lib/opencores/ac97/ac97_top.v"
 lib_vhdl new gaisler
 xfile add "../../lib/gaisler/arith/arith.vhd" -lib_vhdl gaisler
 puts "../../lib/gaisler/arith/arith.vhd"
-xfile add "../../lib/gaisler/arith/mul32.vhd" -lib_vhdl gaisler
-puts "../../lib/gaisler/arith/mul32.vhd"
-xfile add "../../lib/gaisler/arith/mul32Original.vhd" -lib_vhdl gaisler
-puts "../../lib/gaisler/arith/mul32Original.vhd"
+xfile add "../../lib/gaisler/arith/HA.vhd" -lib_vhdl gaisler
+puts "../../lib/gaisler/arith/HA.vhd"
 xfile add "../../lib/gaisler/arith/FA.vhd" -lib_vhdl gaisler
 puts "../../lib/gaisler/arith/FA.vhd"
+xfile add "../../lib/gaisler/arith/mul32.vhd" -lib_vhdl gaisler
+puts "../../lib/gaisler/arith/mul32.vhd"
 xfile add "../../lib/gaisler/arith/qSelector.vhd" -lib_vhdl gaisler
 puts "../../lib/gaisler/arith/qSelector.vhd"
 xfile add "../../lib/gaisler/arith/t3to2compressor.vhd" -lib_vhdl gaisler

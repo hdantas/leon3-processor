@@ -141,9 +141,9 @@ ncsim:
 	ncvlog -nowarn DLCPTH -nocopyright  -work opencores -INCDIR ../../lib/opencores/ac97 ../../lib/opencores/ac97/ac97_top.v
 	mkdir xncsim/gaisler
 	ncvhdl -nowarn DLCPTH -NOVITALCHECK -linedebug -v93 -nocopyright -work  gaisler ../../lib/gaisler/arith/arith.vhd
-	ncvhdl -nowarn DLCPTH -NOVITALCHECK -linedebug -v93 -nocopyright -work  gaisler ../../lib/gaisler/arith/mul32.vhd
-	ncvhdl -nowarn DLCPTH -NOVITALCHECK -linedebug -v93 -nocopyright -work  gaisler ../../lib/gaisler/arith/mul32Original.vhd
+	ncvhdl -nowarn DLCPTH -NOVITALCHECK -linedebug -v93 -nocopyright -work  gaisler ../../lib/gaisler/arith/HA.vhd
 	ncvhdl -nowarn DLCPTH -NOVITALCHECK -linedebug -v93 -nocopyright -work  gaisler ../../lib/gaisler/arith/FA.vhd
+	ncvhdl -nowarn DLCPTH -NOVITALCHECK -linedebug -v93 -nocopyright -work  gaisler ../../lib/gaisler/arith/mul32.vhd
 	ncvhdl -nowarn DLCPTH -NOVITALCHECK -linedebug -v93 -nocopyright -work  gaisler ../../lib/gaisler/arith/qSelector.vhd
 	ncvhdl -nowarn DLCPTH -NOVITALCHECK -linedebug -v93 -nocopyright -work  gaisler ../../lib/gaisler/arith/t3to2compressor.vhd
 	ncvhdl -nowarn DLCPTH -NOVITALCHECK -linedebug -v93 -nocopyright -work  gaisler ../../lib/gaisler/arith/div32.vhd

@@ -13,72 +13,9 @@ multiplications and divisions, but with the original configuration the multiplie
 to calculate the result and the divider 36, so one of the first things we decided to do is to improve
 these arithmetic cores. Simple algorithms can be implemented to obtain significant improvements.
 
-The division is not a very common operation, even if in the baseline version is quite slow and can be improved, but the multiplication on the other hand is very common and apart from the calculation for the application software, can be also used to calculate addresses for array access, and so almost every kind of benchmark we are going to run on the processor, as well as the operative system, can take benefit by an improvement, this if of course the compiler is smart enough to use the dedicated istruction when needed.
+The division is not a very common operation, even if in the baseline version is quite slow and can be improved, on the other hand the multiplication is quite frequent. Apart from the calculations for the application software, the multiplier may also be used to calculate addresses for array access, and therefore the benchmarks we will run on the processor, as well as the operating system, can benefit greatly from the improvements.
 
-In section 2 an analysis of the current baseline of the processor is done in order to find the weak points that will be improved.
-Then in section 3 the improvement of the arithmetic unit, the multiplier and divider, is discussed.
-In section 4 the results from the simulation, synthesis and the FPGA board are presented and discussed, it's also discussed our methodology to compare different designs based on some metrics.
-In the end some further improvements of the processor are suggested for future works.
-
-\pagebreak
-\section{Baseline Analysis and Working Plan}
-
-In order to find out which modification will augment the processor's performance first an analysis of the baseline version is needed.
-By looking at the documentation and the results of the synthesis of the baseline version we divided all the potential modifications in three categories:
-
-\begin{itemize}
-  \item Arithmetic improvements
-  \item Clock frequency improvement
-  \item Architectural improvements
-\end{itemize}
-
-As explained before the SPARC V8 architecture used by the LEON3 processor contemplates several assembly instructions for complex operations such as multiplication and division.
-The integer unit of the baseline version is equipped with 2 units that can execute hardware multiplications and divisions, but the performance in terms of execution time of these ones are quite poor.
-Even if they don't consume too much area with the default settings the multiplication takes 5 clock cycles and the division 36, simple more advanced algorithms can be implemented to make these execution times lower.
-Before deciding to spend time doing this improvement it's necessary to evaulate the gain in terms of the compound metric we are caring of: \texttt{P}$\times$\texttt{BS}.
-
-Of course the resulting circuits will be more complex so most likely the power consumption will be greater, but the baseline version's units don't use particular tricks to make the power consumption low, they use carry propagate adders in their computation which are not very performant in terms of power and path delay, so there is room to improve these aspects as well or to have in the end a processor where the power consumption is not much worse.
-
-It's important also to study how often these istruction are used by an average program.
-Assuming that the given benchmarks represent the average usage of the processor's resources, it's possible to see that the division is widely used only in a couple of those: "Division" and "GMPbench, divide" while in the other benchmakrs is only rarely used.
-The gain in terms of benchmark score for the division won't be very high even if a significant  gain is expected in the division-related benchmarks.
-On the other hand, as explained in the next section, a simple division algorithm can be implemented to have the division executed in half of the time of the baseline version, this without having a too big exacerbation of the power peformance so we decided to spend time on the division unit.
-
-The multiplication, oppositely to the division, is very widely used by all kind of benchmarks, in particular the unit can be used also to calculate addresses by the operative system running on the FPGA board so by improving this unit we expect a general improvement of all the benchmark scores. 
-
-------------------HENRIQUE: MAYBE WRITE SOMETHING MORE HERE ABOUT WHY IT'S GOOD TO IMPROVE THE MULTIPLIER--------------------------
-
-About the clock-frequency-related modifications after a synthesis of the baseline version, we noticed that the slowest path of the whole processor is located in the DRAM controller ( from \texttt{``ddrsp0.ddrc0/ddr32.ddrc/ra.raddr\_0''} to \texttt{``ddrsp0.ddrc0/ddr\_phy0/ddr\_phy0/xc4v.ddr\_phy0/casgen''}). Trying to modify this slowest path would be most likely very difficult because first the delay in the circuit is affected by the place\&routing process, so after the re-design of the arithmetics unit this path could change, second the documentation is very leaky about the implementation details and the available time was our most tight constrain, so in the end we decided to postpone our decision after we had a working version with the other modifications in order to see how the slowest path changed in the meantime.
-
-About the architecture, there are several different improvements that can be done.
-The baseline version is equipped with a static branch predictor, this can augment performance nicely but better algorithms exist such as 1 or 2 bit branch prediction buffer or correlation prediction.
-An improvement in this sense would be only slight but present in every kind of benchmark: branches are the 30% of the instruction on average, so could have augmented execution time significantly.
-The static prediction doesn't contemplate heavy calculations, indeed it's very simple so the power consumption in the baseline version due to the prediction is negligible. Usually more evoluted algorithms still have not so heavy computation, for the branch prediction buffer the algorithm consist in a small state machine, but even a slight exacerbation can be dangerous because more calculations are done for each branch fetched. We think that still the advantage in terms of execution time would be greater than the disadvantage so this could be a very nice modification to do.
-There are others modification that can be done, like designing a scalable architecture such as Tomasulo's, but this kind of changes require a really deep change of the whole architecture, the code for the baseline version of the integer unit is more than 3000 lines of code, and so it's very unlikely to have a working scalar integer unit in the small time we have for this project so we decided to not dedicate time for that and concentrate in other things.
-
-In the end we focused mainly on the improvement of the arithmetic unit because we thought this would have been the most efficient way to spend our time, because it would have given us the most improvements with the less efford. We scheduled the other modification after we had a working improved multiplication and division.
-
-\pagebreak
-\section{Improved Arithmetic Cores}
-
-In order to improve the performance of the arithmetic unit we redesigned from the ground up both the
-two multiplier and divider units.
-
-In order to make them compatible with the rest of the processor we studied in a detailed way all
-the handshaking signals.
-
-The original multiplier can be configured for ``2 cycles'' of latency (instead of 5) through the use of \texttt{make xconfig}.
-It is important to note that for this particular setup the ready signal is not used.
-So although we are writing a new multiplier it is necessary to configure the
-processor with a 2-cycle multiplier as well, so the processor can handle the
-handshaking signals generated by our multiplier in the correct way.
-
-For the divider there is not a previous configuration, so the processor knows that an operation is
-completed by inspecting the \texttt{ready} and \texttt{nready} signals which have been reproduced following the
-specifications.
-
-The part of the core that handles the other signals such as \texttt{start}, \texttt{flush} or \texttt{holdn}, has been designed
-to mimic the original version, thereafter all the handshaking signals are handled and generated following the
-specifications to enable unit compatibility with the processor.
-
-A more detailed description of the handshaking signals is presented later.
+In section~\ref{sec:baseline} an analysis of the current baseline of the processor is done in order to find the weak points that will be improved.
+Thereafter in section~\ref{sec:arth} the improvements to the arithmetic unit, \emph{i.e.} the multiplier and divider, are discussed.
+In section~\ref{sec:results} the results from the simulation, synthesis and the FPGA board are presented and discussed, the section also examines our methodology to compare different designs based on various metrics.
+In the end some further improvements of the processor are suggested for future work.

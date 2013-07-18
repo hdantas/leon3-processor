@@ -1,8 +1,8 @@
 Creating log file
-C:\Users\Feltro\pdp\grlib-gpl-1.1.0-b4104\designs\leon3-xilinx-ml410\leon3mp_xpa
-.log.
+/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp_xp
+a.log.
 Loading device for application Rf_Device from file '4vfx60.nph' in environment
-C:\Xilinx\14.2\ISE_DS\ISE\.
+/usr/local/Xilinx/14.2/ISE_DS/ISE/.
    "leon3mp" is an NCD, version 3.2, device xc4vfx60, package ff1152, speed -11
 This design is using the default stepping level (major silicon revision) for
 this device (0). Unless your design is targeted at devices of this stepping
@@ -18,129 +18,10 @@ INFO:Power:1693 -
    data.
    --------------------------------------------------------------
 
-Design load 20% completeDesign load 25% completeDesign load 30% completeDesign load 60% completeDesign load 95% completeDesign load 100% completeWARNING:Power:163 - PowerVcd_Dump: Declaration of variable 'clkgen0/clkin'
-   ignored, identifier code 'f"' is already in use by 'lclk'!
-WARNING:Power:164 - PowerVcd_Dump: Subsequent redeclarations of this or other
-   identifier codes will be ignored without comment.
-Annotation 1% completeAnnotation 2% completeAnnotation 3% completeAnnotation 4% completeAnnotation 5% completeAnnotation 6% completeAnnotation 7% completeAnnotation 8% completeAnnotation 9% completeAnnotation 10% completeAnnotation 11% completeAnnotation 12% completeAnnotation 13% completeAnnotation 14% completeAnnotation 15% completeAnnotation 16% completeAnnotation 17% completeAnnotation 18% completeAnnotation 19% completeAnnotation 20% completeAnnotation 21% completeAnnotation 22% completeAnnotation 23% completeAnnotation 24% completeAnnotation 25% completeAnnotation 26% completeAnnotation 27% completeAnnotation 28% completeAnnotation 29% completeAnnotation 30% completeAnnotation 31% completeAnnotation 32% completeAnnotation 33% completeAnnotation 34% completeAnnotation 35% completeAnnotation 36% completeAnnotation 37% completeAnnotation 38% completeAnnotation 39% completeAnnotation 40% completeAnnotation 41% completeAnnotation 42% completeAnnotation 43% completeAnnotation 44% completeAnnotation 45% completeAnnotation 46% completeAnnotation 47% completeAnnotation 48% completeAnnotation 49% completeAnnotation 50% completeAnnotation 51% completeAnnotation 52% completeAnnotation 53% completeAnnotation 54% completeAnnotation 55% completeAnnotation 56% completeAnnotation 57% completeAnnotation 58% completeAnnotation 59% completeAnnotation 60% completeAnnotation 61% completeAnnotation 62% completeAnnotation 63% completeAnnotation 64% completeAnnotation 65% completeAnnotation 66% completeAnnotation 67% completeAnnotation 68% completeAnnotation 69% completeAnnotation 70% completeAnnotation 71% completeAnnotation 72% completeAnnotation 73% completeAnnotation 74% completeAnnotation 75% completeAnnotation 76% completeAnnotation 77% completeAnnotation 78% completeAnnotation 79% completeAnnotation 80% completeAnnotation 81% completeAnnotation 82% completeAnnotation 83% completeAnnotation 84% completeAnnotation 85% completeAnnotation 86% completeAnnotation 87% completeAnnotation 88% completeAnnotation 89% completeAnnotation 90% completeAnnotation 91% completeAnnotation 92% completeAnnotation 93% completeAnnotation 94% completeAnnotation 95% completeAnnotation 96% completeAnnotation 97% completeAnnotation 98% completeAnnotation 99% completeAnnotation 100% completeSimulation design load 0% completeSimulation design load 1% completeSimulation design load 2% completeSimulation design load 3% completeSimulation design load 4% completeSimulation design load 5% completeSimulation design load 6% completeSimulation design load 7% completeSimulation design load 8% completeSimulation design load 9% completeSimulation design load 10% completeSimulation design load 11% completeSimulation design load 12% completeSimulation design load 13% completeSimulation design load 14% completeSimulation design load 15% completeSimulation design load 16% completeSimulation design load 17% completeSimulation design load 18% completeSimulation design load 19% completeSimulation design load 20% completeSimulation design load 21% completeSimulation design load 22% completeSimulation design load 23% completeSimulation design load 24% completeSimulation design load 25% completeSimulation design load 26% completeSimulation design load 27% completeSimulation design load 28% completeSimulation design load 29% completeSimulation design load 30% completeSimulation design load 31% completeSimulation design load 32% completeSimulation design load 33% completeSimulation design load 34% completeSimulation design load 35% completeSimulation design load 36% completeSimulation design load 37% completeSimulation design load 38% completeSimulation design load 39% completeSimulation design load 40% completeSimulation design load 41% completeSimulation design load 42% completeSimulation design load 43% completeSimulation design load 44% completeSimulation design load 45% completeSimulation design load 46% completeSimulation design load 47% completeSimulation design load 48% completeSimulation design load 49% completeSimulation design load 50% completeSimulation design load 51% completeSimulation design load 52% completeSimulation design load 53% completeSimulation design load 54% completeSimulation design load 55% completeSimulation design load 56% completeSimulation design load 57% completeSimulation design load 58% completeSimulation design load 59% completeSimulation design load 60% completeSimulation design load 61% completeSimulation design load 62% completeSimulation design load 63% completeSimulation design load 64% completeSimulation design load 65% completeSimulation design load 66% completeSimulation design load 67% completeSimulation design load 68% completeSimulation design load 69% completeSimulation design load 70% completeSimulation design load 71% completeSimulation design load 72% completeSimulation design load 73% completeSimulation design load 74% completeSimulation design load 75% completeSimulation design load 76% completeSimulation design load 77% completeSimulation design load 78% completeSimulation design load 79% completeSimulation design load 80% completeSimulation design load 81% completeSimulation design load 82% completeERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(31).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(30).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(29).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(28).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(27).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(26).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(25).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(24).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(23).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(22).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(21).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(20).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(19).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(18).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(17).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(16).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(15).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(14).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(13).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(12).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(11).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(10).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(9).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(8).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(7).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(6).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(5).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(4).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(3).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(2).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(1).
-ERROR:Power:1653 - Duty cycle <198.00> must be in range [0..100]% for
-   sram_flash_data(0).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sram_bw(0).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sram_bw(1).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sram_bw(2).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sram_bw(3).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   fpga_leds(5).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   phy0_txd(2).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   phy0_txd(0).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(15).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(14).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(13).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(12).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(11).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(10).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(9).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(8).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(7).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(6).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(5).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(4).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(3).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(2).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(1).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for
-   sysace_mpd(0).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for rst0/r(4).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for rst0/r(3).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for rst0/r(2).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for rst0/r(1).
-ERROR:Power:1653 - Duty cycle <199.00> must be in range [0..100]% for rst0/r(0).
-Running Vector-less Activity Propagation
+Design load 20% completeDesign load 25% completeDesign load 30% completeDesign load 60% completeDesign load 95% completeDesign load 100% completeRunning Vector-less Activity Propagation
 ............
 Finished Running Vector-less Activity Propagation
-Finished Running Vector-less Activity Propagation 6 secs 
+Finished Running Vector-less Activity Propagation 10 secs 
 WARNING:Power:1337 - Clock frequency for clock net
    "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/dll0/clkgen0/xc2v.v/dll0/CLKOUT" is zero.
 WARNING:Power:1337 - Clock frequency for clock net
@@ -244,10 +125,12 @@ WARNING:Power:1337 - Clock frequency for clock net
    "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_d
    ll/ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_dll/cd/CLK<6>" is
    zero.
+WARNING:Power:1337 - Clock frequency for clock net "clkace" is zero.
 WARNING:Power:1337 - Clock frequency for clock net "clkgen0/xc2v.v/clk0B" is
    zero.
 WARNING:Power:1337 - Clock frequency for clock net "clkgen0/xc2v.v/clk_j" is
    zero.
+WARNING:Power:1337 - Clock frequency for clock net "clkml" is zero.
 WARNING:Power:1337 - Clock frequency for clock net
    "ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/clk_0r" is zero.
 WARNING:Power:1337 - Clock frequency for clock net
@@ -258,149 +141,15 @@ WARNING:Power:1337 - Clock frequency for clock net
    "ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/rclk0" is zero.
 WARNING:Power:1337 - Clock frequency for clock net
    "ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/rclk90" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/rclk90b" is zero.
+WARNING:Power:1337 - Clock frequency for clock net "eth1.erxc_pad/xcv2.u0/ol" is
+   zero.
+WARNING:Power:1337 - Clock frequency for clock net "eth1.etxc_pad/xcv2.u0/ol" is
+   zero.
 WARNING:Power:1337 - Clock frequency for clock net "ethi_rx_clk" is zero.
 WARNING:Power:1337 - Clock frequency for clock net "ethi_tx_clk" is zero.
 WARNING:Power:1337 - Clock frequency for clock net
    "l3.cpu[0].u0/p0/mgen.div0/addin1x_not0001" is zero.
-WARNING:Power:1369 - Clock frequency for one or more clocks was not found
-   through
-   timing constraints (PCF file) or simulation data.  Without knowing the
-   clock frequency of all clocks, dynamic power information for those clock
-   domains will default to zero which may under-estimate the power for this
-   design.  To avoid this warning, provide at least one of the following:
-     1. The proper timing constraints (PERIOD) for clocks (re-implement design
-        and load the newly generated PCF file into XPower Analyzer)
-     2. A post PAR simulation-generated VCD or SAIF file indicating clock
-        frequencies
-     3. The clock frequency for clocks in the "By Type -> Clocks" view in the
-        XPower Analyzer GUI and then applying "Update Power Analysis"
-Matched 4% (1111/28959) of design nets
-Matched 1% (239/17142) of simulation nets
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/dll0/clkgen0/xc2v.v/dll0/CLKOUT" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/dll0/clkgen0/xc2v.v/dll0/FASTCLK" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/dll0/clkgen0/xc2v.v/dll0/cd/CLK<1>" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/dll0/clkgen0/xc2v.v/dll0/cd/CLK<2>" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/dll0/clkgen0/xc2v.v/dll0/cd/CLK<3>" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/dll0/clkgen0/xc2v.v/dll0/cd/CLK<4>" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/dll0/clkgen0/xc2v.v/dll0/cd/CLK<5>" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/dll0/clkgen0/xc2v.v/dll0/cd/CLK<6>" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/sd0.dll1/clkgen0/xc2v.v/sd0.dll1/CLKOUT"
-   is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/sd0.dll1/clkgen0/xc2v.v/sd0.dll1/FASTCLK"
-   is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/sd0.dll1/clkgen0/xc2v.v/sd0.dll1/cd/CLK<1
-   >" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/sd0.dll1/clkgen0/xc2v.v/sd0.dll1/cd/CLK<2
-   >" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/sd0.dll1/clkgen0/xc2v.v/sd0.dll1/cd/CLK<3
-   >" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/sd0.dll1/clkgen0/xc2v.v/sd0.dll1/cd/CLK<4
-   >" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/sd0.dll1/clkgen0/xc2v.v/sd0.dll1/cd/CLK<5
-   >" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_clkgen0/xc2v.v/sd0.dll1/clkgen0/xc2v.v/sd0.dll1/cd/CLK<6
-   >" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/ddrsp0.
-   ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/CLKOUT" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/ddrsp0.
-   ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/FASTCLK" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/ddrsp0.
-   ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/cd/CLK<1>" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/ddrsp0.
-   ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/cd/CLK<2>" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/ddrsp0.
-   ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/cd/CLK<3>" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/ddrsp0.
-   ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/cd/CLK<4>" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/ddrsp0.
-   ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/cd/CLK<5>" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/ddrsp0.
-   ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/dll/cd/CLK<6>" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_d
-   ll/ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_dll/CLKOUT" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_d
-   ll/ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_dll/FASTCLK" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_d
-   ll/ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_dll/cd/CLK<1>" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_d
-   ll/ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_dll/cd/CLK<2>" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_d
-   ll/ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_dll/cd/CLK<3>" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_d
-   ll/ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_dll/cd/CLK<4>" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_d
-   ll/ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_dll/cd/CLK<5>" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "DCM_AUTOCALIBRATION_ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_d
-   ll/ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/nops.read_dll/cd/CLK<6>" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net "clkgen0/xc2v.v/clk0B" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net "clkgen0/xc2v.v/clk_j" is
-   zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/clk_0r" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/clk_0ro" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/clk_270ro" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/rclk0" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/rclk90" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/rclk90b" is zero.
-WARNING:Power:1337 - Clock frequency for clock net "ethi_rx_clk" is zero.
-WARNING:Power:1337 - Clock frequency for clock net "ethi_tx_clk" is zero.
-WARNING:Power:1337 - Clock frequency for clock net
-   "l3.cpu[0].u0/p0/mgen.div0/addin1x_not0001" is zero.
+WARNING:Power:1337 - Clock frequency for clock net "srclkl" is zero.
 WARNING:Power:1369 - Clock frequency for one or more clocks was not found
    through
    timing constraints (PCF file) or simulation data.  Without knowing the
@@ -414,7 +163,5 @@ WARNING:Power:1369 - Clock frequency for one or more clocks was not found
      3. The clock frequency for clocks in the "By Type -> Clocks" view in the
         XPower Analyzer GUI and then applying "Update Power Analysis"
 
-Design
-'C:/Users/Feltro/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/leon3mp.nc
-d' opened successfully
+Design 'leon3mp.ncd' and constraints 'leon3mp.pcf' opened successfully
 

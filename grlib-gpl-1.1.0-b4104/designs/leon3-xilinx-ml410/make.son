@@ -129,9 +129,9 @@ sonata-compile:
 	vhdlp -s -work  opencores ../../lib/opencores/ata/atahost_pio_controller.vhd
 	vhdlp -s -work  opencores ../../lib/opencores/ata/ocidec2_controller.vhd
 	vhdlp -s -work  gaisler ../../lib/gaisler/arith/arith.vhd
-	vhdlp -s -work  gaisler ../../lib/gaisler/arith/mul32.vhd
-	vhdlp -s -work  gaisler ../../lib/gaisler/arith/mul32Original.vhd
+	vhdlp -s -work  gaisler ../../lib/gaisler/arith/HA.vhd
 	vhdlp -s -work  gaisler ../../lib/gaisler/arith/FA.vhd
+	vhdlp -s -work  gaisler ../../lib/gaisler/arith/mul32.vhd
 	vhdlp -s -work  gaisler ../../lib/gaisler/arith/qSelector.vhd
 	vhdlp -s -work  gaisler ../../lib/gaisler/arith/t3to2compressor.vhd
 	vhdlp -s -work  gaisler ../../lib/gaisler/arith/div32.vhd

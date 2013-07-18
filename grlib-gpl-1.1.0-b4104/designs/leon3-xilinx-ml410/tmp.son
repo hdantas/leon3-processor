@@ -478,13 +478,13 @@ name = gaisler
   name = ../../lib/gaisler/arith/arith.vhd
  []
  [file]
-  name = ../../lib/gaisler/arith/mul32.vhd
- []
- [file]
-  name = ../../lib/gaisler/arith/mul32Original.vhd
+  name = ../../lib/gaisler/arith/HA.vhd
  []
  [file]
   name = ../../lib/gaisler/arith/FA.vhd
+ []
+ [file]
+  name = ../../lib/gaisler/arith/mul32.vhd
  []
  [file]
   name = ../../lib/gaisler/arith/qSelector.vhd

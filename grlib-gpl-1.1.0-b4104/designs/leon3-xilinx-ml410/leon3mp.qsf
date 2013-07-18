@@ -102,9 +102,9 @@ set_global_assignment -name VHDL_FILE ../../lib/opencores/ata/atahost_pio_contro
 set_global_assignment -name VHDL_FILE ../../lib/opencores/ata/ocidec2_controller.vhd -library opencores
 set_global_assignment -name VERILOG_FILE ../../lib/opencores/ac97/ac97_top.v -library opencores
 set_global_assignment -name VHDL_FILE ../../lib/gaisler/arith/arith.vhd -library gaisler
-set_global_assignment -name VHDL_FILE ../../lib/gaisler/arith/mul32.vhd -library gaisler
-set_global_assignment -name VHDL_FILE ../../lib/gaisler/arith/mul32Original.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/arith/HA.vhd -library gaisler
 set_global_assignment -name VHDL_FILE ../../lib/gaisler/arith/FA.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/arith/mul32.vhd -library gaisler
 set_global_assignment -name VHDL_FILE ../../lib/gaisler/arith/qSelector.vhd -library gaisler
 set_global_assignment -name VHDL_FILE ../../lib/gaisler/arith/t3to2compressor.vhd -library gaisler
 set_global_assignment -name VHDL_FILE ../../lib/gaisler/arith/div32.vhd -library gaisler

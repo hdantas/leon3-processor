@@ -451,15 +451,15 @@ VALUE "<project>/../../lib/gaisler/arith/arith.vhd,hdl"
 STATE="utd"
 LIBRARY="gaisler"
 ENDFILE
-VALUE "<project>/../../lib/gaisler/arith/mul32.vhd,hdl"
-STATE="utd"
-LIBRARY="gaisler"
-ENDFILE
-VALUE "<project>/../../lib/gaisler/arith/mul32Original.vhd,hdl"
+VALUE "<project>/../../lib/gaisler/arith/HA.vhd,hdl"
 STATE="utd"
 LIBRARY="gaisler"
 ENDFILE
 VALUE "<project>/../../lib/gaisler/arith/FA.vhd,hdl"
+STATE="utd"
+LIBRARY="gaisler"
+ENDFILE
+VALUE "<project>/../../lib/gaisler/arith/mul32.vhd,hdl"
 STATE="utd"
 LIBRARY="gaisler"
 ENDFILE

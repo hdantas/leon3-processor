@@ -53,6 +53,9 @@
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/arith/FA.vhd&quot; into library gaisler</arg>
 </msg>
 
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/arith/HA.vhd&quot; into library gaisler</arg>
+</msg>
+
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/arith/arith.vhd&quot; into library gaisler</arg>
 </msg>
 
@@ -60,9 +63,6 @@
 </msg>
 
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/arith/mul32.vhd&quot; into library gaisler</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/arith/mul32Original.vhd&quot; into library gaisler</arg>
 </msg>
 
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/arith/qSelector.vhd&quot; into library gaisler</arg>

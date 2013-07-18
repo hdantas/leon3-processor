@@ -1,7 +1,6 @@
 \select@language {english}
 \select@language {english}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Resource Utilization Baseline.\relax }}{11}{table.caption.11}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Resource Utilization Modified Version.\relax }}{11}{table.caption.12}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Benchmarks Scores Baseline.\relax }}{12}{table.caption.13}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Benchmarks Scores Modified Version.\relax }}{13}{table.caption.14}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Final Metrics For Baseline And Improved Versions.\relax }}{14}{table.caption.15}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Resource Utilization\relax }}{24}{table.caption.19}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Benchmarks Scores Baseline.\relax }}{25}{table.caption.20}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Benchmarks Scores Modified Version.\relax }}{26}{table.caption.21}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Final Metrics For Baseline And Improved Versions.\relax }}{27}{table.caption.22}

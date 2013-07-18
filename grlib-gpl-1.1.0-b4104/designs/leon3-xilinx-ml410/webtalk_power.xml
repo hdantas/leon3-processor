@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="power" timeStamp="Sat Jun 01 17:14:10 2013">
+<application name="power" timeStamp="Fri Jul 12 11:30:33 2013">
 <section name="Power Data" visible="true">
 <item name="Customer">
 <property name="Customer" value="TBD" type="PowerCustomer"/>
@@ -17,9 +17,9 @@ This means code written to parse this file will need to be revisited each subseq
 </item>
 <item name="Tool Data">
 <property name="version" value="14.2" type="PowerToolData"/>
-<property name="platform" value="win" type="PowerToolData"/>
+<property name="platform" value="Lin64" type="PowerToolData"/>
 <property name="CPU" value="NA" type="PowerToolData"/>
-<property name="Peak Memory" value="1033 MB" type="PowerToolData"/>
+<property name="Peak Memory" value="1010 MB" type="PowerToolData"/>
 <property name="Tool" value="" type="PowerToolData"/>
 <property name="Num run" value="1" type="PowerToolData"/>
 </item>
@@ -63,41 +63,41 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="Enable toggle" value="1.0" type="PowerToolDefaults"/>
 </item>
 <item name="Power Results">
-<property name="On-chip power" value="2244.96" type="PowerPowerResults"/>
+<property name="On-chip power" value="2249.68" type="PowerPowerResults"/>
 <property name="Effective ThetaJA" value="6.2" type="PowerPowerResults"/>
 <property name="ThetaSA" value="0.0" type="PowerPowerResults"/>
 <property name="ThetaJB" value="2.4" type="PowerPowerResults"/>
 <property name="Off-chip power" value="1015.37" type="PowerPowerResults"/>
 </item>
 <item name="Thermal Power">
-<property name="Logic" value="20.26" type="PowerThermalPower"/>
-<property name="Signal" value="47.78" type="PowerThermalPower"/>
-<property name="Clock" value="357.58" type="PowerThermalPower"/>
-<property name="BRAM" value="66.82" type="PowerThermalPower"/>
-<property name="DSP" value="0.04" type="PowerThermalPower"/>
+<property name="Logic" value="20.47" type="PowerThermalPower"/>
+<property name="Signal" value="49.10" type="PowerThermalPower"/>
+<property name="Clock" value="360.45" type="PowerThermalPower"/>
+<property name="BRAM" value="66.03" type="PowerThermalPower"/>
+<property name="DSP" value="0.00" type="PowerThermalPower"/>
 <property name="PLL" value="0.00" type="PowerThermalPower"/>
 <property name="MMCM" value="0.00" type="PowerThermalPower"/>
 <property name="Phaser" value="0.00" type="PowerThermalPower"/>
 <property name="PCIE" value="0.00" type="PowerThermalPower"/>
-<property name="IO" value="762.20" type="PowerThermalPower"/>
+<property name="IO" value="763.16" type="PowerThermalPower"/>
 <property name="GTX" value="0.00" type="PowerThermalPower"/>
-<property name="DevStatic" value="650.04" type="PowerThermalPower"/>
+<property name="DevStatic" value="650.24" type="PowerThermalPower"/>
 </item>
 <item name="Supply Power">
 <property name="Vccint voltage" value="1.20" type="PowerSupplyPower"/>
-<property name="Vccint total current" value="798.96" type="PowerSupplyPower"/>
-<property name="Vccint static current" value="367.78" type="PowerSupplyPower"/>
-<property name="Vccint dynamic current" value="431.18" type="PowerSupplyPower"/>
+<property name="Vccint total current" value="802.10" type="PowerSupplyPower"/>
+<property name="Vccint static current" value="367.95" type="PowerSupplyPower"/>
+<property name="Vccint dynamic current" value="434.15" type="PowerSupplyPower"/>
 <property name="Vccaux voltage" value="2.50" type="PowerSupplyPower"/>
-<property name="Vccaux total current" value="342.79" type="PowerSupplyPower"/>
+<property name="Vccaux total current" value="342.80" type="PowerSupplyPower"/>
 <property name="Vccaux static current" value="261.47" type="PowerSupplyPower"/>
-<property name="Vccaux dynamic current" value="81.32" type="PowerSupplyPower"/>
+<property name="Vccaux dynamic current" value="81.33" type="PowerSupplyPower"/>
 <property name="Vcco33 voltage" value="3.30" type="PowerSupplyPower"/>
-<property name="Vcco33 total current" value="7.24" type="PowerSupplyPower"/>
+<property name="Vcco33 total current" value="7.52" type="PowerSupplyPower"/>
 <property name="Vcco33 static current" value="1.50" type="PowerSupplyPower"/>
-<property name="Vcco33 dynamic current" value="5.74" type="PowerSupplyPower"/>
+<property name="Vcco33 dynamic current" value="6.02" type="PowerSupplyPower"/>
 <property name="Vcco25 voltage" value="2.50" type="PowerSupplyPower"/>
-<property name="Vcco25 total current" value="568.29" type="PowerSupplyPower"/>
+<property name="Vcco25 total current" value="568.28" type="PowerSupplyPower"/>
 <property name="Vcco25 static current" value="568.28" type="PowerSupplyPower"/>
 <property name="Vcco25 dynamic current" value="0.00" type="PowerSupplyPower"/>
 </item>
