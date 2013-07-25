@@ -9,99 +9,88 @@
 \label{sec:results}
 \subsection{Synthesis}
 
-In order to evaluate the performance of our improved processor we need first to evaluate the
+In order to evaluate the performance of our improved processor we need first to play close attention to the starting point: the
 performance of the baseline version of the processor.
 
+The evaluation of each design will be divided in two main categories
+\begin{itemize}
+\item Resources' Utilization (provided by Xilinx ISE)
+\item Benchmarks' Results (provided by the FPGA server)
+\end{itemize}
+
 The synthesis tool reported the values shown in table~\ref{tbl:resource_utilization} for the resources utilization.
+Results for four different configurations are present which will allow us to better understand the impact of each modification in the area and power consumption.
+These are the baseline design, the design with the modified multiplier and original divider, modified divider and original divider and finally with both units modified. 
 
-Notice that the value ``P/f'' indicates the energetic efficiency of the processor. Another useful insight is the fact that the power
-consumption is almost proportional to the clock frequency, therefore we can use this value to estimate the
-power consumption at different clock frequencies.
+One metric that is particularly interesting is ``P/f'' which reflects the energy efficiency of the processor. Another useful insight is the fact that the power consumption is almost proportional to the clock frequency, therefore we can use this value to estimate the power consumption at different clock frequencies.
 
-From the synthesis report we can also see the slowest path which determines the max clock frequency.
+In addition, from the synthesis report we can also see the slowest path which determines the max clock frequency.
 This path is from \url{ddrsp0.ddrc0/ddr32.ddrc/ra.raddr_0} to \url{ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/casgen}.
 
 Those components belong to the SDRAM controller and the path is located between the controller
 and the physical interface with the memory.
 
-The synthesis of our modified version gave us the results showed as well in table~\ref{tbl:resource_utilization}:
+The cummulative synthesis report with the aforementioned four configurations is summarized in table~\ref{tbl:resource_utilization}:
 
 \begin{table}[H]
 \centering
-\begin{tabular}{lccc>{\color{white}\columncolor{Cyan}}c}
-\bottomrule
- & Baseline & Multiplier & Divider & Both \\
-Max clk freq. [\MHz] & 80.522 & - & 80.535 & 40.197 \\
-\# of Occupied Slices & 9904 & -  & 10479 & 11886\\
-Total \# of 4-input LUTs & 16889 & -  & 17865 & 20469\\
-Quiescent power [\W] & 2.467 & - & 2.468 & 2.511\\
-Dynamic power [\W] & 0.721 & - & 0.743 & 0.832\\
-Total power [\W] & 3.188 & - & 3.211 & 3.343\\
-P/f [\si[per-mode=symbol]{\W\per\MHz}] & 0.03959 & - & 0.03987 & 0.08317\\\toprule
+\begin{tabular}{lcccc}
+ & Baseline & Multiplier & Divider & Both\\% & Improvements\\
+\midrule
+Max clk freq. [\MHz] & 80.522 & 80.019 & 80.535 & 80.205\\% & \color{red} -0.39 \%\\
+\# of Occupied Slices & 9904 &  10226 &  10479 & 10773\\% & \color{red} 8.77 \%\\
+Total \# of 4-input LUTs & 16889 & 17398 & 17865 & 18329\\% & \color{red} 8.53 \%\\
+Quiescent power [\W] & 2.467 &  2.467 & 2.468 & 2.469\\% & \color{red} 0.08 \%\\
+Dynamic power [\W] & 0.721 &  0.726 & 0.743 & 0.756\\% & \color{red} 4.85 \%\\
+Total power [\W] & 3.188 &  3.193 & 3.211 & 3.225\\% & \color{red} 1.16 \%\\
+P/f [\si[per-mode=symbol]{\W\per\MHz}] & 0.03959 & 0.03990 & 0.03987 & 0.04021% & \color{red} 1.57 \%\\\toprule
 \end{tabular}
 \caption{Resource Utilization}
 \label{tbl:resource_utilization}
 \end{table}
 
-As expected the area consumption is moderately higher than before as the units we designed are more complex than the baseline. In particular the lookup table in the divider, and the Wallace tree structure in the multiplier are very space-hungry.
+The frequency does not suffer considerable variations.
 
-Also the power consumption increased for the same reason, the algorithms are more complicated so
-more energy is expended for all the calculations. However this trade-off was envisioned at the start of the project, and as we will see later the benchmark's performance improved.
+As expected the area consumption is moderately higher than before as the units we designed are more complex than the baseline. In particular the lookup table in the divider, and the Wallace tree structure in the multiplier are very space-hungry. This is reflected when comparing the last and second column, with area expansion of around 8\%.
 
-The most significant change is in the maximum clock frequency which was drastically reduced. The main culprit is the multiplier which only takes one clock cycle to finish. Originally, the unit was designed to complete after two cycles. However it was verified that when the processor is configured with a two-cycle latency, it expects the 32x32 operation to finish in one cycle. Thus the multiplier had to be adjusted for this behavior.
+Furthermore the power consumption also augments. However the differences are more subtle, varying between 0.1\% and 4.9\%. The reason is similar, since the algorithms are more complicated more energy is expended for all the calculations. However this trade-off was envisioned at the start of the project, and as we will see later, in section~\ref{ssec:benchmarks}, the benchmark's performance improved.
 
-Alternatively, the \texttt{mul32} unit could be adapted to the remaining multiplier configuration (\emph{i.e.}~4-cycle latency) so the maximum frequency would not be so severely affected.
+Finally the power frequecy ratio summarizes the points made above. Since the power consumption is higher and the frequency is more or less the same, this metric will increase, although not too significantly.
+
 
 \subsection{Benchmark Scores}
+\label{ssec:benchmarks}
 
-Once the processor is synthesized and has been loaded in a FPGA board, Linux is initiated on the processor along with several benchmarks. In table~\ref{tbl:benchmarks_baseline} the execution times of these
-benchmarks are reported, for detailed scores please see the accompanying Excel file.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{c>{\color{white}\columncolor{Cyan}}c}
-\bottomrule
-
-Stanford [\s] & 2.30\\
-Whetstone [\s] & 116.2\\
-Gmpbench Multiply [\Oppers] & 781\\
-Gmpbench Divide [\Oppers] & 15876\\
-Gmpbench RSA [\Oppers] & 5123\\
-Division [\s] & 8.06\\
-Mibench JPEG (average) [\s] & 23.215\\
-SSD [\s] & 10.59\\
-Total [\s] & \textbf{219.28}\\
-\toprule
-\end{tabular}
-\caption{Benchmarks Scores Baseline.}
-\label{tbl:benchmarks_baseline}
-\end{table}
-
-The scores obtained with the modified processor are reported in table~\ref{tbl:benchmarks_modified}.
+Once the processor is synthesized and has been loaded in a FPGA board, Linux is initiated on the processor along with several benchmarks. In table~\ref{tbl:benchmarks} the execution times of these benchmarks are reported, for detailed scores please see the accompanying Excel file. Unfortunaly we were not able to obtain results when uploading the multiplier only design (original divider) to the FPGA. This is strange as this multiplier unit worked before, in combination with the rewritten divider. Given this evidence we suspect the problem lays with the FPGA and not with the multiplier unit.
 
 \begin{table}[H]
 \centering
-\begin{tabular}{c>{\color{white}\columncolor{Cyan}}c}
-\bottomrule
+\begin{tabular}{lcccc}
+ & Baseline & Divider & Both \\
+\midrule
 
-Stanford [\s] & 2.21\\
-Whetstone [\s] & 112.08\\
-Gmpbench Multiply [\Oppers] & 914\\
-Gmpbench Divide [\Oppers] & 19205\\
-Gmpbench RSA [\Oppers] & 5353\\
-Division [\s] & 7.31\\
-Mibench JPEG (average) [\s] & 21.76\\
-SSD [\s] & 8.60\\
-Total [\s] & \textbf{206.92}\\
-\toprule
+Stanford [\s] & 2.30 & 2.26 & 2.23\\
+Whetstone [\s] & 116.2 & 113.25 & 111.61\\
+Gmpbench Multiply [\Oppers] & 781 & 801 & 912\\
+Gmpbench Divide [\Oppers] & 15876 & 16335 & 19205\\
+Gmpbench RSA [\Oppers] & 5123 & 5284 & 5353\\
+Division [\s] & 8.06 & 7.65 & 7.31\\
+Mibench JPEG (average) [\s] & 23.215 & 22.465 & 21.815\\
+SSD [\s] & 10.59 & 10.21 & 8.69\\
+Total [\s] & 219.28 & 203.30 & 207.06
 \end{tabular}
-\caption{Benchmarks Scores Modified Version.}
-\label{tbl:benchmarks_modified}
+\caption{Benchmarks Scores.}
+\label{tbl:benchmarks}
 \end{table}
 
+The scores obtained with the modified processor are reported in table~\ref{tbl:benchmarks}. As one can see introducing the divider has a widespread positive effect on the scores. The same can be said about the multiplier. Analyzing these results with respect to the worst area and power performance will be left for section~\ref{ssec:metrics}.
 
 From these results we can see that almost every benchmark had a healthy improvement, in the end
 the total execution time improved by 5.6\%.
+It is interesting to observe that both units yield improvements to the benchmark scores.
+However for the total execution time introducing the multiplier has a detrimental effect.
+This is counter-intuitive given there were improvements in all the individual benchmark scores.
+\textcolor{red}{\large The reason for this behavior is not clear to us.}
 
 These scores are not as good as expected but likely the execution of the operating system
 on the processor causes a non negligible overhead in the execution due to the scheduling. As an example, the
@@ -109,13 +98,14 @@ divider takes about half the time to execute but the execution time of the divis
 benchmarks is only about 10\% better.
 
 \subsection{Metrics Comparison}
+\label{ssec:metrics}
 
 In order to get a fair comparison between the baseline and the improved processor some standard
 metrics have to be calculated and studied.
 
 Usually these metrics are \texttt{A}, the area consumption here calculated as the weighted sum of the
 number of occupied slices and the number of 4-input LUTs used where the weight is the reciprocal
-of the number of available resources, \texttt{D} is the delay or the reciprocal of the max clock frequency
+of the number of available resources, \texttt{D} is the delay or the reciprocal of the maximum clock frequency
 and indicate the delay of the slowest path, \texttt{P} is the power and it's simply calculated as the total
 power consumed by the Dhrystone benchmark used for the simulation and \texttt{BS} is the benchmark
 score which indicate how fast a program can be executed, it's calculated as the total execution
@@ -137,8 +127,6 @@ execution time and power consumption one can notice that the other metrics are w
 compared to the baseline.
 
 All the baseline's and modified units' synthesis and benchmark results have been condensed in table~\ref{tbl:final_metrics}.
-
- Due to the important impact the multiplier has on these metrics, results are shown before and after this custom unit is integrated.
 
 \begin{table}[H]
 \centering
@@ -163,22 +151,22 @@ Modified (Div)&
 \num{3.21E+00} &
 \num{2.13E+02} \\
 Modified (Mul\&Div)&
-\num{3,24E+04} &
-\num{2,49E-02} &
-\num{3,34E+00} &
-\num{2,07E+02} \\
+\num{} &
+\num{} &
+\num{} &
+\num{} \\
 Improvements (Div) &
 \color{red} 5.8\% &
 - &
 \color{red} 0.7\% &
 \color{green} -2.7\% \\
 Improvements (Mul\&Div) &
-\color{red} 21\% &
-\color{red} 100\% &
-\color{red} 5\% &
-\color{green} -6\% \\
+\color{red} \% &
+\color{red} \% &
+\color{red} \% &
+\color{green} \% \\
 
-\midrule
+\\ \midrule \\
 
 & \multicolumn{4}{c}{Composite Metrics}\\
 &
@@ -197,20 +185,20 @@ Modified (Div)&
 \num{3.99E-02} &
 \num{6.85E+02} \\
 Modified (Mul\&Div)&
-\num{8,05E+02} &
-\num{6,69E+06} &
-\num{8,32E-02} &
-\num{6,92E+02} \\
+\num{} &
+\num{} &
+\num{} &
+\num{} \\
 Improvements (Div) &
 \color{red} 5.8\% &
 \color{red} 2.9\% &
 \color{red} 0.7\% &
 \color{green} -2.0\% \\
 Improvements (Mul\&Div)&
-\color{red} 142\% &
-\color{red} 14\% &
-\color{red} 110\% &
-\color{green} -1\%\\
+\color{red} \% &
+\color{red} \% &
+\color{red} \% &
+\color{green} \%\\
 \end{tabular}}
 \caption{Final Metrics For Baseline And Improved Versions.}
 \label{tbl:final_metrics}

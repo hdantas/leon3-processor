@@ -51,7 +51,7 @@ A more detailed description of these interface signals is presented later in sec
 
 The simplest multiplier consists of an iterative shift-add routine, which works, as the name implies, adding pairs of bits, accumulating the result and shifting it appropriately. This closely resembles the pen-and-paper algorithm for multiplication. The main hindrance of this technique is the serial nature. It is necessary to wait for one result to advance to the next operation. Therefore a \texttt{n-bit$\times$m-bit} operating costs $n+m$ cycles. On the other hand is very compact and uses very few components, so the power consumption is low. Nonetheless due to its latency it is not suitable for this project.
 
-Another easy solution would be to define a look-up table multiplier. For this, all possible combination of inputs are tested and the corespoding results are stored for later retrieval. This makes the multiplier very fast but the table size grows exponentially. Therefore for our input sizes this option is not suitable.
+Another easy solution would be to define a look-up table multiplier. For this, all possible combination of inputs are tested and the corresponding results are stored for later retrieval. This makes the multiplier very fast but the table size grows exponentially. Therefore for our input sizes this option is not suitable.
 
 In order to improve the performance there are two possibilities:
 \begin{itemize}
@@ -153,7 +153,7 @@ The aforementioned ports and generics are summarized in figure~\ref{fig:mul32_di
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.70\textwidth,height=0.4\textheight,keepaspectratio]{empty}
+\includegraphics[width=0.70\textwidth,height=0.25\textheight,keepaspectratio]{mul32_dia}
 \caption{Diagram of the \texttt{mul32} unit, including all \texttt{in} and \texttt{out} ports as well as generics.}
 \label{fig:mul32_dia}
 \end{figure}
@@ -166,7 +166,7 @@ On part 1 the operands are \texttt{AND}ed together and their weights are adjuste
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.70\textwidth,height=0.4\textheight,keepaspectratio]{empty}
+\includegraphics[width=0.6\textwidth,height=0.25\textheight,keepaspectratio]{wallace_tree_array}
 \caption{Diagram explaining the structure of the \texttt{WallaceTree} 3D array, with each dimension explicitly shown.}
 \label{fig:wallace_tree_array}
 \end{figure}
@@ -175,8 +175,8 @@ The tree is reorganized so all columns start from the `top', as shown in~\ref{fi
 
 \begin{figure}[H]
 \centering
-\subfloat[Original]{\label{fig:wt_before}\includegraphics[width=0.4\textwidth,height=0.2\textheight,keepaspectratio]{empty}}\quad
-\subfloat[Modified]{\label{fig:wt_after}\includegraphics[width=0.4\textwidth,height=0.2\textheight,keepaspectratio]{empty}}
+\subfloat[Original]{\label{fig:wt_before}\includegraphics[width=0.3\textwidth,height=0.2\textheight,keepaspectratio]{wt_before}}\qquad
+\subfloat[Modified]{\label{fig:wt_after}\includegraphics[width=0.3\textwidth,height=0.2\textheight,keepaspectratio]{wt_after}}
 \caption{Reorganization of the Wallace tree for easier manipulation in further steps.}
 \label{fig:wt_reorganization}
 \end{figure}
@@ -186,20 +186,22 @@ This action completes the first step.
 
 \begin{figure}[H]
 \centering
-\subfloat[Full Adder]{\label{fig:fa_dia}\includegraphics[width=0.4\textwidth,height=0.2\textheight,keepaspectratio]{empty}}\quad
-\subfloat[Half Adder]{\label{fig:ha_dia}\includegraphics[width=0.4\textwidth,height=0.2\textheight,keepaspectratio]{empty}}
-\caption{Black box diagrams describing the interface ports of the Adders used.}
+\subfloat[Full Adder]{\label{fig:fa_dia} \begin{minipage}[c][0.20\textheight]{0.45\textwidth} \centering \includegraphics[width=1\textwidth]{fa_dia} \end{minipage}}
+\subfloat[Half Adder]{\label{fig:ha_dia} \begin{minipage}[c][0.20\textheight]{0.45\textwidth} \centering \includegraphics[width=1\textwidth]{ha_dia} \end{minipage}}
+\caption{Diagrams describing the interface ports of the Adders used.}
 \label{fig:adders_dia}
 \end{figure}
+
+
 
 
 Thereafter each group of 3 or 2 bits must be compressed to 1, using full-adders and half-adders respectively (\emph{cf.}~\ref{fig:adders_dia}). If an odd number of bits exist in a certain column the last bit is transferred to the next level. Figure~\ref{fig:wt_compression} assists the reader in understanding the various compressions used. Repeating this process sufficient times\footnote{The exact number of iterations required can be inferred from the integer constant \texttt{levels} previously mentioned.}, the height of the matrix is reduced to 2. These can be added with a conventional adder to determine the final result.
 
 \begin{figure}[H]
 \centering
-\subfloat[Column with 3 bits.]{\label{fig:wt_3b}\includegraphics[width=0.3\textwidth,height=0.2\textheight,keepaspectratio]{empty}}\quad
-\subfloat[Column with 4 bits.]{\label{fig:wt_4b}\includegraphics[width=0.3\textwidth,height=0.2\textheight,keepaspectratio]{empty}}\quad
-\subfloat[Column with 5 bits.]{\label{fig:wt_5b}\includegraphics[width=0.3\textwidth,height=0.2\textheight,keepaspectratio]{empty}}
+\subfloat[Column with 3 bits.]{\label{fig:wt_3b} \begin{minipage}[c][0.35\textheight]{0.3\textwidth} \centering \includegraphics[width=1\textwidth,height=0.35\textheight,keepaspectratio]{wt_3b} \end{minipage}}
+\subfloat[Column with 4 bits.]{\label{fig:wt_4b} \begin{minipage}[c][0.35\textheight]{0.35\textwidth} \centering \includegraphics[width=1\textwidth,height=0.35\textheight,keepaspectratio]{wt_4b} \end{minipage}}
+\subfloat[Column with 5 bits.]{\label{fig:wt_5b} \begin{minipage}[c][0.35\textheight]{0.35\textwidth} \centering \includegraphics[width=1\textwidth,height=0.35\textheight,keepaspectratio]{wt_5b} \end{minipage}}
 \caption{Compressing columns in the WallaceTree with Full Adders and Half Adders. Each example features on column of the tree in level $k$ (before compression) and $k+1$ (after compression).}
 \label{fig:wt_compression}
 \end{figure}
@@ -238,13 +240,13 @@ The last phase of the verification procedure was to run the Dhrystone testbench 
 \end{figure}
 
 Relying on the simulations we were able to determine that the operands are read at the falling edge of the muli.start signal. Also the ready signal is raised three cycles after that moment (assuming holdn does not change). The nready signal is set two clock cycle prior to ready.
-This information is summarized in a diagram in figure~\ref{fig:handshake_dia}.
+This information is summarized in the multiplier's state machine depicted in figure~\ref{fig:mul32_state_machine}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{empty}
+\includegraphics[width=1\textwidth,height=0.5\textheight,keepaspectratio]{mul32_state_machine}
 \caption{Diagram explaining how the various handshaking signals behave.}
-\label{fig:handshake_dia}
+\label{fig:mul32_state_machine}
 \end{figure}
 
 

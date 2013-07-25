@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.22)  18 JUL 2013 16:38
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.22)  25 JUL 2013 17:14
 entering extended mode
  %&-line parsing enabled.
 **big-report.tex
@@ -1655,17 +1655,12 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 7.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-Overfull \hbox (1.53221pt too wide) in paragraph at lines 12--12
- [][] [][]\T1/cmr/m/n/12 Black box di-a-grams de-scrib-ing the in-ter-face port
-s of the Adders 
- []
-
-)
+))
 \tf@lof=\write6
 \openout6 = `"Processor Design Project Report.lof"'.
 
- (out//Processor Design Project Report.lot [2])
+
+(out//Processor Design Project Report.lot [2])
 \tf@lot=\write7
 \openout7 = `"Processor Design Project Report.lot"'.
 
@@ -1702,108 +1697,134 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 Package hyperref Info: bookmark level for unknown Example defaults to 0 on inpu
 t line 81.
  [6]
-<figures/Wallace_tree_8x8_trimmed.pdf, id=212, 524.19986pt x 285.26328pt>
+<figures/Wallace_tree_8x8_trimmed.pdf, id=209, 412.45192pt x 268.07452pt>
 File: figures/Wallace_tree_8x8_trimmed.pdf Graphic file (type pdf)
 
 <use figures/Wallace_tree_8x8_trimmed.pdf>
 Package pdftex.def Info: figures/Wallace_tree_8x8_trimmed.pdf used on input lin
 e 101.
-(pdftex.def)             Requested size: 273.00142pt x 148.56409pt.
+(pdftex.def)             Requested size: 273.0058pt x 177.44102pt.
  [7 <./figures/Wallace_tree_8x8_trimmed.pdf>] <figures/paper_wastedarea.png, id
-=228, 531.48563pt x 82.80937pt>
+=223, 531.48563pt x 82.80937pt>
 File: figures/paper_wastedarea.png Graphic file (type png)
 
 <use figures/paper_wastedarea.png>
 Package pdftex.def Info: figures/paper_wastedarea.png used on input line 135.
 (pdftex.def)             Requested size: 331.50458pt x 51.65083pt.
 
-<figures/paper_improvedarea.png, id=231, 426.84468pt x 92.59593pt>
+<figures/paper_improvedarea.png, id=226, 426.84468pt x 92.59593pt>
 File: figures/paper_improvedarea.png Graphic file (type png)
 
 <use figures/paper_improvedarea.png>
 Package pdftex.def Info: figures/paper_improvedarea.png used on input line 136.
 
 (pdftex.def)             Requested size: 331.52417pt x 71.91792pt.
- [8 <./figures/paper_wastedarea.png> <./figures/paper_improvedarea.png>]
-<figures/empty.jpg, id=246, 470.75874pt x 702.625pt>
-File: figures/empty.jpg Graphic file (type jpg)
- <use figures/empty.jpg>
-Package pdftex.def Info: figures/empty.jpg used on input line 156.
-(pdftex.def)             Requested size: 158.65514pt x 236.7987pt.
+ [8]
+<figures/mul32_dia.pdf, id=240, 179.74954pt x 115.95018pt>
+File: figures/mul32_dia.pdf Graphic file (type pdf)
 
-[9]
-File: figures/empty.jpg Graphic file (type jpg)
- <use figures/empty.jpg>
-Package pdftex.def Info: figures/empty.jpg used on input line 169.
-(pdftex.def)             Requested size: 158.65514pt x 236.7987pt.
- [10 <./figures/empty.jpg>]
-File: figures/empty.jpg Graphic file (type jpg)
- <use figures/empty.jpg>
-Package pdftex.def Info: figures/empty.jpg used on input line 178.
-(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
-File: figures/empty.jpg Graphic file (type jpg)
+<use figures/mul32_dia.pdf>
+Package pdftex.def Info: figures/mul32_dia.pdf used on input line 156.
+(pdftex.def)             Requested size: 229.45601pt x 148.01408pt.
+ [9 <./figures/paper_wastedarea.png> <./figures/paper_improvedarea.png>]
+<figures/wallace_tree_array.pdf, id=252, 110.98665pt x 100.83272pt>
+File: figures/wallace_tree_array.pdf Graphic file (type pdf)
 
-<use figures/empty.jpg>
-Package pdftex.def Info: figures/empty.jpg used on input line 179.
-(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
-File: figures/empty.jpg Graphic file (type jpg)
- <use figures/empty.jpg>
-Package pdftex.def Info: figures/empty.jpg used on input line 189.
-(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
-File: figures/empty.jpg Graphic file (type jpg)
- <use figures/empty.jpg>
-Package pdftex.def Info: figures/empty.jpg used on input line 190.
-(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
+<use figures/wallace_tree_array.pdf>
+Package pdftex.def Info: figures/wallace_tree_array.pdf used on input line 169.
 
-[11]
-File: figures/empty.jpg Graphic file (type jpg)
- <use figures/empty.jpg>
-Package pdftex.def Info: figures/empty.jpg used on input line 200.
-(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
-File: figures/empty.jpg Graphic file (type jpg)
- <use figures/empty.jpg>
-Package pdftex.def Info: figures/empty.jpg used on input line 201.
-(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
-File: figures/empty.jpg Graphic file (type jpg)
- <use figures/empty.jpg>
-Package pdftex.def Info: figures/empty.jpg used on input line 202.
-(pdftex.def)             Requested size: 79.32397pt x 118.39398pt.
+(pdftex.def)             Requested size: 162.90962pt x 148.00536pt.
+ [10 <./figures/mul32_dia.pdf>]
+<figures/wt_before.pdf, id=269, 93.35779pt x 50.67934pt>
+File: figures/wt_before.pdf Graphic file (type pdf)
 
-[12]
-<figures/handshaking_modified_noholdn.png, id=289, 688.5725pt x 371.3875pt>
+<use figures/wt_before.pdf>
+Package pdftex.def Info: figures/wt_before.pdf used on input line 178.
+(pdftex.def)             Requested size: 117.00746pt x 63.51758pt.
+
+<figures/wt_after.pdf, id=270, 93.35779pt x 50.67934pt>
+File: figures/wt_after.pdf Graphic file (type pdf)
+
+<use figures/wt_after.pdf>
+Package pdftex.def Info: figures/wt_after.pdf used on input line 179.
+(pdftex.def)             Requested size: 117.00746pt x 63.51758pt.
+
+<figures/fa_dia.pdf, id=273, 165.52339pt x 86.55838pt>
+File: figures/fa_dia.pdf Graphic file (type pdf)
+
+<use figures/fa_dia.pdf>
+Package pdftex.def Info: figures/fa_dia.pdf used on input line 189.
+(pdftex.def)             Requested size: 175.49881pt x 91.77785pt.
+
+<figures/ha_dia.pdf, id=274, 151.29724pt x 58.10509pt>
+File: figures/ha_dia.pdf Graphic file (type pdf)
+
+<use figures/ha_dia.pdf>
+Package pdftex.def Info: figures/ha_dia.pdf used on input line 190.
+(pdftex.def)             Requested size: 175.49881pt x 67.40636pt.
+ [11 <./figures/wallace_tree_array.pdf> <./figures/wt_before.pdf> <./figures/wt
+_after.pdf>]
+<figures/wt_3b.pdf, id=298, 50.59201pt x 97.07166pt>
+File: figures/wt_3b.pdf Graphic file (type pdf)
+ <use figures/wt_3b.pdf>
+Package pdftex.def Info: figures/wt_3b.pdf used on input line 202.
+(pdftex.def)             Requested size: 108.00024pt x 207.22174pt.
+
+<figures/wt_4b.pdf, id=299, 50.59201pt x 157.69012pt>
+File: figures/wt_4b.pdf Graphic file (type pdf)
+ <use figures/wt_4b.pdf>
+Package pdftex.def Info: figures/wt_4b.pdf used on input line 203.
+(pdftex.def)             Requested size: 66.47826pt x 207.20596pt.
+
+<figures/wt_5b.pdf, id=300, 50.59201pt x 182.42955pt>
+File: figures/wt_5b.pdf Graphic file (type pdf)
+ <use figures/wt_5b.pdf>
+Package pdftex.def Info: figures/wt_5b.pdf used on input line 204.
+(pdftex.def)             Requested size: 57.46394pt x 207.2091pt.
+
+Overfull \hbox (11.75308pt too wide) in paragraph at lines 202--205
+ [][][][][][] 
+ []
+
+[12 <./figures/fa_dia.pdf> <./figures/ha_dia.pdf>] [13 <./figures/wt_3b.pdf> <.
+/figures/wt_4b.pdf> <./figures/wt_5b.pdf>]
+<figures/handshaking_modified_noholdn.png, id=351, 688.5725pt x 371.3875pt>
 File: figures/handshaking_modified_noholdn.png Graphic file (type png)
 
 <use figures/handshaking_modified_noholdn.png>
 Package pdftex.def Info: figures/handshaking_modified_noholdn.png used on input
- line 225.
+ line 227.
 (pdftex.def)             Requested size: 390.00029pt x 210.35pt.
- [13]
-<figures/handshaking_original_noholdn.png, id=297, 706.64pt x 366.36874pt>
+ [14 <./figures/handshaking_modified_noholdn.png>]
+<figures/handshaking_original_noholdn.png, id=358, 706.64pt x 366.36874pt>
 File: figures/handshaking_original_noholdn.png Graphic file (type png)
 
 <use figures/handshaking_original_noholdn.png>
 Package pdftex.def Info: figures/handshaking_original_noholdn.png used on input
- line 234.
+ line 236.
 (pdftex.def)             Requested size: 390.001pt x 202.20221pt.
 
-<figures/handshaking_original_holdn.png, id=298, 1093.08376pt x 382.42876pt>
+<figures/handshaking_original_holdn.png, id=359, 1093.08376pt x 382.42876pt>
 File: figures/handshaking_original_holdn.png Graphic file (type png)
 
 <use figures/handshaking_original_holdn.png>
 Package pdftex.def Info: figures/handshaking_original_holdn.png used on input l
-ine 235.
+ine 237.
 (pdftex.def)             Requested size: 389.99055pt x 136.44298pt.
- [14 <./figures/handshaking_modified_noholdn.png>]
-File: figures/empty.jpg Graphic file (type jpg)
- <use figures/empty.jpg>
-Package pdftex.def Info: figures/empty.jpg used on input line 245.
-(pdftex.def)             Requested size: 158.65514pt x 236.7987pt.
+
+<figures/mul32_state_machine.pdf, id=361, 180.47426pt x 292.27394pt>
+File: figures/mul32_state_machine.pdf Graphic file (type pdf)
+
+<use figures/mul32_state_machine.pdf>
+Package pdftex.def Info: figures/mul32_state_machine.pdf used on input line 247
+.
+(pdftex.def)             Requested size: 182.78699pt x 296.01938pt.
  [15 <./figures/handshaking_original_noholdn.png> <./figures/handshaking_origin
-al_holdn.png>]) [16]
+al_holdn.png>]) [16 <./figures/mul32_state_machine.pdf>]
 \openout2 = `divider.aux'.
 
  (./divider.tex
-<figures/DivisorStateMachine.png, id=318, 673.01437pt x 752.8125pt>
+<figures/DivisorStateMachine.png, id=392, 673.01437pt x 752.8125pt>
 File: figures/DivisorStateMachine.png Graphic file (type png)
 
 <use figures/DivisorStateMachine.png>
@@ -1814,28 +1835,28 @@ Package pdftex.def Info: figures/DivisorStateMachine.png used on input line 29.
 
 
 ]
-<figures/DivisorDiagram.png, id=326, 1341.51187pt x 683.55376pt>
+<figures/DivisorDiagram.png, id=400, 1341.51187pt x 683.55376pt>
 File: figures/DivisorDiagram.png Graphic file (type png)
 
 <use figures/DivisorDiagram.png>
 Package pdftex.def Info: figures/DivisorDiagram.png used on input line 42.
 (pdftex.def)             Requested size: 389.99055pt x 198.71573pt.
  [18 <./figures/DivisorStateMachine.png>]
-<figures/radix4pd.png, id=332, 983.675pt x 904.37875pt>
+<figures/radix4pd.png, id=406, 983.675pt x 904.37875pt>
 File: figures/radix4pd.png Graphic file (type png)
 
 <use figures/radix4pd.png>
 Package pdftex.def Info: figures/radix4pd.png used on input line 55.
 (pdftex.def)             Requested size: 331.50319pt x 304.77997pt.
  [19 <./figures/DivisorDiagram.png>] [20 <./figures/radix4pd.png>]
-<figures/SubGenExplanation.png, id=342, 651.18282pt x 506.6428pt>
+<figures/SubGenExplanation.png, id=416, 651.18282pt x 506.6428pt>
 File: figures/SubGenExplanation.png Graphic file (type png)
 
 <use figures/SubGenExplanation.png>
 Package pdftex.def Info: figures/SubGenExplanation.png used on input line 77.
 (pdftex.def)             Requested size: 380.44858pt x 296.00218pt.
  [21 <./figures/SubGenExplanation.png>]
-<figures/myDivisionvsOriginal.png, id=350, 989.19562pt x 301.8778pt>
+<figures/myDivisionvsOriginal.png, id=424, 989.19562pt x 301.8778pt>
 File: figures/myDivisionvsOriginal.png Graphic file (type png)
 
 <use figures/myDivisionvsOriginal.png>
@@ -1845,7 +1866,13 @@ Package pdftex.def Info: figures/myDivisionvsOriginal.png used on input line 10
 ) [22] [23 <./figures/myDivisionvsOriginal.png>]
 \openout2 = `results.aux'.
 
- (./results.tex [24
+ (./results.tex
+Overfull \hbox (2.24591pt too wide) in paragraph at lines 27--29
+\T1/cmtt/m/n/12 ddr32 . ddrc / ra . raddr _ 0$[] \T1/cmr/m/n/12 to []$\T1/cmtt/
+m/n/12 ddrsp0 . ddrc0 / ddr _ phy0 / ddr _ phy0 / xc4v . ddr _
+ []
+
+[24
 
 
 ] [25] [26]) [27]
@@ -1857,16 +1884,16 @@ Package pdftex.def Info: figures/myDivisionvsOriginal.png used on input line 10
 ]
 \openout2 = `bibliography.aux'.
 
-
-(./bibliography.tex) [29
+ (./bibliography.tex) [29
 
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 138.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 138.
- (out//Processor Design Project Report.aux
-(out//intro.aux) (out//baseline.aux) (out//multiplier.aux) (out//divider.aux)
-(out//results.aux) (out//conclusion.aux) (out//bibliography.aux))
+
+(out//Processor Design Project Report.aux (out//intro.aux) (out//baseline.aux)
+(out//multiplier.aux) (out//divider.aux) (out//results.aux)
+(out//conclusion.aux) (out//bibliography.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 138.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 138.
 Package rerunfilecheck Info: File `"Processor Design Project Report".out' has n
@@ -1874,40 +1901,45 @@ ot changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 29361 strings out of 493481
- 565252 string characters out of 3140986
- 612904 words of memory out of 3000000
- 31948 multiletter control sequences out of 15000+200000
+ 29408 strings out of 493481
+ 566316 string characters out of 3140986
+ 611904 words of memory out of 3000000
+ 31986 multiletter control sequences out of 15000+200000
  25975 words of font info for 71 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  63i,14n,96p,1256b,957s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
-local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
-ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/loc
-al/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local
-/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/t
-exlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/tex
-live/2012/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texli
-ve/2012/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive
-/2012/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2
-012/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/local/texlive/201
-2/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2012/
-texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2012/te
-xmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2012/texm
-f-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2012/texmf-
-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2012/texmf-di
-st/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2012/texmf-dist
-/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2012/texmf-dist/f
-onts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2012/texmf-dist/fon
-ts/type1/public/cm-super/sftt1200.pfb>
-Output written on "out//Processor Design Project Report.pdf" (33 pages, 713033 
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
+al/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
+l/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
+texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/t
+exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/te
+xlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texl
+ive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texliv
+e/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/
+2012/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/20
+12/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2012
+/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2012/t
+exmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2012/tex
+mf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/local/texlive/2012/texmf
+-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2012/texmf-d
+ist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2012/texmf-dis
+t/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2012/texmf-dist/
+fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2012/texmf-dist/fo
+nts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2012/texmf-dist/font
+s/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2012/texmf-dist/fonts/
+type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
+pe1/public/cm-super/sftt1000.pfb></usr/local/texlive/2012/texmf-dist/fonts/type
+1/public/cm-super/sftt1200.pfb>
+Output written on "out//Processor Design Project Report.pdf" (33 pages, 745585 
 bytes).
 PDF statistics:
- 490 PDF objects out of 1000 (max. 8388607)
- 411 compressed objects within 5 object streams
- 95 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 569 PDF objects out of 1000 (max. 8388607)
+ 476 compressed objects within 5 object streams
+ 94 named destinations out of 1000 (max. 500000)
+ 251 words of extra memory for PDF output out of 10000 (max. 10000000)
 
