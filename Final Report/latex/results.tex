@@ -88,9 +88,9 @@ The scores obtained with the modified processor are reported in table~\ref{tbl:b
 From these results we can see that almost every benchmark had a healthy improvement, in the end
 the total execution time improved by 5.6\%.
 It is interesting to observe that both units yield improvements to the benchmark scores.
-However for the total execution time introducing the multiplier has a detrimental effect.
-This is counter-intuitive given there were improvements in all the individual benchmark scores.
-\textcolor{red}{\large The reason for this behavior is not clear to us.}
+% However for the total execution time introducing the multiplier has a detrimental effect.
+% This is counter-intuitive given there were improvements in all the individual benchmark scores.
+% \textcolor{red}{\large The reason for this behavior is not clear to us.}
 
 These scores are not as good as expected but likely the execution of the operating system
 on the processor causes a non negligible overhead in the execution due to the scheduling. As an example, the
@@ -157,14 +157,14 @@ Modified (Mul\&Div)&
 \num{2.07E+02} \\
 Improvements (Div) &
 \color{red} 5.8\% &
-- &
+\color{orange} 0.0\% &
 \color{red} 0.7\% &
-\color{green} -2.7\% \\
+\color{green!60!black} -2.7\% \\
 Improvements (Mul\&Div) &
 \color{red} 8.6\% &
 \color{red} 0.4\% &
 \color{red} 1.2\% &
-\color{green} -5.6\% \\
+\color{green!60!black} -5.6\% \\
 
 \\ \midrule \\
 
@@ -193,13 +193,20 @@ Improvements (Div) &
 \color{red} 5.8\% &
 \color{red} 2.9\% &
 \color{red} 0.7\% &
-\color{green} -2.0\% \\
+\color{green!60!black} -2.0\% \\
 Improvements (Mul\&Div)&
 \color{red} 9\% &
 \color{red} 2.6\% &
 \color{red} 1.6\% &
-\color{green} -4.5\%\\
+\color{green!60!black} -4.5\%\\
 \end{tabular}}
 \caption{Final Metrics For Baseline And Improved Versions.}
 \label{tbl:final_metrics}
 \end{table}
+
+Interpreting the table is very straightforward: the modifications introduced a penalty on the area and power but delivered better benchmark performance. This is not as surprising result as this trade off had been identified and explained at the beginning of this document.
+
+As stated in the introduction our main target was to decrease the computation time while keeping the power consumption as low as possible, which is reflected in the \texttt{P $\times$ BS}. Given we have a 4.5\% improvement in that metric we can conclude our main goal was accomplished. Unfortunately the results were not as impressive as desired but, as mentioned previously, this maybe due to scheduling overhead.
+
+It would be interesting to analyze in detail the benchmarks as future work in order to better understand how improvements in the arithmetic units impact them. Alternatively using handpicked subsets of these benchmarks to obtain a more fine-grained picture of their execution could be beneficial to this study. After obtaining significant insight from this work it would be possible to iteratively modify the arithmetic units (among others) to yield better benchmark results at a lower power consumption and circuit footprint.
+Moreover a thorough inspection of the processor could also identify other areas for improvement, some of those were mentioned in this report. 

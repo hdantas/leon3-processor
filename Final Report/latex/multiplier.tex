@@ -166,7 +166,7 @@ On part 1 the operands are \texttt{AND}ed together and their weights are adjuste
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth,height=0.25\textheight,keepaspectratio]{wallace_tree_array}
+\includegraphics[width=1\textwidth,height=0.25\textheight,keepaspectratio]{wallace_tree_array}
 \caption{Diagram explaining the structure of the \texttt{WallaceTree} 3D array, with each dimension explicitly shown.}
 \label{fig:wallace_tree_array}
 \end{figure}
@@ -199,10 +199,10 @@ Thereafter each group of 3 or 2 bits must be compressed to 1, using full-adders 
 
 \begin{figure}[H]
 \centering
-\subfloat[Column with 3 bits.]{\label{fig:wt_3b} \begin{minipage}[c][0.35\textheight]{0.3\textwidth} \centering \includegraphics[width=1\textwidth,height=0.35\textheight,keepaspectratio]{wt_3b} \end{minipage}}
-\subfloat[Column with 4 bits.]{\label{fig:wt_4b} \begin{minipage}[c][0.35\textheight]{0.35\textwidth} \centering \includegraphics[width=1\textwidth,height=0.35\textheight,keepaspectratio]{wt_4b} \end{minipage}}
-\subfloat[Column with 5 bits.]{\label{fig:wt_5b} \begin{minipage}[c][0.35\textheight]{0.35\textwidth} \centering \includegraphics[width=1\textwidth,height=0.35\textheight,keepaspectratio]{wt_5b} \end{minipage}}
-\caption{Compressing columns in the WallaceTree with Full Adders and Half Adders. Each example features on column of the tree in level $k$ (before compression) and $k+1$ (after compression).}
+\subfloat[Column with 3 bits.]{\label{fig:wt_3b} \begin{minipage}[c][0.40\textheight]{0.3\textwidth} \centering \includegraphics[width=1\textwidth,height=0.25\textheight,keepaspectratio]{wt_3b} \end{minipage}}
+\subfloat[Column with 4 bits.]{\label{fig:wt_4b} \begin{minipage}[c][0.40\textheight]{0.35\textwidth} \centering \includegraphics[width=1\textwidth,height=0.35\textheight,keepaspectratio]{wt_4b} \end{minipage}}
+\subfloat[Column with 5 bits.]{\label{fig:wt_5b} \begin{minipage}[c][0.40\textheight]{0.35\textwidth} \centering \includegraphics[width=1\textwidth,height=0.35\textheight,keepaspectratio]{wt_5b} \end{minipage}}
+\caption{Compressing columns in the WallaceTree with Full Adders and Half Adders. Each example features one column of the tree in level $k$ (before compression) and $k+1$ (after compression). The \texttt{Re} operator is applied on a remainder bit which is transfered intact to the next stage of the Wallace Tree.}
 \label{fig:wt_compression}
 \end{figure}
 
@@ -214,7 +214,7 @@ Step 3 is a process responsible to add with the first two `lines' of the last st
 
 %VERIFICATION
 
-In order to verify the correct behaviour of the modified multiplier it was fundamental to write a simple but comprehensive testbench.
+In order to verify the correct behavior of the modified multiplier it was fundamental to write a simple but comprehensive testbench.
 Other than all the aforementioned input and output signals the testbench also features some debugging signals that were used during the development phase to observe the behavior of (otherwise) internal signals. The debugging signals were compared to the output of a C program that replicated the desired behavior for the multiplier. This way it was possible to look for differences in the VHDL signals and C \texttt{printf}'s to easily spot bugs as close as possible to their origin. The advantages of using this method cannot be understated as it allowed us to efficiently debug the VHDL code, notably step 2 of the algorithm.
 
 To test our design several combinations of \holdn and \start signals were used in out testbench. In particular changing their frequency with respect to the frequency of the operands.
@@ -252,6 +252,6 @@ This information is summarized in the multiplier's state machine depicted in fig
 
 % Conclusion
 
-With this implementation we expect the benchmark results to improvement as the latency of the multiplier was reduced from 5 to 2 cycles. On the other hand, the area and power consumption will likely increase as the Wallace tree makes use of more resources. Some improvements related to better utilization of area are left for future work. In addition other modifications of this design which can have positive impact on metrics would have been interesting to implement and test. Examples include using a Dadda Multiplier (which uses less gates) instead of Wallace's, or using Booth recoding to decrease the size of the operands.
+With this implementation we expect the benchmark results to improvement as the latency of the multiplier was reduced from 5 to 3 cycles. On the other hand, the area and power consumption will likely increase as the Wallace tree makes use of more resources. Some improvements related to better utilization of area are left for future work. In addition other modifications of this design which can have positive impact on metrics would have been interesting to implement and test. Examples include using a Dadda Multiplier (which uses less gates) instead of Wallace's, or using Booth recoding to decrease the size of the operands.
 
 

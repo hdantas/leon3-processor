@@ -15,7 +15,11 @@ these arithmetic cores. Simple algorithms can be implemented to obtain significa
 
 The division is not a very common operation, even if in the baseline version is quite slow and can be improved, on the other hand the multiplication is quite frequent. Apart from the calculations for the application software, the multiplier may also be used to calculate addresses for array access, and therefore the benchmarks we will run on the processor, as well as the operating system, can benefit greatly from the improvements.
 
-In section~\ref{sec:baseline} an analysis of the current baseline of the processor is done in order to find the weak points that will be improved.
-Thereafter in section~\ref{sec:arth} the improvements to the arithmetic unit, \emph{i.e.} the multiplier and divider, are discussed.
+After implementing the changes described in the appropriate sectors we were able to obtain a 4.5\% improvement in the aforementioned metric. Although the power and area increased the benchmarks scores improved even more which was reflected in a positive \texttt{P$\times$S}.
+Given these results we concluded our work was successful as it reached the objective we aimed for. Nonetheless there are several areas for further work, some of these are mentioned later on in this document.
+
+
+In section~\ref{sec:baseline} an analysis of the current baseline of the processor is done in order to find the weak points that will be tackled.
+Thereafter in section~\ref{sec:arth} the improvements to the arithmetic units, \emph{i.e.} the multiplier and divider, are discussed.
 In section~\ref{sec:results} the results from the simulation, synthesis and the FPGA board are presented and discussed, the section also examines our methodology to compare different designs based on various metrics.
-In the end some further improvements of the processor are suggested for future work.
+In the end, section~\ref{sec:conclusion}. some concluding remarks are shown along with further improvements to the processor are suggested for future work. In the same section some suggestions to improve the Processor Design Project course are left for consideration of the readers.

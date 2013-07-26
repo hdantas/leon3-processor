@@ -1,15 +1,12 @@
 \section{Conclusions and further improvements}
+\label{sec:conclusion}
 
-The improvements made to the arithmetic units have improved the benchmark performance of the processor. Although they are modest, they reflect the chosen target scenario.
+The main goal of this project was to improve the Leon 3 processor running on a Xilinx Virtex4 FPGA. Given these abstract requirements it was decided to focus on the power-performance trade off, reflected in the composite metric \texttt{Power $\times$ Benchmark Scores}. To accomplish that we dedicated the bulk of our time to improve the multiplier and divider arithmetic units, as we considered it to be the most efficient way (considering our goal and the necessary time) to distribute the available human resources. At the end we obtained a improvement of 4.5\% for the aforementioned metric. We were expecting stronger gains given the significant decrease in the latency of the units, but this may be due to the overhead of the FPGA's Operating System's scheduler. Notwithstanding, we deem our work successful as it accomplished the prime objective.
 
-Because of lack of time we were unable to perform more changes, but of course there are many things to
-change in the architecture to improve further the performance.
+Nonetheless there is room for improvement in order to obtain even more impressive results, namely changes in the architecture. However, due to lack of time we were unable to perform more changes other than rewriting the multiplier and divider.
+As an example, different configurations for the multiplier could have been tested to understand if it would be feasible to decrease its impact on power and area while keeping or increasing the benchmark scores.
 
-Different configurations for the multiplier should have been tested to decrease its impact on power and maximum frequency.
-
-The size and structure of the cache memory could be changed to decrease the probability of misses and consequently the benchmarks execution time. Although this could have been done using the configuration tool it
-would have not been fruit of our own merit. Moreover increasing the cache size probably would
-have increased also the power consumption, escalating even more this issue.
+Likewise, the size and structure of the cache memory could have been adjusted to decrease the probability of misses and consequently the benchmarks' execution time. Although this could have been done using the configuration tool it would have not been fruit of our own merit. Moreover increasing the cache size probably would have augmented also the power consumption.
 
 The LEON3 uses a static branch prediction in the integer unit, which is a good compromise
 between power consumption, as no difficult computation is needed, yet there are gains in terms of execution time.
@@ -17,7 +14,17 @@ To improve performance further, a 1 bit or a 2 bit branch prediction buffer
 algorithm could be implemented. The calculations needed are more intricate and computed more often (30\% of
 the instructions are branches) henceforth the power consumption would probably increase. On the other hand the gains in terms of execution time could make up for the loss.
 
-In the end another heavy modification that could have been done is making the
+In the end another heavy modification that could have been done was making the
 integer unit super-scalar and implementing Out of Order execution. Hypothetically it could yield 
 significant performance improvements in terms of execution time. Notwithstanding a complete re-design of the integer unit
 would have been needed, which deemed it impossible to complete in the (small) time budget for this project.
+
+
+On a different perspective, in our humble opinion, there are some improvements that can be done on the organization of the Processor Design Course, and in particular this project that would have been helpful for the duration of the project. They are present in no particular order of preference.
+
+First, the official documentation accompanying the files does not always truthfully reflect the behavior of the processor. For example in the \texttt{mul32} description there is no mention of the different behavior of the handshaking signals that occur with different multiplier latencies (chosen through \texttt{make xconfig}). It would be good to understand these differences before starting the project.
+
+Second, the reliability of the FPGA server should be improved. In particular at the beginning of the course there were some issues that complicated debugging of our designs. Related to testing it would be \emph{excellent} if we would have access to debugging data from the FPGA. Since whenever the benchmarks fail we have no information of what went wrong.
+
+Third and last, the Leon 3 is a very complex process with many moving parts. Perhaps, it would be more educative to have a simpler baseline project, easier to fully comprehend and to debug (also quicker to synthesize). With such a project there would likely be a more direct relation between changes in the arithmetic units and the benchmark scores.
+

@@ -12,7 +12,7 @@
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrams describing the interface ports of the Adders used.\relax }}{12}{figure.caption.9}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Full Adder}}}{12}{subfigure.6.1}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Half Adder}}}{12}{subfigure.6.2}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Compressing columns in the WallaceTree with Full Adders and Half Adders. Each example features on column of the tree in level $k$ (before compression) and $k+1$ (after compression).\relax }}{13}{figure.caption.10}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Compressing columns in the WallaceTree with Full Adders and Half Adders. Each example features one column of the tree in level $k$ (before compression) and $k+1$ (after compression). The \texttt {Re} operator is applied on a remainder bit which is transfered intact to the next stage of the Wallace Tree.\relax }}{13}{figure.caption.10}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Column with 3 bits.}}}{13}{subfigure.7.1}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Column with 4 bits.}}}{13}{subfigure.7.2}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Column with 5 bits.}}}{13}{subfigure.7.3}
