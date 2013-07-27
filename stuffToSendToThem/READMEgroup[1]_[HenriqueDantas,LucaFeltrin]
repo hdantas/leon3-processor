@@ -9,4 +9,4 @@ FA.vhd
 HA.vhd
 mul32.vhd
 
-Finally please use make xconfig to configure the multiplier to 2-cycle.
+Finally please use make xconfig to configure the multiplier to 4-cycles.

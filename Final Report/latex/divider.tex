@@ -18,7 +18,7 @@ a simple radix-4 division algorithm for simplicity of implementation and of the 
 
 Another possibility was to use an higher radix as this could have improved performance but the size of the lookup table required
 by the algorithm would have increased the area consumption.
-However the area itself is not a significant concert since, as stated previously, we are focused on power consumption and execution time. Notwithstanding a larger circuit means harder computations and thus more energy consumption.
+However the area itself is not a significant concern since, as stated previously, we are focused on power consumption and execution time. Notwithstanding a larger circuit means harder computations and thus more energy consumption.
 
 The divider consist of a state machine (its diagram is shown in figure~\ref{fig:div_state_dia}) which checks if the inputs will
 generate an overflow by doing a trial subtraction between the divisor and the MSBs of the dividend. Thereafter it performs a preliminary shift to put the divisor in the appropriate range in order to match the correct range for the look-up table to work properly.
@@ -46,8 +46,8 @@ while it is in this state is shown in figure~\ref{fig:div_block_dia}.
 
 The algorithm is very similar to the original radix-2 version but in this case the partial reminder (x)
 is shifted by 2 bits every cycle and the circuit has to guess the quotient digit from the range [-3,3].
-``\texttt{qSelector}'' is the lookup table which performs the quotient digit guessing and it's based on the p-
-d plot of the radix-4 SRT division shown in figure~\ref{fig:div_pd_plot}. In case of unsigned division only the right half of
+``\texttt{qSelector}'' is the lookup table which performs the quotient digit guessing and it's based on the p-d
+plot of the radix-4 SRT division shown in figure~\ref{fig:div_pd_plot}. In case of unsigned division only the right half of
 the p-d plot is being used.
 
 \begin{figure}[H]

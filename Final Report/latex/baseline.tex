@@ -5,7 +5,7 @@ By looking at the documentation and the results of the synthesis of the baseline
 
 \begin{itemize}
   \item Arithmetic improvements
-  \item Clock frequency improvement
+  \item Clock frequency improvements
   \item Architectural improvements
 \end{itemize}
 
@@ -37,7 +37,7 @@ Altering the DRAM to reduce the path is expected to be very arduous. First, beca
 
 About the architecture, there are several different improvements possible.
 The baseline version is equipped with a static branch predictor, which can significantly augment performance. Nonetheless even better algorithms exist such as one or two bit branch prediction buffer or correlation prediction.
-An improvement in this category may be moderate but present in every kind of benchmark: on average, branches constitute 30\% of all instruction, so the execution time can be significantly reduced.
+An improvement in this category may be moderate but present in every kind of benchmark: on average, branches constitute 30\% of all instructions, so the execution time can be significantly reduced.
 
 The static prediction doesn't contemplate heavy calculations, indeed it's very simple so the power consumption in the baseline version due to the prediction is small. Usually more advanced algorithms are employed. For the branch prediction buffer the algorithm consists of a small state machine, but even a small increase can be very significant as more calculations are executed in every fetched branch. Notwithstanding with respect to the execution time we believe the benefits outweigh the costs.
 

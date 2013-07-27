@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.22)  26 JUL 2013 03:11
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.22)  27 JUL 2013 17:00
 entering extended mode
  %&-line parsing enabled.
 **big-report.tex
@@ -1867,9 +1867,9 @@ Package pdftex.def Info: figures/myDivisionvsOriginal.png used on input line 10
 \openout2 = `results.aux'.
 
  (./results.tex
-Overfull \hbox (2.24591pt too wide) in paragraph at lines 27--29
-\T1/cmtt/m/n/12 ddr32 . ddrc / ra . raddr _ 0$[] \T1/cmr/m/n/12 to []$\T1/cmtt/
-m/n/12 ddrsp0 . ddrc0 / ddr _ phy0 / ddr _ phy0 / xc4v . ddr _
+Overfull \hbox (14.5929pt too wide) in paragraph at lines 27--29
+\T1/cmtt/m/n/12 ddrc0 / ddr32 . ddrc / ra . raddr _ 0$[] \T1/cmr/m/n/12 to []$\
+T1/cmtt/m/n/12 ddrsp0 . ddrc0 / ddr _ phy0 / ddr _ phy0 / xc4v .
  []
 
 [24
@@ -1903,7 +1903,7 @@ ot changed.
 Here is how much of TeX's memory you used:
  29413 strings out of 493481
  566396 string characters out of 3140986
- 612903 words of memory out of 3000000
+ 612904 words of memory out of 3000000
  31990 multiletter control sequences out of 15000+200000
  25975 words of font info for 71 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -1935,7 +1935,7 @@ s/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2012/texmf-dist/fonts/
 type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
 pe1/public/cm-super/sftt1000.pfb></usr/local/texlive/2012/texmf-dist/fonts/type
 1/public/cm-super/sftt1200.pfb>
-Output written on "out//Processor Design Project Report.pdf" (34 pages, 750234 
+Output written on "out//Processor Design Project Report.pdf" (34 pages, 750076 
 bytes).
 PDF statistics:
  582 PDF objects out of 1000 (max. 8388607)

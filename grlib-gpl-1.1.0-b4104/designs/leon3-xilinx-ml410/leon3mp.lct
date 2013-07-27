@@ -1,8 +1,0 @@
-[Device]
-Family = ;
-PartNumber = xc4vfx60-11ff1152;
-Package = ;
-PartType = xc4vfx60;
-Speed = -11;
-Operating_condition = COM;
-Status = Production;

@@ -92,10 +92,7 @@ ARCHITECTURE behavioral OF mul32 IS
 	CONSTANT levels							: INTEGER RANGE 3 TO 9 := layer_depth(multype);
 
 	CONSTANT add_vector_baugh_wooley		: STD_LOGIC_VECTOR((width-1) DOWNTO 0) := '1' & (width-2 DOWNTO op2_width+1 => '0') & '1' & (op2_width-1 DOWNTO 0 => '0');
-	--CONSTANT zeros							: STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
 	CONSTANT zeros64						: STD_LOGIC_VECTOR(63 DOWNTO 0) := (OTHERS => '0');
-	--CONSTANT arrayX							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'X');
-	--CONSTANT arrayU							: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (OTHERS => 'U');
 	
 
 	CONSTANT maxk : INTEGER := levels;
@@ -184,10 +181,6 @@ BEGIN
 				started := '0';
 
 			ELSIF (holdn = '1') THEN
-				-- IF ((muli.op1 /= op1) OR (muli.op2 /= op2)) AND started = '1' THEN
-				-- 	started := '0';
-				-- END IF;
-
 				IF (muli.start = '1') THEN
 					started := '1';
 				END IF;
@@ -319,12 +312,6 @@ BEGIN
 			final_op: for j IN 0 TO width-1 LOOP
 				tmp_a := WallaceTree(j+maxj*(maxi*(levels-1))); -- op1 for final addition
 				tmp_b := WallaceTree(j+maxj*(1+maxi*(levels-1))); -- op2 for final addition
-
-				-- IF (add_a(j) /= tmp_a) OR (add_b(j) /= tmp_b) THEN
-				-- 	ready := '1';
-				-- ELSE
-				-- 	ready := '0' OR ready;
-				-- END IF;
 
 				add_a(j) <= tmp_a;
 				add_b(j) <= tmp_b;

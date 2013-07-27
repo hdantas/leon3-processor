@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-06-19T02:19:44</DateModified>
+  <DateModified>2013-07-12T11:47:01</DateModified>
   <ModuleName>leon3mp</ModuleName>
-  <SummaryTimeStamp>2013-06-18T19:33:44</SummaryTimeStamp>
+  <SummaryTimeStamp>2013-07-10T21:37:26</SummaryTimeStamp>
   <SavedFilePath>/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/iseconfig/leon3mp.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/designs/leon3-xilinx-ml410/</ImplementationReportsDirectory>
   <DateInitialized>2013-04-23T20:13:32</DateInitialized>
@@ -11,7 +11,7 @@
  </header>
  <body>
   <viewgroup label="Design Overview" >
-   <view inputState="Unknown" program="implementation" ShowPartitionData="false" type="FPGASummary" file="leon3mp_summary.html" label="Summary" >
+   <view inputState="Unknown" program="implementation" ShowPartitionData="false" type="FPGASummary" file="leon3mp_summary.html" label="Summary" ExpandClockNets="true" >
     <toc-item title="Design Overview" target="Design Overview" />
     <toc-item title="Design Utilization Summary" target="Design Utilization Summary" />
     <toc-item title="Performance Summary" target="Performance Summary" />

@@ -1,0 +1,44 @@
+Release 14.2 - netgen P.28xd (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: netgen -intstyle ise -sta -w leon3mp.ncd leon3mp_sta.v  
+
+Read and Annotate design 'leon3mp.ncd' ...
+Loading device for application Rf_Device from file '4vfx60.nph' in environment
+/usr/local/Xilinx/14.2/ISE_DS/ISE/.
+   "leon3mp" is an NCD, version 3.2, device xc4vfx60, package ff1152, speed -11
+This design is using the default stepping level (major silicon revision) for
+this device (0). Unless your design is targeted at devices of this stepping
+level, it is recommended that you explicitly specify the stepping level of the
+parts you will be using. This will allow the tools to take advantage of any
+available performance and functional enhancements for this device. The latest
+stepping level for this device is '1'. Additional information on "stepping
+level" is available at support.xilinx.com.
+Loading constraints from 'leon3mp.pcf'...
+INFO:Timing:3386 - Intersecting Constraints found and resolved.  For more
+   information, see the TSI report.  Please consult the Xilinx Command Line
+   Tools User Guide for information on generating a TSI report.
+The number of routable networks is 20786
+WARNING:NetListWriters:697 - Xilinx supports PrimeTime for post PAR STA  when
+   targeting to VE, V2, V2P and S-3 devices. PrimeTime is NOT golden STA for
+   Xilinx.PrimeTime result must be checked against TRCE.
+WARNING:NetListWriters:687 - There are no plans to further enhance the flow and
+   support additional devices e.g. V-4 and beyond.
+WARNING:NetListWriters:696 - Xilinx continues enhancing its golden STA tool,
+   TRCE, to analyze designs thoroughly and improve result reporting as
+   complexity increases.
+WARNING:NetListWriters:620 - The create_sdc program cannot be used with the
+   netlist that is being generated. netgen is creating a hierarchical static
+   timing netlist, but create_sdc requires a flattened netlist. To generate a
+   flattened netlist, uncheck the Retain Hierarchy property and rerun this
+   process. To use the hierarchical static timing netlist, you will need to
+   create your own SDC file.
+Processing design ... 
+  Preping design's networks ...
+  Preping design's macros ...
+Writing Verilog SDF file 'leon3mp_sta.sdf' ...
+Writing Verilog netlist file 'leon3mp_sta.v' ...
+Writing PCS file 'leon3mp_sta.pcs' ...
+Number of warnings: 4
+Number of info messages: 1
+Total memory usage is 1060412 kilobytes

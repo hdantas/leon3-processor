@@ -24,13 +24,13 @@ These are the baseline design, the design with the modified multiplier and origi
 
 One metric that is particularly interesting is ``P/f'' which reflects the energy efficiency of the processor. Another useful insight is the fact that the power consumption is almost proportional to the clock frequency, therefore we can use this value to estimate the power consumption at different clock frequencies.
 
-In addition, from the synthesis report we can also see the slowest path which determines the max clock frequency.
+In addition, from the synthesis report we can also see the slowest path which determines the maximum clock frequency.
 This path is from \url{ddrsp0.ddrc0/ddr32.ddrc/ra.raddr_0} to \url{ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/casgen}.
 
 Those components belong to the SDRAM controller and the path is located between the controller
 and the physical interface with the memory.
 
-The cummulative synthesis report with the aforementioned four configurations is summarized in table~\ref{tbl:resource_utilization}:
+The cumulative synthesis report with the aforementioned four configurations is summarized in table~\ref{tbl:resource_utilization}:
 
 \begin{table}[H]
 \centering
