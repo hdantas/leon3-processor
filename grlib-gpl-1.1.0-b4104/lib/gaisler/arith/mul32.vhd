@@ -1,1 +1,1 @@
-/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/arith/mul32_3cycle.vhd
+/home/nuno/repos/pdp/grlib-gpl-1.1.0-b4104/lib/gaisler/arith/mul32_1cycle.vhd

@@ -11,7 +11,7 @@ By looking at the documentation and the results of the synthesis of the baseline
 
 As explained before, the SPARC V8 architecture used by the LEON3 processor contemplates several assembly instructions for complex operations such as multiplication and division.
 The integer unit of the baseline version is equipped with 2 units that can execute hardware multiplications and divisions, but the performance in terms of execution time of these ones are quite poor.
-Even if they do not occupy too much area with the default settings the multiplication takes 5 clock cycles and the division 36, advanced albeit simple algorithms can be implemented to significantly reduce the execution times.
+Even if they do not occupy too much area with the default settings the multiplication takes 2 clock cycles and the division 36, advanced albeit simple algorithms can be implemented to significantly reduce the execution times.
 Nonetheless, prior to implementing any improvement it is important to evaluate the corresponding gains with respect to the compound metric we elected as most significant: \texttt{P}$\times$\texttt{BS}.
 
 Necessarily the complexity of the resulting circuits will increase and therefore so will the power consumption. However the baseline version's units are not particularly low power. They use carry propagate adders which are not very efficient in terms of power and path delay, thus there is room to improve these aspects and consequently reduce the weight of the power increase on the modified processor.
@@ -23,7 +23,7 @@ Consequently the hypothetical gains in benchmarks scores due to division improve
 
 On the contrary, the multiplication, is extensively used by all types of benchmarks. Moreover, the unit can also be used to calculate addresses by the operating system running on the FPGA board. Therefore improvements in this unit are expected to have a greater impact on the benchmark scores. 
 
-Inspecting the code for the original multiplier we discovered that there are two possibilities. The first one is to allow the synthesizer to provide the multiplier. This can be defined through the \texttt{infer} generic of the \texttt{mul32}. Obviously this option should only be used if the synthesis tool is capable of inferring an efficient multiplier implementation. In VHDL code this is simply represented as a $*$.
+Inspecting the code for the original multiplier we discovered that there are two alternative implementations. The first one relies on the synthesizer to provide the multiplier. This can be defined through the \texttt{infer} generic of the \texttt{mul32}. Obviously this option should only be used if the synthesis tool is capable of inferring an efficient multiplier implementation. In VHDL code this is simply represented as a $*$.
 
 Alternatively there are precompiled components included in the project tree. On the \texttt{mul32} unit they are invoked according to the distinct input sizes 16x16 (\texttt{mul\_17\_17}), 32x8 (\texttt{mul\_33\_9}), 32x16 (\texttt{mul\_33\_17}) and 32x32 (\texttt{mul\_33\_33}).
 
@@ -31,7 +31,7 @@ Therefore the original implementation is opaque to the user and cannot be modifi
 
 As explained, reducing the latency of the multiplications can have an important effect on the overall performance of the processor which shall be reflected in the benchmark scores. Moreover since we are targeting the \texttt{power$\times$benchmark} metric we would like to develop a unit that prioritizes performance and power consumption over other aspects, such as area footprint. Having these trade-offs in mind we can proceed to investigate various multiplier schemes. This analysis will be shown later on, in section~\ref{sec:mul}.
 
-After modifying the latency of the multiplier of the original design through \texttt{make xconfig} the slowest path of the complete processor, according to the synthesizer, is located in the DRAM controller (from \url{ddrsp0.ddrc0/ddr32.ddrc/ra.raddr_0} to \url{ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/casgen}).
+In the original design the slowest path of the complete processor, according to the synthesizer, is located in the DRAM controller (from \url{ddrsp0.ddrc0/ddr32.ddrc/ra.raddr_0} to \url{ddrsp0.ddrc0/ddr_phy0/ddr_phy0/xc4v.ddr_phy0/casgen}).
 
 Altering the DRAM to reduce the path is expected to be very arduous. First, because the delay in the circuit is affected by the place\&routing process, so after the re-design of the arithmetic unit this path could change. Second, the documentation is exiguous on the implementation details, moreover the limited available for this project forced us to focus our work on the changes with the highest impact. Therefore we decided to postpone further analysis until we had a working version with the improved arithmetic core in order to see how the slowest path evolved.
 

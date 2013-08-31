@@ -8,6 +8,45 @@
 ------------------------------------------------------------------------------
 
 
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity HA is
+	port (
+		x     	: in  std_logic;
+		y     	: in  std_logic;
+		s    	: out std_logic;
+		cout    : out std_logic
+	);
+end;
+
+architecture rtl of HA is
+begin
+	s <= x xor y;
+	cout <= x and y;
+end;
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity FA is
+	port (
+		x     	: in  std_logic;
+		y     	: in  std_logic;
+		cin   	: in  std_logic;
+		s    	: out  std_logic;
+		cout    : out std_logic
+	);
+end;
+
+architecture rtl of FA is
+begin
+	s <= x xor y xor cin;
+	cout <= (x and y) or (cin and (x xor y));
+end;
+
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;

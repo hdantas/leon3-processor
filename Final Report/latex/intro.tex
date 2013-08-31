@@ -9,13 +9,13 @@ consumption as low as possible, thus for us the most relevant compound metric is
 \texttt{power}$\times$\texttt{benchmark score} (\texttt{P}$\times$\texttt{BS}).
 
 The SPARC V8 architecture contemplates the use of instruction and special hardware for integer
-multiplications and divisions, but with the original configuration the multiplier takes 5 clock cycles
+multiplications and divisions, but with the original configuration the multiplier takes 2 clock cycles (for 32 bit operators)
 to calculate the result and the divider 36, so one of the first things we decided to do is to improve
 these arithmetic cores. Simple algorithms can be implemented to obtain significant improvements.
 
 The division is not a very common operation, even if in the baseline version is quite slow and can be improved, on the other hand the multiplication is quite frequent. Apart from the calculations for the application software, the multiplier may also be used to calculate addresses for array access, and therefore the benchmarks we will run on the processor, as well as the operating system, can benefit greatly from the improvements.
 
-After implementing the changes described in the appropriate sectors we were able to obtain a 4.5\% improvement in the aforementioned metric. Although the power and area increased, the benchmarks scores improved even more which was reflected in a positive \texttt{P$\times$BS}.
+After implementing the changes described in the appropriate sectors we were able to obtain a 1.1\% improvement in the aforementioned metric. Although the power and area increased, the benchmarks scores improved even more which was reflected in a positive \texttt{P$\times$BS}.
 Given these results we concluded our work was successful as it reached the objective we aimed for. Nonetheless there are several areas for further work, some of these are mentioned later on in this document.
 
 

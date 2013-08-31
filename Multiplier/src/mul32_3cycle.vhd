@@ -27,9 +27,6 @@ USE grlib.stdlib.all;
 LIBRARY gaisler;
 USE gaisler.arith.all;
 
--- LIBRARY mypackage;
--- USE mypackage.mypackage.all;
-
 ENTITY mul32 IS
 	GENERIC (
 		tech				: INTEGER := 0;
@@ -39,14 +36,14 @@ ENTITY mul32 IS
 	);
 	PORT (
 		-- debugging signals
-		db_tmp_result		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_number_bits_port	: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-		db_started			: OUT STD_LOGIC := '0';
-		db_op1				: OUT STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
-		db_op2				: OUT STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
-		db_is_signed		: OUT STD_LOGIC := '0';
+		-- db_tmp_result		: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		-- db_prod_a			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		-- db_prod_b			: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		-- db_number_bits_port	: OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+		-- db_started			: OUT STD_LOGIC := '0';
+		-- db_op1				: OUT STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
+		-- db_op2				: OUT STD_LOGIC_VECTOR(32 DOWNTO 0) := (OTHERS => '0');
+		-- db_is_signed		: OUT STD_LOGIC := '0';
 		-- db_numberFA			: OUT numberFA_all_type;
 		-- db_numberHA			: OUT number_all_type;
 		-- db_numberRE			: OUT number_all_type;
@@ -378,16 +375,16 @@ BEGIN
 	mulo.result <= tmp_result;
 
 
-	db_tmp_result <= tmp_result;
-	db_number_bits_port <= (63 DOWNTO width => '0') & add_vector_baugh_wooley;
+	-- db_tmp_result <= tmp_result;
+	-- db_number_bits_port <= (63 DOWNTO width => '0') & add_vector_baugh_wooley;
 	
-	db_op1 <= op1;
-	db_op2 <= op2;
-	db_is_signed <= is_signed;
+	-- db_op1 <= op1;
+	-- db_op2 <= op2;
+	-- db_is_signed <= is_signed;
 
-	db_prod_a <= (63 DOWNTO width => '0') & add_a;
-	db_prod_b <= (63 DOWNTO width => '0') & add_b;
-	db_started <= tmp_started;
+	-- db_prod_a <= (63 DOWNTO width => '0') & add_a;
+	-- db_prod_b <= (63 DOWNTO width => '0') & add_b;
+	-- db_started <= tmp_started;
 	
 	-- db_numberFA <= numberFA;
 	-- db_numberHA <= numberHA;
