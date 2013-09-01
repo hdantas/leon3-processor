@@ -66,18 +66,18 @@ Once the processor is synthesized and has been loaded in a FPGA board, Linux is 
 \begin{table}[H]
 \centering
 \begin{tabular}{lcccc}
- & Baseline & Divider & Both \\
+ & Baseline & Multiplier & Divider & Both \\
 \midrule
 
-Stanford [\s] & 2.30 & 2.26 & 2.31\\
-Whetstone [\s] & 116.2 & 113.25 & 112.06\\
-Gmpbench Multiply [\Oppers] & 781 & 801 & 914\\
-Gmpbench Divide [\Oppers] & 15876 & 16335 & 19205\\
-Gmpbench RSA [\Oppers] & 5123 & 5284 & 5353\\
-Division [\s] & 8.06 & 7.65 & 7.31\\
-Mibench JPEG (average) [\s] & 23.215 & 22.465 & 21.775\\
-SSD [\s] & 10.59 & 10.21 & 8.60\\
-Total [\s] & 219.28 & 203.30 & 206.92
+Stanford [\s] & 2.30 & 2.25 & 2.26 & 2.31\\
+Whetstone [\s] & 116.2 & 111.66 & 113.25 & 112.06\\
+Gmpbench Multiply [\Oppers] & 781 & 913 & 801 & 914\\
+Gmpbench Divide [\Oppers] & 15876 & 19141 & 16335 & 19205\\
+Gmpbench RSA [\Oppers] & 5123 & 5342 & 5284 & 5353\\
+Division [\s] & 8.06 & 7.50 & 7.65 & 7.31\\
+Mibench JPEG (average) [\s] & 23.215 & 21.492 & 22.465 & 21.775\\
+SSD [\s] & 10.59 & 8.70 & 10.21 & 8.60\\
+Total [\s] & 219.28 & 207.98 & 203.30 & 206.92
 \end{tabular}
 \caption{Benchmarks Scores.}
 \label{tbl:benchmarks}
@@ -145,21 +145,31 @@ Baseline &
 \num{1.24E-02} &
 \num{3.19E+00} &
 \num{2.19E+02} \\
+Modified (Mul)&
+\num{3.10E+04} &
+\num{1.63E-02} &
+\num{3.24E+00} &
+\num{2.07E+02} \\
 Modified (Div)&
 \num{2.83E+04} &
 \num{1.24E-02} &
 \num{3.21E+00} &
-\num{2.13E+02} \\
+\num{2.03E+02} \\
 Modified (Mul\&Div)&
 \num{3.24E+04} &
 \num{1.57E-02} &
 \num{3.34E+00} &
 \num{2.07E+02} \\
+Improvements (Mul) &
+\color{red} 			15.6\% &
+\color{red} 			31.5\% &
+\color{red} 			1.6\% &
+\color{green!60!black} 	-5.0\% \\
 Improvements (Div) &
 \color{red} 5.8\% &
 \color{orange} 0.0\% &
 \color{red} 0.7\% &
-\color{green!60!black} -2.7\% \\
+\color{green!60!black} -7.3\% \\
 Improvements (Mul\&Div) &
 \color{red} 21.0\% &
 \color{red} 41.1\% &
@@ -179,21 +189,31 @@ Baseline &
 \num{5.88E+06} &
 \num{3.96E-02} &
 \num{6.99E+02} \\
+Modified (Mul)&
+\num{5.05E+02} &
+\num{6.42E+06} &
+\num{5.28E-02} &
+\num{6.71E+02} \\
 Modified (Div)&
 \num{3.52E+02} &
-\num{6.05E+06} &
+\num{5.75E+06} &
 \num{3.99E-02} &
-\num{6.85E+02} \\
+\num{6.52E+02} \\
 Modified (Mul\&Div)&
 \num{5.09E+02} &
 \num{6.69E+06} &
 \num{5.24E-02} &
 \num{6.92E+02} \\
+Improvements (Mul) &
+\color{red} 			51.7\% &
+\color{red} 			9.2\% &
+\color{red} 			33.3\% &
+\color{green!60!black} 	-4.0\% \\
 Improvements (Div) &
 \color{red} 5.8\% &
-\color{red} 2.9\% &
+\color{green!60!black} -2.2\% &
 \color{red} 0.7\% &
-\color{green!60!black} -2.0\% \\
+\color{green!60!black} -6.7\% \\
 Improvements (Mul\&Div)&
 \color{red} 52.9\% &
 \color{red} 2.6\% &
@@ -204,7 +224,7 @@ Improvements (Mul\&Div)&
 \label{tbl:final_metrics}
 \end{table}
 
-Interpreting the table is very straightforward: the modifications introduced a penalty on the area and power but delivered better benchmark performance. This is not as surprising result as this trade off had been identified and explained at the beginning of this document.
+Interpreting the table is very straightforward: the modifications introduced a penalty on the area and power but delivered better benchmark performance. This is not as surprising result as this trade off had been identified and explained at the beginning of this document. In particular the multiplier has an important impact on the delay and the power consumption. Future work would necessarily include improvements in this aspects.
 
 As stated in the introduction our main target was to decrease the computation time while keeping the power consumption as low as possible, which is reflected in the \texttt{P $\times$ BS}. Given we have a 1.1\% improvement in that metric we can conclude our main goal was accomplished. Unfortunately the results were not as impressive as desired but, as mentioned previously, this maybe due to scheduling overhead.
 

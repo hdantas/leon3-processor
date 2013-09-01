@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.22)  31 AUG 2013 22:34
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.22)  1 SEP 2013 21:59
 entering extended mode
  %&-line parsing enabled.
 **big-report.tex
@@ -1909,7 +1909,7 @@ ot changed.
 Here is how much of TeX's memory you used:
  29415 strings out of 493481
  566419 string characters out of 3140986
- 611904 words of memory out of 3000000
+ 614904 words of memory out of 3000000
  31992 multiletter control sequences out of 15000+200000
  26601 words of font info for 73 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -1941,7 +1941,7 @@ s/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2012/texmf-dist/fonts/
 type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
 pe1/public/cm-super/sftt1000.pfb></usr/local/texlive/2012/texmf-dist/fonts/type
 1/public/cm-super/sftt1200.pfb>
-Output written on "out//Processor Design Project Report.pdf" (34 pages, 722255 
+Output written on "out//Processor Design Project Report.pdf" (34 pages, 722670 
 bytes).
 PDF statistics:
  580 PDF objects out of 1000 (max. 8388607)
