@@ -1,9 +1,0 @@
-**************Radix 4 Divider**************
-Choose between:
-	*Small lookup table, slower
-		-convert z/d to positive
-		-sum the 5 MSB of the carry save reminder with a CPA
-	*Huge lookup table, faster
-		-z/d signed
-		-lookup table with 4+6+6 input (>24.5KB table HUGE!)
-		
